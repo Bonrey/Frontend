@@ -1,9 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+body {
+  padding: 5px;
+  background-color: #FFF;
+}
 
-<head>
-  <title>1st site</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="styles.css">
-</head>
+#burger-img {
+  max-width: 100%;
+  height: auto;
+}
 
+#top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 100%;
+  background-color: #FFF;
+  padding: 6px 12px;
+}
+
+#right-side-links {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar-item {
+  text-decoration: none;
+  color: #000;
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-family: Georgia;
+  padding: 12px 14px;
+}
+
+.top-bar-item:hover {
+  background-color: #EEE;
+}
+
+.img-container {
+  position: relative;
+  color: #555;
+  font-size: 36px;
+}
+
+.bottom-left {
+  position: absolute;
+  left: 15px;
+  bottom: 20px;
+}
+
+.about-catering {
+  max-width: 80%;
+  margin: auto;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#tradition-since-1879 {
+  letter-spacing: 3px;
+  font-size: 18px;
+  text-align: center;
+}
