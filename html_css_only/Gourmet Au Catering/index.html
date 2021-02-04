@@ -12,9 +12,9 @@
   <div id="nav-bar">
     <a id="left-side-link" class="top-bar-item" href="#home">Gourmet au Catering</a>
     <div id="right-side-links">
-      <a href="#about" class="top-bar-item">About</a>
-      <a href="#menu" class="top-bar-item">Menu</a>
-      <a href="#contact" id="contact-link" class="top-bar-item">Contact</a>
+      <a href="#about-catering" class="top-bar-item">About</a>
+      <a href="#menu-container" class="top-bar-item">Menu</a>
+      <a href="#contact-info" id="contact-link" class="top-bar-item">Contact</a>
     </div>
   </div>
 
@@ -26,18 +26,84 @@
   </div>
 
   <div id="main-block">
-    <div class="about-catering">
-      <img id="about-img" src="images/tablesetting.jpg" alt="Table Setting">
-      <div class="about-text-block">
-        <h1 class="custom-heading">About Catering</h1>
-        <p id="tradition-since-1879">Tradition since 1879</p>
+
+    <div id="about-catering">
+      <div id="about-img-block">
+        <img id="about-img" src="images/tablesetting.jpg" alt="Table Setting">
+      </div>
+      <div id="about-text-block">
+        <div class="custom-heading">About Catering</div><br><br>
+        <p id="tradition-since-1879">Tradition since 1879</p><br>
         <p>The Catering was founded in France by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br><br>
         <p id="second-p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
           id
           est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua.</p>
       </div>
     </div>
+
+    <div id="menu-container">
+      <div class="custom-heading menu-heading">Our Menu</div>
+      <div id="menu">
+        <div id="menu-text-block">
+          <ul>
+            <li class="menu-item">
+              <div class="menu-item-heading">Bread Basket</div>
+              Assortment of fresh baked fruit breads and muffins 5.50
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-heading">Belgian Waffle</div>
+              Vanilla flavored batter with malted flour 7.50
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-heading">Scrambled Eggs</div>
+              Scrambled eggs, roasted red pepper and garlic, with green onions 7.50
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-heading">Blueberry Pancakes</div>
+              With syrup, butter and lots of berries 8.50
+            </li>
+          </ul>
+        </div>
+        <div id="menu-img-block">
+          <img id="menu-img" src="images/menu-img.jpg" alt="Menu Image">
+        </div>
+      </div>
+      <div id="menu-remark">We offer full-service catering for any event, large or small. We understand your needs and
+        we will cater the food to satisfy the biggerst criteria of them all, both look and taste. Do not hesitate to
+        contact us.</div>
+    </div>
+
+    <div id="contact-info">
+      <div class="custom-heading contact-heading">Contact</div>
+      <div id="catering-service-text">Catering Service, 42nd Living St, 43043 New York, NY</div>
+      <div>You can also contact us by phone 00553123-2323 or email catering@catering.com, or send us a message here:</div>
+
+      <form target="_blank">
+        <div>
+          <input type="text" placeholder="Name" required>
+        </div>
+        <div>
+          <input type="number" placeholder="How many people" required>
+        </div>
+        <div>
+          <input type="date" required>
+        </div>
+        <div>
+          <input type="text" placeholder="Message / Special Requirements" required>
+        </div>
+        <div>
+          <input type="submit" value="SEND MESSAGE">
+        </div>
+      </form>
+
+      <div id="map-img-block">
+        <img id="map-img" src="images/footer-map.jpg" alt="Map">
+      </div>
+
+    </div>
+
+
   </div>
 
 </body>
