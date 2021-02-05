@@ -7,8 +7,9 @@ body {
   background-color: #FFF;
 }
 
-#nav-bar {
+nav {
   position: fixed;
+  width: 100%;
   top: 0;
   display: flex;
   flex-direction: row;
@@ -22,6 +23,7 @@ body {
   display: flex;
   align-items: center;
   margin-left: auto;
+  margin-right: 20px;
 }
 
 .top-bar-item {
@@ -45,11 +47,27 @@ body {
     width: 100%;
     height: 12%;
   }
+
+  p {
+    font-size: 14px;
+  }
+
+  .custom-heading {
+    font-size: 20px;
+  }
+
+  #about-img, #menu-img {
+    display: none;
+  }
+
+  #right-side-links {
+    display: none;
+  }
 }
 
 #img-title-container {
   position: relative;
-  padding-top: 58px;
+  padding-top: 56px;
   color: #555;
   font-size: 36px;
 }
@@ -63,11 +81,47 @@ body {
     max-width: 1000px;
     height: auto;
   }
+
+  .custom-heading {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  #about-img {
+    width: 360px;
+    height: auto;
+  }
+
+  #menu-img {
+    width: 300px;
+    height: auto;
+  }
 }
 
 @media(max-width: 1000px) {
   #burger-img {
     max-width: 100%;
+    height: auto;
+  }
+
+  .custom-heading {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  #about-img {
+    width: 180px;
+    height: auto;
+  }
+
+  #menu-img {
+    width: 150px;
     height: auto;
   }
 }
@@ -82,7 +136,7 @@ body {
   background-color: #EEE;
 }
 
-#main-block {
+main {
   max-width: 70%;
   margin: 0 auto;
 }
@@ -106,14 +160,11 @@ body {
 }
 
 #about-img {
-  width: 360px;
-  height: auto;
   opacity: 0.8;
   border-radius: 5px;
 }
 
 .custom-heading {
-  font-size: 40px;
   font-weight: normal;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -125,10 +176,6 @@ body {
   font-size: 18px;
   text-align: center;
   margin: 25px 0 10px;
-}
-
-p {
-  font-size: 18px;
 }
 
 #second-p {
@@ -162,8 +209,6 @@ li {
 }
 
 #menu-img {
-  width: 300px;
-  height: auto;
   opacity: 0.8;
   border-radius: 5px;
 }
@@ -220,4 +265,29 @@ form {
   font-size: 18px;
   color: #30716A;
   margin-bottom: 20px;
+}
+
+footer {
+  width: 100%;
+  height: 80px;
+  background-color: #FFF;
+  color: #777;
+}
+
+#footer-div {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 70px 0px 40px;
+}
+
+.footer-link {
+  padding: 10px;
+  color: #777;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
 }
