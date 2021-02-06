@@ -2,47 +2,105 @@
 <html lang="en">
 
 <head>
-  <title>Landing Page</title>
+  <title>Product Landing</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
   <header id="header">
-    <img id="header-img" src="images/header-img.png" alt="Fluffy toys">
-    <nav id="nav-bar">
-      <button class="nav-link" href="#toys">Toys</button>
-      <button class="nav-link" href="#creation-process">Creation process</button>
-      <button class="nav-link" href="#pricing">Pricing</button>
-    </nav>
+    <div id="header-block">
+      <a href="#top"><img id="header-img" src="images/original_trombones.png" alt="Original Trombones"></a>
+      <nav>
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#video-div">How It Works</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+      </nav>
+    </div>
+    <hr>
   </header>
 
   <main>
-    <div class="form-and-label">
-      <h1>The fluffiest toys in the world!</h1>
-      <form id="form" action="https://www.freecodecamp.com/email-submit">
-        <div class="email-input">
-          <input type="email" id="email" name="email" placeholder="Enter your email address">
-        </div>
-        <div>
-          <input type="submit" value="I want a toy!">
-        </div>
+
+    <!-------- MAIN > FORM -------->
+    <div id="get-started-form">
+      <h1>Handcrafted, home-made masterpieces</h1>
+      <form id="form">
+        <div><input type="email" id="email" name="email" placeholder="Enter your email address"></div>
+        <div><input type="submit" value="GET STARTED"></div>
       </form>
     </div>
 
+    <!-------- MAIN > FEATURES -------->
+    <div id="features">
+      <div class="grid-item grid-img-container"><img class="grid-item-img" src="images/flame.png"></div>
+      <div class="grid-item">
+        <div class="grid-item-heading"><b>Premium Materials</b></div>
+        <p>Our trombones use the shiniest brass which is sourced locally. This will increase the longevity of your
+          purchase.</p>
+      </div>
+      <div class="grid-item grid-img-container"><img class="grid-item-img" src="images/delivery-truck.png"></div>
+      <div class="grid-item">
+        <div class="grid-item-heading"><b>Fast Shipping</b></div>
+        <p>We make sure you recieve your trombone as soon as we have finished making it. We also provide free returns if
+          you are not satisfied.</p>
+      </div>
+      <div class="grid-item grid-img-container"><img class="grid-item-img" src="images/quality.png"></div>
+      <div class="grid-item">
+        <div class="grid-item-heading"><b>Quality Assurance</b></div>
+        <p>For every purchase you make, we will ensure there are no damages or faults and we will check and test the
+          pitch of your instrument.</p>
+      </div>
+    </div>
+
+    <!-------- MAIN > VIDEO -------->
+    <div id="video-div">
+      <iframe width="540" height="300" src="https://www.youtube.com/embed/y8Yv4pnO7qc" frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-------- MAIN > PRICING -------->
+    <div id="pricing">
+      <div class="pricing-item">
+        <div class="pricing-item-header">TENOR TROMBONE</div>
+        <div class="pricing-item-price"><b>$600</b></div>
+        <p>Lorem ipsum.</p>
+        <p>Lorem ipsum.</p>
+        <p>Lorem ipsum dolor.</p>
+        <p>Lorem ipsum.</p>
+        <button>SELECT</button>
+      </div>
+      <div class="pricing-item">
+        <div class="pricing-item-header">BASS TROMBONE</div>
+        <div class="pricing-item-price"><b>$900</b></div>
+        <p>Lorem ipsum.</p>
+        <p>Lorem ipsum.</p>
+        <p>Lorem ipsum dolor.</p>
+        <p>Lorem ipsum.</p>
+        <button>SELECT</button>
+      </div>
+      <div class="pricing-item">
+        <div class="pricing-item-header">VALVE TROMBONE</div>
+        <div class="pricing-item-price"><b>$1200</b></div>
+        <p>Plays similar to a Trumpet.</p>
+        <p>Great for Jazz Bands.</p>
+        <p>Lorem ipsum dolor.</p>
+        <p>Lorem ipsum.</p>
+        <button>SELECT</button>
+      </div>
+    </div>
 
   </main>
 
   <footer>
-    <div class="footer-info">
-      <div class="footer-btns">
-        <button class="share-btn">Privacy</button>
-        <button class="share-btn">Terms</button>
-        <button class="share-btn">Contact</button>
+    <div id="footer-info-container">
+      <div id="footer-links">
+        <a class="footer-link" href="#">Privacy</a>
+        <a class="footer-link" href="#">Terms</a>
+        <a class="footer-link" href="#">Contact</a>
       </div>
-      <div class="copyright">
-        <p>Copyright 2017, Original Fluffy Toys</p>
-      </div>
+      <div id="footer-copyright">Copyright 2016, Original Trombones</div>
     </div>
   </footer>
 
