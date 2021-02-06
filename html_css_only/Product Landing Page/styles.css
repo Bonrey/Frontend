@@ -1,0 +1,284 @@
+:root {
+  --black: #190D1B;
+  --gray: #DDDDDD;
+  --darkgray: #555555;
+  --white: #F3F3F4;
+  --yellow: #FFD700;
+  --orange: #FFBD00;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/*======================*/
+/*======== BODY ========*/
+
+body {
+  background-color: var(--white);
+}
+
+
+/*========================*/
+/*======== HEADER ========*/
+
+header {
+  width: 100%;
+  position: fixed;
+  background-color: var(--white);
+  z-index: 1;
+}
+
+#header-img {
+  width: 300px;
+  height: auto;
+  display: block;
+}
+
+#header-block {
+  margin: 0px 25px;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-link {
+  margin: 0px 20px 0px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: sans-serif;
+  color: var(--black);
+}
+
+@media screen and (max-width: 900px) {
+  #header-img {
+    width: 250px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+
+/*======================*/
+/*======== MAIN ========*/
+
+main {
+  font-family: sans-serif;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 90px;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding-top: 120px;
+  }
+}
+
+
+/*=============================*/
+/*======== MAIN > FORM ========*/
+
+#get-started-form {
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input[type="email"] {
+  width: 240px;
+  height: 30px;
+  padding: 0px 10px 0px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  width: 160px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--yellow);
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--orange);
+}
+
+
+/*=================================*/
+/*======== MAIN > FEATURES ========*/
+
+#features {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  grid-gap: 50px 20px;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.grid-img-container {
+  text-align: center;
+}
+
+.grid-item-img {
+  width: 60px;
+  height: auto;
+}
+
+.grid-item-heading {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+
+/*==============================*/
+/*======== MAIN > VIDEO ========*/
+
+#video-div {
+  text-align: center;
+  margin-top: 70px;
+}
+
+@media screen and (max-width: 900px) {
+  #video-div {
+    position: relative;
+    width: 100%;
+  }
+
+  #video-div::after {
+    padding-top: 55.55%;
+    display: block;
+    content: '';
+  }
+
+  #video-div iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+/*================================*/
+/*======== MAIN > PRICING ========*/
+
+#pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.pricing-item {
+  width: 315px;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.pricing-item-header {
+  height: 50px;
+  background-color: var(--gray);
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pricing-item-price {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.pricing-item > p {
+  margin-top: 10px;
+}
+
+.pricing-item > button {
+  margin-top: 25px;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--yellow);
+}
+
+.pricing-item > button:hover {
+  background-color: var(--orange);
+}
+
+@media screen and (max-width: 900px) {
+  #pricing {
+    grid-template-columns: 360px;
+    grid-row-gap: 15px;
+  }
+
+  .pricing-item {
+    margin: 0 auto;
+  }
+}
+
+
+/*========================*/
+/*======== FOOTER ========*/
+
+footer {
+  width: 80%;
+  height: 80px;
+  margin: 40px auto 0;
+  border-radius: 2px;
+  background-color: var(--gray);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+#footer-info-container {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#footer-links {
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 20px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: var(--black);
+  font-size: 16px;
+}
+
+#footer-copyright {
+  font-size: 14px;
+  color: var(--darkgray);
+}
