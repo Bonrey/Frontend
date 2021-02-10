@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Kumbh+Sans");
+
+:root {
+  --white: #F9F8F9;
+  --beige: #F8F4EB;
+  --navbar: #C09B97;
+  --link-hover: #A63C52;
+  --black: #332B41;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Kumbh Sans";
+}
+
+
+/*========================*/
+/*======== HEADER ========*/
+
+header {
+  background-color: var(--navbar);
+  width: 100vw;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  box-shadow: 0px 1px 3px var(--black);
+}
+
+#navbar {
+  height: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.nav-link {
+  height: inherit;
+  padding: 0px 15px;
+  text-decoration: none;
+  font-size: 1.6em;
+  color: var(--beige);
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  background-color: var(--link-hover);
+}
+
+/*========================================*/
+/*======== MAIN > WELCOME SECTION ========*/
+
+#welcome-section {
+  background-color: var(--beige);
+  height: 100vh;
+  padding-top: 60px;
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 10px 10px #AAA;
+  margin-bottom: 30px;
+}
+
+#welcome-section h1 {
+  font-size: 4em;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+#welcome-section > span {
+  font-size: 1.8em;
+}
+
+
+/*=================================*/
+/*======== MAIN > PROJECTS ========*/
+
+#projects {
+  height: 500px;
+  background-color: var(--white);
+}
+
