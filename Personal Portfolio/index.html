@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/user.png">
   <title>Personal Portfolio</title>
 
@@ -15,46 +16,69 @@
   <header>
     <nav id="navbar">
       <a class="nav-link" href="#top">About</a>
-      <a class="nav-link" href="#work">Work</a>
+      <a class="nav-link" href="#projects">Work</a>
       <a class="nav-link" href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main id="work">
+  <main>
     <section id="welcome-section">
       <h1>Hey! I am Bonrey</h1>
       <span><em>a web developer</em></span>
     </section>
 
     <section id="projects">
-      <span>There are some of my projects</span>
+      <span>These are some of my projects</span>
       <div id="project-tiles">
-        <div class="project-tile">
-
-        </div>
-        <div class="project-tile">
-
-        </div>
-        <div class="project-tile">
-
-        </div>
-        <div class="project-tile">
-
-        </div>
+        <a href="https://four-card-feature-six-xi.vercel.app" target="_blank" class="project-tile">
+          <div class="project-tile-content"></div>
+          <div class="project-label">Four Card Feature</div>
+        </a>
+        <a href="https://product-landing-page-sigma.vercel.app" target="_blank" class="project-tile">
+          <div class="project-tile-content"></div>
+          <div class="project-label">Product Landing Page</div>
+        </a>
+        <a href="https://front-end-theta-eight.vercel.app" target="_blank" class="project-tile">
+          <div class="project-tile-content"></div>
+          <div class="project-label">Gourmet Au Catering</div>
+        </a>
+        <a href="https://technical-documentation-mocha.vercel.app" target="_blank" class="project-tile">
+          <div class="project-tile-content"></div>
+          <div class="project-label">Technical Documentation</div>
+        </a>
+        <a href="https://profile-card-blue-delta.vercel.app" target="_blank" class="project-tile">
+          <div class="project-tile-content"></div>
+          <div class="project-label">Profile Card</div>
+        </a>
+        <a href="https://front-end-xi-one.vercel.app" target="_blank" class="project-tile">
+          <div class="project-tile-content"></div>
+          <div class="project-label">Tribute Page</div>
+        </a>
       </div>
-      <button>Show all ></button>
+      <button>Show all<i class="fa fa-angle-right" aria-hidden="true"></i></button>
     </section>
   </main>
 
   <footer id="contact">
-    <span>Let's work together...</span>
-    <span>How do you take your coffee?</span>
-    <div id="social-media-links">
-      <div id="facebook"></div>
-      <div id="github"></div>
-      <div id="twitter"></div>
-      <div id="send-a-mail"></div>
-      <div id="call-me"></div>
+    <div id="footer-content">
+      <div id="end-labels">
+        <div id="lets-work-together">Let's work together...</div>
+        <span><em>How do you take your coffee?</em></span>
+      </div>
+      <div id="social-media-links">
+        <a id="facebook" href="#" target="_blank">
+          <i class="footer-fa fa fa-facebook-square"></i> Facebook
+        </a>
+        <a id="github" href="https://github.com/Bonrey" target="_blank">
+          <i class="footer-fa fa fa-github-square"></i> GitHub
+        </a>
+        <a id="profile-link" href="#" target="_blank">
+          <i class="footer-fa fa fa-envelope"></i> Send a mail
+        </a>
+        <a id="call-me" href="#" target="_blank">
+          <i class="footer-fa fa fa-mobile"></i> Call me
+        </a>
+      </div>
     </div>
   </footer>
 
