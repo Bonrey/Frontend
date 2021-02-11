@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Kumbh+Sans");
 
 :root {
-  --white: #F9F8F9;
-  --beige: #F8F4EB;
-  --navbar: #C09B97;
-  --link-hover: #A63C52;
-  --black: #332B41;
+  --white: #F5F4F1;
+  --gray: #7B7D87;
+  --pale-green: #8CA493;
+  --black: #1C171A;
 }
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   font-family: "Kumbh Sans";
@@ -20,12 +20,13 @@
 /*======== HEADER ========*/
 
 header {
-  background-color: var(--navbar);
+  background-color: var(--gray);
   width: 100vw;
   height: 60px;
   position: fixed;
   top: 0px;
-  box-shadow: 0px 1px 3px var(--black);
+  box-shadow: 0px 1px 4px var(--black);
+  z-index: 1;
 }
 
 #navbar {
@@ -42,20 +43,40 @@ header {
   padding: 0px 15px;
   text-decoration: none;
   font-size: 1.6em;
-  color: var(--beige);
+  color: var(--white);
   display: flex;
   align-items: center;
 }
 
 .nav-link:hover {
-  background-color: var(--link-hover);
+  background-color: var(--pale-green);
+  color: var(--white);
 }
+
+@media screen and (max-width: 900px) {
+  header { height: 55px; }
+  .nav-link { 
+    font-size: 1.5em; 
+    padding: 0 12px;
+  }
+  #navbar { margin-right: 25px; }
+}
+
+@media screen and (max-width: 600px) {
+  header { height: 50px; }
+  .nav-link { 
+    font-size: 1.4em;
+    padding: 10px;
+  }
+  #navbar { margin-right: 20px; }
+}
+
 
 /*========================================*/
 /*======== MAIN > WELCOME SECTION ========*/
 
 #welcome-section {
-  background-color: var(--beige);
+  background-color: var(--white);
   height: 100vh;
   padding-top: 60px;
   color: var(--black);
@@ -63,8 +84,6 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 10px 10px #AAA;
-  margin-bottom: 30px;
 }
 
 #welcome-section h1 {
@@ -77,12 +96,200 @@ header {
   font-size: 1.8em;
 }
 
+@media screen and (max-width: 900px) {
+  #welcome-section h1 { font-size: 3.3em; }
+  #welcome-section > span { font-size: 1.7em; }
+}
+
+@media screen and (max-width: 600px) {
+  #welcome-section h1 { font-size: 2.6em; }
+  #welcome-section > span { font-size: 1.6em; }
+}
+
 
 /*=================================*/
 /*======== MAIN > PROJECTS ========*/
 
 #projects {
-  height: 500px;
-  background-color: var(--white);
+  background-color: var(--pale-green);
+  padding: 80px 30px 0;
+  text-align: center;
 }
 
+#projects > span {
+  font-size: 2.5em;
+  border-bottom: 2px solid var(--white);
+  padding: 0px 10px 6px;
+  line-height: 1.6em;
+  font-weight: bold;
+  color: var(--white);
+}
+
+#project-tiles {
+  margin-top: 70px;
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.project-tile {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  background-color: var(--white);
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px var(--black);
+}
+
+.project-tile:hover {
+  cursor: pointer;
+}
+
+.project-tile-content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 300px;
+}
+
+.project-label {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 1.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  #projects > span { font-size: 2.2em; }
+  #project-tiles { grid-template-columns: 1fr 1fr; }
+  .project-label { font-size: 1.3em; }
+}
+
+@media screen and (max-width: 600px) {
+  #projects > span { font-size: 1.8em; }
+  #project-tiles { grid-template-columns: 1fr; }
+  .project-label { font-size: 1.2em; }
+}
+
+/*==========================================*/
+/*======== MAIN > PROJECTS > BUTTON ========*/
+
+#projects > button {
+  width: 160px;
+  height: 50px;
+  margin-bottom: 80px;
+  font-size: 1.4em;
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px var(--black);
+}
+
+#projects > button:hover {
+  background-color: var(--gray);
+  cursor: pointer;
+  border: 2px solid var(--black);
+}
+
+.fa-angle-right {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+  #projects > button { font-size: 1.3em; }
+}
+
+@media screen and (max-width: 600px) {
+  #projects > button { font-size: 1.2em; }
+}
+
+/*========================*/
+/*======== FOOTER ========*/
+
+footer {
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 60vh;
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-content {
+  width: 100%;
+}
+
+#end-labels {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+footer #lets-work-together {
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+footer span {
+  font-size: 1.4em;
+  font-weight: lighter;
+}
+
+#social-media-links {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 190px);
+  justify-content: center;
+  justify-items: center;
+  grid-gap: 10px;
+}
+
+footer a {
+  font-size: 1.7em;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.footer-fa {
+  font-size: 1.1em;
+}
+
+@media screen and (max-width: 900px) {
+  footer #lets-work-together { font-size: 3.3em; }
+  footer span { font-size: 1.3em; }
+  .footer-fa { font-size: 1em; }
+  footer a { font-size: 1.5em; }
+  #social-media-links {  
+    grid-template-columns: repeat(auto-fit, 180px); 
+    grid-column-gap: 5px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  footer #lets-work-together { font-size: 2.6em; }
+  footer span { font-size: 1.2em; }
+  .footer-fa { font-size: 0.9em; }
+  footer a { font-size: 1.3em; }
+  #social-media-links { 
+    grid-template-columns: repeat(auto-fit, 170px); 
+    grid-column-gap: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  footer #lets-work-together { font-size: 2em; }
+  footer span { font-size: 1em; }
+}
