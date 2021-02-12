@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!--Gray border-->
+  <rect width="420" height="300" fill="#EEE" />
+  
+  <rect x="0" y="0" width="360" height="120" fill="#d00c33" />
+  <rect x="0" y="120" width="360" height="120" fill="#ffffff" />
+
+  <circle cx="140" cy="120" r="80" fill="aliceblue" />
+
+  <path d="M60,120 a80,80 0 1,1 160,0" fill="#ffffff" />
+  <path d="M60,120 a80,80 0 0,0 160,0" fill="#d00c33" />
+</svg>

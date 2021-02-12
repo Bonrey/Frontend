@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <rect width="360" height="240" />
+
+  <polygon points="0,0 180,120 0,240" fill="#11457E" />
+  <polygon points="0,0 360,0 360,120 180,120" fill="#FFF" />
+  <polygon points="0,240 360,240 360,120 180,120" fill="#D7141A" />
+</svg>
