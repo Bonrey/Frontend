@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640">
+  <rect width="100%" height="100%" fill="aliceblue" />
+  <rect x="10%" y="10%" width="80%" height="80%" fill="#F8F8F8" stroke="#241C35" stroke-width="4" />
+
+  <rect x="10%" y="10%" width="20%" height="20%" fill="#F1C548" stroke="#241C35" stroke-width="4" />
+  <rect x="30%" y="30%" width="20%" height="20%" fill="#F1C548" stroke="#241C35" stroke-width="4" />
+  <rect x="50%" y="50%" width="20%" height="20%" fill="#F1C548" stroke="#241C35" stroke-width="4" />
+  <rect x="70%" y="70%" width="20%" height="20%" fill="#F1C548" stroke="#241C35" stroke-width="4" />
+
+  <rect x="50%" y="10%" width="20%" height="20%" fill="#F1C548" stroke="#241C35" stroke-width="4" />
+  <rect x="70%" y="30%" width="20%" height="20%" fill="#F1C548" stroke="#241C35" stroke-width="4" />
+  <rect x="10%" y="50%" width="20%" height="20%" fill="#F1C548" stroke="#241C35" stroke-width="4" />
+  <rect x="30%" y="70%" width="20%" height="20%" fill="#F1C548" stroke="#241C35" stroke-width="4" />
+  
+</svg>
