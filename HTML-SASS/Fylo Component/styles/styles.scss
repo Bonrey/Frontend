@@ -1,0 +1,140 @@
+$pale-blue: hsl(243, 100%, 93%);
+$grayish-blue: hsl(229, 7%, 55%);
+$dark-blue: hsl(228, 56%, 26%);
+$very-dark-blue: hsl(229, 57%, 11%);
+
+$gradient-from: hsl(6, 100%, 80%);
+$gradient-to: hsl(335, 100%, 65%);
+
+$normal-weight: 400;
+$bold-weight: 700;
+
+$font-family: "Raleway";
+
+
+/*------------------
+    Main Styles
+------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+body {
+  height: 100vh;
+  font-family: $font-family;
+  background-color: $very-dark-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("../images/bg-desktop.png");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: contain;
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 50px;
+  align-items: end;
+}
+
+/*--------------------
+    Left-side Div
+--------------------*/
+.logo-and-buttons {
+  background-color: $dark-blue;
+  border-radius: 10px 100px 10px 10px;
+  width: 340px;
+  height: 200px;
+  padding: 40px;
+
+  .logo {
+    margin-bottom: 30px;
+  }
+}
+
+.buttons {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+
+  .icon-container {
+    width: 40px;
+    height: 40px;
+    background-color: $very-dark-blue;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+/*-----------------------------
+    Right-side Div (Stats)
+-----------------------------*/
+.stats {
+  background-color: $dark-blue;
+  border-radius: 10px;
+  width: 500px;
+  height: 130px;
+  padding: 30px;
+  color: #FFF;
+  position: relative;
+}
+
+.gb0, .gb1000, .gb815, .gb185 {
+  font-weight: $bold-weight;
+}
+
+.gb185 {
+  font-size: 2em;
+}
+
+.left-gb-label {
+  background-color: #FFF;
+  color: $very-dark-blue;
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: -22%;
+  right: 8%;
+}
+
+/*-----------------
+      Slider
+-----------------*/
+.slider {
+  -webkit-appearance: none;
+  width: 80%;
+  background: $very-dark-blue;
+  margin: 10px 0 10px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+  }
+
+  &::-webkit-slider-runnable-track {
+    cursor: pointer;
+    background: $gradient-from;
+    border: 5px solid $grayish-blue;
+  }
+}
