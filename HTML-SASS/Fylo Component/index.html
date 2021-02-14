@@ -34,18 +34,25 @@
 
     <div class="stats">
       <div class="main-information">
-        <p>You’ve used <span class="gb815">815 GB</span> of your storage</p>
-        <div class="usage-bar-container">
-          <input type="range" min="0" max="1000" value="815" class="slider">
-
+        <p class="used-gb-label">You’ve used <span class="gb815">815 GB</span> of your storage</p>
+        <div class="slider">
+          <div class="slider-track">
+            <div class="slider-thumb"></div>
+          </div>
         </div>
-        <span class="gb0">0 GB</span>
-        <span class="gb1000">1000 GB</span>
+        <div class="gb-slider-labels">
+          <span class="gb0">0 GB</span>
+          <span class="gb1000">1000 GB</span>
+        </div>
       </div>
-    </div>
-    <div class="left-gb-label">
-      <span><span class="gb185">185</span> GB LEFT</span>
-    </div>
+
+      <div class="left-gb-label">
+        <span class="gb185-left">
+          <span class="gb185">185</span>
+          <span class="gb-left">GB LEFT</span>
+        </span>
+        <div class="left-gb-triangle"></div>
+      </div>
     </div>
   </main>
 </body>
