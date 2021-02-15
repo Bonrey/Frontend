@@ -265,6 +265,11 @@ body {
           justify-content: space-evenly;
 }
 
+.review-container header .person-info .name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 .review-container header .verified-buyer {
   color: #ee68a4;
 }

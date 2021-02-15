@@ -218,6 +218,11 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+
+      .name {
+        font-size: 0.9rem;
+        font-weight: $medium-weight;
+      }
     }
 
     .verified-buyer {
