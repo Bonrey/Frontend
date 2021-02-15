@@ -1,0 +1,235 @@
+// Primary Colors
+$very-dark-magenta: hsl(300, 43%, 22%);
+$soft-pink: hsl(333, 80%, 67%);
+
+// Neutral Colors
+$dark-grayish-magenta: hsl(303, 10%, 53%);
+$light-grayish-magenta: hsl(300, 24%, 96%);
+$white: hsl(0, 0%, 100%);
+
+// Typography
+$font-size: 15px;
+$regular-weight: 400;
+$medium-weight: 500;
+$bold-weight: 700;
+$spartan: "Spartan", sans-serif;
+
+
+/*---------------------
+    General Styles 
+---------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: $spartan;
+  font-size: $font-size;  // I set the font-size everywhere equal to 0.9rem because of my screen size
+}
+
+body {
+  background-color: $white;
+  background: url("../images/bg-pattern-top-desktop.svg"), url("../images/bg-pattern-bottom-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+  background-size: auto;
+
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: 600px) {
+    background: url("../images/bg-pattern-top-mobile.svg"), url("../images/bg-pattern-bottom-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+    background-size: auto;
+    padding: 0px;
+  }
+}
+
+
+/*-------------------
+    Intro section
+-------------------*/
+.top-part {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 40px;
+    flex-direction: column;
+  }
+}
+
+.intro {
+  width: 420px;
+
+  @media only screen and (max-width: 600px) {
+    width: 280px;
+    text-align: center;
+  }
+
+  h1 {
+    font-weight: $bold-weight;
+    font-size: 2.6rem;
+    line-height: 2.7rem;
+    color: $very-dark-magenta;
+    margin-bottom: 15px;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.8rem;
+      line-height: 2rem;
+    }
+  }
+
+  p {
+    font-weight: $medium-weight;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    color: $dark-grayish-magenta;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+
+/*--------------
+    Ratings
+--------------*/
+.ratings {
+  display: flex;
+  flex-direction: column;
+
+  .rating-container {
+    width: 420px;
+    height: 50px;
+    background-color: $light-grayish-magenta;
+    display: flex;
+    align-items: center;
+    margin: 8px 0 8px;
+    border-radius: 8px;
+
+    @media only screen and (max-width: 600px) {
+      width: 280px;
+      flex-direction: column;
+      padding: 10px 0 10px;
+    }
+
+    .stars-section {
+      padding-left: 30px;
+      padding-right: 30px;
+
+      @media only screen and (max-width: 600px) {
+        margin-bottom: 10px;
+      }
+    }
+  
+    .rating-label {
+      font-weight: $bold-weight;
+      font-size: 0.9rem;
+      color: $very-dark-magenta;
+
+      @media only screen and (max-width: 600px) {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media only screen and (min-width: 900px) {
+      &:nth-child(2) {
+        margin-left: 45px;
+      }
+  
+      &:last-child {
+        margin-left: 90px;
+      } 
+    }
+  }
+}
+
+
+/*--------------
+    Reviews
+--------------*/
+.reviews {
+  display: flex;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+}
+
+.review-container {
+  width: 320px;
+  height: 200px;
+  font-size: 0.8rem;
+  background-color: $very-dark-magenta;
+  color: $light-grayish-magenta;
+  margin: 40px 12px 0;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 8px;
+
+  @media only screen and (max-width: 600px) {
+    width: 280px;
+    margin: 20px 0 0;
+    padding: 20px;
+
+    &:first-child {
+      margin-top: 30px;
+    }
+  }
+
+  @media only screen and (min-width: 900px) {
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:nth-child(2) {
+      margin-top: 50px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      margin-top: 60px;
+    }
+  }
+  
+  header {
+    display: flex;
+    align-items: space-evenly;
+    margin-bottom: 25px;
+
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 20px;
+    }
+
+    .person-info {
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .verified-buyer {
+      color: $soft-pink;
+    }
+  }
+
+  .photo {
+    border-radius: 50%;
+  }
+
+  .review {
+    line-height: 1.2rem;
+  }
+}
