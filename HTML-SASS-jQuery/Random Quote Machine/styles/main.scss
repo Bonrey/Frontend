@@ -1,0 +1,112 @@
+/*---------------
+    Variables
+---------------*/
+$light-weight: 300;
+$medium-weight: 500;
+$raleway-font: "Raleway", sans-serif;
+$quote-font-size: 28px;
+
+$custom-color: #EE916C;
+$white: #FFF;
+
+
+/*--------------------
+    General Styles
+--------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: $raleway-font;
+}
+
+body {
+  min-height: 100vh;
+  background-color: $custom-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/*---------------
+    QUOTE BOX
+---------------*/
+main {
+  background-color: $white;
+  width: 600px;
+  border-radius: 10px;
+  color: $custom-color;
+  padding: 40px 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/*-----------
+    Quote
+-----------*/
+.quote-container {
+  width: 100%;
+
+  .fa-quote-left {
+    margin-right: 10px;
+  }
+
+  .quote {
+    font-size: $quote-font-size;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 2.2rem;
+  }
+
+  .author {
+    text-align: right;
+  }
+}
+
+
+/*-------------
+    Buttons
+-------------*/
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+
+  .social-media button, .new-quote {
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: $custom-color;
+    color: $white;
+    border-radius: 6px;
+  }
+
+  .social-media button {
+    width: 40px;
+    font-size: 1.6rem;
+
+    &:first-child {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .new-quote {
+    width: 120px;
+    font-size: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+

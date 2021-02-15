@@ -1,0 +1,118 @@
+/*---------------
+    Variables
+---------------*/
+/*--------------------
+    General Styles
+--------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #EE916C;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/*---------------
+    QUOTE BOX
+---------------*/
+main {
+  background-color: #FFF;
+  width: 600px;
+  border-radius: 10px;
+  color: #EE916C;
+  padding: 40px 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/*-----------
+    Quote
+-----------*/
+.quote-container {
+  width: 100%;
+}
+
+.quote-container .fa-quote-left {
+  margin-right: 10px;
+}
+
+.quote-container .quote {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 2.2rem;
+}
+
+.quote-container .author {
+  text-align: right;
+}
+
+/*-------------
+    Buttons
+-------------*/
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 30px;
+}
+
+.buttons .social-media button, .buttons .new-quote {
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: #EE916C;
+  color: #FFF;
+  border-radius: 6px;
+}
+
+.buttons .social-media button {
+  width: 40px;
+  font-size: 1.6rem;
+}
+
+.buttons .social-media button:first-child {
+  margin-right: 5px;
+}
+
+.buttons .social-media button:hover {
+  cursor: pointer;
+}
+
+.buttons .new-quote {
+  width: 120px;
+  font-size: 1rem;
+}
+
+.buttons .new-quote:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=main.css.map */
