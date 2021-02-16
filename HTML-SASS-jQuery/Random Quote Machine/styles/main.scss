@@ -6,7 +6,6 @@ $medium-weight: 500;
 $raleway-font: "Raleway", sans-serif;
 $quote-font-size: 28px;
 
-$custom-color: #EE916C;
 $white: #FFF;
 
 
@@ -18,13 +17,18 @@ $white: #FFF;
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: $white;
+}
+
 html {
   font-family: $raleway-font;
 }
 
 body {
+  transition: background-color 1000ms;
   min-height: 100vh;
-  background-color: $custom-color;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,13 +41,17 @@ body {
 main {
   background-color: $white;
   width: 600px;
-  border-radius: 10px;
-  color: $custom-color;
+  border-radius: 8px;
   padding: 40px 50px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media only screen and (max-width: 640px) {
+    width: 90%;
+    padding: 30px 40px;
+  }
 }
 
 
@@ -52,6 +60,7 @@ main {
 -----------*/
 .quote-container {
   width: 100%;
+  transition: color 1000ms;
 
   .fa-quote-left {
     margin-right: 10px;
@@ -62,10 +71,19 @@ main {
     text-align: center;
     margin-bottom: 20px;
     line-height: 2.2rem;
+
+    @media only screen and (max-width: 640px) {
+      font-size: $quote-font-size * 0.8;
+      line-height: 1.8rem;
+    }
   }
 
   .author {
     text-align: right;
+
+    @media only screen and (max-width: 640px) {
+      font-size: 0.9rem;
+    }
   }
 }
 
@@ -82,21 +100,26 @@ main {
     height: 40px;
     border: none;
     outline: none;
-    background-color: $custom-color;
     color: $white;
-    border-radius: 6px;
+    border-radius: 4px;
+    transition: background-color 1000ms;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
   }
 
   .social-media button {
     width: 40px;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
+
+    @media only screen and (max-width: 640px) {
+      font-size: 1.1rem;
+    }
 
     &:first-child {
       margin-right: 5px;
-    }
-
-    &:hover {
-      cursor: pointer;
     }
   }
 
@@ -104,9 +127,8 @@ main {
     width: 120px;
     font-size: 1rem;
 
-    &:hover {
-      cursor: pointer;
+    @media only screen and (max-width: 640px) {
+      font-size: 0.9rem;
     }
   }
 }
-
