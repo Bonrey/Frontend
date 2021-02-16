@@ -19,27 +19,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     type="text/css">
 
-  <!--Minimized css file-->
-  <link href="styles/main.css" rel="stylesheet" />
+  <!--Minified css-->
+  <link href="styles/main.min.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="bg-change">
   <main>
     <div class="quote-container">
-      <p class="quote"><i class="fa fa-quote-left"></i>I would rather die of passion than of boredom.</p>
-      <p class="author">- Vincent van Gogh</p>
+      <p class="quote"></p>
+      <p class="author"></p>
     </div>
 
     <div class="buttons">
       <div class="social-media">
-        <button class="twitter"><i class="fa fa-twitter"></i></button>
-        <button class="tumblr"><i class="fa fa-tumblr"></i></button>
+        <button class="twitter bg-change"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw"><i
+              class="fa fa-twitter"></i></a></button>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        <button class="tumblr bg-change"><a href="https://www.tumblr.com/share"><i
+              class="fa fa-tumblr"></i></a></button>
+        <script id="tumblr-js" async src="https://assets.tumblr.com/share-button.js"></script>
       </div>
-      <button class="new-quote">New quote</button>
+      <button type="button" class="new-quote bg-change">New quote</button>
     </div>
   </main>
 
-  <script src="scripts/main.js"></script>
+  <!--Minified jQuery-->
+  <script src="scripts/main.min.js"></script>
 </body>
 
 </html>
