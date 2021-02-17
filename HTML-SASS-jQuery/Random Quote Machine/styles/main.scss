@@ -17,11 +17,6 @@ $white: #FFF;
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-  color: $white;
-}
-
 html {
   font-family: $raleway-font;
 }
@@ -96,10 +91,7 @@ main {
   justify-content: space-between;
   margin-top: 30px;
 
-  .social-media button, .new-quote {
-    height: 40px;
-    border: none;
-    outline: none;
+  .social-media a, .new-quote {
     color: $white;
     border-radius: 4px;
     transition: background-color 1000ms;
@@ -110,9 +102,13 @@ main {
     }
   }
 
-  .social-media button {
+  .social-media a {
+    display: inline-block;
     width: 40px;
+    line-height: 40px;
+    text-align: center;
     font-size: 1.2rem;
+    box-sizing: border-box;
 
     @media only screen and (max-width: 640px) {
       font-size: 1.1rem;
@@ -125,7 +121,10 @@ main {
 
   .new-quote {
     width: 120px;
+    height: 40px;
     font-size: 1rem;
+    border: none;
+    outline: none;
 
     @media only screen and (max-width: 640px) {
       font-size: 0.9rem;

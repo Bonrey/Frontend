@@ -9,11 +9,6 @@
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-  color: #FFF;
-}
-
 html {
   font-family: "Raleway", sans-serif;
 }
@@ -112,39 +107,44 @@ main {
   margin-top: 30px;
 }
 
-.buttons .social-media button, .buttons .new-quote {
-  height: 40px;
-  border: none;
-  outline: none;
+.buttons .social-media a, .buttons .new-quote {
   color: #FFF;
   border-radius: 4px;
   -webkit-transition: background-color 1000ms;
   transition: background-color 1000ms;
 }
 
-.buttons .social-media button:hover, .buttons .new-quote:hover {
+.buttons .social-media a:hover, .buttons .new-quote:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-.buttons .social-media button {
+.buttons .social-media a {
+  display: inline-block;
   width: 40px;
+  line-height: 40px;
+  text-align: center;
   font-size: 1.2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media only screen and (max-width: 640px) {
-  .buttons .social-media button {
+  .buttons .social-media a {
     font-size: 1.1rem;
   }
 }
 
-.buttons .social-media button:first-child {
+.buttons .social-media a:first-child {
   margin-right: 5px;
 }
 
 .buttons .new-quote {
   width: 120px;
+  height: 40px;
   font-size: 1rem;
+  border: none;
+  outline: none;
 }
 
 @media only screen and (max-width: 640px) {
