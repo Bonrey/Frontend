@@ -1,0 +1,186 @@
+/*---------------
+    Variables
+---------------*/
+/*--------------------
+    General Styles
+--------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+html {
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  -webkit-transition: background-color 1000ms;
+  transition: background-color 1000ms;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/*---------------
+    QUOTE BOX
+---------------*/
+main {
+  background-color: #FFF;
+  width: 600px;
+  border-radius: 8px;
+  padding: 40px 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media only screen and (max-width: 640px) {
+  main {
+    width: 90%;
+    padding: 30px 40px;
+  }
+}
+
+/*-----------
+    Quote
+-----------*/
+.quote-container {
+  width: 100%;
+  -webkit-transition: color 1000ms;
+  transition: color 1000ms;
+}
+
+.quote-container .fa-quote-left {
+  margin-right: 10px;
+}
+
+.quote-container #text {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 2.2rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .quote-container #text {
+    font-size: 22.4px;
+    line-height: 1.8rem;
+  }
+}
+
+.quote-container #author {
+  text-align: right;
+}
+
+@media only screen and (max-width: 640px) {
+  .quote-container #author {
+    font-size: 0.9rem;
+  }
+}
+
+/*-------------
+    Buttons
+-------------*/
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+}
+
+.buttons #new-quote {
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #FFF;
+  border-radius: 4px;
+  -webkit-transition: background-color 1000ms;
+  transition: background-color 1000ms;
+}
+
+.buttons #new-quote:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.buttons .social-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.buttons .social-media .social-network-div {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  -webkit-transition: background-color 1000ms;
+  transition: background-color 1000ms;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buttons .social-media .social-network-div:first-child {
+  margin-right: 5px;
+}
+
+.buttons .social-media .social-network-div > *:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.buttons .social-network-div > a {
+  color: #FFF;
+  font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .buttons .social-network-div > a {
+    font-size: 1.2rem;
+  }
+}
+
+.buttons #new-quote {
+  width: 120px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .buttons #new-quote {
+    font-size: 0.9rem;
+  }
+}
+/*# sourceMappingURL=main.css.map */

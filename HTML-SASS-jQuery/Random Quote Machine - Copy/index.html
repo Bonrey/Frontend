@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--jQuery-->
+  <script src="jquery-3.5.1.min.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/quotation-marks.png" />
+  <title>Random Quote Machine</title>
+
+  <!--Custom font-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+
+  <!--Font Awesome icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    type="text/css">
+
+  <link href="styles/main.css" rel="stylesheet" />
+</head>
+
+<body class="bg-change">
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <main id="quote-box">
+    <div class="quote-container">
+      <p id="text"></p>
+      <p id="author"></p>
+    </div>
+
+    <div class="buttons">
+      <div class="social-media">
+        <div class="social-network-div bg-change">
+          <a id="tweet-quote" href="twitter.com/intent/tweet"><i class="fa fa-twitter"></i></a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <div class="social-network-div bg-change">
+          <a href="https://www.tumblr.com/share"><i class="fa fa-tumblr"></i></a>
+          <script id="tumblr-js" async src="https://assets.tumblr.com/share-button.js"></script>
+        </div>
+      </div>
+      <button type="button" id="new-quote" class="bg-change">New quote</button>
+    </div>
+  </main>
+
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>
