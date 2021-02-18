@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FAQ Accordion Card</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+  <main>
+    <div id="side-images">
+      <div id="woman-img-container">
+        <!--Dimensions were adjusted to my screen-->
+        <img id="woman-img" width="378" height="287" src="./images/illustration-woman-online-desktop.svg"
+          alt="Woman before a desktop">
+      </div>
+      <img id="box-img" width="153" height="147" src="./images/illustration-box-desktop.svg" alt="Box">
+    </div>
+
+    <div class="accordion">
+      <h1>FAQ</h1>
+
+      <div class="accordion-menu">
+        <div class="accordion-item">
+          <button type="button" class="accordion-btn" onclick="onClick(this)">
+            <p>How many team members can I invite?</p>
+            <img src="./images/icon-arrow-down.svg">
+          </button>
+          <p class="accordion-text">You can invite up to 2 additional users on the Free plan. There is no limit on
+            team members for the Premium plan.</p>
+        </div>
+        <div class="accordion-item">
+          <button type="button" class="accordion-btn" onclick="onClick(this)">
+            <p>What is the maximum file upload size?</p>
+            <img src="./images/icon-arrow-down.svg">
+          </button>
+          <p class="accordion-text">No more than 2GB. All files in your account must fit your allotted storage space.
+          </p>
+        </div>
+        <div class="accordion-item">
+          <button type="button" class="accordion-btn" onclick="onClick(this)">
+            <p>How do I reset my password?</p>
+            <img src="./images/icon-arrow-down.svg">
+          </button>
+          <p class="accordion-text">Click “Forgot password” from the login page or “Change password” from your profile
+            page.
+            A reset link will be emailed to you.</p>
+        </div>
+        <div class="accordion-item">
+          <button type="button" class="accordion-btn" onclick="onClick(this)">
+            <p>Can I cancel my subscription?</p>
+            <img src="./images/icon-arrow-down.svg">
+          </button>
+          <p class="accordion-text">Yes! Send us a message and we’ll process your request no questions asked.</p>
+        </div>
+        <div class="accordion-item">
+          <button type="button" class="accordion-btn" onclick="onClick(this)">
+            <p>Do you provide additional support?</p>
+            <img src="./images/icon-arrow-down.svg">
+          </button>
+          <p class="accordion-text">Chat and email support is available 24/7. Phone lines are open during normal
+            business hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

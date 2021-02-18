@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+/* My laptop screen width is 1280, which is 0.89 of 1440 */
+/*---------------
+    Animation
+---------------*/
+@-webkit-keyframes box-animation-desktop {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-filter: drop-shadow(0 6px 6px #222);
+            filter: drop-shadow(0 6px 6px #222);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+    -webkit-filter: drop-shadow(0 4px 10px #555);
+            filter: drop-shadow(0 4px 10px #555);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-filter: drop-shadow(0 6px 6px #222);
+            filter: drop-shadow(0 6px 6px #222);
+  }
+}
+@keyframes box-animation-desktop {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-filter: drop-shadow(0 6px 6px #222);
+            filter: drop-shadow(0 6px 6px #222);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+    -webkit-filter: drop-shadow(0 4px 10px #555);
+            filter: drop-shadow(0 4px 10px #555);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-filter: drop-shadow(0 6px 6px #222);
+            filter: drop-shadow(0 6px 6px #222);
+  }
+}
+
+@-webkit-keyframes box-animation-mobile {
+  0% {
+    -webkit-transform: translate(-100px, 0);
+            transform: translate(-100px, 0);
+    -webkit-filter: drop-shadow(0 3px 3px #222);
+            filter: drop-shadow(0 3px 3px #222);
+  }
+  50% {
+    -webkit-transform: translate(-100px, -8px);
+            transform: translate(-100px, -8px);
+    -webkit-filter: drop-shadow(0 2px 5px #555);
+            filter: drop-shadow(0 2px 5px #555);
+  }
+  100% {
+    -webkit-transform: translate(-100px, 0);
+            transform: translate(-100px, 0);
+    -webkit-filter: drop-shadow(0 3px 3px #222);
+            filter: drop-shadow(0 3px 3px #222);
+  }
+}
+
+@keyframes box-animation-mobile {
+  0% {
+    -webkit-transform: translate(-100px, 0);
+            transform: translate(-100px, 0);
+    -webkit-filter: drop-shadow(0 3px 3px #222);
+            filter: drop-shadow(0 3px 3px #222);
+  }
+  50% {
+    -webkit-transform: translate(-100px, -8px);
+            transform: translate(-100px, -8px);
+    -webkit-filter: drop-shadow(0 2px 5px #555);
+            filter: drop-shadow(0 2px 5px #555);
+  }
+  100% {
+    -webkit-transform: translate(-100px, 0);
+            transform: translate(-100px, 0);
+    -webkit-filter: drop-shadow(0 3px 3px #222);
+            filter: drop-shadow(0 3px 3px #222);
+  }
+}
+
+/*---------------
+    Variables
+---------------*/
+/*--------------------
+    General Styles
+--------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Kumbh Sans", sans-serif;
+  background: -webkit-gradient(linear, left top, right bottom, from(#af67e9), to(#6565e7)) no-repeat;
+  background: linear-gradient(to bottom right, #af67e9, #6565e7) no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main {
+  width: 800px;
+  height: 400px;
+  margin: 120px 0 50px;
+  font-size: 10.68px;
+  background-color: #FFF;
+  background-image: url("../images/bg-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: 89% auto;
+  background-position: -400px -210px;
+  border-radius: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 400px 400px;
+      grid-template-columns: 400px 400px;
+}
+
+@media only screen and (max-width: 900px) {
+  main {
+    width: 88vw;
+    height: auto;
+    background-image: url("../images/bg-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 189px auto;
+    background-position: center top;
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
+}
+
+/*---------------
+    Accordion
+---------------*/
+.accordion {
+  margin-left: auto;
+  padding: 50px 70px 20px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.accordion::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .accordion {
+    padding: 110px 0 40px;
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+
+.accordion h1 {
+  font-size: 26.7px;
+  color: #1d1e35;
+}
+
+@media only screen and (max-width: 900px) {
+  .accordion h1 {
+    text-align: center;
+  }
+}
+
+.accordion .accordion-menu {
+  margin-top: 20px;
+}
+
+.accordion-item {
+  background-color: #FFF;
+  width: 330px;
+  border-bottom: 1px solid #e7e7e9;
+}
+
+@media only screen and (max-width: 900px) {
+  .accordion-item {
+    width: 100%;
+  }
+}
+
+.accordion-item .accordion-btn {
+  width: 100%;
+  height: 40px;
+  padding: 4px 7px 0 3px;
+  font-weight: 400;
+  background-color: #FFF;
+  color: #4a4b5e;
+  border: none;
+  outline: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.accordion-item .accordion-btn img {
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
+}
+
+.accordion-item .accordion-btn:hover {
+  color: #f47c57;
+  cursor: pointer;
+}
+
+.accordion-item .accordion-text {
+  display: none;
+  background-color: #FFF;
+  color: #787887;
+  line-height: 0.8rem;
+  margin-bottom: 15px;
+  padding-left: 2px;
+}
+
+/*-----------------
+    Side Images
+-----------------*/
+#side-images {
+  position: relative;
+}
+
+@media only screen and (max-width: 900px) {
+  #side-images {
+    height: 0px;
+  }
+}
+
+#side-images #woman-img-container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+  #side-images #woman-img-container {
+    overflow: visible;
+  }
+}
+
+#side-images #woman-img-container #woman-img {
+  position: absolute;
+  left: -68px;
+  top: 40px;
+}
+
+@media only screen and (max-width: 900px) {
+  #side-images #woman-img-container #woman-img {
+    width: calc(378px * 0.5);
+    height: calc(287px * 0.5);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    top: -90px;
+  }
+}
+
+#side-images #box-img {
+  position: absolute;
+  left: -75px;
+  top: 145px;
+  -webkit-animation: box-animation-desktop 2s infinite;
+          animation: box-animation-desktop 2s infinite;
+}
+
+@media only screen and (max-width: 900px) {
+  #side-images #box-img {
+    width: calc(153px * 0.5);
+    height: calc(147px * 0.5);
+    left: 50%;
+    top: -37px;
+    -webkit-animation: box-animation-mobile 2s infinite;
+            animation: box-animation-mobile 2s infinite;
+  }
+}
+/*# sourceMappingURL=main.css.map */

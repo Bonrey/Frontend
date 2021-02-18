@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+/* My laptop screen width is 1280, which is 0.89 of 1440 */
+$screen-width-coef: 0.89;
+
+/*---------------
+    Animation
+---------------*/
+@keyframes box-animation-desktop {
+  0%   { transform: translateY(0); filter: drop-shadow(0 6px 6px #222); }
+  50%  { transform: translateY(-10px); filter: drop-shadow(0 4px 10px #555); }
+  100% { transform: translateY(0); filter: drop-shadow(0 6px 6px #222); }
+}
+
+@keyframes box-animation-mobile {
+  0%   { transform: translate(-100px, 0); filter: drop-shadow(0 3px 3px #222); }
+  50%  { transform: translate(-100px, -8px); filter: drop-shadow(0 2px 5px #555); }
+  100% { transform: translate(-100px, 0); filter: drop-shadow(0 3px 3px #222); }
+}
+
+
+/*---------------
+    Variables
+---------------*/
+$very-dark-desaturated-blue: hsl(238, 29%, 16%);
+$soft-red: hsl(14, 88%, 65%);
+
+$soft-violet: hsl(273, 75%, 66%);
+$soft-blue: hsl(240, 73%, 65%);
+
+$very-dark-grayish-blue: hsl(237, 12%, 33%);
+$dark-grayish-blue: hsl(240, 6%, 50%);
+$light-graish-blue: hsl(240, 5%, 91%);
+
+$font-size: 12px * $screen-width-coef;
+$regular-weight: 400;
+$bold-weight: 700;
+$font-family: "Kumbh Sans", sans-serif;
+
+
+/*--------------------
+    General Styles
+--------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: $font-family;
+  background: linear-gradient(to bottom right, $soft-violet, $soft-blue) no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 800px;
+  height: 400px;
+  margin: 120px 0 50px;
+  font-size: $font-size;
+  background-color: #FFF;
+  background-image: url("../images/bg-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: 100% * $screen-width-coef auto;
+  background-position: -400px -210px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 400px 400px;
+
+  @media only screen and (max-width: 900px) {
+    width: 88vw;
+    height: auto;
+    background-image: url("../images/bg-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 189px auto;
+    background-position: center top;
+    grid-template-columns: auto;
+  }
+}
+
+
+/*---------------
+    Accordion
+---------------*/
+.accordion {
+  margin-left: auto;
+  padding: 50px 70px 20px 0;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+    scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media only screen and (max-width: 900px) {
+    padding: 110px 0 40px;
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  h1 {
+    font-size: $font-size * 2.5;
+    color: $very-dark-desaturated-blue;
+      
+    @media only screen and (max-width: 900px) {
+      text-align: center;
+    }  
+  }
+
+  .accordion-menu {
+    margin-top: 20px;
+  }
+}
+
+.accordion-item {
+  background-color: #FFF;
+  width: 330px;
+  border-bottom: 1px solid $light-graish-blue;
+
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+  }
+
+  .accordion-btn {
+    width: 100%;
+    height: 40px;
+    padding: 4px 7px 0 3px;
+    font-weight: $regular-weight;
+    background-color: #FFF;
+    color: $very-dark-grayish-blue;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      transition: transform 300ms;
+    }
+
+    &:hover {
+      color: $soft-red;
+      cursor: pointer;
+    }
+  }
+
+  .accordion-text {
+    // hidden by default
+    display: none;
+
+    background-color: #FFF;
+    color: $dark-grayish-blue;
+    line-height: 0.8rem;
+    margin-bottom: 15px;
+    padding-left: 2px;
+  }
+}
+
+
+/*-----------------
+    Side Images
+-----------------*/
+#side-images {
+  position: relative;
+
+  @media only screen and (max-width: 900px) {
+    //position: absolute;
+    height: 0px;
+  }
+
+  #woman-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+    @media only screen and (max-width: 900px) {
+      overflow: visible;
+    }
+
+    #woman-img {
+      position: absolute;
+      left: -68px;
+      top: 40px;
+
+      @media only screen and (max-width: 900px) {
+        width: calc(378px * 0.5);  // decrease initial size
+        height: calc(287px * 0.5);  // decrease initial size
+        left: 50%;
+        transform: translateX(-50%);
+        top: -90px;
+      }
+    }
+  }
+
+  #box-img {
+    position: absolute;
+    left: -75px;
+    top: 145px;
+    animation: box-animation-desktop 2s infinite;
+
+    @media only screen and (max-width: 900px) {
+      width: calc(153px * 0.5);  // decrease initial size
+      height: calc(147px * 0.5);  // decrease initial size
+      left: 50%;
+      top: -37px;
+      animation: box-animation-mobile 2s infinite;
+    }
+  }
+}
