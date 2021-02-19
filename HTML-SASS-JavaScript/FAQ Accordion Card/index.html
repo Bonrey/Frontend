@@ -4,74 +4,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>FAQ Accordion Card</title>
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/main.min.css">
+
+  <title>Article preview component</title>
 </head>
 
 <body>
-  <main>
-    <div id="side-images">
-      <div id="woman-img-container">
-        <!--Dimensions were adjusted to my screen-->
-        <img id="woman-img" width="378" height="287" src="./images/illustration-woman-online-desktop.svg"
-          alt="Woman before a desktop">
-      </div>
-      <img id="box-img" width="153" height="147" src="./images/illustration-box-desktop.svg" alt="Box">
-    </div>
+  <div id="content-wrapper">
 
-    <div class="accordion">
-      <h1>FAQ</h1>
-
-      <div class="accordion-menu">
-        <div class="accordion-item">
-          <button type="button" class="accordion-btn" onclick="onClick(this)">
-            How many team members can I invite?
-            <img src="./images/icon-arrow-down.svg" alt="">
-          </button>
-          <p class="accordion-text">You can invite up to 2 additional users on the Free plan. There is no limit on
-            team members for the Premium plan.</p>
-        </div>
-        <div class="accordion-item">
-          <button type="button" class="accordion-btn" onclick="onClick(this)">
-            What is the maximum file upload size?
-            <img src="./images/icon-arrow-down.svg" alt="">
-          </button>
-          <p class="accordion-text">No more than 2GB. All files in your account must fit your allotted storage space.
-          </p>
-        </div>
-        <div class="accordion-item">
-          <button type="button" class="accordion-btn" onclick="onClick(this)">
-            How do I reset my password?
-            <img src="./images/icon-arrow-down.svg" alt="">
-          </button>
-          <p class="accordion-text">Click “Forgot password” from the login page or “Change password” from your profile
-            page.
-            A reset link will be emailed to you.</p>
-        </div>
-        <div class="accordion-item">
-          <button type="button" class="accordion-btn" onclick="onClick(this)">
-            Can I cancel my subscription?
-            <img src="./images/icon-arrow-down.svg" alt="">
-          </button>
-          <p class="accordion-text">Yes! Send us a message and we’ll process your request no questions asked.</p>
-        </div>
-        <div class="accordion-item">
-          <button type="button" class="accordion-btn" onclick="onClick(this)">
-            Do you provide additional support?
-            <img src="./images/icon-arrow-down.svg" alt="">
-          </button>
-          <p class="accordion-text">Chat and email support is available 24/7. Phone lines are open during normal
-            business hours.</p>
-        </div>
+    <main>
+      <div class="img-container">
+        <img src="./images/drawers.jpg" alt="Picture of drawers" width="330" height="264">
       </div>
 
-    </div>
-  </main>
+      <div class="article-preview">
+        <h1>Shift the overall look and feel by adding these wonderful
+          touches to furniture in your home</h1>
+        <p>Ever been in a room and felt like something was missing? Perhaps
+          it felt slightly bare and uninviting. I’ve got some simple tips
+          to help you make any room feel complete.</p>
+        <footer class="main-footer">
+          <div class="person-info">
+            <img src="./images/avatar-michelle.jpg" alt="Michelle avatar" width="40" , height="40">
+            <div>
+              <span class="name">Michelle Appleton</span>
+              <span class="date">28 Jun 2020</span>
+            </div>
+          </div>
+          <button type="button" onclick="onClick()" id="share-button">
+            <img id="share-icon-img" src="./images/icon-share-gray.svg" alt="share icon">
+          </button>
+          <div class="footer-links">
+            <span>SHARE</span>
+            <!-- I know that the links should be different -->
+            <a href="https://www.facebook.com/" target="_blank" style="width: 20px; height: 20px;">
+              <img src="./images/icon-facebook.svg" alt="facebook icon" width="20" height="20">
+            </a>
+            <a href="https://twitter.com/?lang=en" target="_blank" style="width: 20px; height: 17px;">
+              <img src="./images/icon-twitter.svg" alt="twitter icon" width="20" height="17">
+            </a>
+            <a href="https://www.pinterest.ru/" target="_blank" style="width: 20px; height: 20px;">
+              <img src="./images/icon-pinterest.svg" alt="pinterest icon" width="20" height="20">
+            </a>
+            <div class="triangle"></div>
+          </div>
+        </footer>
+      </div>
+    </main>
 
-  <script src="scripts/main.js"></script>
+  </div>
+
+  <!--div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Bonrey</a>.
+  </div-->
+
+  <script src="./scripts/main.min.js"></script>
 </body>
 
 </html>
