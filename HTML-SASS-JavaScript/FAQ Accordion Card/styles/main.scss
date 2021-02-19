@@ -149,7 +149,6 @@ main {
   }
 
   .accordion-text {
-    // hidden by default
     display: none;
 
     background-color: #FFF;
@@ -187,8 +186,8 @@ main {
       top: 40px;
 
       @media only screen and (max-width: 900px) {
-        width: calc(378px * 0.5);  // decrease initial size
-        height: calc(287px * 0.5);  // decrease initial size
+        width: calc(378px * 0.5);  // decrease the initial size
+        height: calc(287px * 0.5);  // decrease the initial size
         left: 50%;
         transform: translateX(-50%);
         top: -90px;
@@ -203,8 +202,8 @@ main {
     animation: box-animation-desktop 2s infinite;
 
     @media only screen and (max-width: 900px) {
-      width: calc(153px * 0.5);  // decrease initial size
-      height: calc(147px * 0.5);  // decrease initial size
+      width: calc(153px * 0.5);  // decrease the initial size
+      height: calc(147px * 0.5);  // decrease the initial size
       left: 50%;
       top: -37px;
       animation: box-animation-mobile 2s infinite;
