@@ -1,5 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
-/* My laptop screen width is 1280, which is 0.89 of 1440 */
+@-webkit-keyframes footer-links-anim {
+  0% {
+    -webkit-transform: rotate(60deg) translateX(60px);
+            transform: rotate(60deg) translateX(60px);
+  }
+  100% {
+    -webkit-transform: translateX(0) rotate(0deg);
+            transform: translateX(0) rotate(0deg);
+  }
+}
+@keyframes footer-links-anim {
+  0% {
+    -webkit-transform: rotate(60deg) translateX(60px);
+            transform: rotate(60deg) translateX(60px);
+  }
+  100% {
+    -webkit-transform: translateX(0) rotate(0deg);
+            transform: translateX(0) rotate(0deg);
+  }
+}
+
 /*---------------
     Variables
 ---------------*/
@@ -232,6 +252,12 @@ main .img-container {
           align-items: center;
   -webkit-filter: drop-shadow(0 3px 6px #9eafc2);
           filter: drop-shadow(0 3px 6px #9eafc2);
+  -webkit-animation: footer-links-anim 300ms 1;
+          animation: footer-links-anim 300ms 1;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-transition: display 3s;
+  transition: display 3s;
 }
 
 @media only screen and (max-width: 800px) {
@@ -247,6 +273,8 @@ main .img-container {
             justify-content: start;
     -webkit-filter: none;
             filter: none;
+    -webkit-animation: none;
+            animation: none;
   }
   .footer-links > * {
     padding-right: 20px;
