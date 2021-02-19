@@ -149,6 +149,7 @@ main {
   }
 
   .accordion-text {
+    // hidden by default
     display: none;
 
     background-color: #FFF;
@@ -167,7 +168,6 @@ main {
   position: relative;
 
   @media only screen and (max-width: 900px) {
-    //position: absolute;
     height: 0px;
   }
 
