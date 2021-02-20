@@ -14,26 +14,12 @@ const lightenShareBtn = () => {
 }
 
 
-const onWindowResize = () => {
-  if (display == "flex" && window.outerWidth > 800) {
-    lightenShareBtn();
-  } else if (display == "flex") {
-    darkenShareBtn();
-  }
-}
-window.addEventListener('resize', onWindowResize);
-
-
 function onClick() {
   if (display == "none") {
     display = footerLinks.style.display = "flex";
-    if (window.outerWidth <= 800) {
-      darkenShareBtn();
-    }
+    darkenShareBtn();
   } else {
     display = footerLinks.style.display = "none";
-    if (window.outerWidth <= 800) {
-      lightenShareBtn();
-    }
+    lightenShareBtn();
   }
 }
