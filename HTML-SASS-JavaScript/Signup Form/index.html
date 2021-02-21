@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link href="./styles/main.min.css" rel="stylesheet">
+  <link href="./styles/main.css" rel="stylesheet">
   <title>Signup Form</title>
 </head>
 
@@ -32,22 +32,26 @@
         <form id="signup-form" name="signup-form" action="#" onsubmit="return validateForm()">
           <div class="input-default">
             <img src="./images/icon-error.svg" width="20" height="20" alt="error icon" class="error-icon">
-            <input class="input-field" type="text" name="first-name" placeholder="First Name" onfocus="onFocus(this)">
+            <input class="input-field" type="text" id="first-name-field" name="first-name" placeholder="First Name"
+              onfocus="onFocus(this)" aria-label="First Name">
             <p><em>First Name cannot be empty</em></p>
           </div>
           <div class="input-default">
             <img src="./images/icon-error.svg" width="20" height="20" alt="error icon" class="error-icon">
-            <input class="input-field" type="text" name="last-name" placeholder="Last Name" onfocus="onFocus(this)">
+            <input class="input-field" type="text" id="last-name-field" name="last-name" placeholder="Last Name"
+              onfocus="onFocus(this)" aria-label="Last Name">
             <p><em>Last Name cannot be empty</em></p>
           </div>
           <div class="input-default">
             <img src="./images/icon-error.svg" width="20" height="20" alt="error icon" class="error-icon">
-            <input class="input-field" type="text" name="email" placeholder="Email Address" onfocus="onFocus(this)">
+            <input class="input-field" type="text" id="email-address-field" name="email" placeholder="Email Address"
+              onfocus="onFocus(this)" aria-label="Email Address">
             <p><em>Email cannot be empty</em></p>
           </div>
           <div class="input-default">
             <img src="./images/icon-error.svg" width="20" height="20" alt="error icon" class="error-icon">
-            <input class="input-field" type="password" name="password" placeholder="Password" onfocus="onFocus(this)">
+            <input class="input-field" type="password" id="password-field" name="password" placeholder="Password"
+              onfocus="onFocus(this)" aria-label="Password">
             <p><em>Password cannot be empty</em></p>
           </div>
           <input id="submit-btn" type="submit" value="Claim your free trial">
