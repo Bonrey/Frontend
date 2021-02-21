@@ -4,34 +4,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <!-- Custom Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <link href="./styles/main.min.css" rel="stylesheet">
   <title>Signup Form</title>
 </head>
 
 <body>
 
-  Learn to code by watching others
+  <main>
 
-  See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
-  but understanding how developers think is invaluable.
+    <div class="introduction">
+      <h1>Learn to code by watching others</h1>
+      <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
+        but understanding how developers think is invaluable.</p>
+    </div>
 
-  Try it free 7 days then $20/mo. thereafter
+    <div class="main-part">
+      <div class="try-it-free shadow-below">
+        <p><span>Try it free 7 days</span> then $20/mo. thereafter</p>
+      </div>
 
-  First Name
-  Last Name
-  Email Address
-  Password
+      <div class="form-container shadow-below">
+        <form id="signup-form" name="signup-form" action="#" onsubmit="return validateForm()">
+          <div class="input-default">
+            <img src="./images/icon-error.svg" width="20" height="20" alt="error icon" class="error-icon">
+            <input class="input-field" type="text" name="first-name" placeholder="First Name" onfocus="onFocus(this)">
+            <p><em>First Name cannot be empty</em></p>
+          </div>
+          <div class="input-default">
+            <img src="./images/icon-error.svg" width="20" height="20" alt="error icon" class="error-icon">
+            <input class="input-field" type="text" name="last-name" placeholder="Last Name" onfocus="onFocus(this)">
+            <p><em>Last Name cannot be empty</em></p>
+          </div>
+          <div class="input-default">
+            <img src="./images/icon-error.svg" width="20" height="20" alt="error icon" class="error-icon">
+            <input class="input-field" type="text" name="email" placeholder="Email Address" onfocus="onFocus(this)">
+            <p><em>Email cannot be empty</em></p>
+          </div>
+          <div class="input-default">
+            <img src="./images/icon-error.svg" width="20" height="20" alt="error icon" class="error-icon">
+            <input class="input-field" type="password" name="password" placeholder="Password" onfocus="onFocus(this)">
+            <p><em>Password cannot be empty</em></p>
+          </div>
+          <input id="submit-btn" type="submit" value="Claim your free trial">
+        </form>
+        <p class="text-below">By clicking the button, you are agreeing to our <a href="#">Terms
+            and Services</a></p>
+      </div>
+    </div>
 
-  Claim your free trial
+  </main>
 
-  By clicking the button, you are agreeing to our Terms and Services
-
+  <script src="./scripts/main.min.js"></script>
 </body>
 
 </html>
