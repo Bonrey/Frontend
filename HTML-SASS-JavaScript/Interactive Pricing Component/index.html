@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/main.css">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+
+  <title>Interactive pricing component</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Simple, traffic-based pricing</h1>
+      <p>Sign-up for our 30-day trial. No credit card required.</p>
+    </header>
+
+    <main>
+      <div class="main-top">
+        <div class="above-slider">
+          <div class="above-slider-left">
+            <span>100k Pageviews</span>
+          </div>
+          <div class="above-slider-right">
+            <span class="money">$</span>
+            <span class="money" id="money-val">0.00 </span>
+            <span>/ month</span>
+          </div>
+        </div>
+        <input type="range" id="slider" name="slider" min="0" max="40" aria-label="Custom slider">
+        <div class="below-slider">
+          <span>Monthly Billing</span>
+          <div class="switch">
+            <input type="checkbox" id="toggle-button" name="toggle">
+            <label for="toggle-button"></label>
+          </div>
+          <span>Yearly Billing</span>
+          <span>25% discount</span>
+        </div>
+      </div>
+
+      <div class="main-bottom">
+        <div class="main-bottom-left">
+          <div>
+            <img src="images/icon-check.svg" alt="check icon" width="9" height="8">
+            <span>Unlimited websites</span>
+          </div>
+          <div>
+            <img src="images/icon-check.svg" alt="check icon" width="9" height="8">
+            <span>100% data ownership</span>
+          </div>
+          <div>
+            <img src="images/icon-check.svg" alt="check icon" width="9" height="8">
+            <span>Email reports</span>
+          </div>
+        </div>
+        <button id="main-bottom-button" type="button">Start my trial</button>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="./scripts/main.js"></script>
+</body>
+
+</html>
