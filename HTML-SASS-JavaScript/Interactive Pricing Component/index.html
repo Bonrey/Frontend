@@ -24,17 +24,15 @@
 
     <main>
       <div class="main-top">
-        <div class="above-slider">
-          <div class="above-slider-left">
-            <span>100k Pageviews</span>
-          </div>
-          <div class="above-slider-right">
-            <span class="money">$</span>
-            <span class="money" id="money-val">0.00 </span>
-            <span>/ month</span>
-          </div>
+        <div class="pageviews">
+          <span><span id="pageviews-number">100k</span> Pageviews</span>
         </div>
-        <input type="range" id="slider" name="slider" min="0" max="40" aria-label="Custom slider">
+        <div class="money-container">
+          <span class="money">$</span>
+          <span class="money" id="money-value">16.00</span>
+          <span>/ month</span>
+        </div>
+        <input type="range" id="slider" name="slider" min="0" max="10" value="5" aria-label="Custom slider">
         <div class="below-slider">
           <span>Monthly Billing</span>
           <div class="switch">
@@ -42,7 +40,7 @@
             <label for="toggle-button"></label>
           </div>
           <span>Yearly Billing</span>
-          <span>25% discount</span>
+          <span id="discount-text"></span>
         </div>
       </div>
 
