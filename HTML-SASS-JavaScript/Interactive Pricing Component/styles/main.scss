@@ -31,6 +31,10 @@ html {
   font-size: $size;
   font-family: $Manrope;
   color: $grayish-blue;
+
+  @media only screen and (max-width: 600px) {
+    font-size: $size * 0.9;
+  }
 }
 
 body {
@@ -38,25 +42,50 @@ body {
   background: $very-pale-blue url("../images/bg-pattern.svg") no-repeat;
 
   .container {
-    //min-height: 100vh;
-    padding: 100px 0;
-    background: url("../images/pattern-circles.svg") no-repeat center 60px;
+    min-height: 100vh;
+    padding: 15vh 0;
+    box-sizing: border-box;
+    background: url("../images/pattern-circles.svg") no-repeat center 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media only screen and (max-height: 720px) {
+      padding: 8vh 0;
+    }
   }
 }
 
 
 /*-- header --*/
 header {
-  margin-bottom: 80px;
+  margin-bottom: 10vh;
   text-align: center;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: 600px) {
+    width: 340px;
+  }
+
+  @media only screen and (max-height: 720px) {
+    margin-bottom: 7vh;
+  }
 
   h1 {
     font-weight: $extra-bold;
     margin-bottom: 10px;
     color: $dark-desaturated-blue;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.7rem;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    p {
+      padding: 0 80px;
+      line-height: 1.5rem;
+    }
   }
 }
 
@@ -67,11 +96,11 @@ main {
   width: 550px;
   height: 380px;
   border-radius: 8px;
-  filter: drop-shadow(0 1px 2px $grayish-blue);
+  filter: drop-shadow(0 2px 4px hsl(223, 50%, 87%));
 
-  > * {
-    padding: 30px;
-    box-sizing: border-box;
+  @media only screen and (max-width: 600px) {
+    width: 340px;
+    height: 500px;
   }
 }
 
@@ -79,51 +108,68 @@ main {
 /*---- main-top ----*/
 .main-top {
   height: 65%;
-  border-bottom: 1px solid #DDD;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  border-bottom: 1px solid hsl(223, 50%, 87%);
+  padding: 0 30px;
+  box-sizing: border-box;
+  position: relative;
 
-  .above-slider {
-    position: relative;
-    height: 50px;
+  @media only screen and (max-width: 600px) {
+    height: 58%;
+    padding: 0 20px;
+  }
     
-    .above-slider-left {
-      height: 100%;
-      position: absolute;
-      left: 0;
-      display: flex;
-      align-items: center;
+  .pageviews {
+    height: 50px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    display: flex;
+    align-items: center;
 
-      span {
-        text-transform: uppercase;
-        font-weight: $extra-bold;
-        letter-spacing: 2px;
-      }
+    @media only screen and (max-width: 600px) {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 20px;
     }
 
-    .above-slider-right {
-      height: 100%;
-      position: absolute;
-      right: 0;
-      display: flex;
-      align-items: center;
-
-      .money {
-        font-weight: $extra-bold;
-        color: $dark-desaturated-blue;
-        font-size: 2.4rem;
-      }
-
-      #money-val {
-        margin-right: 4px;
-      }
-
-      span:last-child {
-        font-size: 16px;
-      }
+    > span {
+      text-transform: uppercase;
+      font-weight: $extra-bold;
+      letter-spacing: 2px;
     }
   }
+
+  .money-container {
+    position: absolute;
+    height: 50px;
+    right: 30px;
+    top: 30px;
+    display: flex;
+    align-items: center;
+
+    @media only screen and (max-width: 600px) {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 150px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .money {
+      font-weight: $extra-bold;
+      color: $dark-desaturated-blue;
+      font-size: 2.4rem;
+    }
+
+    #money-value {
+      margin-right: 5px;
+    }
+
+    span:last-child {
+      font-size: 16px;
+    }
+  }
+  
 
   // slider (see styles below)
 
@@ -132,6 +178,13 @@ main {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    @media only screen and (max-width: 600px) {
+      position: absolute;
+      bottom: 20px;
+      padding: 0 20px;
+      right: 0;
+    }
 
     // toggle switch (see styles below)
 
@@ -143,16 +196,30 @@ main {
       padding: 0 5px;
       line-height: 18px;
       border-radius: 9px;
+
+      @media only screen and (max-width: 600px) {
+        margin-left: 5px;
+      }
     }
   }
 }
 
+
 /*------ slider ------*/
 #slider {
   appearance: none;
+  margin: 120px 0 40px;
+
+  @media only screen and (max-width: 600px) {
+    margin: 100px 0 0;
+  }
+
+  cursor: pointer;
   width: 100%;
-  background-color: transparent;
-  margin: 40px 0;
+  height: 9px;
+
+  background: linear-gradient(to right, hsl(174, 77%, 80%) 0% 50%, hsl(224, 65%, 95%) 50% 100%);
+  border-radius: 4px;
 
   &:focus {
     outline: none;
@@ -160,26 +227,17 @@ main {
 
   &::-webkit-slider-thumb {
     appearance: none;
-    margin-top: -15.5px;
+    //margin-top: -15.5px;
     height: 40px;
     width: 40px;
     border-radius: 50%;
     background: $strong-cyan url("../images/icon-slider.svg") no-repeat center;
-    cursor: pointer;
+    cursor: grabbing;
+    filter: drop-shadow(0 10px 10px $soft-cyan);
 
     &:active {
       background-color: hsl(174, 86%, 40%);
-      filter: drop-shadow(0 10px 15px $soft-cyan);
     }
-  }
-
-  &::-webkit-slider-runnable-track {
-    cursor: pointer;
-    width: 100%;
-    height: 9px;
-
-    background-color: $light-grayish-blue-slider;
-    border-radius: 4px;
   }
 }
 
@@ -198,6 +256,10 @@ main {
     outline: none;
     cursor: pointer;
 
+    @media only screen and (max-width: 600px) {
+      margin: 0 10px;
+    }
+
     &:after {
       content: "";
       display: inline-block;
@@ -210,7 +272,7 @@ main {
     }
 
     &:checked::after {
-      transform: translateX(calc(22px));  // 44-16-2*3
+      transform: translateX(22px);  // 44-16-2*3
       background-color: $white;  
     }
 
@@ -227,6 +289,14 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 30px;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: 600px) {
+    padding-top: 20px;
+    height: 42%;
+    flex-direction: column;
+  }
 }
 
 
@@ -236,6 +306,12 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media only screen and (max-width: 600px) {
+    height: 90px;
+    justify-content: space-around;
+    align-items: center;
+  }
 
   > div {
     display: flex;
