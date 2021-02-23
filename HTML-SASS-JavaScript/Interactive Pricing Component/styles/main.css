@@ -268,6 +268,22 @@ main {
   background-color: #0ebeac;
 }
 
+#slider::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #10d5c2 url("../images/icon-slider.svg") no-repeat center;
+  cursor: grabbing;
+  filter: drop-shadow(0 10px 10px #a5f3eb);
+}
+
+#slider::-moz-range-thumb:active {
+  background-color: #0ebeac;
+}
+
 /*------ toggle switch ------*/
 .switch #toggle-button {
   display: block;

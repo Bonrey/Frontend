@@ -227,7 +227,21 @@ main {
 
   &::-webkit-slider-thumb {
     appearance: none;
-    //margin-top: -15.5px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: $strong-cyan url("../images/icon-slider.svg") no-repeat center;
+    cursor: grabbing;
+    filter: drop-shadow(0 10px 10px $soft-cyan);
+
+    &:active {
+      background-color: hsl(174, 86%, 40%);
+    }
+  }
+
+  &::-moz-range-thumb {
+    appearance: none;
+    border: none;
     height: 40px;
     width: 40px;
     border-radius: 50%;
