@@ -1,0 +1,152 @@
+@import "base";
+@import "animations";
+
+header {
+  #logo-img {
+    margin-bottom: 20px;
+
+    @media only screen and (max-width: 600px) {
+      width: 86px * 0.8;
+      height: 26px * 0.8;
+    }
+  }
+
+  h1 {
+    font-size: 1.7rem;
+    font-weight: $light;
+    color: $gray;
+    margin: 10px 0 20px;
+
+    > span {
+      font-weight: $bold;
+      color: $very-dark-blue;
+    }
+  }
+
+  > p {
+    font-weight: $light;
+    color: $very-dark-blue;
+  }
+}
+
+form {
+  display: flex;
+
+  @media only screen and (max-width: 600px) {
+    flex-wrap: wrap;
+  }
+}
+
+.input-field {
+  flex-basis: 70%;
+  margin-left: 20px;
+  margin-right: 10px;
+  position: relative;
+
+  @media only screen and (max-width: 600px) {
+    flex-basis: 100%;
+    margin: 0 20px 10px;
+  }
+
+  .error-text {
+    display: none;
+    position: absolute;
+    bottom: -26px;
+    left: 21px;
+    color: $light-red;
+    font-size: 0.6rem;
+    font-weight: $light;
+  }
+}
+
+input[type="text"], button {
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 1.5px solid $gray;
+  padding: 0 20px;
+  color: $very-dark-blue;
+  animation: input-text-anim 1.5s 1;
+
+  &:focus {
+    border: 1.5px solid $very-dark-blue;
+  }
+
+  &::placeholder {
+    color: $gray;
+    opacity: 0.5;
+  }
+}
+
+input[type="text"].red-placeholder::placeholder {
+  color: $light-red;
+}
+
+button {
+  flex-basis: 30%;
+  margin-left: 10px;
+  margin-right: 20px;
+  color: #fff;
+  background-color: $blue;
+  font-family: $LibreFranklin;
+  font-weight: $semi-bold;
+  box-shadow: 0 4px 6px $pale-blue;
+  transition: transform 0.4s;
+  animation: input-btn-anim 1.5s 1;
+
+  @media only screen and (max-width: 600px) {
+    flex-basis: 100%;
+    margin: 0 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: hsl(223, 87%, 58%);
+    transform: translateY(-6px);
+
+    @media only screen and (max-width: 600px) {
+      transform: none;
+    }
+  }
+
+  &:focus {
+    background-color: hsl(223, 87%, 58%);
+  }
+}
+
+#dashboard-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+footer {
+  a {
+    width: 36px;
+    line-height: 36px;
+    border-radius: 50%;
+    text-decoration: none;
+    background-color: #fff;
+    color: $blue;
+    margin: 0 5px;
+    transition: 0.3s;
+    outline: none;
+    border: 1px solid $blue;
+
+    &:hover, &:focus {
+      background-color: $blue;
+      color: #fff;
+      filter: drop-shadow(0 1px 5px $pale-blue);
+    }
+  }
+
+  #copyright {
+    color: $gray;
+    font-size: 0.6rem;
+  }
+}
+

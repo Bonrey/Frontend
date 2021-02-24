@@ -1,0 +1,31 @@
+body {
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrapper {
+  width: 550px;
+  text-align: center;
+  
+  @media only screen and (max-width: 600px) {
+    width: 320px;
+  }
+}
+
+header {
+  margin: 10px 0 40px;
+}
+
+main {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+footer div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}

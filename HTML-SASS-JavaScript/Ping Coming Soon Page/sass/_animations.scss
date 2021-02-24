@@ -1,0 +1,23 @@
+@keyframes input-text-anim {
+  0% {
+    transform: translateX(-2000px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes input-btn-anim {
+  0% {
+    transform: translateX(2000px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

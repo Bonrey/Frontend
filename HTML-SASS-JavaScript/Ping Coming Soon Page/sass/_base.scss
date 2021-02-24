@@ -1,0 +1,25 @@
+$blue: hsl(223, 87%, 63%);
+$pale-blue: hsl(223, 100%, 88%);
+$light-red: hsl(354, 100%, 66%);
+$gray: hsl(0, 0%, 59%);
+$very-dark-blue: hsl(209, 33%, 12%);
+
+$size: 18px;
+$LibreFranklin: 'Libre Franklin', sans-serif;
+$light: 300;
+$semi-bold: 600;
+$bold: 700;
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $size;
+  font-family: $LibreFranklin;
+  
+  @media only screen and (max-width: 600px) {
+    font-size: 15px;
+  }
+}
