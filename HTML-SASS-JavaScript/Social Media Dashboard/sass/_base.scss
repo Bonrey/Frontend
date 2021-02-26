@@ -14,19 +14,19 @@ $youtube-color: hsl(348, 97%, 39%);
  Light Theme
 ************/
 $toggle-l: hsl(230, 22%, 74%);
-$white: hsl(0, 0%, 100%);                 // light bg
-$very-pale-blue: hsl(225, 100%, 98%);     // top bg pattern
-$light-grayish-blue: hsl(227, 47%, 96%);  // card bg
-$dark-grayish-blue: hsl(228, 12%, 44%);   // text
-$very-dark-blue: hsl(230, 17%, 14%);      // light theme text, dark bg
+$white: hsl(0, 0%, 100%); // light bg
+$very-pale-blue: hsl(225, 100%, 98%); // top bg pattern
+$light-grayish-blue: hsl(227, 47%, 96%); // card bg
+$dark-grayish-blue: hsl(228, 12%, 44%); // text
+$very-dark-blue: hsl(230, 17%, 14%); // light theme text, dark bg
 
 /***********
  Dark Theme
 ***********/
 $toggle-d: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
 $very-dark-blue-d-bg-top: hsl(232, 19%, 15%); // top bg pattern
-$dark-desaturated-blue: hsl(228, 28%, 20%);   // card bg
-$desaturated-blue: hsl(228, 34%, 66%);        // text
+$dark-desaturated-blue: hsl(228, 28%, 20%); // card bg
+$desaturated-blue: hsl(228, 34%, 66%); // text
 
 /*****
  Font
@@ -41,7 +41,7 @@ $Inter: "Inter", sans-serif;
   box-sizing: border-box;
 }
 
-html {
+html, h3 {
   font-family: $Inter;
   font-size: 14px;
   font-weight: $bold;

@@ -21,7 +21,7 @@
   box-sizing: border-box;
 }
 
-html {
+html, h3 {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -45,7 +45,7 @@ html {
   box-sizing: border-box;
 }
 
-html {
+html, h3 {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -133,7 +133,7 @@ body {
   box-sizing: border-box;
 }
 
-html {
+html, h3 {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -325,7 +325,7 @@ h2 {
   box-sizing: border-box;
 }
 
-html {
+html, h3 {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -357,7 +357,7 @@ html {
     background-color: #63687e;
   }
 }
-.light-theme .top-cards__header span {
+.light-theme .top-cards__header h3 {
   color: #63687e;
 }
 .light-theme .top-cards .top-card:hover section, .light-theme .top-cards .top-card:focus section {
@@ -419,7 +419,7 @@ html {
   box-sizing: border-box;
 }
 
-html {
+html, h3 {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -445,7 +445,7 @@ html {
     background-color: #8b97c6;
   }
 }
-.dark-theme .top-cards__header span {
+.dark-theme .top-cards__header h3 {
   color: #8b97c6;
 }
 .dark-theme .top-cards .top-card:hover section, .dark-theme .top-cards .top-card:focus section {
