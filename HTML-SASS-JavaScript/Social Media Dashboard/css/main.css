@@ -65,7 +65,7 @@ body {
 
 #dashboard-wrapper {
   margin: 0 auto;
-  width: 80%;
+  max-width: 90%;
 }
 
 .social-media-header {
@@ -101,7 +101,7 @@ body {
 
 .top-cards, .overview-section {
   display: grid;
-  grid-gap: 15px 25px;
+  grid-gap: 25px;
   grid-template-columns: repeat(4, 1fr);
 }
 @media only screen and (max-width: 1000px) {
@@ -196,6 +196,7 @@ html, h3 {
 }
 .top-cards .top-card section {
   height: 220px;
+  transition: background-color 0.3s;
 }
 .top-cards .top-card .top-card-border {
   height: 4px;
@@ -256,6 +257,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: background-color 0.3s;
 }
 .overview-section__card:hover, .overview-section__card:focus {
   cursor: pointer;
@@ -360,7 +362,7 @@ html, h3 {
 .light-theme .top-cards__header h3 {
   color: #63687e;
 }
-.light-theme .top-cards .top-card:hover section, .light-theme .top-cards .top-card:focus section {
+.light-theme .top-cards .top-card:hover section, .light-theme .top-cards .top-card:focus {
   background-color: #e1e5f4;
 }
 .light-theme .top-cards .top-card:focus {

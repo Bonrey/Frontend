@@ -63,6 +63,7 @@
 
     section {
       height: 220px;
+      transition: background-color 0.3s;
     }
 
     .top-card-border {
@@ -139,6 +140,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: background-color 0.3s;
 
     &:hover, &:focus {
       cursor: pointer;
