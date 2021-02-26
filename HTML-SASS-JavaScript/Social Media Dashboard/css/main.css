@@ -388,7 +388,7 @@ html, h3 {
   background-color: #e1e5f4;
   outline: 1.5px dashed #1e202a;
 }
-.light-theme .overview-section__card__top span:first-child {
+.light-theme .overview-section__card__top h3 {
   color: #63687e;
 }
 .light-theme .overview-section__card__bottom span:first-child {
@@ -476,7 +476,7 @@ html, h3 {
   background-color: #303755;
   outline: 1.5px dashed white;
 }
-.dark-theme .overview-section__card__top span:first-child {
+.dark-theme .overview-section__card__top h3 {
   color: #8b97c6;
 }
 .dark-theme .overview-section__card__bottom span:first-child {
