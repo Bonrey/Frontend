@@ -1,0 +1,98 @@
+@import "base";
+
+.light-theme {
+  background-color: $white;
+
+  #top-bg {
+    background-color: $very-pale-blue;
+  }
+
+  .social-media-header {
+    h1 {
+      color: $very-dark-blue;
+    }
+
+    span, #toggle-label {
+      color: $dark-grayish-blue;
+    }
+
+    #toggle {
+      background-color: $toggle-l;
+
+      &:focus-visible {
+        outline: 1.5px dashed $very-dark-blue;
+      }
+
+      &:after {
+        background-color: $light-grayish-blue;
+      }
+    }
+
+    @media only screen and (max-width: 640px) {
+      #header-divider {
+        background-color: $dark-grayish-blue;
+      }
+    }
+  }
+
+  .top-cards {
+    &__header span {
+      color: $dark-grayish-blue;
+    }
+
+    .top-card:hover section, .top-card:focus section {
+      background-color: hsl(227, 47%, 92%);
+    }
+
+    .top-card:focus {
+      outline: 1.5px dashed $very-dark-blue;
+    }
+
+    section {
+      background-color: $light-grayish-blue;
+    }
+
+    &__main__followers {
+      span:first-child {
+        color: $very-dark-blue;
+      }
+
+      span:last-child {
+        color: $dark-grayish-blue;
+      }
+    }
+  }
+
+  h2 {
+    color: $dark-grayish-blue;
+  }
+
+  .overview-section__card {
+    background-color: $light-grayish-blue;
+
+    &:hover {
+      background-color: hsl(227, 47%, 92%);
+    }
+
+    &:focus {
+      background-color: hsl(227, 47%, 92%);
+      outline: 1.5px dashed $very-dark-blue;
+    }
+
+    &__top span:first-child {
+      color: $dark-grayish-blue;
+    }
+
+    &__bottom span:first-child {
+      color: $very-dark-blue;
+    }
+  }
+
+  .attribution {
+    color: $dark-grayish-blue;
+
+    a {
+      color: $very-dark-blue;
+    }
+  }
+}

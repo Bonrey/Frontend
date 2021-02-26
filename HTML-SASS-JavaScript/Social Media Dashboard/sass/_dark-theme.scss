@@ -1,0 +1,90 @@
+@import "base";
+
+.dark-theme {
+  background-color: $very-dark-blue;
+
+  #top-bg {
+    background-color: $very-dark-blue-d-bg-top;
+  }
+
+  .social-media-header {
+    h1 {
+      color: $white;
+    }
+
+    span, #toggle-label {
+      color: $desaturated-blue;
+    }
+
+    #toggle:focus-visible {
+      outline: 1.5px dashed $white;
+    }
+
+    @media only screen and (max-width: 640px) {
+      #header-divider {
+        background-color: $desaturated-blue;
+      }
+    }
+  }
+
+  .top-cards {
+    &__header span {
+      color: $desaturated-blue;
+    }
+
+    .top-card:hover section, .top-card:focus section {
+      background-color: hsl(228, 28%, 26%);
+    }
+
+    .top-card:focus {
+      outline: 1.5px dashed $white;
+    }
+
+    section {
+      background-color: $dark-desaturated-blue;
+    }
+
+    &__main__followers {
+      span:first-child {
+        color: $white;
+      }
+
+      span:last-child {
+        color: $desaturated-blue;
+      }
+    }
+  }
+
+  h2 {
+    color: $white;
+  }
+
+  .overview-section__card {
+    background-color: $dark-desaturated-blue;
+
+    &:hover {
+      background-color: hsl(228, 28%, 26%);
+    }
+
+    &:focus {
+      background-color: hsl(228, 28%, 26%);
+      outline: 1.5px dashed $white;
+    }
+
+    &__top span:first-child {
+      color: $desaturated-blue;
+    }
+
+    &__bottom span:first-child {
+      color: $white;
+    }
+  }
+
+  .attribution {
+    color: $desaturated-blue;
+
+    a {
+      color: $white;
+    }
+  }
+}
