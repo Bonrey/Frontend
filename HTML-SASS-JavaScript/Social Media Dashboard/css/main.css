@@ -213,7 +213,7 @@ html, h3 {
 }
 .top-cards .top-card section {
   height: 220px;
-  transition: background-color 0.3s;
+  transition: 0.3s;
 }
 .top-cards .top-card .top-card-border {
   height: 4px;
@@ -274,7 +274,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: background-color 0.3s;
+  transition: 0.3s;
 }
 .overview-section__card:hover, .overview-section__card:focus {
   cursor: pointer;
