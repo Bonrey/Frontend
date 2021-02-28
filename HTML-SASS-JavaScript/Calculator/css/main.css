@@ -12,40 +12,55 @@ body {
 }
 
 main {
-  width: 300px;
   background-color: #9C8E9F;
   padding: 20px 20px 0;
   box-sizing: border-box;
   border-radius: 8px;
 }
 main #display {
-  width: 100%;
-  height: 150px;
+  width: 224px;
+  height: 120px;
+  padding: 10px 15px;
   box-sizing: border-box;
   font-family: "Patrick Hand", cursive;
-  font-size: 1.5rem;
-  outline: none;
-  border: none;
+  background-color: #F8F3DF;
   border-radius: 8px;
+  filter: drop-shadow(0 2px 4px #555);
+}
+main #display #previous, main #display #current {
+  position: absolute;
+  width: 194px;
   color: #222;
+  text-align: right;
+  overflow-x: auto;
+  right: 15px;
+}
+main #display #previous::-webkit-scrollbar, main #display #current::-webkit-scrollbar {
+  display: none;
+}
+main #display #previous {
+  font-size: 1.5rem;
+  top: 20px;
+}
+main #display #current {
+  font-size: 2.5rem;
+  bottom: 10px;
 }
 main .buttons {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  grid-gap: 10px;
+  grid-gap: 8px;
   padding: 20px 0;
 }
-main .buttons .digit-btn {
+main .buttons .digit-btn, main .buttons #decimal {
   background-color: #F8F3DF;
 }
 main .buttons .operation-btn {
   background-color: #E6D3B3;
 }
-main .buttons #equals {
-  background-color: #C4A198;
-}
 main .buttons button {
-  height: 50px;
+  width: 50px;
+  line-height: 50px;
   cursor: pointer;
   border: none;
   outline: none;
@@ -53,12 +68,34 @@ main .buttons button {
   font-size: 1.5rem;
   border-radius: 10px;
   color: #222;
+  box-shadow: 0 3px 3px #555;
 }
-main .buttons button:hover, main .buttons button:focus {
+main .buttons button:hover {
   filter: brightness(95%);
 }
+main .buttons button:active {
+  box-shadow: 0 2px 2px #222;
+  transform: translateY(2px);
+}
+main .buttons #multiply {
+  font-size: 1.8rem;
+}
+main .buttons #equals {
+  background-color: #C4A198;
+}
 main .buttons #zero {
+  width: auto;
   grid-column: 1/span 2;
+}
+main .buttons #clear-last {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .buttons #clear-last img {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
 }
 
 /*# sourceMappingURL=main.css.map */

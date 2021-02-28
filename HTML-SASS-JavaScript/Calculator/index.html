@@ -11,34 +11,40 @@
 </head>
 
 <body>
-  <main>
-    <input type="text" id="display" aria-label="display">
+<main>
+  <div id="display">
+    <output id="previous" aria-label="previous"></output>
+    <output id="current" aria-label="current">_</output>
+  </div>
+  <div class="buttons">
+    <button type="button" class="operation-btn" id="clear">C</button>
+    <button type="button" class="operation-btn" id="sqrt">√</button>
+    <button type="button" class="operation-btn" id="clear-last">
+      <img src="images/back.png" alt="clear last">
+    </button>
+    <button type="button" class="operation-btn" id="divide">/</button>
 
-    <div class="buttons">
-      <button type="button" class="operation-btn" id="clear">C</button>
-      <button type="button" class="operation-btn" id="sqrt">√</button>
-      <button type="button" class="operation-btn" id="clearLast">D</button>
-      <button type="button" class="operation-btn" id="divide">/</button>
+    <button type="button" class="digit-btn" id="seven">7</button>
+    <button type="button" class="digit-btn" id="eight">8</button>
+    <button type="button" class="digit-btn" id="nine">9</button>
+    <button type="button" class="operation-btn" id="multiply">×</button>
 
-      <button type="button" class="digit-btn" id="seven">7</button>
-      <button type="button" class="digit-btn" id="eight">8</button>
-      <button type="button" class="digit-btn" id="nine">9</button>
-      <button type="button" class="operation-btn" id="multiply">X</button>
+    <button type="button" class="digit-btn" id="four">4</button>
+    <button type="button" class="digit-btn" id="five">5</button>
+    <button type="button" class="digit-btn" id="six">6</button>
+    <button type="button" class="operation-btn" id="subtract">-</button>
 
-      <button type="button" class="digit-btn" id="four">4</button>
-      <button type="button" class="digit-btn" id="five">5</button>
-      <button type="button" class="digit-btn" id="six">6</button>
-      <button type="button" class="operation-btn" id="subtract">-</button>
+    <button type="button" class="digit-btn" id="one">1</button>
+    <button type="button" class="digit-btn" id="two">2</button>
+    <button type="button" class="digit-btn" id="three">3</button>
+    <button type="button" class="operation-btn" id="add">+</button>
 
-      <button type="button" class="digit-btn" id="one">1</button>
-      <button type="button" class="digit-btn" id="two">2</button>
-      <button type="button" class="digit-btn" id="three">3</button>
-      <button type="button" class="operation-btn" id="add">+</button>
+    <button type="button" class="digit-btn" id="zero">0</button>
+    <button type="button" id="decimal">.</button>
+    <button type="button" id="equals">=</button>
+  </div>
+</main>
 
-      <button type="button" class="digit-btn" id="zero">0</button>
-      <button type="button" class="digit-btn" id="decimal">.</button>
-      <button type="button" id="equals">=</button>
-    </div>
-  </main>
+<script src="js/main.js"></script>
 </body>
 </html>
