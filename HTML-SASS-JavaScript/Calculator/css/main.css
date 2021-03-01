@@ -89,14 +89,23 @@ main .buttons #zero {
   grid-column: 1/span 2;
 }
 main .buttons #clear-last {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
-main .buttons #clear-last img {
-  width: 20px;
-  height: 20px;
-  margin-right: 2px;
+main .buttons #clear-last span {
+  position: absolute;
+  font-size: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 3px;
+}
+main .buttons #add {
+  position: relative;
+}
+main .buttons #add span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2px;
 }
 
 /*# sourceMappingURL=main.css.map */

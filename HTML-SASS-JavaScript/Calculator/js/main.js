@@ -69,6 +69,7 @@ function parseExpression(input) {
 
 function cleanOutput(output) {
   if (output === Infinity) return "∞";
+  if (output === -Infinity) return "-∞";
   if (Number.isNaN(output)) return "error";
   const integerLen = Math.trunc(output).toString().length;
   if (integerLen > 14) {
@@ -76,13 +77,14 @@ function cleanOutput(output) {
   } else if (output.toString().length === 14) {
     return output.toPrecision(16);
   }
-  let decMax = Math.min(16 - integerLen, 8), decimals = 0, multiplier = 1;
-  while (output * multiplier % 1 !== 0 && decimals < decMax) {
+  let decMax = Math.min(16 - integerLen, 8), decimals = 0;
+  let outputFixed = Number.parseFloat(output.toFixed(decimals));
+  const eps = 1e-17;
+  while (Math.abs(output - outputFixed) > eps && decimals < decMax) {
     decimals++;
-    multiplier *= 10;
+    outputFixed = Number.parseFloat(output.toFixed(decimals));
   }
-  const res = output.toFixed(decimals), eps = 0.00000001;
-  return Math.abs(res) < eps ? "0" : res;
+  return outputFixed;
 }
 
 
@@ -95,7 +97,7 @@ function evaluateExpression(input) {
 
 // checks if there's an extra character in the string
 function containsExtra(str) {
-  return /[ie∞u]/.test(str);
+  return /[ie∞]/.test(str);
 }
 
 
@@ -105,7 +107,7 @@ function onDigitClick(e) {
   stopTextBlink();
   let currVal = current.innerText;
   let digit = target.innerText;
-  if (/^=|^_$/.test(currVal)) {
+  if (/^=|^[_0]$/.test(currVal)) {
     previous.innerText = "";
     current.innerText = digit;
   } else {
@@ -285,7 +287,7 @@ document.addEventListener("keydown", (e) => {
   } else if (/[-*/+]/.test(e.key)) {
     const operations = {"-": "subtract", "*": "multiply", "/": "divide", "+": "add"};
     onOperationsClick(document.getElementById(operations[e.key]));
-  } else if (/[0-9]/.test(e.key)) {
+  } else if (/^\d$/.test(e.key)) {
     const digitNames = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
     onDigitClick(document.getElementById(digitNames[e.key]));
   }
