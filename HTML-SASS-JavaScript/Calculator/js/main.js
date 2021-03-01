@@ -1,15 +1,23 @@
+// =========================== DISCLAIMER ===========================
+// This code is a mess, and it should be split into different files.
+// But anyway, it is my first big project, and I hope you can excuse me.
+
 const previous = document.getElementById("previous");
 const current = document.getElementById("current");
+
 
 // makes "_" blink when there is no output
 let blinkID; // used for clearInterval()
 current.style.opacity = "1";
+
 function startTextBlink() {
   blinkID = setInterval(() => {
     current.style.opacity = (1 - current.style.opacity).toString();
   }, 650);
 }
+
 startTextBlink();  // run for the first time
+
 
 // stops text blinking
 function stopTextBlink() {
@@ -17,10 +25,17 @@ function stopTextBlink() {
   clearInterval(blinkID);
 }
 
+
 // updates the output font-size
 function updateOutput() {
   const prevLen = previous.innerText.length;
   const currLen = current.innerText.length;
+  if (prevLen <= 18) {
+    previous.style.fontSize = "1.5rem";
+  } else {
+    previous.style.fontSize = "1.2rem";
+    previous.scrollLeft = 10000;
+  }
   if (currLen <= 10) {
     current.style.fontSize = "2.5rem";
   } else if (currLen >= 11 && currLen <= 13) {
@@ -31,50 +46,82 @@ function updateOutput() {
   }
 }
 
+
 // checks whether the input is a correct expression
 function isExpression(input) {
   return !/^[=_]|^-?\d*\.?\d*[-×/+]?$/.test(input);
 }
 
+
 // corrects the raw expression
 function parseExpression(input) {
   let result = input.slice();
-
-
-  return /[-.×/+]$/.test(result) ? result.slice(0, -1) : result;
+  if (/[-.×/+]$/.test(result)) {
+    result = result.slice(0, -1);
+  }
+  const addParenthesesReg = /(\/-|×-)\d+\.?\d*/g;
+  const matches = result.match(addParenthesesReg);
+  for (let i = 0, len = matches == null ? 0 : matches.length; i < len; i++) {
+    result = result.replace(matches[i], matches[i].slice(0, 1) + "(" + matches[i].slice(1) + ")");
+  }
+  return result;
 }
 
-// evaluates the expression
-function evaluateExpression(input) {
-  const result = eval(input.replace(/×/g, "*"));
-  let decimals = 0;
-  let multiplier = 1;
-  while (result * multiplier % 1 !== 0 && decimals < 8) {
+function cleanOutput(output) {
+  if (output === Infinity) return "∞";
+  if (Number.isNaN(output)) return "error";
+  const integerLen = Math.trunc(output).toString().length;
+  if (integerLen > 14) {
+    return output.toExponential(8);
+  } else if (output.toString().length === 14) {
+    return output.toPrecision(16);
+  }
+  let decMax = Math.min(16 - integerLen, 8), decimals = 0, multiplier = 1;
+  while (output * multiplier % 1 !== 0 && decimals < decMax) {
     decimals++;
     multiplier *= 10;
   }
-  return result.toFixed(decimals);
+  const res = output.toFixed(decimals), eps = 0.00000001;
+  return Math.abs(res) < eps ? "0" : res;
 }
+
+
+// evaluates the expression
+function evaluateExpression(input) {
+  let result = eval(input.replace(/×/g, "*"));
+  return cleanOutput(result);
+}
+
+
+// checks if there's an extra character in the string
+function containsExtra(str) {
+  return /[ie∞u]/.test(str);
+}
+
 
 // digits
-const digits = document.getElementsByClassName("digit-btn");
-for (let i = 0; i < 10; i++) {
-  digits[i].addEventListener("click", () => {
-    stopTextBlink();
-    let currVal = current.innerText;
-    let digit = digits[i].innerText;
-    if (/^=|^_$/.test(currVal)) {
-      previous.innerText = "";
-      current.innerText = digit;
-    } else {
-      current.innerText += digit;
-    }
-    updateOutput();
-  });
+function onDigitClick(e) {
+  let target = e.target === undefined ? e : e.target;
+  stopTextBlink();
+  let currVal = current.innerText;
+  let digit = target.innerText;
+  if (/^=|^_$/.test(currVal)) {
+    previous.innerText = "";
+    current.innerText = digit;
+  } else {
+    current.innerText += digit;
+  }
+  updateOutput();
 }
 
+const digits = document.getElementsByClassName("digit-btn");
+for (let i = 0; i < 10; i++) {
+  digits[i].addEventListener("click", onDigitClick);
+}
+
+
 // decimal point
-document.getElementById("decimal").addEventListener("click", () => {
+function onDecimalClick() {
   let currVal = current.innerText;
   if (/^[=_]/.test(currVal)) {
     stopTextBlink();
@@ -89,10 +136,12 @@ document.getElementById("decimal").addEventListener("click", () => {
     }
   }
   updateOutput();
-});
+}
+
+document.getElementById("decimal").addEventListener("click", onDecimalClick);
+
 
 // clear-all button
-const clearAllBtn = document.getElementById("clear");
 function clearAll() {
   stopTextBlink();
   previous.innerText = "";
@@ -100,13 +149,17 @@ function clearAll() {
   startTextBlink();
   updateOutput();
 }
-clearAllBtn.addEventListener("click", clearAll);
+
+document.getElementById("clear").addEventListener("click", clearAll);
+
 
 // clear-last-symbol button
-document.getElementById("clear-last").addEventListener("click", () => {
+function clearLast() {
   stopTextBlink();
   let currVal = current.innerText;
-  if (currVal.length <= 1 || /^([-=]|=-)\d$/.test(currVal)) {
+  if (containsExtra(currVal)) {
+    clearAll();
+  } else if (currVal.length <= 1 || /^([-=]|=-)\d$/.test(currVal)) {
     previous.innerText = "";
     current.innerText = "_";
     startTextBlink();
@@ -117,13 +170,16 @@ document.getElementById("clear-last").addEventListener("click", () => {
     current.innerText = currVal.slice(0, -1);
   }
   updateOutput();
-});
+}
+
+document.getElementById("clear-last").addEventListener("click", clearLast);
+
 
 // square root
-document.getElementById("sqrt").addEventListener("click", () => {
+function onSqrtClick() {
   let currVal = current.innerText;
   let curr;
-  if (/^_|i/.test(currVal)) {
+  if (/^_/.test(currVal) || containsExtra(currVal)) {
     clearAll();
     return;
   }
@@ -139,53 +195,66 @@ document.getElementById("sqrt").addEventListener("click", () => {
     curr = Number.parseFloat(currVal);
     previous.innerText = "√" + currVal;
   }
-  const sqrt = Math.sqrt(Math.abs(curr));
-  current.innerText = "=" + (sqrt % 1 !== 0 ? sqrt.toFixed(8) : sqrt) + (curr < 0 ? "i" : "");
+  const sqrt = cleanOutput(Math.sqrt(Math.abs(curr)));
+  current.innerText = "=" + (sqrt === "1" && curr < 0 ? "" : sqrt) + (curr < 0 ? "i" : "");
   updateOutput();
-});
-
-// basic operations
-const operations = document.querySelectorAll("#add, #subtract, #multiply, #divide");
-for (let i = 0; i < 4; i++) {
-  operations[i].addEventListener("click", () => {
-    let currVal = current.innerText;
-    previous.innerText = "";
-    if (operations[i].id === "subtract" && /^_/.test(currVal)) {
-      stopTextBlink();
-      current.innerText = "-";
-    } else if (/^=/.test(currVal)) {
-      stopTextBlink();
-      current.innerText = currVal.slice(1) + operations[i].innerText;
-    } else if (/[.\d]$/.test(currVal)) {
-      stopTextBlink();
-      if (/\.$/.test(currVal)) {
-        currVal = currVal.slice(0, -1);
-      }
-      current.innerText = currVal + operations[i].innerText;
-    } else if (/\d[-+]$/.test(currVal)) {
-      stopTextBlink();
-      current.innerText = currVal.slice(0, -1) + operations[i].innerText;
-    } else if (/[×/]$/.test(currVal)) {
-      stopTextBlink();
-      if (operations[i].id !== "subtract") {
-        current.innerText = currVal.slice(0, -1) + operations[i].innerText;
-      } else {  // operations[i].id == "subtract"
-        current.innerText += "-";
-      }
-    }
-    updateOutput();
-  });
 }
 
-// equals sign
-document.getElementById("equals").addEventListener("click", () => {
+document.getElementById("sqrt").addEventListener("click", onSqrtClick);
+
+
+// basic operations
+function onOperationsClick(e) {
+  let target = e.target === undefined ? e : e.target;
   let currVal = current.innerText;
-  if (/^-$|i/.test(currVal)) {
+  previous.innerText = "";
+  if (target.id === "subtract" && (/^_/.test(currVal) || containsExtra(currVal))) {
+    stopTextBlink();
+    current.innerText = "-";
+  } else if (containsExtra(currVal)) {
     clearAll();
   } else if (/^=/.test(currVal)) {
     stopTextBlink();
-    previous.innerText = "";
-    current.innerText = currVal.slice(1);
+    current.innerText = currVal.slice(1) + target.innerText;
+  } else if (/[.\d]$/.test(currVal)) {
+    stopTextBlink();
+    if (/\.$/.test(currVal)) {
+      currVal = currVal.slice(0, -1);
+    }
+    current.innerText = currVal + target.innerText;
+  } else if (/\d[-+]$/.test(currVal)) {
+    stopTextBlink();
+    current.innerText = currVal.slice(0, -1) + target.innerText;
+  } else if (/[×/]$/.test(currVal)) {
+    stopTextBlink();
+    if (target.id !== "subtract") {
+      current.innerText = currVal.slice(0, -1) + target.innerText;
+    } else {  // target.id == "subtract"
+      current.innerText += "-";
+    }
+  }
+  updateOutput();
+}
+
+const operations = document.querySelectorAll("#add, #subtract, #multiply, #divide");
+for (let i = 0; i < 4; i++) {
+  operations[i].addEventListener("click", onOperationsClick);
+}
+
+
+// equals sign
+function onEqualsClick() {
+  let currVal = current.innerText;
+  if (/^-$/.test(currVal) || containsExtra(currVal)) {
+    clearAll();
+  } else if (/^=/.test(currVal)) {
+    if (!containsExtra(currVal)) {
+      stopTextBlink();
+      previous.innerText = "";
+      current.innerText = currVal.slice(1);
+    } else {
+      clearAll();
+    }
   } else if (isExpression(currVal)) {
     stopTextBlink();
     let trueExpression = parseExpression(currVal);
@@ -196,4 +265,28 @@ document.getElementById("equals").addEventListener("click", () => {
     current.innerText = currVal.slice(0, -1);
   }
   updateOutput();
+}
+
+document.getElementById("equals").addEventListener("click", onEqualsClick);
+
+
+// add keyboard support
+document.addEventListener("keydown", (e) => {
+  if (e.key === "c" || e.key === "Escape") {
+    clearAll();
+  } else if (e.key === "Backspace") {
+    clearLast();
+  } else if (e.key === "=" || e.key === "Enter") {
+    onEqualsClick();
+  } else if (e.key === ".") {
+    onDecimalClick();
+  } else if (e.key === "q") {
+    onSqrtClick();
+  } else if (/[-*/+]/.test(e.key)) {
+    const operations = {"-": "subtract", "*": "multiply", "/": "divide", "+": "add"};
+    onOperationsClick(document.getElementById(operations[e.key]));
+  } else if (/[0-9]/.test(e.key)) {
+    const digitNames = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    onDigitClick(document.getElementById(digitNames[e.key]));
+  }
 });

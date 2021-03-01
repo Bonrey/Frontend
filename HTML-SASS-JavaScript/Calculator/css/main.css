@@ -34,6 +34,7 @@ main #display #previous, main #display #current {
   text-align: right;
   overflow-x: auto;
   right: 15px;
+  white-space: nowrap;
 }
 main #display #previous::-webkit-scrollbar, main #display #current::-webkit-scrollbar {
   display: none;
