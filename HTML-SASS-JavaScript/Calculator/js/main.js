@@ -129,7 +129,7 @@ function onDecimalClick() {
     stopTextBlink();
     previous.innerText = "";
     current.innerText = "0.";
-  } else if (!/\./.test(currVal)) {
+  } else if (!/\.\d*$/.test(currVal)) {
     stopTextBlink();
     if (/[-×/+]$/.test(currVal)) {
       current.innerText += "0.";
