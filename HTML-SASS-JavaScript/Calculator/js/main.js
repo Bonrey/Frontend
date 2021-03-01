@@ -1,6 +1,6 @@
-// =========================== DISCLAIMER ===========================
-// This code is a mess, and it should be split into different files.
-// But anyway, it is my first big project, and I hope you can excuse me.
+// ============================== DISCLAIMER ==============================
+// This code is a mess, and it should be split into different files, I know.
+// But come on, it is my first big project, and I can be excused, can't I?
 
 const previous = document.getElementById("previous");
 const current = document.getElementById("current");
@@ -74,8 +74,6 @@ function cleanOutput(output) {
   const integerLen = Math.trunc(output).toString().length;
   if (integerLen > 14) {
     return output.toExponential(8);
-  } else if (output.toString().length === 14) {
-    return output.toPrecision(16);
   }
   let decMax = Math.min(16 - integerLen, 8), decimals = 0;
   let outputFixed = Number.parseFloat(output.toFixed(decimals));
@@ -195,10 +193,14 @@ function onSqrtClick() {
       currVal = currVal.slice(1);
     }
     curr = Number.parseFloat(currVal);
-    previous.innerText = "√" + currVal;
+    if (curr < 0) {
+      previous.innerText = "√(" + currVal + ")";
+    } else {
+      previous.innerText = "√" + currVal;
+    }
   }
   const sqrt = cleanOutput(Math.sqrt(Math.abs(curr)));
-  current.innerText = "=" + (sqrt === "1" && curr < 0 ? "" : sqrt) + (curr < 0 ? "i" : "");
+  current.innerText = "=" + (sqrt === 1 && curr < 0 ? "" : sqrt) + (curr < 0 ? "i" : "");
   updateOutput();
 }
 
