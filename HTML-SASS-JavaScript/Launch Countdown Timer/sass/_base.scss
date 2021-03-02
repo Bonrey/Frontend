@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500;700&display=swap');
+
+$grayish-blue: hsl(237, 18%, 59%);
+$soft-red: hsl(345, 95%, 68%);
+
+$white: hsl(0, 0%, 100%);  // <h1>, <a>
+$dark-desaturated-blue: hsl(236, 21%, 26%);  // cards' bg
+$very-dark-blue: hsl(235, 16%, 14%);  // bg color
+$almost-black: hsl(234, 17%, 12%);  // cards' shadows
+
+$RedHatText: "Red Hat Text", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: $RedHatText;
+  font-weight: bold;
+  font-size: 14px;
+}
+

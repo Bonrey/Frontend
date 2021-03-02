@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+body {
+  min-width: 100vh;
+  background-color: yellowgreen;
+  background-image: url("/images/icon-facebook.svg"), url("/images/icon-instagram.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, right top;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.attribution {
+  font-weight: normal;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: #3e52a3;
+}
+
+/*# sourceMappingURL=main.css.map */

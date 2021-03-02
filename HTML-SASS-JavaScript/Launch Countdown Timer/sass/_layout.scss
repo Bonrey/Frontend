@@ -1,0 +1,39 @@
+@import "base";
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: $very-dark-blue;
+  background-image: url("../../images/pattern-hills.svg"), url("../../images/bg-stars.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom right, top;
+}
+
+#wrapper {
+  width: 620px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: 720px) {
+    width: 90vw;
+  }
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  
+  @media only screen and (max-width: 720px) {
+    justify-content: space-evenly;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+}
