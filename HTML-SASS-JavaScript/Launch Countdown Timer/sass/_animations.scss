@@ -1,0 +1,13 @@
+@keyframes card-flip {
+  from {
+    transform: rotateX(0deg);
+    transform-origin: top;
+    //transform-style: preserve-3d;
+  }
+
+  to {
+    transform: rotateX(180deg);// translateY(50px);
+    transform-origin: top;
+    //transform-style: preserve-3d;
+  }
+}

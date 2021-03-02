@@ -8,6 +8,10 @@ body {
   background-image: url("../../images/pattern-hills.svg"), url("../../images/bg-stars.svg");
   background-repeat: no-repeat, no-repeat;
   background-position: bottom right, top;
+  
+  @media only screen and (max-width: 720px) {
+    background-position: 85% 100%, top;
+  }
 }
 
 #wrapper {
@@ -17,7 +21,7 @@ body {
   align-items: center;
 
   @media only screen and (max-width: 720px) {
-    width: 90vw;
+    width: 96vw;
   }
 }
 
@@ -32,6 +36,7 @@ main {
 }
 
 footer {
+  width: 96vw;
   position: absolute;
   bottom: 4%;
   left: 50%;

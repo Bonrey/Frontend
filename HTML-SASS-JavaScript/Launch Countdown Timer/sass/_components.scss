@@ -1,4 +1,5 @@
 @import "base";
+@import "animations";
 
 h1 {
   color: $white;
@@ -7,6 +8,14 @@ h1 {
   text-transform: uppercase;
   font-size: 1.6rem;
   letter-spacing: 0.4rem;
+  text-align: center;
+  
+  @media only screen and (max-width: 720px) {
+    top: 20%;
+    width: 90%;
+    font-size: 1.3rem;
+    letter-spacing: 0.3rem;
+  }
 }
 
 .grid-cell {
@@ -23,24 +32,28 @@ h1 {
     filter: drop-shadow(0 8px 0 $almost-black);
 
     @media only screen and (max-width: 720px) {
-      width: 70px;
-      height: 70px;
+      width: 65px;
+      height: 65px;
+      bottom: 5px;
+      filter: drop-shadow(0 4px 0 $almost-black);
     }
 
     &__number {
       font-size: 5rem;
-      font-weight: 600;
       background: -webkit-linear-gradient(hsla(345, 95%, 68%, 0.7) 50%, hsl(345, 95%, 68%) 50%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       z-index: 1;
+
+      @media only screen and (max-width: 720px) {
+        font-size: 2.5rem;
+      }
     }
 
     &__top, &__bottom {
       position: absolute;
       width: 100%;
       height: 50%;
-      border-radius: 8px;
       background-color: $dark-desaturated-blue;
 
       svg {
@@ -52,22 +65,29 @@ h1 {
     }
 
     &__top {
+      border-radius: 8px 8px 0 0;
       top: 0;
       opacity: 0.7;
     }
 
     hr {
       border: 0;
-      width: calc(100% - 12px);
-      height: 0.7px;
-      background-color: #222;
+      width: 118px; // 130-6*2
+      height: 1px;
+      background-color: hsla(236, 21%, 6%, 0.7);
       position: absolute;
-      top: 50%;
+      top: 49%;
       z-index: 2;
+
+      @media only screen and (max-width: 720px) {
+        width: 59px; // 65-3*2
+      }
     }
 
     &__bottom {
+      border-radius: 0 0 8px 8px;
       bottom: 0;
+      //animation: card-flip 3s infinite;
     }
   }
 
@@ -75,16 +95,26 @@ h1 {
     color: $grayish-blue;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
+
+    @media only screen and (max-width: 720px) {
+      font-size: 0.5rem;
+      letter-spacing: 0.15rem;
+    }
   }
 }
 
 .social-media {
-  margin: 0 20%;
+  margin: 0 auto;
+  width: 120px;
   display: flex;
   justify-content: space-between;
 
-  svg:hover path {
-    fill: $soft-red;
+  a:hover, a:focus {
+    outline: none;
+
+    svg path {
+      fill: $soft-red;
+    }
   }
 
   svg path {
@@ -99,8 +129,20 @@ h1 {
   text-align: center;
   color: $grayish-blue;
   font-family: $RedHatText;
+  width: 100%;
+  
+  @media only screen and (max-width: 720px) {
+    font-size: 10px;
+    margin-top: 10px;
+  }
 
   a {
     color: $white;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      text-decoration: underline;
+      outline: none;
+    }
   }
 }
