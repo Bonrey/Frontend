@@ -1,22 +1,22 @@
-const circles = document.querySelectorAll("svg circle");
+// const circles = document.querySelectorAll("svg circle");
+//
+// function correctCircleRadius() {
+//   if (window.outerWidth <= 720) {
+//     for (let i = 0; i < 16; i++) {
+//       circles[i].style.r = "3px";
+//     }
+//   } else {
+//     for (let i = 0; i < 16; i++) {
+//       circles[i].style.r = "6px";
+//     }
+//   }
+// }
 
-function correctCircleRadius() {
-  if (window.outerWidth <= 720) {
-    for (let i = 0; i < 16; i++) {
-      circles[i].style.r = "3px";
-    }
-  } else {
-    for (let i = 0; i < 16; i++) {
-      circles[i].style.r = "6px";
-    }
-  }
-}
-
-window.addEventListener("resize", correctCircleRadius);
-correctCircleRadius();
+// window.addEventListener("resize", correctCircleRadius);
+// correctCircleRadius();
 
 
-let countDownDate = new Date("Mar 6, 2021 2:18:52").getTime();
+// let countDownDate = new Date("Mar 6, 2021 2:18:52").getTime();
 // const dateCards = document.querySelectorAll("#days, #hours, #minutes, #seconds");
 // const timeLeftUpdate = setInterval(() => {
 //   let timeLeft = countDownDate - new Date().getTime();
@@ -31,3 +31,36 @@ let countDownDate = new Date("Mar 6, 2021 2:18:52").getTime();
 //     dateCards[i].innerHTML = ("0" + timeUnits[i]).slice(-2);
 //   }
 // }, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let hiddenNumber = document.querySelector(".card__bottom-bg__number");
+let topNumber = document.querySelector(".grid-cell:first-child .card__top__number");
+let bottomNumber = document.querySelector(".grid-cell:first-child .card__bottom__number");
+
+let cardBottom = document.querySelector(".grid-cell:first-child .card__bottom");
+
+
+
+
+
+
+
