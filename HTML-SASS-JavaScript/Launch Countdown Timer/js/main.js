@@ -93,24 +93,35 @@ function restoreDefault(card, val) {
   card.bottomNumber.style.color = "hsl(345, 95%, 68%)";
 }
 
+let t = false;
 const flipInterval = setInterval(() => {
-  if (timeUnits[0] === 0 && timeUnits[1] === 0 && timeUnits[2] === 0 && timeUnits[3] === 1) {
-    clearInterval(flipInterval);  // setInterval() will still work once (till the end of this block)
-    setTimeout(() => { alert("End!"); }, 2000);
-  }
-  timeUnits[3] = (timeUnits[3] + 59) % 60;
-  flipCard(cards.seconds, timeUnits[3]);
-  if (timeUnits[3] === 59) {
-    timeUnits[2] = (timeUnits[2] + 59) % 60;
-    flipCard(cards.minutes, timeUnits[2]);
-  }
-  if (timeUnits[3] === 59 && timeUnits[2] === 59) {
-    timeUnits[1] = (timeUnits[1] + 23) % 24;
-    flipCard(cards.hours, timeUnits[1]);
-  }
-  if (timeUnits[3] === 59 && timeUnits[2] === 59 && timeUnits[1] === 23) {
-    timeUnits[0]--;
-    flipCard(cards.days, timeUnits[0]);
+  if (!t) {
+    t = true;
+    let i = 0;
+    for (let card in cards) {
+      flipCard(cards[card], timeUnits[i++]);
+    }
+  } else {
+    if (timeUnits[0] === 0 && timeUnits[1] === 0 && timeUnits[2] === 0 && timeUnits[3] === 1) {
+      clearInterval(flipInterval);  // setInterval() will still work once (till the end of this block)
+      setTimeout(() => {
+        alert("End!");
+      }, 2000);
+    }
+    timeUnits[3] = (timeUnits[3] + 59) % 60;
+    flipCard(cards.seconds, timeUnits[3]);
+    if (timeUnits[3] === 59) {
+      timeUnits[2] = (timeUnits[2] + 59) % 60;
+      flipCard(cards.minutes, timeUnits[2]);
+    }
+    if (timeUnits[3] === 59 && timeUnits[2] === 59) {
+      timeUnits[1] = (timeUnits[1] + 23) % 24;
+      flipCard(cards.hours, timeUnits[1]);
+    }
+    if (timeUnits[3] === 59 && timeUnits[2] === 59 && timeUnits[1] === 23) {
+      timeUnits[0]--;
+      flipCard(cards.days, timeUnits[0]);
+    }
   }
 
   setTimeout(() => {
