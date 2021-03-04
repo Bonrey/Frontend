@@ -9,7 +9,7 @@ h1 {
   font-size: 1.6rem;
   letter-spacing: 0.4rem;
   text-align: center;
-  
+
   @media only screen and (max-width: 720px) {
     top: 20%;
     width: 90%;
@@ -22,72 +22,83 @@ h1 {
   text-align: center;
 
   .card {
-    width: 130px;
-    height: 130px;
-    bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 128px;
+    height: 128px;
+    margin-bottom: 20px;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: $dark-desaturated-blue;
     filter: drop-shadow(0 8px 0 $almost-black);
 
     @media only screen and (max-width: 720px) {
-      width: 65px;
-      height: 65px;
+      width: 64px;
+      height: 64px;
       bottom: 5px;
       filter: drop-shadow(0 4px 0 $almost-black);
     }
 
-    &__number {
-      font-size: 5rem;
-      background: -webkit-linear-gradient(hsla(345, 95%, 68%, 0.7) 50%, hsl(345, 95%, 68%) 50%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      z-index: 1;
+    svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+    }
+
+    hr {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%);
+      border: 0;
+      width: 116px; // 128-6*2
+      height: 1px;
+      background-color: hsla(234, 17%, 12%, 0.4);
+      z-index: 2;
 
       @media only screen and (max-width: 720px) {
-        font-size: 2.5rem;
+        width: 58px; // 64-3*2
       }
     }
 
-    &__top, &__bottom {
+    &__top, &__bottom, &__bottom-bg {
       position: absolute;
       width: 100%;
       height: 50%;
-      background-color: $dark-desaturated-blue;
+      overflow: hidden;
 
-      svg {
+      &__number {
         position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
+        font-size: 5rem;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
 
     &__top {
-      border-radius: 8px 8px 0 0;
       top: 0;
-      opacity: 0.7;
-    }
+      background-color: #292b40;
+      color: hsla(345, 95%, 68%, 0.7);
 
-    hr {
-      border: 0;
-      width: 118px; // 130-6*2
-      height: 1px;
-      background-color: hsla(236, 21%, 6%, 0.7);
-      position: absolute;
-      top: 49%;
-      z-index: 2;
-
-      @media only screen and (max-width: 720px) {
-        width: 59px; // 65-3*2
+      &__number {
+        top: 100%;
       }
     }
 
-    &__bottom {
-      border-radius: 0 0 8px 8px;
+    &__bottom, &__bottom-bg {
       bottom: 0;
-      //animation: card-flip 3s infinite;
+      background-color: #343650;
+      color: hsl(345, 95%, 68%);
+    }
+
+    &__bottom {
+      transform-origin: top;
+      z-index: 1;
+
+      &__number {
+        top: 0;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 
@@ -130,7 +141,7 @@ h1 {
   color: $grayish-blue;
   font-family: $RedHatText;
   width: 100%;
-  
+
   @media only screen and (max-width: 720px) {
     font-size: 10px;
     margin-top: 10px;

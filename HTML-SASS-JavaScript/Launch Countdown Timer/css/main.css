@@ -83,11 +83,13 @@ html {
 @keyframes card-flip {
   from {
     transform: rotateX(0deg);
-    transform-origin: top;
+    background-color: #343650;
+    color: #fb6087;
   }
   to {
     transform: rotateX(180deg);
-    transform-origin: top;
+    background-color: #292b40;
+    color: green;
   }
 }
 h1 {
@@ -112,69 +114,77 @@ h1 {
   text-align: center;
 }
 .grid-cell .card {
-  width: 130px;
-  height: 130px;
-  bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 128px;
+  height: 128px;
+  margin-bottom: 20px;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #343650;
   filter: drop-shadow(0 8px 0 #191a24);
 }
 @media only screen and (max-width: 720px) {
   .grid-cell .card {
-    width: 65px;
-    height: 65px;
+    width: 64px;
+    height: 64px;
     bottom: 5px;
     filter: drop-shadow(0 4px 0 #191a24);
   }
 }
-.grid-cell .card__number {
-  font-size: 5rem;
-  background: -webkit-linear-gradient(rgba(251, 96, 135, 0.7) 50%, #fb6087 50%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  z-index: 1;
-}
-@media only screen and (max-width: 720px) {
-  .grid-cell .card__number {
-    font-size: 2.5rem;
-  }
-}
-.grid-cell .card__top, .grid-cell .card__bottom {
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  background-color: #343650;
-}
-.grid-cell .card__top svg, .grid-cell .card__bottom svg {
+.grid-cell .card svg {
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
 }
-.grid-cell .card__top {
-  border-radius: 8px 8px 0 0;
-  top: 0;
-  opacity: 0.7;
-}
 .grid-cell .card hr {
-  border: 0;
-  width: 118px;
-  height: 1px;
-  background-color: rgba(12, 13, 19, 0.7);
   position: absolute;
-  top: 49%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  border: 0;
+  width: 116px;
+  height: 1px;
+  background-color: rgba(25, 26, 36, 0.4);
   z-index: 2;
 }
 @media only screen and (max-width: 720px) {
   .grid-cell .card hr {
-    width: 59px;
+    width: 58px;
   }
 }
-.grid-cell .card__bottom {
-  border-radius: 0 0 8px 8px;
+.grid-cell .card__top, .grid-cell .card__bottom, .grid-cell .card__bottom-bg {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+.grid-cell .card__top__number, .grid-cell .card__bottom__number, .grid-cell .card__bottom-bg__number {
+  position: absolute;
+  font-size: 5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.grid-cell .card__top {
+  top: 0;
+  background-color: #292b40;
+  color: rgba(251, 96, 135, 0.7);
+}
+.grid-cell .card__top__number {
+  top: 100%;
+}
+.grid-cell .card__bottom, .grid-cell .card__bottom-bg {
   bottom: 0;
+  background-color: #343650;
+  color: #fb6087;
+}
+.grid-cell .card__bottom {
+  transform-origin: top;
+  z-index: 1;
+}
+.grid-cell .card__bottom__number {
+  top: 0;
+  transform: translate(-50%, -50%);
 }
 .grid-cell .label {
   color: #8486a9;

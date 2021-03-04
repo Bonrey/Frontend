@@ -1,13 +1,12 @@
 @keyframes card-flip {
   from {
     transform: rotateX(0deg);
-    transform-origin: top;
-    //transform-style: preserve-3d;
+    background-color: #343650;
+    color: hsl(345, 95%, 68%);
   }
-
   to {
-    transform: rotateX(180deg);// translateY(50px);
-    transform-origin: top;
-    //transform-style: preserve-3d;
+    transform: rotateX(180deg);
+    background-color: #292b40;
+    color: green;//hsla(345, 95%, 68%, 0.7);
   }
 }
