@@ -223,11 +223,11 @@ h1 {
     margin-top: 10px;
   }
 }
-.attribution a {
+.attribution .social-media-link {
   color: white;
   text-decoration: none;
 }
-.attribution a:hover, .attribution a:focus {
+.attribution .social-media-link:hover, .attribution .social-media-link:focus {
   text-decoration: underline;
   outline: none;
 }
