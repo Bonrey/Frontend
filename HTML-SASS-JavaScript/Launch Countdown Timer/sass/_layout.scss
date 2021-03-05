@@ -9,7 +9,7 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: bottom right, top;
   
-  @media only screen and (max-width: 720px) {
+  @media only screen and (max-width: 700px) {
     background-position: 85% 100%, top;
   }
 }
@@ -20,8 +20,8 @@ body {
   justify-content: center;
   align-items: center;
 
-  @media only screen and (max-width: 720px) {
-    width: 96vw;
+  @media only screen and (max-width: 700px) {
+    width: 90vw;
   }
 }
 
@@ -30,7 +30,7 @@ main {
   display: flex;
   justify-content: space-between;
   
-  @media only screen and (max-width: 720px) {
+  @media only screen and (max-width: 700px) {
     justify-content: space-evenly;
   }
 }

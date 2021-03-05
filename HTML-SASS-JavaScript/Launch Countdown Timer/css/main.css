@@ -32,7 +32,7 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: bottom right, top;
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 700px) {
   body {
     background-position: 85% 100%, top;
   }
@@ -44,9 +44,9 @@ body {
   justify-content: center;
   align-items: center;
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 700px) {
   #wrapper {
-    width: 96vw;
+    width: 90vw;
   }
 }
 
@@ -55,7 +55,7 @@ main {
   display: flex;
   justify-content: space-between;
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 700px) {
   main {
     justify-content: space-evenly;
   }
@@ -80,18 +80,6 @@ html {
   font-size: 14px;
 }
 
-@keyframes card-flip {
-  from {
-    transform: rotateX(0deg);
-    background-color: #343650;
-    color: #fb6087;
-  }
-  to {
-    transform: rotateX(180deg);
-    background-color: #292b40;
-    color: green;
-  }
-}
 h1 {
   color: white;
   position: absolute;
@@ -101,7 +89,7 @@ h1 {
   letter-spacing: 0.4rem;
   text-align: center;
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 700px) {
   h1 {
     top: 20%;
     width: 90%;
@@ -118,17 +106,18 @@ h1 {
   overflow: hidden;
   width: 128px;
   height: 128px;
-  margin-bottom: 20px;
+  bottom: 20px;
   position: relative;
   background-color: #343650;
   filter: drop-shadow(0 8px 0 #191a24);
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 700px) {
   .grid-cell .card {
-    width: 64px;
-    height: 64px;
-    bottom: 5px;
-    filter: drop-shadow(0 4px 0 #191a24);
+    width: 18vw;
+    height: 18vw;
+    bottom: 10px;
+    border-radius: 1.125vw;
+    filter: drop-shadow(0 1.125vw 0 #191a24);
   }
 }
 .grid-cell .card svg {
@@ -148,9 +137,9 @@ h1 {
   background-color: rgba(25, 26, 36, 0.4);
   z-index: 2;
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 700px) {
   .grid-cell .card hr {
-    width: 58px;
+    width: 16.2vw;
   }
 }
 .grid-cell .card__top, .grid-cell .card__bottom, .grid-cell .card__bottom-bg {
@@ -164,6 +153,11 @@ h1 {
   font-size: 5rem;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 700px) {
+  .grid-cell .card__top__number, .grid-cell .card__bottom__number, .grid-cell .card__bottom-bg__number {
+    font-size: 9vw;
+  }
 }
 .grid-cell .card__top {
   top: 0;
@@ -191,9 +185,9 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.3rem;
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 700px) {
   .grid-cell .label {
-    font-size: 0.5rem;
+    font-size: 1.8vw;
     letter-spacing: 0.15rem;
   }
 }
@@ -223,7 +217,7 @@ h1 {
   font-family: "Red Hat Text", sans-serif;
   width: 100%;
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 700px) {
   .attribution {
     font-size: 10px;
     margin-top: 10px;
