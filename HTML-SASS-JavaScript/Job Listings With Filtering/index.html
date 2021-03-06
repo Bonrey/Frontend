@@ -12,6 +12,80 @@
 
 <body>
 <main>
+  <div class="filters-menu">
+    <div class="filters-menu__filters">
+      <!-- Roles -->
+      <div id="frontend">
+        <span>Frontend</span>
+        <button>&#10005;</button>  <!-- cross symbol -->
+      </div>
+      <div id="fullstack">
+        <span>Fullstack</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="backend">
+        <span>Backend</span>
+        <button>&#10005;</button>
+      </div>
+      <!-- Levels -->
+      <div id="junior">
+        <span>Junior</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="midweight">
+        <span>Midweight</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="senior">
+        <span>Senior</span>
+        <button>&#10005;</button>
+      </div>
+      <!-- Languages -->
+      <div id="html">
+        <span>HTML</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="css">
+        <span>CSS</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="javascript">
+        <span>JavaScript</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="python">
+        <span>Python</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="ruby">
+        <span>Ruby</span>
+        <button>&#10005;</button>
+      </div>
+      <!-- Tools -->
+      <div id="sass">
+        <span>Sass</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="react">
+        <span>React</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="vue">
+        <span>Vue</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="ror">
+        <span>RoR</span>
+        <button>&#10005;</button>
+      </div>
+      <div id="django">
+        <span>Django</span>
+        <button>&#10005;</button>
+      </div>
+    </div>
+    <button class="filters-menu__clear-btn" type="button">Clear</button>
+  </div>
+
   <section class="item">
     <div class="info">
       <img class="info__img" src="images/photosnap.svg" alt="Photosnap Logo">
@@ -31,11 +105,11 @@
     </div>
     <hr>
     <div class="filters" data-role="frontend" data-level="senior" data-languages="html css javascript">
-      <button>Frontend</button>
-      <button>Senior</button>
-      <button>HTML</button>
-      <button>CSS</button>
-      <button>JavaScript</button>
+      <button type="button">Frontend</button>
+      <button type="button">Senior</button>
+      <button type="button">HTML</button>
+      <button type="button">CSS</button>
+      <button type="button">JavaScript</button>
     </div>
   </section>
 
@@ -56,11 +130,12 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="filters" data-role="fullstack" data-level="midweight" data-languages="python" data-tools="react">
-      <span>Fullstack</span>
-      <span>Midweight</span>
-      <span>Python</span>
-      <span>React</span>
+      <button type="button">Fullstack</button>
+      <button type="button">Midweight</button>
+      <button type="button">Python</button>
+      <button type="button">React</button>
     </div>
   </section>
 
@@ -80,13 +155,14 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
          data-tools="react sass">
-      <span>Frontend</span>
-      <span>Junior</span>
-      <span>JavaScript</span>
-      <span>React</span>
-      <span>Sass</span>
+      <button type="button">Frontend</button>
+      <button type="button">Junior</button>
+      <button type="button">JavaScript</button>
+      <button type="button">React</button>
+      <button type="button">Sass</button>
     </div>
   </section>
 
@@ -105,11 +181,12 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="filters" data-role="frontend" data-level="junior" data-languages="css javascript">
-      <span>Frontend</span>
-      <span>Junior</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
+      <button type="button">Frontend</button>
+      <button type="button">Junior</button>
+      <button type="button">CSS</button>
+      <button type="button">JavaScript</button>
     </div>
   </section>
 
@@ -128,13 +205,14 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="filters" data-role="fullstack" data-level="midweight" data-languages="javascript ruby"
          data-tools="sass">
-      <span>Fullstack</span>
-      <span>Midweight</span>
-      <span>JavaScript</span>
-      <span>Ruby</span>
-      <span>Sass</span>
+      <button type="button">Fullstack</button>
+      <button type="button">Midweight</button>
+      <button type="button">JavaScript</button>
+      <button type="button">Ruby</button>
+      <button type="button">Sass</button>
     </div>
   </section>
 
@@ -153,11 +231,12 @@
         </div>
       </div>
     </div>
-    <div class="filters" data-role="backend" data-level="junior" data-languages="ruby" data-tools="RoR">
-      <span>Backend</span>
-      <span>Junior</span>
-      <span>Ruby</span>
-      <span>RoR</span>
+    <hr>
+    <div class="filters" data-role="backend" data-level="junior" data-languages="ruby" data-tools="ror">
+      <button type="button">Backend</button>
+      <button type="button">Junior</button>
+      <button type="button">Ruby</button>
+      <button type="button">RoR</button>
     </div>
   </section>
 
@@ -176,13 +255,14 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="filters" data-role="frontend" data-level="junior" data-languages="html javascript"
          data-tools="sass">
-      <span>Frontend</span>
-      <span>Junior</span>
-      <span>HTML</span>
-      <span>JavaScript</span>
-      <span>Sass</span>
+      <button type="button">Frontend</button>
+      <button type="button">Junior</button>
+      <button type="button">HTML</button>
+      <button type="button">JavaScript</button>
+      <button type="button">Sass</button>
     </div>
   </section>
 
@@ -201,13 +281,14 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
          data-tools="vue sass">
-      <span>Frontend</span>
-      <span>Junior</span>
-      <span>JavaScript</span>
-      <span>Vue</span>
-      <span>Sass</span>
+      <button type="button">Frontend</button>
+      <button type="button">Junior</button>
+      <button type="button">JavaScript</button>
+      <button type="button">Vue</button>
+      <button type="button">Sass</button>
     </div>
   </section>
 
@@ -226,13 +307,14 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="filters" data-role="fullstack" data-level="midweight" data-languages="javascript python"
-         data-tools="Django">
-      <span>Fullstack</span>
-      <span>Midweight</span>
-      <span>JavaScript</span>
-      <span>Python</span>
-      <span>Django</span>
+         data-tools="django">
+      <button type="button">Fullstack</button>
+      <button type="button">Midweight</button>
+      <button type="button">JavaScript</button>
+      <button type="button">Python</button>
+      <button type="button">Django</button>
     </div>
   </section>
 
@@ -251,13 +333,14 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
          data-tools="react sass">
-      <span>Frontend</span>
-      <span>Junior</span>
-      <span>JavaScript</span>
-      <span>React</span>
-      <span>Sass</span>
+      <button type="button">Frontend</button>
+      <button type="button">Junior</button>
+      <button type="button">JavaScript</button>
+      <button type="button">React</button>
+      <button type="button">Sass</button>
     </div>
   </section>
 </main>
