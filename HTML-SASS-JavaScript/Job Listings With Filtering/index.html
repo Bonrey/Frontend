@@ -2,192 +2,271 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Job Listings</title>
+  <link rel="stylesheet" href="css/minified/main.min.css">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <title>Job Listings</title>
 </head>
+
 <body>
-  <!-- Item Start -->
-  Photosnap
-  New!
-  Featured
-  Senior Frontend Developer
-  1d ago
-  Full Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Senior
-  <!-- Languages -->
-  HTML
-  CSS
-  JavaScript
-  <!-- Item End -->
+<main>
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/photosnap.svg" alt="Photosnap Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">Photosnap</span>
+          <span class="new">New!</span>
+          <span class="featured">Featured</span>
+        </div>
+        <h2>Senior Frontend Developer</h2>
+        <div class="info__left__bottom">
+          <span>1d ago</span>
+          <span>Full Time</span>
+          <span>USA only</span>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="filters" data-role="frontend" data-level="senior" data-languages="html css javascript">
+      <button>Frontend</button>
+      <button>Senior</button>
+      <button>HTML</button>
+      <button>CSS</button>
+      <button>JavaScript</button>
+    </div>
+  </section>
 
-  <!-- Item Start -->
-  Manage
-  New!
-  Featured
-  Fullstack Developer
-  1d ago
-  Part Time
-  Remote
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  Python
-  <!-- Tools -->
-  React
-  <!-- Item End -->
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/manage.svg" alt="Manage Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">Manage</span>
+          <span class="new">New!</span>
+          <span class="featured">Featured</span>
+        </div>
+        <h2>Fullstack Developer</h2>
+        <div class="info__left__bottom">
+          <span>1d ago</span>
+          <span>Part Time</span>
+          <span>Remote</span>
+        </div>
+      </div>
+    </div>
+    <div class="filters" data-role="fullstack" data-level="midweight" data-languages="python" data-tools="react">
+      <span>Fullstack</span>
+      <span>Midweight</span>
+      <span>Python</span>
+      <span>React</span>
+    </div>
+  </section>
 
-  <!-- Item Start -->
-  Account
-  New!
-  Junior Frontend Developer
-  2d ago
-  Part Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  React
-  Sass
-  <!-- Item End -->
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/account.svg" alt="Account Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">Account</span>
+          <span class="new">New!</span>
+        </div>
+        <h2>Junior Frontend Developer</h2>
+        <div class="info__left__bottom">
+          <span>2d ago</span>
+          <span>Part Time</span>
+          <span>USA only</span>
+        </div>
+      </div>
+    </div>
+    <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
+         data-tools="react sass">
+      <span>Frontend</span>
+      <span>Junior</span>
+      <span>JavaScript</span>
+      <span>React</span>
+      <span>Sass</span>
+    </div>
+  </section>
 
-  <!-- Item Start -->
-  MyHome
-  Junior Frontend Developer
-  5d ago
-  Contract
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  CSS
-  JavaScript
-  <!-- Item End -->
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/myhome.svg" alt="MyHome Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">MyHome</span>
+        </div>
+        <h2>Junior Frontend Developer</h2>
+        <div class="info__left__bottom">
+          <span>5d ago</span>
+          <span>Contract</span>
+          <span>USA only</span>
+        </div>
+      </div>
+    </div>
+    <div class="filters" data-role="frontend" data-level="junior" data-languages="css javascript">
+      <span>Frontend</span>
+      <span>Junior</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+    </div>
+  </section>
 
-  <!-- Item Start -->
-  Loop Studios
-  Software Engineer
-  1w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  JavaScript
-  Ruby
-  <!-- Tools -->
-  Sass
-  <!-- Item End -->
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/loop-studios.svg" alt="Loop Studios Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">Loop Studios</span>
+        </div>
+        <h2>Software Engineer</h2>
+        <div class="info__left__bottom">
+          <span>1w ago</span>
+          <span>Full Time</span>
+          <span>Worldwide</span>
+        </div>
+      </div>
+    </div>
+    <div class="filters" data-role="fullstack" data-level="midweight" data-languages="javascript ruby"
+         data-tools="sass">
+      <span>Fullstack</span>
+      <span>Midweight</span>
+      <span>JavaScript</span>
+      <span>Ruby</span>
+      <span>Sass</span>
+    </div>
+  </section>
 
-  <!-- Item Start -->
-  FaceIt
-  Junior Backend Developer
-  2w ago
-  Full Time
-  UK only
-  <!-- Role -->
-  Backend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  Ruby
-  <!-- Tools -->
-  RoR
-  <!-- Item End -->
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/faceit.svg" alt="FaceIt Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">FaceIt</span>
+        </div>
+        <h2>Junior Backend Developer</h2>
+        <div class="info__left__bottom">
+          <span>2w ago</span>
+          <span>Full Time</span>
+          <span>UK only</span>
+        </div>
+      </div>
+    </div>
+    <div class="filters" data-role="backend" data-level="junior" data-languages="ruby" data-tools="RoR">
+      <span>Backend</span>
+      <span>Junior</span>
+      <span>Ruby</span>
+      <span>RoR</span>
+    </div>
+  </section>
 
-  <!-- Item Start -->
-  Shortly
-  Junior Developer
-  2w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  HTML
-  JavaScript
-  <!-- Tools -->
-  Sass
-  <!-- Item End -->
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/shortly.svg" alt="Shortly Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">Shortly</span>
+        </div>
+        <h2>Junior Developer</h2>
+        <div class="info__left__bottom">
+          <span>2w ago</span>
+          <span>Full Time</span>
+          <span>Worldwide</span>
+        </div>
+      </div>
+    </div>
+    <div class="filters" data-role="frontend" data-level="junior" data-languages="html javascript"
+         data-tools="sass">
+      <span>Frontend</span>
+      <span>Junior</span>
+      <span>HTML</span>
+      <span>JavaScript</span>
+      <span>Sass</span>
+    </div>
+  </section>
 
-  <!-- Item Start -->
-  Insure
-  Junior Frontend Developer
-  2w ago
-  Full Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  Vue
-  Sass
-  <!-- Item End -->
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/insure.svg" alt="Insure Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">Insure</span>
+        </div>
+        <h2>Junior Frontend Developer</h2>
+        <div class="info__left__bottom">
+          <span>2w ago</span>
+          <span>Full Time</span>
+          <span>USA only</span>
+        </div>
+      </div>
+    </div>
+    <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
+         data-tools="vue sass">
+      <span>Frontend</span>
+      <span>Junior</span>
+      <span>JavaScript</span>
+      <span>Vue</span>
+      <span>Sass</span>
+    </div>
+  </section>
 
-  <!-- Item Start -->
-  Eyecam Co.
-  Full Stack Engineer
-  3w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  JavaScript
-  Python
-  <!-- Tools -->
-  Django
-  <!-- Item End -->
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/eyecam-co.svg" alt="Eyecam Co. Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">Eyecam Co.</span>
+        </div>
+        <h2>Full Stack Engineer</h2>
+        <div class="info__left__bottom">
+          <span>3w ago</span>
+          <span>Full Time</span>
+          <span>Worldwide</span>
+        </div>
+      </div>
+    </div>
+    <div class="filters" data-role="fullstack" data-level="midweight" data-languages="javascript python"
+         data-tools="Django">
+      <span>Fullstack</span>
+      <span>Midweight</span>
+      <span>JavaScript</span>
+      <span>Python</span>
+      <span>Django</span>
+    </div>
+  </section>
 
-  <!-- Item Start -->
-  The Air Filter Company
-  Front-end Dev
-  1mo ago
-  Part Time
-  Worldwide
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  React
-  Sass
-  <!-- Item End -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <section class="item">
+    <div class="info">
+      <img class="info__img" src="images/the-air-filter-company.svg" alt="The Air Filter Company Logo">
+      <div class="info__left">
+        <div class="info__left__top">
+          <span class="info__left__top__name">The Air Filter Company</span>
+        </div>
+        <h2>Front-end Dev</h2>
+        <div class="info__left__bottom">
+          <span>1mo ago</span>
+          <span>Part Time</span>
+          <span>Worldwide</span>
+        </div>
+      </div>
+    </div>
+    <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
+         data-tools="react sass">
+      <span>Frontend</span>
+      <span>Junior</span>
+      <span>JavaScript</span>
+      <span>React</span>
+      <span>Sass</span>
+    </div>
+  </section>
+</main>
+
+<footer class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+  Coded by <a href="https://github.com/Bonrey" target="_blank">Bonrey</a>.
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
+
+$desaturated-dark-cyan: hsl(180, 29%, 50%);
+$bg-color: hsl(180, 52%, 96%);
+$white: hsl(0, 0%, 100%);
+$filter-tablets-color: hsl(180, 31%, 95%);
+$dark-grayish-cyan: hsl(180, 8%, 52%);
+$very-dark-grayish-cyan: hsl(180, 14%, 20%);
+
+$Spartan: "Spartan", sans-serif;
+$medium-w: 500;
+$bold-w: 700;
+$font-sz: 15px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: $Spartan;
+  font-size: $font-sz;
+  font-weight: $medium-w;
+}
