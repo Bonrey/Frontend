@@ -32,7 +32,7 @@ const updateTopMargin = () => itemsWrapper.style.marginTop = filtersMenuShown ? 
 // hide/show filters menu
 // ======================
 function hideFiltersMenu() {
-  filtersMenu.style.animation = "invisible 0.3s 1";
+  filtersMenu.style.animation = "invisible-menu 0.3s 1";
   setTimeout(() => {
     filtersMenu.style.display = "none";
     updateTopMargin();
@@ -42,7 +42,7 @@ function hideFiltersMenu() {
 
 function showFiltersMenu() {
   filtersMenu.style.display = "flex";
-  filtersMenu.style.animation = "visible 0.3s 1";
+  filtersMenu.style.animation = "visible-menu 0.3s 1";
   setTimeout(() => {
     filtersMenu.style.opacity = "1";
   }, 270);
@@ -58,7 +58,7 @@ const removeFilterButtons = document.querySelectorAll(".filters-menu__filters bu
 for (let i = 0, len = removeFilterButtons.length; i < len; i++) {
   removeFilterButtons[i].addEventListener("click", () => {
     let filterElement = removeFilterButtons[i].parentElement;
-    filterElement.style.animation = "invisible 0.3s 1";
+    filterElement.style.animation = "invisible-filter 0.3s 1";
     setTimeout(() => {
       filterElement.style.display = "none";
     }, 270);
@@ -79,7 +79,7 @@ const clearBtn = document.getElementById("clear");
 clearBtn.addEventListener("click", () => {
   for (let i = 0, len = filters.length; i < len; i++) {
     let filterElement = document.getElementById(filters[i]);
-    filterElement.style.animation = "invisible 0.3s 1";
+    filterElement.style.animation = "invisible-menu 0.3s 1";
     setTimeout(() => {
       filterElement.style.display = "none";
     }, 270);
@@ -101,7 +101,7 @@ for (let i = 0, len = filterTablets.length; i < len; i++) {
     let filterElement = document.getElementById(filterTablets[i].innerText.toLowerCase());
     if (filters.indexOf(filterElement.id) === -1) {
       filterElement.style.display = "flex";
-      filterElement.style.animation = "visible 0.3s 1";
+      filterElement.style.animation = "visible-filter 0.3s 1";
       filters.push(filterElement.id);
       updateItems();
     }
@@ -118,10 +118,9 @@ function updateItems() {
     for (let i = 0, len = filters.length; i < len; i++) {
       if (items[item].indexOf(filters[i]) === -1) {
         show = false;
-        break
+        break;
       }
     }
     itemElements[item].style.display = show ? "flex" : "none";
-    itemElements
   }
 }
