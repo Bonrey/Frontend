@@ -70,6 +70,7 @@
         background-color: $desaturated-dark-cyan;
         color: $white;
         font-size: 1.9rem;
+        transition: 0.3s;
 
         @media only screen and (max-width: 1000px) {
           font-size: 1.7rem;
@@ -77,7 +78,7 @@
           height: 26px;
         }
 
-        &:hover {
+        &:hover, &:focus {
           background-color: $very-dark-grayish-cyan;
         }
       }
@@ -96,12 +97,13 @@
     color: $dark-grayish-cyan;
     flex-basis: 10%;
     text-align: right;
+    transition: 0.3s;
 
     @media only screen and (max-width: 1000px) {
       font-size: 0.8rem;
     }
 
-    &:hover {
+    &:hover, &:focus {
       text-decoration: underline;
       color: $desaturated-dark-cyan;
     }
@@ -236,8 +238,9 @@
       color: $very-dark-grayish-cyan;
       transition: 0.3s;
 
-      &:hover {
+      &:hover, &:focus {
         color: $desaturated-dark-cyan;
+        outline: none;
       }
 
       @media only screen and (max-width: 1000px) {
@@ -298,7 +301,7 @@
 
   &:hover {
     background-color: $desaturated-dark-cyan;
-    color: white;
+    color: $white;
   }
 }
 
@@ -322,7 +325,7 @@
     text-decoration: none;
     outline: none;
 
-    &:hover {
+    &:hover, &:focus {
       text-decoration: underline;
     }
   }

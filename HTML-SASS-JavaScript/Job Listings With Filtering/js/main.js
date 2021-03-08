@@ -85,7 +85,11 @@ function showFiltersMenu() {
 const removeFilterButtons = document.querySelectorAll(".filters-menu__filters button");
 for (let i = 0, len = removeFilterButtons.length; i < len; i++) {
   removeFilterButtons[i].addEventListener("click", () => {
-    removeFilterAudio.play();
+    removeFilterAudio.play().then(() => {
+      console.log("Playing audio (whoosh)")
+    }).catch(() => {
+      console.log("Audio playing (whoosh) was prevented");
+    });
 
     let filterElement = removeFilterButtons[i].parentElement;
     filterElement.style.animation = "invisible-filter 0.3s 1";
@@ -106,8 +110,13 @@ for (let i = 0, len = removeFilterButtons.length; i < len; i++) {
 // clear-all button
 // ================
 const clearBtn = document.getElementById("clear");
-clearBtn.addEventListener("click", () => {
-  removeFilterAudio.play();
+
+function clearAllFilters() {
+  removeFilterAudio.play().then(() => {
+    console.log("Playing audio (whoosh)")
+  }).catch(() => {
+    console.log("Audio playing (whoosh) was prevented");
+  });
 
   for (let i = 0, len = filters.length; i < len; i++) {
     let filterElement = document.getElementById(filters[i]);
@@ -120,6 +129,13 @@ clearBtn.addEventListener("click", () => {
   filters = [];
   updateItems();
   hideFiltersMenu();
+}
+
+clearBtn.addEventListener("click", clearAllFilters);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && filters.length > 0) {
+    clearAllFilters();
+  }
 });
 
 
@@ -129,9 +145,13 @@ clearBtn.addEventListener("click", () => {
 const filterTablets = document.querySelectorAll(".item .filters button");
 for (let i = 0, len = filterTablets.length; i < len; i++) {
   filterTablets[i].addEventListener("click", () => {
-    addFilterAudio.play();
-    if (!filtersMenuShown) showFiltersMenu();
+    addFilterAudio.play().then(() => {
+      console.log("Playing audio (click)")
+    }).catch(() => {
+      console.log("Audio playing (click) was prevented");
+    });
 
+    if (!filtersMenuShown) showFiltersMenu();
     let filterElement = document.getElementById(filterTablets[i].innerText.toLowerCase());
     if (filters.indexOf(filterElement.id) === -1) {
       filterElement.style.display = "flex";

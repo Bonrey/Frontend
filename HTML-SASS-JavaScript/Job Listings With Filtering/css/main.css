@@ -155,6 +155,7 @@ html {
   background-color: #5ba4a4;
   color: white;
   font-size: 1.9rem;
+  transition: 0.3s;
 }
 @media only screen and (max-width: 1000px) {
   .filters-menu__filters .container button {
@@ -163,7 +164,7 @@ html {
     height: 26px;
   }
 }
-.filters-menu__filters .container button:hover {
+.filters-menu__filters .container button:hover, .filters-menu__filters .container button:focus {
   background-color: #2c3a3a;
 }
 .filters-menu__clear-btn {
@@ -178,13 +179,14 @@ html {
   color: #7b8e8e;
   flex-basis: 10%;
   text-align: right;
+  transition: 0.3s;
 }
 @media only screen and (max-width: 1000px) {
   .filters-menu__clear-btn {
     font-size: 0.8rem;
   }
 }
-.filters-menu__clear-btn:hover {
+.filters-menu__clear-btn:hover, .filters-menu__clear-btn:focus {
   text-decoration: underline;
   color: #5ba4a4;
 }
@@ -301,8 +303,9 @@ html {
   color: #2c3a3a;
   transition: 0.3s;
 }
-.info__left h2 a:hover {
+.info__left h2 a:hover, .info__left h2 a:focus {
   color: #5ba4a4;
+  outline: none;
 }
 @media only screen and (max-width: 1000px) {
   .info__left h2 a {
@@ -377,7 +380,7 @@ html {
   text-decoration: none;
   outline: none;
 }
-.attribution a:hover {
+.attribution a:hover, .attribution a:focus {
   text-decoration: underline;
 }
 
