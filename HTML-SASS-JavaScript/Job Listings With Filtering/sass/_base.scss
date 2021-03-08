@@ -18,7 +18,9 @@ $font-sz: 15px;
 }
 
 html {
+  height: 100%;
   font-family: $Spartan;
   font-size: $font-sz;
   font-weight: $medium-w;
+  scroll-behavior: smooth;
 }

@@ -11,346 +11,349 @@
 </head>
 
 <body>
-<main>
-  <div class="filters-menu">
-    <div class="filters-menu__filters">
-      <!-- Roles -->
-      <div class="container" id="frontend">
-        <span>Frontend</span>
-        <button>×</button>
+<div id="wrapper">
+
+  <main>
+    <div class="filters-menu">
+      <div class="filters-menu__filters">
+        <!-- Roles -->
+        <div class="container" id="frontend">
+          <span>Frontend</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="fullstack">
+          <span>Fullstack</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="backend">
+          <span>Backend</span>
+          <button>×</button>
+        </div>
+        <!-- Levels -->
+        <div class="container" id="junior">
+          <span>Junior</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="midweight">
+          <span>Midweight</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="senior">
+          <span>Senior</span>
+          <button>×</button>
+        </div>
+        <!-- Languages -->
+        <div class="container" id="html">
+          <span>HTML</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="css">
+          <span>CSS</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="javascript">
+          <span>JavaScript</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="python">
+          <span>Python</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="ruby">
+          <span>Ruby</span>
+          <button>×</button>
+        </div>
+        <!-- Tools -->
+        <div class="container" id="sass">
+          <span>Sass</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="react">
+          <span>React</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="vue">
+          <span>Vue</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="ror">
+          <span>RoR</span>
+          <button>×</button>
+        </div>
+        <div class="container" id="django">
+          <span>Django</span>
+          <button>×</button>
+        </div>
       </div>
-      <div class="container" id="fullstack">
-        <span>Fullstack</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="backend">
-        <span>Backend</span>
-        <button>×</button>
-      </div>
-      <!-- Levels -->
-      <div class="container" id="junior">
-        <span>Junior</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="midweight">
-        <span>Midweight</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="senior">
-        <span>Senior</span>
-        <button>×</button>
-      </div>
-      <!-- Languages -->
-      <div class="container" id="html">
-        <span>HTML</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="css">
-        <span>CSS</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="javascript">
-        <span>JavaScript</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="python">
-        <span>Python</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="ruby">
-        <span>Ruby</span>
-        <button>×</button>
-      </div>
-      <!-- Tools -->
-      <div class="container" id="sass">
-        <span>Sass</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="react">
-        <span>React</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="vue">
-        <span>Vue</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="ror">
-        <span>RoR</span>
-        <button>×</button>
-      </div>
-      <div class="container" id="django">
-        <span>Django</span>
-        <button>×</button>
-      </div>
+      <button id="clear" class="filters-menu__clear-btn" type="button">Clear</button>
     </div>
-    <button id="clear" class="filters-menu__clear-btn" type="button">Clear</button>
-  </div>
 
-  <div class="items-wrapper">
-    <section class="item" id="photosnap-item">
-      <div class="info">
-        <img class="info__img" src="images/photosnap.svg" alt="Photosnap Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">Photosnap</span>
-            <span class="new">New!</span>
-            <span class="featured">Featured</span>
-          </div>
-          <h2>Senior Frontend Developer</h2>
-          <div class="info__left__bottom">
-            <span>1d ago</span>
-            <span>Full Time</span>
-            <span>USA only</span>
+    <div class="items-wrapper">
+      <section class="item" id="photosnap-item">
+        <div class="info">
+          <img class="info__img" src="images/photosnap.svg" alt="Photosnap Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">Photosnap</span>
+              <span class="new">New!</span>
+              <span class="featured">Featured</span>
+            </div>
+            <h2><a href="#">Senior Frontend Developer</a></h2>
+            <div class="info__left__bottom">
+              <span>1d ago</span>
+              <span>Full Time</span>
+              <span>USA only</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="frontend" data-level="senior" data-languages="html css javascript">
-        <button type="button">Frontend</button>
-        <button type="button">Senior</button>
-        <button type="button">HTML</button>
-        <button type="button">CSS</button>
-        <button type="button">JavaScript</button>
-      </div>
-    </section>
+        <hr>
+        <div class="filters" data-role="frontend" data-level="senior" data-languages="html css javascript">
+          <button type="button">Frontend</button>
+          <button type="button">Senior</button>
+          <button type="button">HTML</button>
+          <button type="button">CSS</button>
+          <button type="button">JavaScript</button>
+        </div>
+      </section>
 
-    <section class="item" id="manage-item">
-      <div class="info">
-        <img class="info__img" src="images/manage.svg" alt="Manage Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">Manage</span>
-            <span class="new">New!</span>
-            <span class="featured">Featured</span>
-          </div>
-          <h2>Fullstack Developer</h2>
-          <div class="info__left__bottom">
-            <span>1d ago</span>
-            <span>Part Time</span>
-            <span>Remote</span>
+      <section class="item" id="manage-item">
+        <div class="info">
+          <img class="info__img" src="images/manage.svg" alt="Manage Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">Manage</span>
+              <span class="new">New!</span>
+              <span class="featured">Featured</span>
+            </div>
+            <h2><a href="#">Fullstack Developer</a></h2>
+            <div class="info__left__bottom">
+              <span>1d ago</span>
+              <span>Part Time</span>
+              <span>Remote</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="fullstack" data-level="midweight" data-languages="python" data-tools="react">
-        <button type="button">Fullstack</button>
-        <button type="button">Midweight</button>
-        <button type="button">Python</button>
-        <button type="button">React</button>
-      </div>
-    </section>
+        <hr>
+        <div class="filters" data-role="fullstack" data-level="midweight" data-languages="python" data-tools="react">
+          <button type="button">Fullstack</button>
+          <button type="button">Midweight</button>
+          <button type="button">Python</button>
+          <button type="button">React</button>
+        </div>
+      </section>
 
-    <section class="item" id="account-item">
-      <div class="info">
-        <img class="info__img" src="images/account.svg" alt="Account Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">Account</span>
-            <span class="new">New!</span>
-          </div>
-          <h2>Junior Frontend Developer</h2>
-          <div class="info__left__bottom">
-            <span>2d ago</span>
-            <span>Part Time</span>
-            <span>USA only</span>
+      <section class="item" id="account-item">
+        <div class="info">
+          <img class="info__img" src="images/account.svg" alt="Account Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">Account</span>
+              <span class="new">New!</span>
+            </div>
+            <h2><a href="#">Junior Frontend Developer</a></h2>
+            <div class="info__left__bottom">
+              <span>2d ago</span>
+              <span>Part Time</span>
+              <span>USA only</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
-           data-tools="react sass">
-        <button type="button">Frontend</button>
-        <button type="button">Junior</button>
-        <button type="button">JavaScript</button>
-        <button type="button">React</button>
-        <button type="button">Sass</button>
-      </div>
-    </section>
+        <hr>
+        <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
+             data-tools="react sass">
+          <button type="button">Frontend</button>
+          <button type="button">Junior</button>
+          <button type="button">JavaScript</button>
+          <button type="button">React</button>
+          <button type="button">Sass</button>
+        </div>
+      </section>
 
-    <section class="item" id="myhome-item">
-      <div class="info">
-        <img class="info__img" src="images/myhome.svg" alt="MyHome Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">MyHome</span>
-          </div>
-          <h2>Junior Frontend Developer</h2>
-          <div class="info__left__bottom">
-            <span>5d ago</span>
-            <span>Contract</span>
-            <span>USA only</span>
+      <section class="item" id="myhome-item">
+        <div class="info">
+          <img class="info__img" src="images/myhome.svg" alt="MyHome Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">MyHome</span>
+            </div>
+            <h2><a href="#">Junior Frontend Developer</a></h2>
+            <div class="info__left__bottom">
+              <span>5d ago</span>
+              <span>Contract</span>
+              <span>USA only</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="frontend" data-level="junior" data-languages="css javascript">
-        <button type="button">Frontend</button>
-        <button type="button">Junior</button>
-        <button type="button">CSS</button>
-        <button type="button">JavaScript</button>
-      </div>
-    </section>
+        <hr>
+        <div class="filters" data-role="frontend" data-level="junior" data-languages="css javascript">
+          <button type="button">Frontend</button>
+          <button type="button">Junior</button>
+          <button type="button">CSS</button>
+          <button type="button">JavaScript</button>
+        </div>
+      </section>
 
-    <section class="item" id="loop-studios-item">
-      <div class="info">
-        <img class="info__img" src="images/loop-studios.svg" alt="Loop Studios Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">Loop Studios</span>
-          </div>
-          <h2>Software Engineer</h2>
-          <div class="info__left__bottom">
-            <span>1w ago</span>
-            <span>Full Time</span>
-            <span>Worldwide</span>
+      <section class="item" id="loop-studios-item">
+        <div class="info">
+          <img class="info__img" src="images/loop-studios.svg" alt="Loop Studios Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">Loop Studios</span>
+            </div>
+            <h2><a href="#">Software Engineer</a></h2>
+            <div class="info__left__bottom">
+              <span>1w ago</span>
+              <span>Full Time</span>
+              <span>Worldwide</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="fullstack" data-level="midweight" data-languages="javascript ruby"
-           data-tools="sass">
-        <button type="button">Fullstack</button>
-        <button type="button">Midweight</button>
-        <button type="button">JavaScript</button>
-        <button type="button">Ruby</button>
-        <button type="button">Sass</button>
-      </div>
-    </section>
+        <hr>
+        <div class="filters" data-role="fullstack" data-level="midweight" data-languages="javascript ruby"
+             data-tools="sass">
+          <button type="button">Fullstack</button>
+          <button type="button">Midweight</button>
+          <button type="button">JavaScript</button>
+          <button type="button">Ruby</button>
+          <button type="button">Sass</button>
+        </div>
+      </section>
 
-    <section class="item" id="faceit-item">
-      <div class="info">
-        <img class="info__img" src="images/faceit.svg" alt="FaceIt Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">FaceIt</span>
-          </div>
-          <h2>Junior Backend Developer</h2>
-          <div class="info__left__bottom">
-            <span>2w ago</span>
-            <span>Full Time</span>
-            <span>UK only</span>
+      <section class="item" id="faceit-item">
+        <div class="info">
+          <img class="info__img" src="images/faceit.svg" alt="FaceIt Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">FaceIt</span>
+            </div>
+            <h2><a href="#">Junior Backend Developer</a></h2>
+            <div class="info__left__bottom">
+              <span>2w ago</span>
+              <span>Full Time</span>
+              <span>UK only</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="backend" data-level="junior" data-languages="ruby" data-tools="ror">
-        <button type="button">Backend</button>
-        <button type="button">Junior</button>
-        <button type="button">Ruby</button>
-        <button type="button">RoR</button>
-      </div>
-    </section>
+        <hr>
+        <div class="filters" data-role="backend" data-level="junior" data-languages="ruby" data-tools="ror">
+          <button type="button">Backend</button>
+          <button type="button">Junior</button>
+          <button type="button">Ruby</button>
+          <button type="button">RoR</button>
+        </div>
+      </section>
 
-    <section class="item" id="shortly-item">
-      <div class="info">
-        <img class="info__img" src="images/shortly.svg" alt="Shortly Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">Shortly</span>
-          </div>
-          <h2>Junior Developer</h2>
-          <div class="info__left__bottom">
-            <span>2w ago</span>
-            <span>Full Time</span>
-            <span>Worldwide</span>
+      <section class="item" id="shortly-item">
+        <div class="info">
+          <img class="info__img" src="images/shortly.svg" alt="Shortly Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">Shortly</span>
+            </div>
+            <h2><a href="#">Junior Developer</a></h2>
+            <div class="info__left__bottom">
+              <span>2w ago</span>
+              <span>Full Time</span>
+              <span>Worldwide</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="frontend" data-level="junior" data-languages="html javascript"
-           data-tools="sass">
-        <button type="button">Frontend</button>
-        <button type="button">Junior</button>
-        <button type="button">HTML</button>
-        <button type="button">JavaScript</button>
-        <button type="button">Sass</button>
-      </div>
-    </section>
+        <hr>
+        <div class="filters" data-role="frontend" data-level="junior" data-languages="html javascript"
+             data-tools="sass">
+          <button type="button">Frontend</button>
+          <button type="button">Junior</button>
+          <button type="button">HTML</button>
+          <button type="button">JavaScript</button>
+          <button type="button">Sass</button>
+        </div>
+      </section>
 
-    <section class="item" id="insure-item">
-      <div class="info">
-        <img class="info__img" src="images/insure.svg" alt="Insure Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">Insure</span>
-          </div>
-          <h2>Junior Frontend Developer</h2>
-          <div class="info__left__bottom">
-            <span>2w ago</span>
-            <span>Full Time</span>
-            <span>USA only</span>
+      <section class="item" id="insure-item">
+        <div class="info">
+          <img class="info__img" src="images/insure.svg" alt="Insure Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">Insure</span>
+            </div>
+            <h2><a href="#">Junior Frontend Developer</a></h2>
+            <div class="info__left__bottom">
+              <span>2w ago</span>
+              <span>Full Time</span>
+              <span>USA only</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
-           data-tools="vue sass">
-        <button type="button">Frontend</button>
-        <button type="button">Junior</button>
-        <button type="button">JavaScript</button>
-        <button type="button">Vue</button>
-        <button type="button">Sass</button>
-      </div>
-    </section>
+        <hr>
+        <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
+             data-tools="vue sass">
+          <button type="button">Frontend</button>
+          <button type="button">Junior</button>
+          <button type="button">JavaScript</button>
+          <button type="button">Vue</button>
+          <button type="button">Sass</button>
+        </div>
+      </section>
 
-    <section class="item" id="eyecam-item">
-      <div class="info">
-        <img class="info__img" src="images/eyecam-co.svg" alt="Eyecam Co. Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">Eyecam Co.</span>
-          </div>
-          <h2>Full Stack Engineer</h2>
-          <div class="info__left__bottom">
-            <span>3w ago</span>
-            <span>Full Time</span>
-            <span>Worldwide</span>
+      <section class="item" id="eyecam-item">
+        <div class="info">
+          <img class="info__img" src="images/eyecam-co.svg" alt="Eyecam Co. Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">Eyecam Co.</span>
+            </div>
+            <h2><a href="#">Full Stack Engineer</a></h2>
+            <div class="info__left__bottom">
+              <span>3w ago</span>
+              <span>Full Time</span>
+              <span>Worldwide</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="fullstack" data-level="midweight" data-languages="javascript python"
-           data-tools="django">
-        <button type="button">Fullstack</button>
-        <button type="button">Midweight</button>
-        <button type="button">JavaScript</button>
-        <button type="button">Python</button>
-        <button type="button">Django</button>
-      </div>
-    </section>
+        <hr>
+        <div class="filters" data-role="fullstack" data-level="midweight" data-languages="javascript python"
+             data-tools="django">
+          <button type="button">Fullstack</button>
+          <button type="button">Midweight</button>
+          <button type="button">JavaScript</button>
+          <button type="button">Python</button>
+          <button type="button">Django</button>
+        </div>
+      </section>
 
-    <section class="item" id="air-filter-item">
-      <div class="info">
-        <img class="info__img" src="images/the-air-filter-company.svg" alt="The Air Filter Company Logo">
-        <div class="info__left">
-          <div class="info__left__top">
-            <span class="info__left__top__name">The Air Filter Company</span>
-          </div>
-          <h2>Front-end Dev</h2>
-          <div class="info__left__bottom">
-            <span>1mo ago</span>
-            <span>Part Time</span>
-            <span>Worldwide</span>
+      <section class="item" id="air-filter-item">
+        <div class="info">
+          <img class="info__img" src="images/the-air-filter-company.svg" alt="The Air Filter Company Logo">
+          <div class="info__left">
+            <div class="info__left__top">
+              <span class="info__left__top__name">The Air Filter Company</span>
+            </div>
+            <h2><a href="#">Front-end Dev</a></h2>
+            <div class="info__left__bottom">
+              <span>1mo ago</span>
+              <span>Part Time</span>
+              <span>Worldwide</span>
+            </div>
           </div>
         </div>
-      </div>
-      <hr>
-      <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
-           data-tools="react sass">
-        <button type="button">Frontend</button>
-        <button type="button">Junior</button>
-        <button type="button">JavaScript</button>
-        <button type="button">React</button>
-        <button type="button">Sass</button>
-      </div>
-    </section>
-  </div>
-</main>
+        <hr>
+        <div class="filters" data-role="frontend" data-level="junior" data-languages="javascript"
+             data-tools="react sass">
+          <button type="button">Frontend</button>
+          <button type="button">Junior</button>
+          <button type="button">JavaScript</button>
+          <button type="button">React</button>
+          <button type="button">Sass</button>
+        </div>
+      </section>
+    </div>
+  </main>
 
-<footer class="attribution">
-  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-  Coded by <a href="https://github.com/Bonrey" target="_blank">Bonrey</a>.
-</footer>
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://github.com/Bonrey" target="_blank">Bonrey</a>.
+  </footer>
+</div>
 
 <script src="js/main.js"></script>
 </body>

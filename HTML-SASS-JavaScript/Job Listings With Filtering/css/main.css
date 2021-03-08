@@ -8,9 +8,11 @@
 }
 
 html {
+  height: 100%;
   font-family: "Spartan", sans-serif;
   font-size: 15px;
   font-weight: 500;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -19,15 +21,19 @@ html {
 }
 
 html {
+  height: 100%;
   font-family: "Spartan", sans-serif;
   font-size: 15px;
   font-weight: 500;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: #effafa;
-  min-height: 100vh;
+  min-height: calc(100% - 156px);
   padding-top: 156px;
+  display: flex;
+  justify-content: center;
 }
 body::before {
   content: "";
@@ -45,9 +51,13 @@ body::before {
   }
 }
 
+#wrapper {
+  position: relative;
+  padding-bottom: 100px;
+}
+
 main {
   width: 1100px;
-  margin: 0 auto;
 }
 @media only screen and (max-width: 1200px) {
   main {
@@ -62,7 +72,13 @@ main {
 
 .items-wrapper {
   margin-top: 50px;
-  transition: transform 2s;
+}
+
+footer {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 * {
@@ -71,19 +87,13 @@ main {
 }
 
 html {
+  height: 100%;
   font-family: "Spartan", sans-serif;
   font-size: 15px;
   font-weight: 500;
+  scroll-behavior: smooth;
 }
 
-@keyframes visible {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .filters-menu {
   background-color: white;
   align-items: center;
@@ -94,7 +104,6 @@ html {
   position: relative;
   top: -29px;
   display: none;
-  opacity: 0;
 }
 @media only screen and (max-width: 1000px) {
   .filters-menu {
@@ -119,9 +128,8 @@ html {
   font-size: 0.9rem;
   margin: 6px 12px 6px 0;
   align-items: center;
-  transition: 0.3s;
+  transition: 2s;
   display: none;
-  opacity: 0;
 }
 @media only screen and (max-width: 1000px) {
   .filters-menu__filters .container {
@@ -145,13 +153,13 @@ html {
   cursor: pointer;
   width: 28px;
   height: 28px;
+  line-height: 28px;
   border: none;
   outline: none;
   background-color: #5ba4a4;
   color: white;
   font-size: 1.9rem;
-  line-height: 100%;
-  transition: background-color 0.3s;
+  transition: 0.3s;
 }
 @media only screen and (max-width: 1000px) {
   .filters-menu__filters .container button {
@@ -287,24 +295,24 @@ html {
   background-color: #2c3a3a;
   margin-left: 5px;
 }
-.info__left h2 {
-  color: #2c3a3a;
-  font-size: 1.2rem;
-  transition: 0.3s;
-}
-@media only screen and (max-width: 1000px) {
-  .info__left h2 {
-    font-size: 1rem;
-  }
-}
 @media only screen and (max-width: 800px) {
   .info__left h2 {
     margin: 10px 0;
   }
 }
-.info__left h2:hover {
+.info__left h2 a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #2c3a3a;
+  transition: 0.3s;
+}
+.info__left h2 a:hover {
   color: #5ba4a4;
-  cursor: pointer;
+}
+@media only screen and (max-width: 1000px) {
+  .info__left h2 a {
+    font-size: 1rem;
+  }
 }
 .info__left__bottom {
   color: #7b8e8e;
@@ -358,7 +366,6 @@ html {
 }
 
 .attribution {
-  margin: 70px 0 30px;
   font-size: 12px;
   text-align: center;
   color: #5ba4a4;
@@ -376,6 +383,23 @@ html {
 }
 .attribution a:hover {
   text-decoration: underline;
+}
+
+@keyframes visible {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes invisible {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

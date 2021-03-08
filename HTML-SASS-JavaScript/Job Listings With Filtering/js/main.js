@@ -32,11 +32,11 @@ const updateTopMargin = () => itemsWrapper.style.marginTop = filtersMenuShown ? 
 // hide/show filters menu
 // ======================
 function hideFiltersMenu() {
-  filtersMenu.style.opacity = "0";
+  filtersMenu.style.animation = "invisible 0.3s 1";
   setTimeout(() => {
     filtersMenu.style.display = "none";
     updateTopMargin();
-  }, 300);
+  }, 270);
   filtersMenuShown = false;
 }
 
@@ -45,7 +45,7 @@ function showFiltersMenu() {
   filtersMenu.style.animation = "visible 0.3s 1";
   setTimeout(() => {
     filtersMenu.style.opacity = "1";
-  }, 300);
+  }, 270);
   filtersMenuShown = true;
   updateTopMargin();
 }
@@ -58,10 +58,10 @@ const removeFilterButtons = document.querySelectorAll(".filters-menu__filters bu
 for (let i = 0, len = removeFilterButtons.length; i < len; i++) {
   removeFilterButtons[i].addEventListener("click", () => {
     let filterElement = removeFilterButtons[i].parentElement;
-    filterElement.style.opacity = "0";
+    filterElement.style.animation = "invisible 0.3s 1";
     setTimeout(() => {
       filterElement.style.display = "none";
-    }, 300);
+    }, 270);
 
     filters.splice(filters.indexOf(filterElement.id), 1);
     updateItems();
@@ -79,10 +79,10 @@ const clearBtn = document.getElementById("clear");
 clearBtn.addEventListener("click", () => {
   for (let i = 0, len = filters.length; i < len; i++) {
     let filterElement = document.getElementById(filters[i]);
-    filterElement.style.opacity = "0";
+    filterElement.style.animation = "invisible 0.3s 1";
     setTimeout(() => {
       filterElement.style.display = "none";
-    }, 300);
+    }, 270);
   }
   filters = [];
   updateItems();
@@ -102,9 +102,6 @@ for (let i = 0, len = filterTablets.length; i < len; i++) {
     if (filters.indexOf(filterElement.id) === -1) {
       filterElement.style.display = "flex";
       filterElement.style.animation = "visible 0.3s 1";
-      setTimeout(() => {
-        filterElement.style.opacity = "1";
-      }, 300);
       filters.push(filterElement.id);
       updateItems();
     }
@@ -125,5 +122,6 @@ function updateItems() {
       }
     }
     itemElements[item].style.display = show ? "flex" : "none";
+    itemElements
   }
 }

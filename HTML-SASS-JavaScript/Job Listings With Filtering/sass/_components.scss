@@ -1,13 +1,5 @@
 @import "base";
 
-@keyframes visible {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 // ================================
 // filters-menu (hidden by default)
@@ -15,7 +7,7 @@
 .filters-menu {
   background-color: $white;
   align-items: center;
-  padding: 9px 35px;  // 9 = 15 (desired) - 6 (.container margin)
+  padding: 9px 35px; // 9 = 15 (desired) - 6 (.container margin)
   border-radius: 5px;
   box-shadow: 0 1px 1px hsla(180, 29%, 50%, 0.15),
   0 3px 3px hsla(180, 29%, 50%, 0.15),
@@ -23,15 +15,14 @@
   0 9px 9px hsla(180, 29%, 50%, 0.15);
   transition: 0.3s;
   position: relative;
-  top: -29px;  // one half of 28 (btn height) + 9*2 (parent padding) + 6*2 (.container margin)
+  top: -29px; // one half of 28 (btn height) + 9*2 (parent padding) + 6*2 (.container margin)
   // default styles
   display: none;
-  opacity: 0;
 
   @media only screen and (max-width: 1000px) {
-    padding: 5px 25px;  // 5 = 10 (desired) - 5 (.container margin)
+    padding: 5px 25px; // 5 = 10 (desired) - 5 (.container margin)
   }
-  
+
   @media only screen and (max-width: 800px) {
     padding: 5px 20px;
   }
@@ -49,10 +40,9 @@
       font-size: 0.9rem;
       margin: 6px 12px 6px 0;
       align-items: center;
-      transition: 0.3s;
+      transition: 2s;
       // default styles
-      display: none;  // otherwise flex
-      opacity: 0;
+      display: none; // otherwise flex
 
       @media only screen and (max-width: 1000px) {
         font-size: 0.8rem;
@@ -65,7 +55,7 @@
         font-weight: $bold-w;
         color: $desaturated-dark-cyan;
         margin: 4px 6px 0;
-        
+
         @media only screen and (max-width: 1000px) {
           margin: 3px 5px 0;
         }
@@ -75,14 +65,14 @@
         cursor: pointer;
         width: 28px;
         height: 28px;
+        line-height: 28px;
         border: none;
         outline: none;
         background-color: $desaturated-dark-cyan;
         color: $white;
         font-size: 1.9rem;
-        line-height: 100%;
-        transition: background-color 0.3s;
-        
+        transition: 0.3s;
+
         @media only screen and (max-width: 1000px) {
           font-size: 1.7rem;
           width: 26px;
@@ -108,7 +98,7 @@
     color: $dark-grayish-cyan;
     flex-basis: 10%;
     text-align: right;
-    
+
     @media only screen and (max-width: 1000px) {
       font-size: 0.8rem;
     }
@@ -134,14 +124,14 @@
   align-items: center;
   border-radius: 5px;
   box-shadow: 0 1px 1px hsla(180, 29%, 50%, 0.15),
-              0 3px 3px hsla(180, 29%, 50%, 0.15),
-              0 6px 6px hsla(180, 29%, 50%, 0.15),
-              0 9px 9px hsla(180, 29%, 50%, 0.15);
+  0 3px 3px hsla(180, 29%, 50%, 0.15),
+  0 6px 6px hsla(180, 29%, 50%, 0.15),
+  0 9px 9px hsla(180, 29%, 50%, 0.15);
 
   hr {
     display: none;
   }
-  
+
   @media only screen and (max-width: 1000px) {
     height: 90px;
     padding: 10px 25px;
@@ -189,7 +179,7 @@
       height: 66px;
       margin-right: 20px;
     }
-    
+
     @media only screen and (max-width: 800px) {
       position: absolute;
       width: 56px;
@@ -218,7 +208,7 @@
         text-transform: uppercase;
         color: $white;
         text-align: center;
-        
+
         @media only screen and (max-width: 1000px) {
           padding: 3px 4px 0;
           font-size: 0.6rem;
@@ -236,22 +226,24 @@
       }
     }
 
-    h2 {
-      color: $very-dark-grayish-cyan;
-      font-size: 1.2rem;
-      transition: 0.3s;
-
-      @media only screen and (max-width: 1000px) {
-        font-size: 1rem;
-      }
-
-      @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 800px) {
+      h2 {
         margin: 10px 0;
       }
+    }
+
+    h2 a {
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: $very-dark-grayish-cyan;
+      transition: 0.3s;
 
       &:hover {
         color: $desaturated-dark-cyan;
-        cursor: pointer;
+      }
+
+      @media only screen and (max-width: 1000px) {
+        font-size: 1rem;
       }
     }
 
@@ -261,7 +253,7 @@
       span:first-child::after, span:nth-child(2)::after {
         content: " •";
         margin: 0 8px;
-        
+
         @media only screen and (max-width: 1000px) {
           margin: 0 5px;
         }
@@ -294,13 +286,13 @@
   border: none;
   outline: none;
   cursor: pointer;
-  
+
   @media only screen and (max-width: 1000px) {
     font-size: 0.8rem;
     padding: 8px 5px 6px;
     border-radius: 3px;
   }
-  
+
   @media only screen and (max-width: 800px) {
     margin-right: 10px;
     margin-bottom: 10px;
@@ -317,7 +309,6 @@
 // attribution links
 // =================
 .attribution {
-  margin: 70px 0 30px;
   font-size: 12px;
   text-align: center;
   color: $desaturated-dark-cyan;
