@@ -1,3 +1,6 @@
+// ===============================
+// initialization of the variables
+// ===============================
 const filtersMenu = document.getElementsByClassName("filters-menu")[0];
 const itemsWrapper = document.getElementsByClassName("items-wrapper")[0];
 
@@ -15,24 +18,49 @@ const items = {
 };
 
 let itemElements = {};
+let visibleItemElements = {};
 for (let key in items) {
   itemElements[key] = document.getElementById(key);
+  visibleItemElements[key] = true;
 }
 let filters = [];
+
+const addFilterAudio = new Audio("media/click.mp3");
+const removeFilterAudio = new Audio("media/whoosh.mp3");
 
 
 // ===================
 // update upper margin
 // ===================
 let filtersMenuShown = false;
-const updateTopMargin = () => itemsWrapper.style.marginTop = filtersMenuShown ? "21px" : "50px";
+
+function updateTopMargin() {
+  if (!filtersMenuShown) {  // filters menu hidden
+    if (window.outerWidth <= 800) {
+      itemsWrapper.style.marginTop = "80px";  // 60 + 20
+    } else {
+      itemsWrapper.style.marginTop = "60px";
+    }
+  } else {  // filters menu shown
+    if (window.outerWidth <= 800) {
+      itemsWrapper.style.marginTop = "34px";  // 80 - 46
+    } else if (window.outerWidth <= 1000) {
+      itemsWrapper.style.marginTop = "14px";  // 60 - 46
+    } else {
+      itemsWrapper.style.marginTop = "2px";  // 60 - 58 (see _components.scss for more details)
+    }
+  }
+}
+
+updateTopMargin();
+window.addEventListener("resize", updateTopMargin);
 
 
 // ======================
 // hide/show filters menu
 // ======================
 function hideFiltersMenu() {
-  filtersMenu.style.animation = "invisible-menu 0.3s 1";
+  filtersMenu.style.animation = "invisible-menu-item 0.3s 1";
   setTimeout(() => {
     filtersMenu.style.display = "none";
     updateTopMargin();
@@ -42,7 +70,7 @@ function hideFiltersMenu() {
 
 function showFiltersMenu() {
   filtersMenu.style.display = "flex";
-  filtersMenu.style.animation = "visible-menu 0.3s 1";
+  filtersMenu.style.animation = "visible-menu-item 0.3s 1";
   setTimeout(() => {
     filtersMenu.style.opacity = "1";
   }, 270);
@@ -51,12 +79,14 @@ function showFiltersMenu() {
 }
 
 
-// ==============================
-// remove buttons for each filter
-// ==============================
+// =============================
+// remove button for each filter
+// =============================
 const removeFilterButtons = document.querySelectorAll(".filters-menu__filters button");
 for (let i = 0, len = removeFilterButtons.length; i < len; i++) {
   removeFilterButtons[i].addEventListener("click", () => {
+    removeFilterAudio.play();
+
     let filterElement = removeFilterButtons[i].parentElement;
     filterElement.style.animation = "invisible-filter 0.3s 1";
     setTimeout(() => {
@@ -77,13 +107,16 @@ for (let i = 0, len = removeFilterButtons.length; i < len; i++) {
 // ================
 const clearBtn = document.getElementById("clear");
 clearBtn.addEventListener("click", () => {
+  removeFilterAudio.play();
+
   for (let i = 0, len = filters.length; i < len; i++) {
     let filterElement = document.getElementById(filters[i]);
-    filterElement.style.animation = "invisible-menu 0.3s 1";
+    filterElement.style.animation = "invisible-menu-item 0.3s 1";
     setTimeout(() => {
       filterElement.style.display = "none";
     }, 270);
   }
+
   filters = [];
   updateItems();
   hideFiltersMenu();
@@ -96,6 +129,7 @@ clearBtn.addEventListener("click", () => {
 const filterTablets = document.querySelectorAll(".item .filters button");
 for (let i = 0, len = filterTablets.length; i < len; i++) {
   filterTablets[i].addEventListener("click", () => {
+    addFilterAudio.play();
     if (!filtersMenuShown) showFiltersMenu();
 
     let filterElement = document.getElementById(filterTablets[i].innerText.toLowerCase());
@@ -121,6 +155,17 @@ function updateItems() {
         break;
       }
     }
-    itemElements[item].style.display = show ? "flex" : "none";
+
+    if (show && !visibleItemElements[item]) {
+      itemElements[item].style.display = "flex";
+      itemElements[item].style.animation = "visible-menu-item 0.3s 1";
+      visibleItemElements[item] = true;
+    } else if (!show && visibleItemElements[item]) {
+      itemElements[item].style.animation = "invisible-menu-item 0.3s 1";
+      setTimeout(() => {
+        itemElements[item].style.display = "none";
+      }, 270);
+      visibleItemElements[item] = false;
+    }
   }
 }

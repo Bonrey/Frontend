@@ -1,18 +1,22 @@
-@keyframes visible-menu {
+@keyframes visible-menu-item {
   from {
     opacity: 0;
+    transform: scaleY(0);
   }
   to {
     opacity: 1;
+    transform: scaleY(1);
   }
 }
 
-@keyframes invisible-menu {
+@keyframes invisible-menu-item {
   from {
     opacity: 1;
+    transform: scaleY(1);
   }
   to {
     opacity: 0;
+    transform: scaleY(0);
   }
 }
 

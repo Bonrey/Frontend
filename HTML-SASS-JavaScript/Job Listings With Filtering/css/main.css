@@ -70,11 +70,8 @@ main {
   }
 }
 
-.items-wrapper {
-  margin-top: 50px;
-}
-
 footer {
+  width: 100%;
   position: absolute;
   bottom: 30px;
   left: 50%;
@@ -100,7 +97,6 @@ html {
   padding: 9px 35px;
   border-radius: 5px;
   box-shadow: 0 1px 1px rgba(91, 164, 164, 0.15), 0 3px 3px rgba(91, 164, 164, 0.15), 0 6px 6px rgba(91, 164, 164, 0.15), 0 9px 9px rgba(91, 164, 164, 0.15);
-  transition: 0.3s;
   position: relative;
   top: -29px;
   display: none;
@@ -108,6 +104,7 @@ html {
 @media only screen and (max-width: 1000px) {
   .filters-menu {
     padding: 5px 25px;
+    top: -23px;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -158,7 +155,6 @@ html {
   background-color: #5ba4a4;
   color: white;
   font-size: 1.9rem;
-  transition: 0.3s;
 }
 @media only screen and (max-width: 1000px) {
   .filters-menu__filters .container button {
@@ -366,6 +362,7 @@ html {
 
 .attribution {
   font-size: 12px;
+  line-height: 1.3rem;
   text-align: center;
   color: #5ba4a4;
 }
@@ -384,20 +381,24 @@ html {
   text-decoration: underline;
 }
 
-@keyframes visible-menu {
+@keyframes visible-menu-item {
   from {
     opacity: 0;
+    transform: scaleY(0);
   }
   to {
     opacity: 1;
+    transform: scaleY(1);
   }
 }
-@keyframes invisible-menu {
+@keyframes invisible-menu-item {
   from {
     opacity: 1;
+    transform: scaleY(1);
   }
   to {
     opacity: 0;
+    transform: scaleY(0);
   }
 }
 @keyframes visible-filter {

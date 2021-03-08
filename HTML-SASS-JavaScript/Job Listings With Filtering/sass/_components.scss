@@ -13,14 +13,14 @@
   0 3px 3px hsla(180, 29%, 50%, 0.15),
   0 6px 6px hsla(180, 29%, 50%, 0.15),
   0 9px 9px hsla(180, 29%, 50%, 0.15);
-  transition: 0.3s;
   position: relative;
-  top: -29px; // one half of 28 (btn height) + 9*2 (parent padding) + 6*2 (.container margin)
+  top: -29px; // one half of (28 (btn height) + 9*2 (parent padding) + 6*2 (.container margin))
   // default styles
   display: none;
 
   @media only screen and (max-width: 1000px) {
     padding: 5px 25px; // 5 = 10 (desired) - 5 (.container margin)
+    top: -23px; // one half of (26 (btn height) + 5*2 (parent padding) + 5*2 (.container margin))
   }
 
   @media only screen and (max-width: 800px) {
@@ -42,7 +42,6 @@
       align-items: center;
       // default styles
       display: none; // otherwise flex
-      //opacity: 0;
 
       @media only screen and (max-width: 1000px) {
         font-size: 0.8rem;
@@ -71,7 +70,6 @@
         background-color: $desaturated-dark-cyan;
         color: $white;
         font-size: 1.9rem;
-        transition: 0.3s;
 
         @media only screen and (max-width: 1000px) {
           font-size: 1.7rem;
@@ -310,6 +308,7 @@
 // =================
 .attribution {
   font-size: 12px;
+  line-height: 1.3rem;
   text-align: center;
   color: $desaturated-dark-cyan;
 
