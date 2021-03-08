@@ -187,12 +187,14 @@ for (let i = 0, len = socialMediaLinks.length; i < len; i++) {
   });
 }
 
-// AUDIO AUTOPLAY IS NOT ALLOWED (FOR SOME REASON) !
-// let promise = document.getElementById("ticking").play();
-// if (promise !== undefined) {
-//   promise.then(() => {
-//     console.log("autoplay started!");
-//   }).catch(error => {
-//     console.log("autoplay was prevented!");
-//   });
-// }
+
+setInterval(() => {
+  if (finished) {
+    document.title = "We have launched!";
+  } else {
+    document.title = ("0" + timeUnits[0]).slice(-2) +
+      ":" + ("0" + timeUnits[1]).slice(-2) +
+      ":" + ("0" + timeUnits[2]).slice(-2) +
+      ":" + ("0" + timeUnits[3]).slice(-2);
+  }
+}, 500);

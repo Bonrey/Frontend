@@ -124,7 +124,7 @@ h1 {
   display: flex;
   justify-content: space-between;
 
-  a:hover, a:focus {
+  &__link:hover, &__link:focus {
     outline: none;
 
     svg path {
@@ -151,7 +151,7 @@ h1 {
     margin-top: 10px;
   }
 
-  .social-media-link {
+  a {
     color: $white;
     text-decoration: none;
 

@@ -8,6 +8,7 @@ body {
   background-image: url("../../images/pattern-hills.svg"), url("../../images/bg-stars.svg");
   background-repeat: no-repeat, no-repeat;
   background-position: bottom right, top;
+  background-size: 100%, 100%;
   
   @media only screen and (max-width: 700px) {
     background-position: 85% 100%, top;
