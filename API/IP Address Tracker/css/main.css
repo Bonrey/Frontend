@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+}
+
+body {
+  height: 100%;
+  background: url("../../images/pattern-bg.png") top center no-repeat;
+}
+@media only screen and (min-width: 1440px) {
+  body {
+    background-size: 100% 250px;
+  }
+}
+
+header {
+  height: 250px;
+}
+
+main {
+  height: calc(100% - 250px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header h1 {
+  color: white;
+  font-weight: 500;
+  margin: 20px 0;
+}
+@media only screen and (max-width: 800px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+header form {
+  width: 520px;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+}
+header form input[type=text], header form button {
+  height: 55px;
+  border: none;
+  outline: none;
+  display: inline-block;
+}
+header form input[type=text] {
+  background-color: white;
+  width: calc(100% - 60px);
+  font-size: 18px;
+  padding: 0 25px;
+  color: #2b2b2b;
+}
+header form button {
+  width: 60px;
+  background-color: #2b2b2b;
+}
+header form button:hover {
+  background-color: rgba(43, 43, 43, 0.8);
+  cursor: pointer;
+}
+
+#info-section {
+  background-color: white;
+  width: 1000px;
+  height: 160px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 15px;
+  display: flex;
+}
+@media only screen and (max-width: 1100px) {
+  #info-section {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #info-section {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding-bottom: 20px;
+  }
+}
+#info-section .information {
+  flex-basis: 25%;
+  padding: 40px 60px 0 30px;
+}
+@media only screen and (max-width: 1100px) {
+  #info-section .information {
+    padding: 40px 30px 0 20px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #info-section .information {
+    padding: 20px 30px 0;
+  }
+}
+#info-section .information h2 {
+  color: #969696;
+  font-weight: 500;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 1100px) {
+  #info-section .information h2 {
+    letter-spacing: 0.08rem;
+    font-size: 0.6rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #info-section .information h2 {
+    margin-bottom: 7px;
+  }
+}
+#info-section .information span {
+  color: #2b2b2b;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+@media only screen and (max-width: 1100px) {
+  #info-section .information span {
+    font-size: 1.1rem;
+  }
+}
+#info-section .vertical-line {
+  width: 1px;
+  height: 70px;
+  background-color: #969696;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media only screen and (max-width: 800px) {
+  #info-section .vertical-line {
+    display: none;
+  }
+}
+
+#map {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: #3e52a3;
+}
+
+/*# sourceMappingURL=main.css.map */

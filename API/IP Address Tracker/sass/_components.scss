@@ -1,0 +1,151 @@
+@import "base";
+
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: $white;
+    font-weight: $medium-w;
+    margin: 20px 0;
+    
+    @media only screen and (max-width: 800px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  form {
+    width: 520px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+
+    input[type="text"], button {
+      height: 55px;
+      border: none;
+      outline: none;
+      display: inline-block;
+    }
+
+    input[type="text"] {
+      background-color: $white;
+      width: calc(100% - 60px);
+      font-size: $font-sz;
+      padding: 0 25px;
+      color: $very-dark-gray;
+    }
+
+    button {
+      width: 60px;
+      background-color: $very-dark-gray;
+
+      &:hover {
+        background-color: hsla(0, 0%, 17%, 0.8);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+// ====
+// main
+// ====
+#info-section {
+  background-color: $white;
+  width: 1000px;
+  height: 160px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 15px;
+  display: flex;
+
+  @media only screen and (max-width: 1100px) {
+    width: 90%;
+  }
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .information {
+    flex-basis: 25%;
+    padding: 40px 60px 0 30px;
+
+    @media only screen and (max-width: 1100px) {
+      padding: 40px 30px 0 20px;
+    }
+
+    @media only screen and (max-width: 800px) {
+      padding: 20px 30px 0;
+    }
+
+    h2 {
+      color: $dark-gray;
+      font-weight: $medium-w;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      margin-bottom: 10px;
+
+      @media only screen and (max-width: 1100px) {
+        letter-spacing: 0.08rem;
+        font-size: 0.6rem;
+      }
+      
+      @media only screen and (max-width: 800px) {
+        margin-bottom: 7px;
+      }
+    }
+
+    span {
+      color: $very-dark-gray;
+      font-weight: $bold-w;
+      font-size: 1.3rem;
+
+      @media only screen and (max-width: 1100px) {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .vertical-line {
+    width: 1px;
+    height: 70px;
+    background-color: $dark-gray;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @media only screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+}
+
+#map {
+  background-color: $white;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}

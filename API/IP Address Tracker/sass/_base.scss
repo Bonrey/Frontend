@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+$very-dark-gray: hsl(0, 0%, 17%);
+$dark-gray: hsl(0, 0%, 59%);
+$white: hsl(0, 0%, 100%);
+
+$Rubik: "Rubik", sans-serif;
+$font-sz: 18px;
+
+$regular-w: 400;
+$medium-w: 500;
+$bold-w: 700;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
+  font-family: $Rubik;
+  font-size: $font-sz;
+}

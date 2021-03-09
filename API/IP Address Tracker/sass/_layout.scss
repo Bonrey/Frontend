@@ -1,0 +1,16 @@
+body {
+  height: 100%;
+  background: url("../../images/pattern-bg.png") top center no-repeat;
+  
+  @media only screen and (min-width: 1440px) {
+    background-size: 100% 250px;
+  }
+}
+
+header {
+  height: 250px;
+}
+
+main {
+  height: calc(100% - 250px);
+}
