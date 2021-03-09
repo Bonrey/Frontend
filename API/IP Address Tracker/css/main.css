@@ -44,22 +44,33 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 1px 1px rgba(150, 150, 150, 0.3), 0 3px 3px rgba(150, 150, 150, 0.3), 0 6px 6px rgba(150, 150, 150, 0.3), 0 9px 9px rgba(150, 150, 150, 0.3);
 }
 header h1 {
   color: white;
   font-weight: 500;
   margin: 20px 0;
+  font-size: 1.8rem;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   header h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin: 18px 0;
   }
 }
 header form {
-  width: 520px;
+  width: 550px;
+  max-width: 90%;
   border-radius: 15px;
   overflow: hidden;
   display: flex;
+}
+@media only screen and (max-width: 600px) {
+  header form {
+    border-radius: 12px;
+  }
 }
 header form input[type=text], header form button {
   height: 55px;
@@ -67,25 +78,52 @@ header form input[type=text], header form button {
   outline: none;
   display: inline-block;
 }
+@media only screen and (max-width: 600px) {
+  header form input[type=text], header form button {
+    height: 45px;
+  }
+}
 header form input[type=text] {
   background-color: white;
   width: calc(100% - 60px);
-  font-size: 18px;
+  font-size: 1rem;
   padding: 0 25px;
   color: #2b2b2b;
+}
+@media only screen and (max-width: 600px) {
+  header form input[type=text] {
+    width: calc(100% - 50px);
+    padding: 0 15px;
+    font-size: 0.8rem;
+  }
 }
 header form button {
   width: 60px;
   background-color: #2b2b2b;
+  transition: 0.3s;
+}
+header form button img {
+  transition: 0.3s;
+}
+@media only screen and (max-width: 600px) {
+  header form button {
+    width: 50px;
+  }
+  header form button img {
+    height: 12px;
+  }
 }
 header form button:hover {
-  background-color: rgba(43, 43, 43, 0.8);
+  background-color: rgba(43, 43, 43, 0.7);
   cursor: pointer;
+}
+header form button:hover img {
+  transform: translateX(3px);
 }
 
 #info-section {
   background-color: white;
-  width: 1000px;
+  width: 1100px;
   height: 160px;
   box-sizing: border-box;
   position: absolute;
@@ -95,32 +133,35 @@ header form button:hover {
   z-index: 1;
   border-radius: 15px;
   display: flex;
+  filter: drop-shadow(0 3px 3px #969696);
 }
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
   #info-section {
     width: 90%;
   }
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   #info-section {
     flex-direction: column;
     text-align: center;
-    height: auto;
-    padding-bottom: 20px;
+    height: 240px;
+    top: 130px;
+    padding: 10px 0 20px;
+    border-radius: 12px;
   }
 }
 #info-section .information {
   flex-basis: 25%;
-  padding: 40px 60px 0 30px;
+  padding: 40px 40px 30px;
 }
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
   #info-section .information {
-    padding: 40px 30px 0 20px;
+    padding: 40px 20px 0;
   }
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   #info-section .information {
-    padding: 20px 30px 0;
+    padding: 15px 30px 0;
   }
 }
 #info-section .information h2 {
@@ -131,15 +172,17 @@ header form button:hover {
   letter-spacing: 0.1rem;
   margin-bottom: 10px;
 }
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
   #info-section .information h2 {
-    letter-spacing: 0.08rem;
     font-size: 0.6rem;
+    letter-spacing: 0.08rem;
   }
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   #info-section .information h2 {
-    margin-bottom: 7px;
+    font-size: 0.5rem;
+    letter-spacing: 0.07rem;
+    margin-bottom: 5px;
   }
 }
 #info-section .information span {
@@ -147,9 +190,14 @@ header form button:hover {
   font-weight: 700;
   font-size: 1.3rem;
 }
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
   #info-section .information span {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #info-section .information span {
+    font-size: 0.9rem;
   }
 }
 #info-section .vertical-line {
@@ -157,10 +205,11 @@ header form button:hover {
   height: 70px;
   background-color: #969696;
   position: relative;
+  right: -10px;
   top: 50%;
   transform: translateY(-50%);
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   #info-section .vertical-line {
     display: none;
   }

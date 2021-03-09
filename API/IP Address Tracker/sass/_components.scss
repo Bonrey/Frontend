@@ -1,61 +1,100 @@
 @import "base";
 
-
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 1px 1px hsla(0, 0%, 59%, 0.3),
+              0 3px 3px hsla(0, 0%, 59%, 0.3),
+              0 6px 6px hsla(0, 0%, 59%, 0.3),
+              0 9px 9px hsla(0, 0%, 59%, 0.3);
 
   h1 {
     color: $white;
     font-weight: $medium-w;
     margin: 20px 0;
+    font-size: 1.8rem;
     
-    @media only screen and (max-width: 800px) {
-      font-size: 1.5rem;
+    @media only screen and (max-width: 600px) {
+      font-size: 1.4rem;
+      margin: 18px 0;
     }
   }
 
   form {
-    width: 520px;
+    width: 550px;
+    max-width: 90%;
     border-radius: 15px;
     overflow: hidden;
     display: flex;
+
+    @media only screen and (max-width: 600px) {
+      border-radius: 12px;
+    }
 
     input[type="text"], button {
       height: 55px;
       border: none;
       outline: none;
       display: inline-block;
+      
+      @media only screen and (max-width: 600px) {
+        height: 45px;
+      }
     }
 
     input[type="text"] {
       background-color: $white;
       width: calc(100% - 60px);
-      font-size: $font-sz;
+      font-size: 1rem;
       padding: 0 25px;
       color: $very-dark-gray;
+
+      @media only screen and (max-width: 600px) {
+        width: calc(100% - 50px);
+        padding: 0 15px;
+        font-size: 0.8rem;
+      }
     }
 
     button {
       width: 60px;
       background-color: $very-dark-gray;
+      transition: 0.3s;
+
+      img {
+        transition: 0.3s;
+      }
+      
+      @media only screen and (max-width: 600px) {
+        width: 50px;
+
+        img {
+          height: 12px;
+        }
+      }
 
       &:hover {
-        background-color: hsla(0, 0%, 17%, 0.8);
+        background-color: hsla(0, 0%, 17%, 0.7);
         cursor: pointer;
+
+        img {
+          transform: translateX(3px);
+        }
       }
     }
   }
 }
 
 
-// ====
-// main
-// ====
+// ==============
+// info box & map
+// ==============
 #info-section {
   background-color: $white;
-  width: 1000px;
+  width: 1100px;
   height: 160px;
   box-sizing: border-box;
   position: absolute;
@@ -65,28 +104,31 @@ header {
   z-index: 1;
   border-radius: 15px;
   display: flex;
+  filter: drop-shadow(0 3px 3px $dark-gray);
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     width: 90%;
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 600px) {
     flex-direction: column;
     text-align: center;
-    height: auto;
-    padding-bottom: 20px;
+    height: 240px;
+    top: 130px;
+    padding: 10px 0 20px;
+    border-radius: 12px;
   }
 
   .information {
     flex-basis: 25%;
-    padding: 40px 60px 0 30px;
+    padding: 40px 40px 30px;
 
-    @media only screen and (max-width: 1100px) {
-      padding: 40px 30px 0 20px;
+    @media only screen and (max-width: 1200px) {
+      padding: 40px 20px 0;
     }
 
-    @media only screen and (max-width: 800px) {
-      padding: 20px 30px 0;
+    @media only screen and (max-width: 600px) {
+      padding: 15px 30px 0;
     }
 
     h2 {
@@ -97,13 +139,15 @@ header {
       letter-spacing: 0.1rem;
       margin-bottom: 10px;
 
-      @media only screen and (max-width: 1100px) {
-        letter-spacing: 0.08rem;
+      @media only screen and (max-width: 1200px) {
         font-size: 0.6rem;
+        letter-spacing: 0.08rem;
       }
       
-      @media only screen and (max-width: 800px) {
-        margin-bottom: 7px;
+      @media only screen and (max-width: 600px) {
+        font-size: 0.5rem;
+        letter-spacing: 0.07rem;
+        margin-bottom: 5px;
       }
     }
 
@@ -112,8 +156,12 @@ header {
       font-weight: $bold-w;
       font-size: 1.3rem;
 
-      @media only screen and (max-width: 1100px) {
-        font-size: 1.1rem;
+      @media only screen and (max-width: 1200px) {
+        font-size: 1rem;
+      }
+
+      @media only screen and (max-width: 600px) {
+        font-size: 0.9rem;
       }
     }
   }
@@ -123,10 +171,11 @@ header {
     height: 70px;
     background-color: $dark-gray;
     position: relative;
+    right: -10px;
     top: 50%;
     transform: translateY(-50%);
 
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 600px) {
       display: none;
     }
   }
