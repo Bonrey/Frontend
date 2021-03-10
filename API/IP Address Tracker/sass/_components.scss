@@ -1,4 +1,5 @@
 @import "base";
+@import "animation";
 
 header {
   display: flex;
@@ -7,16 +8,16 @@ header {
   z-index: 1;
   position: relative;
   box-shadow: 0 1px 1px hsla(0, 0%, 59%, 0.3),
-              0 3px 3px hsla(0, 0%, 59%, 0.3),
-              0 6px 6px hsla(0, 0%, 59%, 0.3),
-              0 9px 9px hsla(0, 0%, 59%, 0.3);
+  0 3px 3px hsla(0, 0%, 59%, 0.3),
+  0 6px 6px hsla(0, 0%, 59%, 0.3),
+  0 9px 9px hsla(0, 0%, 59%, 0.3);
 
   h1 {
     color: $white;
     font-weight: $medium-w;
     margin: 20px 0;
     font-size: 1.8rem;
-    
+
     @media only screen and (max-width: 600px) {
       font-size: 1.4rem;
       margin: 18px 0;
@@ -34,12 +35,12 @@ header {
       border-radius: 12px;
     }
 
-    input[type="text"], button {
+    input[type="text"], button[type="submit"] {
       height: 55px;
       border: none;
       outline: none;
       display: inline-block;
-      
+
       @media only screen and (max-width: 600px) {
         height: 45px;
       }
@@ -50,7 +51,18 @@ header {
       width: calc(100% - 60px);
       font-size: 1rem;
       padding: 0 25px;
+      border-radius: 15px 0 0 15px;
+      box-sizing: border-box;
       color: $very-dark-gray;
+
+      &.red-placeholder {
+        border: 3px solid #EE5755;
+
+        &::placeholder {
+          color: #EE5755;
+          opacity: 1;
+        }
+      }
 
       @media only screen and (max-width: 600px) {
         width: calc(100% - 50px);
@@ -59,7 +71,7 @@ header {
       }
     }
 
-    button {
+    button[type="submit"] {
       width: 60px;
       background-color: $very-dark-gray;
       transition: 0.3s;
@@ -67,7 +79,7 @@ header {
       img {
         transition: 0.3s;
       }
-      
+
       @media only screen and (max-width: 600px) {
         width: 50px;
 
@@ -122,6 +134,7 @@ header {
   .information {
     flex-basis: 25%;
     padding: 40px 40px 30px;
+    position: relative;
 
     @media only screen and (max-width: 1200px) {
       padding: 40px 20px 0;
@@ -143,7 +156,7 @@ header {
         font-size: 0.6rem;
         letter-spacing: 0.08rem;
       }
-      
+
       @media only screen and (max-width: 600px) {
         font-size: 0.5rem;
         letter-spacing: 0.07rem;
@@ -153,8 +166,8 @@ header {
 
     span {
       color: $very-dark-gray;
-      font-weight: $bold-w;
-      font-size: 1.3rem;
+      font-weight: $medium-w;
+      font-size: 1.2rem;
 
       @media only screen and (max-width: 1200px) {
         font-size: 1rem;
@@ -164,18 +177,37 @@ header {
         font-size: 0.9rem;
       }
     }
+
+    .loader {
+      border: 4px solid #eee;
+      border-radius: 50%;
+      border-top: 4px solid #3498db;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      transform: translateX(-50%);
+      animation: spin 1.5s linear infinite;
+    }
   }
 
   .vertical-line {
     width: 1px;
     height: 70px;
-    background-color: $dark-gray;
+    background-color: hsla(0, 0%, 59%, 0.5);
     position: relative;
     right: -10px;
     top: 50%;
     transform: translateY(-50%);
 
     @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    #break-line {
       display: none;
     }
   }

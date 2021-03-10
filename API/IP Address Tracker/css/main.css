@@ -40,6 +40,14 @@ html {
   font-size: 18px;
 }
 
+@keyframes spin {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
 header {
   display: flex;
   flex-direction: column;
@@ -72,14 +80,14 @@ header form {
     border-radius: 12px;
   }
 }
-header form input[type=text], header form button {
+header form input[type=text], header form button[type=submit] {
   height: 55px;
   border: none;
   outline: none;
   display: inline-block;
 }
 @media only screen and (max-width: 600px) {
-  header form input[type=text], header form button {
+  header form input[type=text], header form button[type=submit] {
     height: 45px;
   }
 }
@@ -88,7 +96,16 @@ header form input[type=text] {
   width: calc(100% - 60px);
   font-size: 1rem;
   padding: 0 25px;
+  border-radius: 15px 0 0 15px;
+  box-sizing: border-box;
   color: #2b2b2b;
+}
+header form input[type=text].red-placeholder {
+  border: 3px solid #EE5755;
+}
+header form input[type=text].red-placeholder::placeholder {
+  color: #EE5755;
+  opacity: 1;
 }
 @media only screen and (max-width: 600px) {
   header form input[type=text] {
@@ -97,27 +114,27 @@ header form input[type=text] {
     font-size: 0.8rem;
   }
 }
-header form button {
+header form button[type=submit] {
   width: 60px;
   background-color: #2b2b2b;
   transition: 0.3s;
 }
-header form button img {
+header form button[type=submit] img {
   transition: 0.3s;
 }
 @media only screen and (max-width: 600px) {
-  header form button {
+  header form button[type=submit] {
     width: 50px;
   }
-  header form button img {
+  header form button[type=submit] img {
     height: 12px;
   }
 }
-header form button:hover {
+header form button[type=submit]:hover {
   background-color: rgba(43, 43, 43, 0.7);
   cursor: pointer;
 }
-header form button:hover img {
+header form button[type=submit]:hover img {
   transform: translateX(3px);
 }
 
@@ -153,6 +170,7 @@ header form button:hover img {
 #info-section .information {
   flex-basis: 25%;
   padding: 40px 40px 30px;
+  position: relative;
 }
 @media only screen and (max-width: 1200px) {
   #info-section .information {
@@ -187,8 +205,8 @@ header form button:hover img {
 }
 #info-section .information span {
   color: #2b2b2b;
-  font-weight: 700;
-  font-size: 1.3rem;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 @media only screen and (max-width: 1200px) {
   #info-section .information span {
@@ -200,10 +218,22 @@ header form button:hover img {
     font-size: 0.9rem;
   }
 }
+#info-section .information .loader {
+  border: 4px solid #eee;
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translateX(-50%);
+  animation: spin 1.5s linear infinite;
+}
 #info-section .vertical-line {
   width: 1px;
   height: 70px;
-  background-color: #969696;
+  background-color: rgba(150, 150, 150, 0.5);
   position: relative;
   right: -10px;
   top: 50%;
@@ -211,6 +241,11 @@ header form button:hover img {
 }
 @media only screen and (max-width: 600px) {
   #info-section .vertical-line {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #info-section #break-line {
     display: none;
   }
 }
