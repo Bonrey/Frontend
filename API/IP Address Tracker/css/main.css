@@ -29,6 +29,12 @@ main {
   height: calc(100% - 250px);
 }
 
+footer {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +52,22 @@ html {
   }
   to {
     transform: translateX(-50%) rotate(360deg);
+  }
+}
+@keyframes show-attribution {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide-attribution {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 header {
@@ -159,12 +181,12 @@ header form button[type=submit]:hover img {
 }
 @media only screen and (max-width: 600px) {
   .info-section {
-    flex-direction: column;
+    display: block;
     text-align: center;
     height: 240px;
     top: 130px;
-    padding: 10px 0 20px;
     border-radius: 12px;
+    padding-top: 5px;
   }
 }
 .info-section .information {
@@ -174,12 +196,12 @@ header form button[type=submit]:hover img {
 }
 @media only screen and (max-width: 1200px) {
   .info-section .information {
-    padding: 40px 20px 0;
+    padding: 30px 10px 0 20px;
   }
 }
 @media only screen and (max-width: 600px) {
   .info-section .information {
-    padding: 15px 30px 0;
+    padding: 15px 5% 0;
   }
 }
 .info-section .information h2 {
@@ -200,21 +222,21 @@ header form button[type=submit]:hover img {
   .info-section .information h2 {
     font-size: 0.5rem;
     letter-spacing: 0.07rem;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 }
-.info-section .information span {
+.info-section .information p {
   color: #2b2b2b;
   font-weight: 500;
   font-size: 1.2rem;
 }
 @media only screen and (max-width: 1200px) {
-  .info-section .information span {
+  .info-section .information p {
     font-size: 1rem;
   }
 }
 @media only screen and (max-width: 600px) {
-  .info-section .information span {
+  .info-section .information p {
     font-size: 0.9rem;
   }
 }
@@ -227,7 +249,6 @@ header form button[type=submit]:hover img {
   position: absolute;
   left: 50%;
   top: 45%;
-  transform: translateX(-50%);
   animation: spin 1.5s linear infinite;
 }
 @media only screen and (max-width: 600px) {
@@ -235,7 +256,8 @@ header form button[type=submit]:hover img {
     width: 18px;
     height: 18px;
     border-width: 3px;
-    top: 60%;
+    position: relative;
+    margin-bottom: 5px;
   }
 }
 .info-section .vertical-line {
@@ -291,14 +313,52 @@ header form button[type=submit]:hover img {
   z-index: 0;
 }
 
+#attribution-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 25%;
+  z-index: 1;
+  background: url("../../images/wolf.jpg") no-repeat;
+  background-size: 50px 50px;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
 .attribution {
-  position: absolute;
-  bottom: 0;
-  font-size: 11px;
+  font-size: 0.6rem;
+  line-height: 0.9rem;
   text-align: center;
+  background-color: white;
+  color: #2b2b2b;
+  width: 180px;
+  height: 40px;
+  border-radius: 12px;
+  position: absolute;
+  bottom: 73px;
+  left: 24px;
+  display: none;
+  align-items: center;
+}
+.attribution #triangle {
+  width: 0;
+  height: 0;
+  border-top: 15px solid white;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 16px solid white;
+  position: absolute;
+  bottom: -13px;
 }
 .attribution a {
-  color: #3e52a3;
+  text-decoration: none;
+  color: #869778;
+}
+.attribution a:hover {
+  color: #728264;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=main.css.map */

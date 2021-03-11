@@ -123,12 +123,12 @@ header {
   }
 
   @media only screen and (max-width: 600px) {
-    flex-direction: column;
+    display: block;
     text-align: center;
     height: 240px;
     top: 130px;
-    padding: 10px 0 20px;
     border-radius: 12px;
+    padding-top: 5px;
   }
 
   .information {
@@ -137,11 +137,11 @@ header {
     position: relative;
 
     @media only screen and (max-width: 1200px) {
-      padding: 40px 20px 0;
+      padding: 30px 10px 0 20px;
     }
 
     @media only screen and (max-width: 600px) {
-      padding: 15px 30px 0;
+      padding: 15px 5% 0;
     }
 
     h2 {
@@ -160,11 +160,11 @@ header {
       @media only screen and (max-width: 600px) {
         font-size: 0.5rem;
         letter-spacing: 0.07rem;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
       }
     }
 
-    span {
+    p {
       color: $very-dark-gray;
       font-weight: $medium-w;
       font-size: 1.2rem;
@@ -187,14 +187,14 @@ header {
       position: absolute;
       left: 50%;
       top: 45%;
-      transform: translateX(-50%);
       animation: spin 1.5s linear infinite;
       
       @media only screen and (max-width: 600px) {
         width: 18px;
         height: 18px;
         border-width: 3px;
-        top: 60%;
+        position: relative;
+        margin-bottom: 5px;
       }
     }
   }
@@ -253,13 +253,53 @@ header {
   z-index: 0;
 }
 
+#attribution-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 25%;
+  z-index: 1;
+  background: url("../../images/wolf.jpg") no-repeat;
+  background-size: 50px 50px;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
 .attribution {
-  position: absolute;
-  bottom: 0;
-  font-size: 11px;
+  font-size: 0.6rem;
+  line-height: 0.9rem;
   text-align: center;
+  background-color: $white;
+  color: hsl(0, 0%, 17%);
+  width: 180px;
+  height: 40px;
+  border-radius: 12px;
+  position: absolute;
+  bottom: 73px;
+  left: 24px;
+  display: none;  // toggle with flex
+  align-items: center;
+
+  #triangle {
+    width: 0;
+    height: 0;
+    border-top: 15px solid $white;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 16px solid $white;
+    position: absolute;
+    bottom: -13px;
+  }
 
   a {
-    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+    color: hsl(92, 13%, 53%);
+
+    &:hover {
+      color: hsl(92, 13%, 45%);
+      font-weight: $bold-w;
+    }
   }
 }

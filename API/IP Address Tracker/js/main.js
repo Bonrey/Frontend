@@ -1,9 +1,11 @@
 const apiKey = "at_yD616QsY5LwKtmSTbfr3fiwpFDfDI"; //"at_EydNviLJCZNMWuRaWCSJtngeQFCUJ";
+
+const textField = document.querySelector("input[type='text']");
 const dataElements = {
-  "ip": document.querySelector("#ip-address span"),
-  "location": document.querySelector("#location span"),
-  "timezone": document.querySelector("#timezone span"),
-  "isp": document.querySelector("#isp span")
+  "ip": document.querySelector("#ip-address p"),
+  "location": document.querySelector("#location p"),
+  "timezone": document.querySelector("#timezone p"),
+  "isp": document.querySelector("#isp p")
 }
 
 const loaders = {
@@ -24,33 +26,51 @@ const errorParagraphHTML = "Make sure that you typed in the correct IP or domain
   "Also, check if your browser allows sending requests.";
 
 
-// ================================================================
-// update location and isp's font size depending on the text length
-// ================================================================
+// =================================================================
+// 1) update location and ISP font size depending on the text length
+// =================================================================
+// 2) change the placeholder if the screen is too narrow
+// =================================================================
 function updateFontSize() {
   let infoTexts = [dataElements.location, dataElements.isp];
   for (let i = 0; i < 2; i++) {
-    if (infoTexts[i].innerText.length > 30) {
-      if (window.outerWidth <= 600) {
-        infoTexts[i].style.fontSize = "0.7rem";
-      } else if (window.outerWidth <= 1200) {
-        infoTexts[i].style.fontSize = "0.8rem";
-      } else {
-        infoTexts[i].style.fontSize = "1.1rem";
-      }
+    if (infoTexts[i].innerText.length > 36 && window.outerWidth <= 1200) {
+      infoTexts[i].style.fontSize = "0.8rem";
+      infoTexts[i].style.lineHeight = "1rem";
+    } else if (infoTexts[i].innerText.length > 36) {
+      infoTexts[i].style.fontSize = "1.1rem";
+    }
+  }
+}
+
+function updatePlaceholder() {
+  if (window.outerWidth < 360) {
+    if (!textField.classList.contains("red-placeholder")) {
+      textField.placeholder = "Search for any IP or domain";
+    } else {
+      textField.placeholder = "Enter correct IP or domain";
+    }
+  } else {
+    if (!textField.classList.contains("red-placeholder")) {
+      textField.placeholder = "Search for any IP address or domain";
+    } else {
+      textField.placeholder = "Enter correct IP address or domain";
     }
   }
 }
 
 window.addEventListener("resize", updateFontSize);
-updateFontSize();
+window.addEventListener("resize", updatePlaceholder);
+updatePlaceholder();
 
 
-
-let map = L.map("map", {zoomControl: false});
+// ============
+// create a map
+// ============
+const map = L.map("map", {zoomControl: false});
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+  attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   id: 'mapbox/streets-v11',
   maxZoom: 20
@@ -98,23 +118,28 @@ function updateInfoSection(data) {
     loaders[loader].style.display = "none";
   }
   dataElements.ip.innerText = data.ip;
-  dataElements.location.innerText = `${data.location.region}, ${data.location.country}`;
+  dataElements.location.innerText = `${data.location.city}, ${data.location.country} ${data.location.postalCode}`;
   dataElements.timezone.innerText = "UTC " + data.location.timezone;
   dataElements.isp.innerText = data.isp;
+  updateFontSize();
 }
 
 function updateMap(data) {
   const {lat, lng} = data.location;
-  map.setView([lat, lng], 16);
+  map.setView([lat, lng], 12);
   L.marker([lat, lng], {
     icon: L.icon({
       iconUrl: "images/icon-location.svg",
       iconSize: [46, 56],
       iconAnchor: [23, 56]
     })
-  }).bindPopup(`<b>${data.location.region}, ${data.location.country}</b>`).addTo(map);
+  }).addTo(map);
 }
 
+
+// ===============================
+// get information by ip or domain
+// ===============================
 function getGeoInfo(firstLaunch, ipInput = "", domainInput = "") {
   fetch("https://api.ipify.org?format=json")
     .then(response => response.json())
@@ -168,8 +193,6 @@ getGeoInfo(true);
 // ============================
 // get data from the text field
 // ============================
-const textField = document.querySelector("input[type='text']");
-
 function isValidIp(ip) {
   const ipNum = "([0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])";
   const reg = new RegExp(`^${ipNum}\\.${ipNum}\\.${ipNum}\\.${ipNum}$`);
@@ -199,7 +222,7 @@ function updateGeoInfo() {
 
   if (isValidIp(input)) {
     loaders["ip-loader"].style.display = "none";
-    document.querySelector("#ip-address span").innerText = input;
+    dataElements.ip.innerText = input;
     getGeoInfo(false, input);
   } else {
     getGeoInfo(false, "", input);
@@ -220,3 +243,32 @@ document.addEventListener("click", e => {
     textField.classList.remove("red-placeholder");
   }
 });
+
+
+// ===========
+// attribution
+// ===========
+const attribution = document.getElementsByClassName("attribution")[0];
+const attrBtn = document.getElementById("attribution-btn");
+let attrShown = false;
+
+function onAttrBtnClick() {
+  if (getComputedStyle(attribution).display === "none") {
+    attrShown = true;
+    attrBtn.style.opacity = "1";
+    attribution.style.display = "flex";
+    attribution.style.animation = "show-attribution 1s 1";
+  } else {
+    attrShown = false;
+    attrBtn.style.opacity = "0.5";
+    onMouseOver();
+    attribution.style.animation = "hide-attribution 1s 1";
+    setTimeout(() => attribution.style.display = "none", 1000);
+  }
+}
+
+attrBtn.addEventListener("click", onAttrBtnClick);
+
+const onMouseOver = _ => attrBtn.style.opacity = "1";
+attrBtn.addEventListener("mouseover", onMouseOver);
+attrBtn.addEventListener("mouseout", _ => attrBtn.style.opacity = attrShown ? "1" : "0.5");
