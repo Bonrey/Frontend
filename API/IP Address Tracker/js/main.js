@@ -13,6 +13,39 @@ const loaders = {
   "isp-loader": document.querySelector("#isp div")
 }
 
+const headingsText = ["ip address", "location", "timezone", "isp"];
+const infoHeadings = document.querySelectorAll(".information h2");
+const verticalLines = document.getElementsByClassName("vertical-line");
+const errorH2 = document.querySelector(".error-div h2");
+const errorParagraph = document.querySelector(".error-div p");
+
+const errorH2Text = "Something went wrong";
+const errorParagraphHTML = "Make sure that you typed in the correct IP or domain name and try again.<br>" +
+  "Also, check if your browser allows sending requests.";
+
+
+// ================================================================
+// update location and isp's font size depending on the text length
+// ================================================================
+function updateFontSize() {
+  let infoTexts = [dataElements.location, dataElements.isp];
+  for (let i = 0; i < 2; i++) {
+    if (infoTexts[i].innerText.length > 30) {
+      if (window.outerWidth <= 600) {
+        infoTexts[i].style.fontSize = "0.7rem";
+      } else if (window.outerWidth <= 1200) {
+        infoTexts[i].style.fontSize = "0.8rem";
+      } else {
+        infoTexts[i].style.fontSize = "1.1rem";
+      }
+    }
+  }
+}
+
+window.addEventListener("resize", updateFontSize);
+updateFontSize();
+
+
 
 let map = L.map("map", {zoomControl: false});
 
@@ -39,10 +72,49 @@ function invalidInput() {
   }
 }
 
+function badUrlError() {
+  for (let i = 0; i < 4; i++) {
+    infoHeadings[i].innerText = "";
+  }
+  for (let i = 0; i < 3; i++) {
+    verticalLines[i].style.width = "0";
+  }
+  for (let dataElement in dataElements) {
+    dataElements[dataElement].innerText = "";
+  }
+  for (let loader in loaders) {
+    loaders[loader].style.display = "none";
+  }
+  errorH2.innerText = errorH2Text;
+  errorParagraph.innerHTML = errorParagraphHTML;
+}
+
 
 // ===================
 // update data and map
 // ===================
+function updateInfoSection(data) {
+  for (let loader in loaders) {
+    loaders[loader].style.display = "none";
+  }
+  dataElements.ip.innerText = data.ip;
+  dataElements.location.innerText = `${data.location.region}, ${data.location.country}`;
+  dataElements.timezone.innerText = "UTC " + data.location.timezone;
+  dataElements.isp.innerText = data.isp;
+}
+
+function updateMap(data) {
+  const {lat, lng} = data.location;
+  map.setView([lat, lng], 16);
+  L.marker([lat, lng], {
+    icon: L.icon({
+      iconUrl: "images/icon-location.svg",
+      iconSize: [46, 56],
+      iconAnchor: [23, 56]
+    })
+  }).bindPopup(`<b>${data.location.region}, ${data.location.country}</b>`).addTo(map);
+}
+
 function getGeoInfo(firstLaunch, ipInput = "", domainInput = "") {
   fetch("https://api.ipify.org?format=json")
     .then(response => response.json())
@@ -76,31 +148,16 @@ function getGeoInfo(firstLaunch, ipInput = "", domainInput = "") {
       throw "bad url!";
     })
     .then(data => {
-        loaders["ip-loader"].style.display = "none";
-        loaders["location-loader"].style.display = "none";
-        loaders["timezone-loader"].style.display = "none";
-        loaders["isp-loader"].style.display = "none";
-
-        console.log("even here");
-        dataElements["ip"].innerText = data.ip;
-        dataElements.location.innerText = `${data.location.region}, ${data.location.country}`;
-        dataElements.timezone.innerText = "UTC " + data.location.timezone;
-        dataElements.isp.innerText = data.isp;
-
-        const {lat, lng} = data.location;
-        map.setView([lat, lng], 16);
-
-        L.marker([lat, lng], {
-          icon: L.icon({
-            iconUrl: "images/icon-location.svg",
-            iconAnchor: [lat, lng]
-          })
-        }).bindPopup(`<b>${data.location.region}, ${data.location.country}</b>`).addTo(map);
+        updateInfoSection(data);
+        updateMap(data);
       }
     )
     .catch(error => {
-      console.log(error);
-      invalidInput();
+      if (error === "bad url!") {
+        badUrlError();
+      } else {
+        invalidInput();
+      }
     });
 }
 
@@ -126,18 +183,23 @@ function isValidIp(ip) {
 function updateGeoInfo() {
   const input = textField.value;
   textField.value = "";
-
-  dataElements.location.innerText = "";
-  dataElements.timezone.innerText = "";
-  dataElements.isp.innerText = "";
-
-  loaders["location-loader"].style.display = "block";
-  loaders["timezone-loader"].style.display = "block";
-  loaders["isp-loader"].style.display = "block";
+  for (let i = 0; i < 4; i++) {
+    infoHeadings[i].innerText = headingsText[i];
+  }
+  for (let i = 0; i < 3; i++) {
+    verticalLines[i].style.width = "1px";
+  }
+  for (let dataElement in dataElements) {
+    dataElements[dataElement].innerText = "";
+  }
+  for (let loader in loaders) {
+    loaders[loader].style.display = "block";
+  }
+  errorH2.innerText = errorParagraph.innerHTML = "";
 
   if (isValidIp(input)) {
     loaders["ip-loader"].style.display = "none";
-    dataElements.ip.innerText = input;
+    document.querySelector("#ip-address span").innerText = input;
     getGeoInfo(false, input);
   } else {
     getGeoInfo(false, "", input);
