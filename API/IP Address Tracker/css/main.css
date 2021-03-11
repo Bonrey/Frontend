@@ -34,6 +34,11 @@ footer {
   left: 20px;
   bottom: 20px;
 }
+@media only screen and (max-width: 600px) {
+  footer {
+    left: 10px;
+  }
+}
 
 * {
   margin: 0;
@@ -287,6 +292,11 @@ header form button[type=submit]:hover img {
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
+}
+@media only screen and (max-width: 600px) {
+  .error-div {
+    top: 15px;
+  }
 }
 .error-div h2 {
   margin: 20px 0;

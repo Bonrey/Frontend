@@ -110,6 +110,15 @@ function badUrlError() {
 }
 
 
+// =======================================
+// set the text field to the default state
+// =======================================
+function defaultTextField() {
+  textField.placeholder = "Search for any IP address or domain";
+  textField.classList.remove("red-placeholder");
+}
+
+
 // ===================
 // update data and map
 // ===================
@@ -233,14 +242,13 @@ const searchButton = document.querySelector("button[type='submit']");
 searchButton.addEventListener("click", updateGeoInfo);
 
 
-// ================================================================
-// bring the text field to the default state after clicking outside
-// ================================================================
+// ==============================================================
+// set the text field to the default state after clicking outside
+// ==============================================================
 const form = document.getElementsByTagName("form")[0];
 document.addEventListener("click", e => {
   if (!form.contains(e.target) && textField.classList.contains("red-placeholder")) {
-    textField.placeholder = "Search for any IP address or domain";
-    textField.classList.remove("red-placeholder");
+    defaultTextField();
   }
 });
 
