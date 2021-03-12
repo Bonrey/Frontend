@@ -290,9 +290,10 @@ header {
   border-radius: 12px;
   position: absolute;
   bottom: 73px;
-  left: 24px;
+  left: 30px;
   display: none;  // toggle with flex
   align-items: center;
+  transform-origin: 0 100%;
 
   #triangle {
     width: 0;

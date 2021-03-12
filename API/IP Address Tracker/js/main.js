@@ -234,18 +234,21 @@ const attribution = document.getElementsByClassName("attribution")[0];
 const attrBtn = document.getElementById("attribution-btn");
 let attrShown = false;
 
+const btnSound = new Audio("media/bubble_button.ogg");
+
 function onAttrBtnClick() {
+  btnSound.play().then(_ => console.log("audio working"));
   if (getComputedStyle(attribution).display === "none") {
     attrShown = true;
     attrBtn.style.opacity = "1";
     attribution.style.display = "flex";
-    attribution.style.animation = "show-attribution 1s 1";
+    attribution.style.animation = "show-attribution 0.5s 1";
   } else {
     attrShown = false;
     attrBtn.style.opacity = "0.5";
     onMouseOver();
-    attribution.style.animation = "hide-attribution 1s 1";
-    setTimeout(() => attribution.style.display = "none", 1000);
+    attribution.style.animation = "hide-attribution 0.5s 1";
+    setTimeout(() => attribution.style.display = "none", 500);
   }
 }
 
