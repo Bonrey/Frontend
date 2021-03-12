@@ -1,5 +1,5 @@
 @import "base";
-@import "animation";
+@import "animations";
 
 header {
   display: flex;
@@ -54,9 +54,17 @@ header {
       border-radius: 15px 0 0 15px;
       box-sizing: border-box;
       color: $very-dark-gray;
+      
+      @media only screen and (max-width: 600px) {
+        border-radius: 12px 0 0 12px;
+      }
 
       &.red-placeholder {
         border: 3px solid #EE5755;
+
+        @media only screen and (max-width: 600px) {
+          border-width: 2px;
+        }
 
         &::placeholder {
           color: #EE5755;

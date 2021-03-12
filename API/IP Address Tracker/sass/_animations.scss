@@ -1,0 +1,26 @@
+@keyframes spin {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes show-attribution {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide-attribution {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

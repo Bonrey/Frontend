@@ -127,8 +127,18 @@ header form input[type=text] {
   box-sizing: border-box;
   color: #2b2b2b;
 }
+@media only screen and (max-width: 600px) {
+  header form input[type=text] {
+    border-radius: 12px 0 0 12px;
+  }
+}
 header form input[type=text].red-placeholder {
   border: 3px solid #EE5755;
+}
+@media only screen and (max-width: 600px) {
+  header form input[type=text].red-placeholder {
+    border-width: 2px;
+  }
 }
 header form input[type=text].red-placeholder::placeholder {
   color: #EE5755;

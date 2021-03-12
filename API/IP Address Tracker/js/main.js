@@ -1,6 +1,8 @@
 const apiKey = "at_yD616QsY5LwKtmSTbfr3fiwpFDfDI"; //"at_EydNviLJCZNMWuRaWCSJtngeQFCUJ";
 
 const textField = document.querySelector("input[type='text']");
+textField.readOnly = true;
+
 const dataElements = {
   "ip": document.querySelector("#ip-address p"),
   "location": document.querySelector("#location p"),
@@ -44,18 +46,12 @@ function updateFontSize() {
 }
 
 function updatePlaceholder() {
-  if (window.outerWidth < 360) {
-    if (!textField.classList.contains("red-placeholder")) {
-      textField.placeholder = "Search for any IP or domain";
-    } else {
-      textField.placeholder = "Enter correct IP or domain";
-    }
+  if (!textField.classList.contains("red-placeholder") && window.outerWidth < 360) {
+    textField.placeholder = "Search for any IP or domain";
+  } else if (!textField.classList.contains("red-placeholder")) {
+    textField.placeholder = "Search for any IP address or domain";
   } else {
-    if (!textField.classList.contains("red-placeholder")) {
-      textField.placeholder = "Search for any IP address or domain";
-    } else {
-      textField.placeholder = "Enter correct IP address or domain";
-    }
+    textField.placeholder = "Input field must not be empty";
   }
 }
 
@@ -80,16 +76,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 // =======================
 // handle inaccurate input
 // =======================
-function invalidInput() {
-  textField.placeholder = "Enter correct IP address or domain!";
+function emptyInputError() {
+  textField.placeholder = "Input field must not be empty";
   textField.classList.add("red-placeholder");
-
-  for (let dataElement in dataElements) {
-    dataElements[dataElement].innerText = "";
-  }
-  for (let loader in loaders) {
-    loaders[loader].style.display = "none";
-  }
 }
 
 function badUrlError() {
@@ -107,15 +96,6 @@ function badUrlError() {
   }
   errorH2.innerText = errorH2Text;
   errorParagraph.innerHTML = errorParagraphHTML;
-}
-
-
-// =======================================
-// set the text field to the default state
-// =======================================
-function defaultTextField() {
-  textField.placeholder = "Search for any IP address or domain";
-  textField.classList.remove("red-placeholder");
 }
 
 
@@ -156,43 +136,23 @@ function getGeoInfo(firstLaunch, ipInput = "", domainInput = "") {
       if (firstLaunch) {
         loaders["ip-loader"].style.display = "none";
         dataElements.ip.innerText = data.ip;
-        return ["ip", data.ip];
-      } else {
-        if (ipInput) {
-          return ["ip", ipInput];
-        } else if (domainInput) {
-          return ["domain", domainInput];
-        }
-        throw "invalid input!";
+        return ["ipAddress", data.ip];
       }
+      return ipInput ? ["ipAddress", ipInput] : ["domain", domainInput];
     })
-    .then(data => {
-      let requestUrl = `https://geo.ipify.org/api/v1?apiKey=${apiKey}`;
-      if (data[0] === "ip") {
-        requestUrl += `&ipAddress=${data[1]}`;
-      } else if (data[0] === "domain") {
-        requestUrl += `&domain=${data[1]}`;
-      }
-      return fetch(requestUrl);
-    })
+    .then(data => fetch(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&${data[0]}=${data[1]}`))
     .then(response => {
+      textField.readOnly = false;
       if (response.ok) {
-        return response.json()
+        return response.json();
       }
-      throw "bad url!";
+      throw "bad url error";
     })
     .then(data => {
         updateInfoSection(data);
         updateMap(data);
       }
-    )
-    .catch(error => {
-      if (error === "bad url!") {
-        badUrlError();
-      } else {
-        invalidInput();
-      }
-    });
+    ).catch(_ => badUrlError());
 }
 
 // first launch
@@ -203,7 +163,7 @@ getGeoInfo(true);
 // get data from the text field
 // ============================
 function isValidIp(ip) {
-  const ipNum = "([0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])";
+  const ipNum = "([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])";
   const reg = new RegExp(`^${ipNum}\\.${ipNum}\\.${ipNum}\\.${ipNum}$`);
   return reg.test(ip);
 }
@@ -214,7 +174,13 @@ function isValidIp(ip) {
 // ==========================
 function updateGeoInfo() {
   const input = textField.value;
+  if (input === null || input === "") {
+    emptyInputError();
+    return;
+  }
+
   textField.value = "";
+  textField.readOnly = true;
   for (let i = 0; i < 4; i++) {
     infoHeadings[i].innerText = headingsText[i];
   }
@@ -242,13 +208,21 @@ const searchButton = document.querySelector("button[type='submit']");
 searchButton.addEventListener("click", updateGeoInfo);
 
 
-// ==============================================================
-// set the text field to the default state after clicking outside
-// ==============================================================
+// ======================================================================
+// set text field to the default state after clicking outside or on focus
+// ======================================================================
 const form = document.getElementsByTagName("form")[0];
 document.addEventListener("click", e => {
   if (!form.contains(e.target) && textField.classList.contains("red-placeholder")) {
-    defaultTextField();
+    textField.classList.remove("red-placeholder");
+    updatePlaceholder();
+  }
+});
+
+textField.addEventListener("focus", function () {
+  if (this.classList.contains("red-placeholder")) {
+    this.classList.remove("red-placeholder");
+    updatePlaceholder();
   }
 });
 
