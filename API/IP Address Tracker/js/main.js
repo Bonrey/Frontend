@@ -1,4 +1,4 @@
-const apiKey = "at_yD616QsY5LwKtmSTbfr3fiwpFDfDI"; //"at_EydNviLJCZNMWuRaWCSJtngeQFCUJ";
+const apiKey = "at_EydNviLJCZNMWuRaWCSJtngeQFCUJ";
 
 const textField = document.querySelector("input[type='text']");
 textField.readOnly = true;
