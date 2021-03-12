@@ -20,10 +20,10 @@ const loaders = {
 const headingsText = ["ip address", "location", "timezone", "isp"];
 const infoHeadings = document.querySelectorAll(".information h2");
 const verticalLines = document.getElementsByClassName("vertical-line");
-const errorH2 = document.querySelector(".error-div h2");
-const errorParagraph = document.querySelector(".error-div p");
+const errorHeading = document.querySelector("#error-div-heading");
+const errorParagraph = document.querySelector("#error-div-text");
 
-const errorH2Text = "Something went wrong";
+const errorHeadingText = "Something went wrong";
 const errorParagraphHTML = "Make sure that you typed in the correct IP or domain name and try again.<br>" +
   "Also, check if your browser allows sending requests.";
 
@@ -94,7 +94,7 @@ function badUrlError() {
   for (let loader in loaders) {
     loaders[loader].style.display = "none";
   }
-  errorH2.innerText = errorH2Text;
+  errorHeading.innerText = errorHeadingText;
   errorParagraph.innerHTML = errorParagraphHTML;
 }
 
@@ -193,7 +193,7 @@ function updateGeoInfo() {
   for (let loader in loaders) {
     loaders[loader].style.display = "block";
   }
-  errorH2.innerText = errorParagraph.innerHTML = "";
+  errorHeading.innerText = errorParagraph.innerHTML = "";
 
   if (isValidIp(input)) {
     loaders["ip-loader"].style.display = "none";

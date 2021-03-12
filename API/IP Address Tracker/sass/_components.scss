@@ -240,7 +240,9 @@ header {
     top: 15px;
   }
 
-  h2 {
+  #error-div-heading {
+    font-weight: $bold-w;
+    font-size: 1.5rem;
     margin: 20px 0;
 
     @media only screen and (max-width: 600px) {
@@ -248,7 +250,7 @@ header {
     }
   }
 
-  p {
+  #error-div-text {
     line-height: 1.4rem;
 
     @media only screen and (max-width: 1200px) {

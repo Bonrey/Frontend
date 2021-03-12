@@ -312,19 +312,21 @@ header form button[type=submit]:hover img {
     top: 15px;
   }
 }
-.error-div h2 {
+.error-div #error-div-heading {
+  font-weight: 700;
+  font-size: 1.5rem;
   margin: 20px 0;
 }
 @media only screen and (max-width: 600px) {
-  .error-div h2 {
+  .error-div #error-div-heading {
     font-size: 1.2rem;
   }
 }
-.error-div p {
+.error-div #error-div-text {
   line-height: 1.4rem;
 }
 @media only screen and (max-width: 1200px) {
-  .error-div p {
+  .error-div #error-div-text {
     font-size: 0.8rem;
     line-height: 1.3rem;
   }
