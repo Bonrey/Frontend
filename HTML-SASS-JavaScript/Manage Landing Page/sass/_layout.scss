@@ -1,0 +1,23 @@
+@import "base";
+
+body {
+  min-height: 100vh;
+  background: url("../images/bg-tablet-pattern.svg") no-repeat calc(100% + 200px) -200px;
+}
+
+header {
+  width: 1160px;
+  margin: 3rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  width: 1160px;
+  margin: 6rem auto 0;
+}
+
+footer {
+
+}
