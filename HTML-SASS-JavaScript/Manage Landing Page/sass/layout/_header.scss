@@ -1,0 +1,31 @@
+@import "../base";
+
+header {
+  width: 1160px;
+  min-width: 80%;
+  max-width: 90%;
+  margin: 4rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    width: 10vw;
+    height: auto;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: $dark-blue;
+    font-weight: $medium-w;
+    margin: 1.3rem;
+
+    &:hover {
+      color: $dark-grayish-blue;
+    }
+  }
+
+  button {
+    margin-right: 1.3rem;
+  }
+}

@@ -1,0 +1,86 @@
+@import "../base";
+
+main {
+  width: 1160px;
+  min-width: 80%;
+  max-width: 90%;
+  height: auto;
+  margin: 6rem auto 8rem;
+  display: grid;
+  grid-template-areas: "intro-text intro-img" "functionality-intro functionality-sections";
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 6rem;
+
+  .intro-text {
+    grid-area: intro-text;
+    align-self: center;
+    width: 80%;
+
+    p {
+      margin: 2rem 0 3rem;
+      padding-right: 25%;
+    }
+  }
+
+  .intro-img {
+    grid-area: intro-img;
+    justify-self: end;
+    width: 100%;
+    height: auto;
+  }
+
+  .functionality-intro {
+    grid-area: functionality-intro;
+    width: 80%;
+
+    p {
+      margin-top: 1.5rem;
+      padding-right: 25%;
+    }
+  }
+
+  .functionality-sections {
+    grid-area: functionality-sections;
+
+    section {
+      margin-bottom: 3rem;
+      padding-left: 3%;
+      padding-right: 2%;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    header {
+      margin: 0;
+      width: 100%;
+      display: flex;
+      justify-content: start;
+
+      div {
+        display: inline-block;
+        font-weight: $medium-w;
+        width: 4rem;
+        margin-right: 1.7rem;
+        background-color: $bright-red;
+        color: $white;
+        line-height: 2.6rem;
+        text-align: center;
+        font-size: 1.2rem;
+        border-radius: 1.3rem;
+      }
+
+      h3 {
+        display: inline-block;
+        height: 2.2rem;
+        padding-bottom: 0.3rem;
+      }
+    }
+
+    p {
+      margin-left: 5.7rem;
+      margin-top: 0.5rem;
+    }
+  }
+}

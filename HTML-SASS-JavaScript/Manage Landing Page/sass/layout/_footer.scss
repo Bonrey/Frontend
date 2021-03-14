@@ -1,0 +1,104 @@
+@import "../base";
+
+footer {
+  height: 18rem;
+  background-color: $very-dark-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .footer-wrapper {
+    position: relative;
+    width: 1160px;
+    min-width: 80%;
+    max-width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+    .social-media {
+      img {
+        width: 10vw;
+        height: auto;
+        margin-bottom: 5rem;
+        padding-top: 0.125rem;
+      }
+
+      &__links a {
+        margin: 0 0.3rem;
+        display: inline-block;
+        width: 1.25rem;
+
+        svg path {
+          transition: 0.4s;
+        }
+
+        &:hover svg path {
+          fill: $bright-red;
+        }
+      }
+    }
+
+    .extra-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      grid-column-gap: 12rem;
+
+      a {
+        text-decoration: none;
+        color: $very-light-gray;
+        align-self: center;
+
+        &:hover {
+          color: $bright-red;
+        }
+      }
+    }
+
+    .subscription-form {
+      input[type="text"] {
+        border: none;
+        outline: none;
+        width: 15rem;
+        line-height: 3rem;
+        border-radius: 1.5rem;
+        font-size: 1rem;
+        font-family: $BeVietnam;
+        font-weight: $medium-w;
+        padding: 0 1rem;
+        margin-right: 0.4rem;
+
+        &::placeholder {
+          color: $dark-grayish-blue;
+          opacity: 0.7;
+        }
+      }
+
+      input[type="submit"] {
+        border: none;
+        outline: none;
+        width: 4rem;
+        line-height: 3rem;
+        border-radius: 1.5rem;
+        font-size: 1rem;
+        font-weight: $bold-w;
+        font-family: $BeVietnam;
+        background-color: $bright-red;
+        color: $very-light-gray;
+        transition: 0.4s;
+
+        &:hover {
+          background-color: hsl(12, 88%, 69%);
+          cursor: pointer;
+        }
+      }
+    }
+
+    #copyright {
+      position: absolute;
+      color: $dark-grayish-blue;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

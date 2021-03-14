@@ -1,0 +1,90 @@
+@import "../base";
+
+section.testimonials {
+  padding-bottom: 2rem;
+  text-align: center;
+  overflow: hidden;
+
+  h2 {
+    margin-bottom: 7rem;
+  }
+
+  .testimonials-slider {
+    width: 100%;
+    position: relative;
+
+    .slides {
+      height: 14rem;
+    }
+
+    .slide {
+      position: absolute;
+      display: inline-block;
+      width: 34rem;
+      height: 14rem;
+      background-color: $very-light-gray;
+      padding: 3.6rem 2.7rem 0;
+      border-radius: 0.5rem;
+
+      img {
+        width: 5vw;  // 72px
+        height: 5vw;  // 72px
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -2.5vw;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .previous {
+      right: 71%;
+    }
+
+    .current {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+    }
+
+    .next {
+      left: 71%;
+    }
+
+    .invisible {
+      display: none;
+    }
+
+    .dots {
+      width: 34rem;
+      line-height: 4rem;
+      margin: 0 auto;
+
+      &:hover .dot {
+        opacity: 1;
+      }
+    }
+
+    .dot {
+      display: inline-block;
+      width: 0.8rem;
+      height: 0.8rem;
+      margin: 0.25rem;
+      border-radius: 50%;
+      border: 0.125rem solid $bright-red;
+      opacity: 0;
+      transition: 1s;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    #dot2 {
+      background-color: $bright-red;
+    }
+  }
+}
