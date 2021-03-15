@@ -15,6 +15,10 @@ section.testimonials {
 
     .slides {
       height: 14rem;
+      
+      @media only screen and (max-width: 720px) {
+        height: 20rem;
+      }
     }
 
     .slide {
@@ -26,6 +30,12 @@ section.testimonials {
       padding: 3.6rem 2.7rem 0;
       border-radius: 0.5rem;
 
+      @media only screen and (max-width: 720px) {
+        width: 86%;
+        height: 20rem;
+        padding: 4.5rem 2rem 0;
+      }
+
       img {
         width: 5vw;  // 72px
         height: 5vw;  // 72px
@@ -33,15 +43,29 @@ section.testimonials {
         left: 50%;
         transform: translateX(-50%);
         top: -2.5vw;
+        
+        @media only screen and (max-width: 720px) {
+          width: 16vw;
+          height: 16vw;
+          top: -8vw;
+        }
       }
 
       h3 {
         margin-bottom: 1rem;
+        
+        @media only screen and (max-width: 720px) {
+          margin-bottom: 1.5rem;
+        }
       }
     }
 
     .previous {
       right: 71%;
+
+      @media only screen and (max-width: 720px) {
+        right: 100%;
+      }
     }
 
     .current {
@@ -52,6 +76,10 @@ section.testimonials {
 
     .next {
       left: 71%;
+      
+      @media only screen and (max-width: 720px) {
+        left: 100%;
+      }
     }
 
     .invisible {
@@ -62,6 +90,11 @@ section.testimonials {
       width: 34rem;
       line-height: 4rem;
       margin: 0 auto;
+
+      @media only screen and (max-width: 720px) {
+        line-height: 5rem;
+        margin-bottom: 2rem;
+      }
 
       &:hover .dot {
         opacity: 1;
@@ -77,6 +110,12 @@ section.testimonials {
       border: 0.125rem solid $bright-red;
       opacity: 0;
       transition: 1s;
+      
+      @media only screen and (max-width: 720px) {
+        opacity: 1;
+        margin: 0.1rem;
+        border-width: 0.15rem;
+      }
 
       &:hover {
         cursor: pointer;

@@ -10,15 +10,32 @@ main {
   grid-template-areas: "intro-text intro-img" "functionality-intro functionality-sections";
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 6rem;
+  
+  @media only screen and (max-width: 720px) {
+    max-width: 100%;
+    margin: 4rem auto 6rem;
+    display: block;
+  }
 
   .intro-text {
     grid-area: intro-text;
     align-self: center;
     width: 80%;
 
+    @media only screen and (max-width: 720px) {
+      margin: 0 auto;
+      text-align: center;
+    }
+
     p {
       margin: 2rem 0 3rem;
-      padding-right: 25%;
+      padding-right: 28%;
+
+      @media only screen and (max-width: 720px) {
+        margin: 1rem 0 2rem;
+        padding: 0;
+        font-size: 1.4rem;
+      }
     }
   }
 
@@ -27,15 +44,29 @@ main {
     justify-self: end;
     width: 100%;
     height: auto;
+
+    @media only screen and (max-width: 720px) {
+      padding: 0 5%;
+    }
   }
 
   .functionality-intro {
     grid-area: functionality-intro;
     width: 80%;
 
+    @media only screen and (max-width: 720px) {
+      text-align: center;
+      margin: 8rem auto 0;
+    }
+
     p {
       margin-top: 1.5rem;
-      padding-right: 25%;
+      padding-right: 28%;
+      
+      @media only screen and (max-width: 720px) {
+        margin: 1.5rem auto 5rem;
+        padding: 0;
+      }
     }
   }
 
@@ -44,8 +75,12 @@ main {
 
     section {
       margin-bottom: 3rem;
-      padding-left: 3%;
-      padding-right: 2%;
+      padding: 0 1.5rem;
+
+      @media only screen and (max-width: 720px) {
+        padding: 0 0 0 2rem;
+        width: 100%;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -57,6 +92,13 @@ main {
       width: 100%;
       display: flex;
       justify-content: start;
+      align-items: center;
+      
+      @media only screen and (max-width: 720px) {
+        background-color: $very-pale-red;
+        max-width: 100%;
+        border-radius: 1.5rem 0 0 1.5rem;
+      }
 
       div {
         display: inline-block;
@@ -69,11 +111,18 @@ main {
         text-align: center;
         font-size: 1.2rem;
         border-radius: 1.3rem;
+        
+        @media only screen and (max-width: 720px) {
+          line-height: 3rem;
+          width: 5rem;
+          border-radius: 1.5rem;
+          margin-right: 1.5rem;
+        }
       }
 
       h3 {
         display: inline-block;
-        height: 2.2rem;
+        height: 2.6rem;
         padding-bottom: 0.3rem;
       }
     }
@@ -81,6 +130,11 @@ main {
     p {
       margin-left: 5.7rem;
       margin-top: 0.5rem;
+      
+      @media only screen and (max-width: 720px) {
+        margin-left: 0;
+        padding-right: 2.5rem;
+      }
     }
   }
 }

@@ -6,7 +6,12 @@
 
 html {
   font-family: "Be Vietnam", sans-serif;
-  font-size: 1.11vw;
+  font-size: calc(100vw / 90);
+}
+@media only screen and (max-width: 720px) {
+  html {
+    font-size: calc(100vw / 36);
+  }
 }
 
 body {
@@ -15,6 +20,13 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: calc(100% + 9rem) -9rem, -32rem 69rem;
   background-size: 56%, 56%;
+}
+@media only screen and (max-width: 720px) {
+  body {
+    background-position: calc(100% + 13rem) -10rem, calc(100% + 15rem) 44rem;
+    background-size: 120%, 80%;
+    opacity: 0.5;
+  }
 }
 
 a, button {
@@ -34,11 +46,27 @@ h2 {
   font-size: 2.4rem;
   line-height: 2.7rem;
 }
+@media only screen and (max-width: 720px) {
+  h2 {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+}
 
+@media only screen and (max-width: 720px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
 p {
   line-height: 1.7rem;
-  font-weight: 500;
   color: #9095a7;
+}
+@media only screen and (max-width: 720px) {
+  p {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+  }
 }
 
 * {
@@ -49,7 +77,12 @@ p {
 
 html {
   font-family: "Be Vietnam", sans-serif;
-  font-size: 1.11vw;
+  font-size: calc(100vw / 90);
+}
+@media only screen and (max-width: 720px) {
+  html {
+    font-size: calc(100vw / 36);
+  }
 }
 
 body {
@@ -58,6 +91,13 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: calc(100% + 9rem) -9rem, -32rem 69rem;
   background-size: 56%, 56%;
+}
+@media only screen and (max-width: 720px) {
+  body {
+    background-position: calc(100% + 13rem) -10rem, calc(100% + 15rem) 44rem;
+    background-size: 120%, 80%;
+    opacity: 0.5;
+  }
 }
 
 a, button {
@@ -77,11 +117,27 @@ h2 {
   font-size: 2.4rem;
   line-height: 2.7rem;
 }
+@media only screen and (max-width: 720px) {
+  h2 {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+}
 
+@media only screen and (max-width: 720px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
 p {
   line-height: 1.7rem;
-  font-weight: 500;
   color: #9095a7;
+}
+@media only screen and (max-width: 720px) {
+  p {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+  }
 }
 
 .get-started-btn {
@@ -97,6 +153,14 @@ p {
   font-family: "Be Vietnam", sans-serif;
   font-weight: 700;
   box-shadow: 0 1rem 1.5rem -0.3rem #f9b19f;
+}
+@media only screen and (max-width: 720px) {
+  .get-started-btn {
+    width: 12rem;
+    line-height: 3.6rem;
+    border-radius: 1.8rem;
+    font-size: 1.1rem;
+  }
 }
 .get-started-btn:hover {
   background-color: #f6866a;
@@ -119,7 +183,12 @@ p {
 
 html {
   font-family: "Be Vietnam", sans-serif;
-  font-size: 1.11vw;
+  font-size: calc(100vw / 90);
+}
+@media only screen and (max-width: 720px) {
+  html {
+    font-size: calc(100vw / 36);
+  }
 }
 
 body {
@@ -128,6 +197,13 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: calc(100% + 9rem) -9rem, -32rem 69rem;
   background-size: 56%, 56%;
+}
+@media only screen and (max-width: 720px) {
+  body {
+    background-position: calc(100% + 13rem) -10rem, calc(100% + 15rem) 44rem;
+    background-size: 120%, 80%;
+    opacity: 0.5;
+  }
 }
 
 a, button {
@@ -147,11 +223,27 @@ h2 {
   font-size: 2.4rem;
   line-height: 2.7rem;
 }
+@media only screen and (max-width: 720px) {
+  h2 {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+}
 
+@media only screen and (max-width: 720px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
 p {
   line-height: 1.7rem;
-  font-weight: 500;
   color: #9095a7;
+}
+@media only screen and (max-width: 720px) {
+  p {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+  }
 }
 
 header {
@@ -163,21 +255,70 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+@media only screen and (max-width: 720px) {
+  header {
+    width: 86%;
+  }
+}
 header img {
   width: 10vw;
   height: auto;
 }
-header .menu a {
+@media only screen and (max-width: 720px) {
+  header img {
+    width: 30vw;
+    height: auto;
+  }
+}
+header a {
   text-decoration: none;
   color: #242d52;
   font-weight: 500;
   margin: 1.3rem;
 }
-header .menu a:hover {
+header a:hover {
   color: #9095a7;
+}
+header .menu-mobile {
+  position: absolute;
+  width: 86%;
+  height: 29rem;
+  background-color: white;
+  left: 7%;
+  top: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+header .menu-mobile a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 1rem;
 }
 header button {
   margin-right: 1.3rem;
+}
+@media only screen and (max-width: 720px) {
+  header button {
+    display: none;
+  }
+}
+header .menu-btn {
+  display: none;
+}
+@media only screen and (max-width: 720px) {
+  header .menu-btn {
+    display: block;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+  header .menu-btn img {
+    width: calc(100vw / 15);
+    height: auto;
+  }
 }
 
 * {
@@ -188,7 +329,12 @@ header button {
 
 html {
   font-family: "Be Vietnam", sans-serif;
-  font-size: 1.11vw;
+  font-size: calc(100vw / 90);
+}
+@media only screen and (max-width: 720px) {
+  html {
+    font-size: calc(100vw / 36);
+  }
 }
 
 body {
@@ -197,6 +343,13 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: calc(100% + 9rem) -9rem, -32rem 69rem;
   background-size: 56%, 56%;
+}
+@media only screen and (max-width: 720px) {
+  body {
+    background-position: calc(100% + 13rem) -10rem, calc(100% + 15rem) 44rem;
+    background-size: 120%, 80%;
+    opacity: 0.5;
+  }
 }
 
 a, button {
@@ -216,11 +369,27 @@ h2 {
   font-size: 2.4rem;
   line-height: 2.7rem;
 }
+@media only screen and (max-width: 720px) {
+  h2 {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+}
 
+@media only screen and (max-width: 720px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
 p {
   line-height: 1.7rem;
-  font-weight: 500;
   color: #9095a7;
+}
+@media only screen and (max-width: 720px) {
+  p {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+  }
 }
 
 main {
@@ -234,14 +403,34 @@ main {
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 6rem;
 }
+@media only screen and (max-width: 720px) {
+  main {
+    max-width: 100%;
+    margin: 4rem auto 6rem;
+    display: block;
+  }
+}
 main .intro-text {
   grid-area: intro-text;
   align-self: center;
   width: 80%;
 }
+@media only screen and (max-width: 720px) {
+  main .intro-text {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
 main .intro-text p {
   margin: 2rem 0 3rem;
-  padding-right: 25%;
+  padding-right: 28%;
+}
+@media only screen and (max-width: 720px) {
+  main .intro-text p {
+    margin: 1rem 0 2rem;
+    padding: 0;
+    font-size: 1.4rem;
+  }
 }
 main .intro-img {
   grid-area: intro-img;
@@ -249,21 +438,43 @@ main .intro-img {
   width: 100%;
   height: auto;
 }
+@media only screen and (max-width: 720px) {
+  main .intro-img {
+    padding: 0 5%;
+  }
+}
 main .functionality-intro {
   grid-area: functionality-intro;
   width: 80%;
 }
+@media only screen and (max-width: 720px) {
+  main .functionality-intro {
+    text-align: center;
+    margin: 8rem auto 0;
+  }
+}
 main .functionality-intro p {
   margin-top: 1.5rem;
-  padding-right: 25%;
+  padding-right: 28%;
+}
+@media only screen and (max-width: 720px) {
+  main .functionality-intro p {
+    margin: 1.5rem auto 5rem;
+    padding: 0;
+  }
 }
 main .functionality-sections {
   grid-area: functionality-sections;
 }
 main .functionality-sections section {
   margin-bottom: 3rem;
-  padding-left: 3%;
-  padding-right: 2%;
+  padding: 0 1.5rem;
+}
+@media only screen and (max-width: 720px) {
+  main .functionality-sections section {
+    padding: 0 0 0 2rem;
+    width: 100%;
+  }
 }
 main .functionality-sections section:last-child {
   margin-bottom: 0;
@@ -273,6 +484,14 @@ main .functionality-sections header {
   width: 100%;
   display: flex;
   justify-content: start;
+  align-items: center;
+}
+@media only screen and (max-width: 720px) {
+  main .functionality-sections header {
+    background-color: #ffefeb;
+    max-width: 100%;
+    border-radius: 1.5rem 0 0 1.5rem;
+  }
 }
 main .functionality-sections header div {
   display: inline-block;
@@ -286,14 +505,28 @@ main .functionality-sections header div {
   font-size: 1.2rem;
   border-radius: 1.3rem;
 }
+@media only screen and (max-width: 720px) {
+  main .functionality-sections header div {
+    line-height: 3rem;
+    width: 5rem;
+    border-radius: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
 main .functionality-sections header h3 {
   display: inline-block;
-  height: 2.2rem;
+  height: 2.6rem;
   padding-bottom: 0.3rem;
 }
 main .functionality-sections p {
   margin-left: 5.7rem;
   margin-top: 0.5rem;
+}
+@media only screen and (max-width: 720px) {
+  main .functionality-sections p {
+    margin-left: 0;
+    padding-right: 2.5rem;
+  }
 }
 
 * {
@@ -304,7 +537,12 @@ main .functionality-sections p {
 
 html {
   font-family: "Be Vietnam", sans-serif;
-  font-size: 1.11vw;
+  font-size: calc(100vw / 90);
+}
+@media only screen and (max-width: 720px) {
+  html {
+    font-size: calc(100vw / 36);
+  }
 }
 
 body {
@@ -313,6 +551,13 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: calc(100% + 9rem) -9rem, -32rem 69rem;
   background-size: 56%, 56%;
+}
+@media only screen and (max-width: 720px) {
+  body {
+    background-position: calc(100% + 13rem) -10rem, calc(100% + 15rem) 44rem;
+    background-size: 120%, 80%;
+    opacity: 0.5;
+  }
 }
 
 a, button {
@@ -332,11 +577,27 @@ h2 {
   font-size: 2.4rem;
   line-height: 2.7rem;
 }
+@media only screen and (max-width: 720px) {
+  h2 {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+}
 
+@media only screen and (max-width: 720px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
 p {
   line-height: 1.7rem;
-  font-weight: 500;
   color: #9095a7;
+}
+@media only screen and (max-width: 720px) {
+  p {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+  }
 }
 
 section.testimonials {
@@ -354,6 +615,11 @@ section.testimonials .testimonials-slider {
 section.testimonials .testimonials-slider .slides {
   height: 14rem;
 }
+@media only screen and (max-width: 720px) {
+  section.testimonials .testimonials-slider .slides {
+    height: 20rem;
+  }
+}
 section.testimonials .testimonials-slider .slide {
   position: absolute;
   display: inline-block;
@@ -363,6 +629,13 @@ section.testimonials .testimonials-slider .slide {
   padding: 3.6rem 2.7rem 0;
   border-radius: 0.5rem;
 }
+@media only screen and (max-width: 720px) {
+  section.testimonials .testimonials-slider .slide {
+    width: 86%;
+    height: 20rem;
+    padding: 4.5rem 2rem 0;
+  }
+}
 section.testimonials .testimonials-slider .slide img {
   width: 5vw;
   height: 5vw;
@@ -371,11 +644,28 @@ section.testimonials .testimonials-slider .slide img {
   transform: translateX(-50%);
   top: -2.5vw;
 }
+@media only screen and (max-width: 720px) {
+  section.testimonials .testimonials-slider .slide img {
+    width: 16vw;
+    height: 16vw;
+    top: -8vw;
+  }
+}
 section.testimonials .testimonials-slider .slide h3 {
   margin-bottom: 1rem;
 }
+@media only screen and (max-width: 720px) {
+  section.testimonials .testimonials-slider .slide h3 {
+    margin-bottom: 1.5rem;
+  }
+}
 section.testimonials .testimonials-slider .previous {
   right: 71%;
+}
+@media only screen and (max-width: 720px) {
+  section.testimonials .testimonials-slider .previous {
+    right: 100%;
+  }
 }
 section.testimonials .testimonials-slider .current {
   left: 50%;
@@ -385,6 +675,11 @@ section.testimonials .testimonials-slider .current {
 section.testimonials .testimonials-slider .next {
   left: 71%;
 }
+@media only screen and (max-width: 720px) {
+  section.testimonials .testimonials-slider .next {
+    left: 100%;
+  }
+}
 section.testimonials .testimonials-slider .invisible {
   display: none;
 }
@@ -392,6 +687,12 @@ section.testimonials .testimonials-slider .dots {
   width: 34rem;
   line-height: 4rem;
   margin: 0 auto;
+}
+@media only screen and (max-width: 720px) {
+  section.testimonials .testimonials-slider .dots {
+    line-height: 5rem;
+    margin-bottom: 2rem;
+  }
 }
 section.testimonials .testimonials-slider .dots:hover .dot {
   opacity: 1;
@@ -405,6 +706,13 @@ section.testimonials .testimonials-slider .dot {
   border: 0.125rem solid #f25f3a;
   opacity: 0;
   transition: 1s;
+}
+@media only screen and (max-width: 720px) {
+  section.testimonials .testimonials-slider .dot {
+    opacity: 1;
+    margin: 0.1rem;
+    border-width: 0.15rem;
+  }
 }
 section.testimonials .testimonials-slider .dot:hover {
   cursor: pointer;
@@ -421,7 +729,12 @@ section.testimonials .testimonials-slider #dot2 {
 
 html {
   font-family: "Be Vietnam", sans-serif;
-  font-size: 1.11vw;
+  font-size: calc(100vw / 90);
+}
+@media only screen and (max-width: 720px) {
+  html {
+    font-size: calc(100vw / 36);
+  }
 }
 
 body {
@@ -430,6 +743,13 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: calc(100% + 9rem) -9rem, -32rem 69rem;
   background-size: 56%, 56%;
+}
+@media only screen and (max-width: 720px) {
+  body {
+    background-position: calc(100% + 13rem) -10rem, calc(100% + 15rem) 44rem;
+    background-size: 120%, 80%;
+    opacity: 0.5;
+  }
 }
 
 a, button {
@@ -449,18 +769,42 @@ h2 {
   font-size: 2.4rem;
   line-height: 2.7rem;
 }
+@media only screen and (max-width: 720px) {
+  h2 {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+}
 
+@media only screen and (max-width: 720px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
 p {
   line-height: 1.7rem;
-  font-weight: 500;
   color: #9095a7;
+}
+@media only screen and (max-width: 720px) {
+  p {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+  }
 }
 
 section.simplify {
   margin-top: 6rem;
   height: 13rem;
-  background: #f25f3a url("../images/bg-simplify-section-desktop.svg") no-repeat 15rem bottom;
+  background-color: #f25f3a url("../images/bg-simplify-section-desktop.svg") no-repeat 15rem bottom;
   background-size: 100%;
+}
+@media only screen and (max-width: 720px) {
+  section.simplify {
+    margin-top: 2rem;
+    height: 36rem;
+    background: #f25f3a url("../images/bg-simplify-section-mobile.svg") no-repeat center left;
+    background-size: 25%;
+  }
 }
 section.simplify .simplify-wrapper {
   width: 1160px;
@@ -472,9 +816,25 @@ section.simplify .simplify-wrapper {
   justify-content: space-between;
   align-items: center;
 }
+@media only screen and (max-width: 720px) {
+  section.simplify .simplify-wrapper {
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 section.simplify .simplify-wrapper h2 {
   color: white;
   width: 40%;
+}
+@media only screen and (max-width: 720px) {
+  section.simplify .simplify-wrapper h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 3.4rem;
+    line-height: 4.6rem;
+    margin-bottom: 3rem;
+  }
 }
 section.simplify .simplify-wrapper button {
   box-shadow: none;
@@ -494,7 +854,12 @@ section.simplify .simplify-wrapper button:hover {
 
 html {
   font-family: "Be Vietnam", sans-serif;
-  font-size: 1.11vw;
+  font-size: calc(100vw / 90);
+}
+@media only screen and (max-width: 720px) {
+  html {
+    font-size: calc(100vw / 36);
+  }
 }
 
 body {
@@ -503,6 +868,13 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: calc(100% + 9rem) -9rem, -32rem 69rem;
   background-size: 56%, 56%;
+}
+@media only screen and (max-width: 720px) {
+  body {
+    background-position: calc(100% + 13rem) -10rem, calc(100% + 15rem) 44rem;
+    background-size: 120%, 80%;
+    opacity: 0.5;
+  }
 }
 
 a, button {
@@ -522,11 +894,27 @@ h2 {
   font-size: 2.4rem;
   line-height: 2.7rem;
 }
+@media only screen and (max-width: 720px) {
+  h2 {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+}
 
+@media only screen and (max-width: 720px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
 p {
   line-height: 1.7rem;
-  font-weight: 500;
   color: #9095a7;
+}
+@media only screen and (max-width: 720px) {
+  p {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+  }
 }
 
 footer {
@@ -536,6 +924,11 @@ footer {
   justify-content: center;
   align-items: center;
 }
+@media only screen and (max-width: 720px) {
+  footer {
+    height: 48rem;
+  }
+}
 footer .footer-wrapper {
   position: relative;
   width: 1160px;
@@ -544,16 +937,54 @@ footer .footer-wrapper {
   display: flex;
   justify-content: space-between;
 }
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 86%;
+    height: 100%;
+    padding-bottom: 4rem;
+  }
+}
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper .social-media {
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
 footer .footer-wrapper .social-media img {
   width: 10vw;
   height: auto;
   margin-bottom: 5rem;
   padding-top: 0.125rem;
 }
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper .social-media img {
+    width: 40vw;
+    height: auto;
+    margin: 5rem 0 0;
+  }
+}
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper .social-media__links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
 footer .footer-wrapper .social-media__links a {
   margin: 0 0.3rem;
   display: inline-block;
   width: 1.25rem;
+}
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper .social-media__links a {
+    width: 3rem;
+  }
 }
 footer .footer-wrapper .social-media__links a svg path {
   transition: 0.4s;
@@ -567,6 +998,12 @@ footer .footer-wrapper .extra-links {
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 12rem;
 }
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper .extra-links {
+    grid-gap: 1rem 7rem;
+    font-size: 1.3rem;
+  }
+}
 footer .footer-wrapper .extra-links a {
   text-decoration: none;
   color: #fafafa;
@@ -574,6 +1011,15 @@ footer .footer-wrapper .extra-links a {
 }
 footer .footer-wrapper .extra-links a:hover {
   color: #f25f3a;
+}
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper .subscription-form {
+    width: 100%;
+  }
+  footer .footer-wrapper .subscription-form form {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 footer .footer-wrapper .subscription-form input[type=text] {
   border: none;
@@ -586,6 +1032,16 @@ footer .footer-wrapper .subscription-form input[type=text] {
   font-weight: 500;
   padding: 0 1rem;
   margin-right: 0.4rem;
+}
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper .subscription-form input[type=text] {
+    width: 23rem;
+    line-height: 4rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 0 2rem;
+  }
 }
 footer .footer-wrapper .subscription-form input[type=text]::placeholder {
   color: #9095a7;
@@ -604,6 +1060,16 @@ footer .footer-wrapper .subscription-form input[type=submit] {
   color: #fafafa;
   transition: 0.4s;
 }
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper .subscription-form input[type=submit] {
+    width: 7rem;
+    line-height: 4rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
 footer .footer-wrapper .subscription-form input[type=submit]:hover {
   background-color: #f6866a;
   cursor: pointer;
@@ -613,6 +1079,15 @@ footer .footer-wrapper #copyright {
   color: #9095a7;
   bottom: 0;
   right: 0;
+}
+@media only screen and (max-width: 720px) {
+  footer .footer-wrapper #copyright {
+    width: 100%;
+    text-align: center;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

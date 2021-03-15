@@ -3,8 +3,15 @@
 section.simplify {
   margin-top: 6rem;
   height: 13rem;
-  background: $bright-red url("../images/bg-simplify-section-desktop.svg") no-repeat 15rem bottom;
+  background-color: $bright-red url("../images/bg-simplify-section-desktop.svg") no-repeat 15rem bottom;
   background-size: 100%;
+  
+  @media only screen and (max-width: 720px) {
+    margin-top: 2rem;
+    height: 36rem;
+    background: $bright-red url("../images/bg-simplify-section-mobile.svg") no-repeat center left;
+    background-size: 25%;
+  }
 
   .simplify-wrapper {
     width: 1160px;
@@ -15,10 +22,25 @@ section.simplify {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    @media only screen and (max-width: 720px) {
+      width: 80%;
+      flex-direction: column;
+      justify-content: center;
+
+    }
 
     h2 {
       color: $white;
       width: 40%;
+      
+      @media only screen and (max-width: 720px) {
+        width: 100%;
+        text-align: center;
+        font-size: 3.4rem;
+        line-height: 4.6rem;
+        margin-bottom: 3rem;
+      }
     }
 
     button {

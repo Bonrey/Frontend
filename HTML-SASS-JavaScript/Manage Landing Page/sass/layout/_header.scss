@@ -9,12 +9,21 @@ header {
   justify-content: space-between;
   align-items: center;
 
+  @media only screen and (max-width: 720px) {
+    width: 86%;
+  }
+
   img {
     width: 10vw;
     height: auto;
+    
+    @media only screen and (max-width: 720px) {
+      width: 30vw;
+      height: auto;
+    }
   }
 
-  .menu a {
+  a {
     text-decoration: none;
     color: $dark-blue;
     font-weight: $medium-w;
@@ -25,7 +34,47 @@ header {
     }
   }
 
+  .menu-mobile {
+    position: absolute;
+    width: 86%;
+    height: 29rem;
+    background-color: $white;
+    left: 7%;
+    top: 9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+
+    a {
+      font-size: 1.8rem;
+      font-weight: $bold-w;
+      margin: 1rem;
+    }
+  }
+
   button {
     margin-right: 1.3rem;
+
+    @media only screen and (max-width: 720px) {
+      display: none;
+    }
+  }
+
+  .menu-btn {
+    display: none;
+
+    @media only screen and (max-width: 720px) {
+      display: block;
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      img {
+        width: calc(100vw / 15);
+        height: auto;
+      }
+    }
   }
 }
