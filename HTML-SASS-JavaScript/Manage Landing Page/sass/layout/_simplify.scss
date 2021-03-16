@@ -3,7 +3,7 @@
 section.simplify {
   margin-top: 6rem;
   height: 13rem;
-  background-color: $bright-red url("../images/bg-simplify-section-desktop.svg") no-repeat 15rem bottom;
+  background: $bright-red url("../images/bg-simplify-section-desktop.svg") no-repeat 15rem bottom;
   background-size: 100%;
   
   @media only screen and (max-width: 720px) {

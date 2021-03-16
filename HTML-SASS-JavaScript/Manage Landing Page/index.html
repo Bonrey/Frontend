@@ -14,10 +14,12 @@
 </head>
 
 <body>
+<div id="page-mask" class="page-mask-hidden"></div>
+
 <!-- HEADER -->
 <header>
   <img src="images/logo-header.svg" alt="header logo">
-  <div class="menu-mobile">
+  <div id="header-menu">
     <a href="#">Pricing</a>
     <a href="#">Product</a>
     <a href="#">About Us</a>
@@ -81,37 +83,56 @@
   <h2>What they’ve said</h2>
   <div class="testimonials-slider">
     <div class="slides">
-      <div class="slide previous">
+      <div class="slide zero">
+        <img src="images/avatar-shanai.png" alt="Shanai's avatar">
+        <h3>Shanai Gough</h3>
+        <p>“Their software allows us to track, manage and collaborate on our projects
+          from anywhere. It keeps the whole team in-sync without being intrusive.”</p>
+      </div>
+      <div class="slide first" id="anisha">
         <img src="images/avatar-anisha.png" alt="Anisha's avatar">
         <h3>Anisha Li</h3>
         <p>“Manage has supercharged our team’s workflow. The ability to maintain
           visibility on larger milestones at all times keeps everyone motivated.”</p>
       </div>
-      <div class="slide current">
+      <div class="slide second" id="ali">
         <img src="images/avatar-ali.png" alt="Ali's avatar">
         <h3>Ali Bravo</h3>
         <p>“We have been able to cancel so many other subscriptions since using
           Manage. There is no more cross-channel confusion and everyone is much
           more focused.”</p>
       </div>
-      <div class="slide next">
+      <div class="slide third" id="richard">
         <img src="images/avatar-richard.png" alt="Richard's avatar">
         <h3>Richard Watts</h3>
         <p>“Manage allows us to provide structure and process. It keeps us organized
           and focused. I can’t stop recommending them to everyone I talk to!”</p>
       </div>
-      <div class="slide invisible">
+      <div class="slide fourth" id="shanai">
         <img src="images/avatar-shanai.png" alt="Shanai's avatar">
         <h3>Shanai Gough</h3>
         <p>“Their software allows us to track, manage and collaborate on our projects
           from anywhere. It keeps the whole team in-sync without being intrusive.”</p>
       </div>
+      <div class="slide fifth">
+        <img src="images/avatar-anisha.png" alt="Anisha's avatar">
+        <h3>Anisha Li</h3>
+        <p>“Manage has supercharged our team’s workflow. The ability to maintain
+          visibility on larger milestones at all times keeps everyone motivated.”</p>
+      </div>
+      <div class="slide sixth">
+        <img src="images/avatar-ali.png" alt="Ali's avatar">
+        <h3>Ali Bravo</h3>
+        <p>“We have been able to cancel so many other subscriptions since using
+          Manage. There is no more cross-channel confusion and everyone is much
+          more focused.”</p>
+      </div>
     </div>
     <div class="dots">
-      <span class="dot" id="dot1"></span>
-      <span class="dot" id="dot2"></span>
-      <span class="dot" id="dot3"></span>
-      <span class="dot" id="dot4"></span>
+      <button class="dot" id="dot1"></button>
+      <button class="dot" id="dot2"></button>
+      <button class="dot" id="dot3"></button>
+      <button class="dot" id="dot4"></button>
     </div>
   </div>
   <button class="get-started-btn">Get Started</button>
@@ -179,9 +200,10 @@
     </div>
     <div class="subscription-form">
       <form>
-        <input type="text" aria-label="email input field" placeholder="Updates in your inbox…">
+        <input type="text" aria-label="email input field" class="default-text" placeholder="Updates in your inbox…">
         <input type="submit" value="Go" class="orange-bg">
       </form>
+      <p class="error-input-label"><em>Please insert a valid email</em></p>
     </div>
     <span id="copyright">Copyright 2020. All Rights Reserved</span>
   </div>

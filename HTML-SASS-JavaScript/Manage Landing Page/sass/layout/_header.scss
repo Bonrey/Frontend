@@ -34,6 +34,10 @@ header {
     }
   }
 
+  .menu-hidden {
+    display: none;
+  }
+
   .menu-mobile {
     position: absolute;
     width: 86%;
@@ -46,6 +50,7 @@ header {
     justify-content: center;
     align-items: center;
     border-radius: 0.5rem;
+    z-index: 2;
 
     a {
       font-size: 1.8rem;
@@ -63,18 +68,18 @@ header {
   }
 
   .menu-btn {
-    display: none;
+    display: inline-block;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+    height: 2rem;
+    z-index: 2;
 
-    @media only screen and (max-width: 720px) {
-      display: block;
-      border: none;
-      outline: none;
-      background-color: transparent;
-
-      img {
-        width: calc(100vw / 15);
-        height: auto;
-      }
+    img {
+      width: auto;
+      height: 100%;
     }
   }
 }

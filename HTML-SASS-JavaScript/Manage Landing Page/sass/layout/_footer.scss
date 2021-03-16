@@ -111,10 +111,11 @@ footer {
       }
 
       input[type="text"] {
-        border: none;
         outline: none;
         width: 15rem;
-        line-height: 3rem;
+        line-height: 2.8rem;
+        border-width: 0.1rem;
+        border-style: solid;
         border-radius: 1.5rem;
         font-size: 1rem;
         font-family: $BeVietnam;
@@ -124,23 +125,36 @@ footer {
 
         @media only screen and (max-width: 720px) {
           width: 23rem;
-          line-height: 4rem;
+          border-width: 0.15rem;
+          line-height: 3.7rem;
           border-radius: 2rem;
           font-size: 1.2rem;
           font-weight: $regular-w;
-          padding: 0 2rem;
+          padding: 0 1.8rem;
         }
 
-        &::placeholder {
-          color: $dark-grayish-blue;
-          opacity: 0.7;
+        &.default-text {
+          border-color: transparent;
+
+          &::placeholder {
+            color: $dark-grayish-blue;
+            opacity: 0.7;
+          }
+        }
+
+        &.error-text {
+          border-color: $bright-red;
+
+          &::placeholder {
+            color: $bright-red;
+          }
         }
       }
 
       input[type="submit"] {
         border: none;
         outline: none;
-        width: 4rem;
+        width: 4.5rem;
         line-height: 3rem;
         border-radius: 1.5rem;
         font-size: 1rem;
@@ -162,6 +176,18 @@ footer {
         &:hover {
           background-color: hsl(12, 88%, 69%);
           cursor: pointer;
+        }
+      }
+
+      .error-input-label {
+        position: absolute;
+        visibility: hidden;
+        font-size: 0.75rem;
+        padding-left: 1.2rem;
+        color: $bright-red;
+        
+        @media only screen and (max-width: 720px) {
+          font-size: 1rem;
         }
       }
     }
