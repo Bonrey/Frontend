@@ -38,7 +38,7 @@ footer {
       }
 
       img {
-        width: 10vw;
+        width: 12vw;
         height: auto;
         margin-bottom: 5rem;
         padding-top: 0.125rem;
@@ -59,9 +59,9 @@ footer {
         }
 
         a {
-          margin: 0 0.3rem;
+          margin: 0 0.4rem;
           display: inline-block;
-          width: 1.25rem;
+          width: 1.5rem;
 
           @media only screen and (max-width: 720px) {
             width: 3rem;
@@ -162,7 +162,6 @@ footer {
         font-family: $BeVietnam;
         background-color: $bright-red;
         color: $very-light-gray;
-        transition: 0.4s;
 
         @media only screen and (max-width: 720px) {
           width: 7rem;
@@ -176,6 +175,10 @@ footer {
         &:hover {
           background-color: hsl(12, 88%, 69%);
           cursor: pointer;
+        }
+
+        &:active {
+          transform: translateY(-0.2rem);
         }
       }
 

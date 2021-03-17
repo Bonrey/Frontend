@@ -5,6 +5,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: "Be Vietnam", sans-serif;
   font-size: calc(100vw / 90);
 }
@@ -29,6 +30,7 @@ body {
 }
 
 #page-mask {
+  display: none;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
   position: fixed;
   top: 0;
@@ -38,11 +40,7 @@ body {
   z-index: 1;
 }
 
-.page-mask-hidden {
-  display: none;
-}
-
-a, button {
+a, button, input[type=submit] {
   transition: 0.4s;
 }
 
@@ -89,6 +87,7 @@ p {
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: "Be Vietnam", sans-serif;
   font-size: calc(100vw / 90);
 }
@@ -113,6 +112,7 @@ body {
 }
 
 #page-mask {
+  display: none;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
   position: fixed;
   top: 0;
@@ -122,11 +122,7 @@ body {
   z-index: 1;
 }
 
-.page-mask-hidden {
-  display: none;
-}
-
-a, button {
+a, button, input[type=submit] {
   transition: 0.4s;
 }
 
@@ -178,6 +174,7 @@ p {
   font-size: 0.9rem;
   font-family: "Be Vietnam", sans-serif;
   font-weight: 700;
+  cursor: pointer;
   box-shadow: 0 1rem 1.5rem -0.3rem #f9b19f;
 }
 @media only screen and (max-width: 720px) {
@@ -190,7 +187,9 @@ p {
 }
 .get-started-btn:hover {
   background-color: #f6866a;
-  cursor: pointer;
+}
+.get-started-btn:active {
+  transform: translateY(-0.2rem);
 }
 
 .attribution {
@@ -201,6 +200,38 @@ p {
   color: #3e52a3;
 }
 
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes rotate-clockwise {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate-counterclockwise {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -208,6 +239,7 @@ p {
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: "Be Vietnam", sans-serif;
   font-size: calc(100vw / 90);
 }
@@ -232,6 +264,7 @@ body {
 }
 
 #page-mask {
+  display: none;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
   position: fixed;
   top: 0;
@@ -241,11 +274,7 @@ body {
   z-index: 1;
 }
 
-.page-mask-hidden {
-  display: none;
-}
-
-a, button {
+a, button, input[type=submit] {
   transition: 0.4s;
 }
 
@@ -300,7 +329,8 @@ header {
   }
 }
 header img {
-  width: 10vw;
+  padding-top: 0.5rem;
+  width: 12vw;
   height: auto;
 }
 @media only screen and (max-width: 720px) {
@@ -317,9 +347,6 @@ header a {
 }
 header a:hover {
   color: #9095a7;
-}
-header .menu-hidden {
-  display: none;
 }
 header .menu-mobile {
   position: absolute;
@@ -349,18 +376,23 @@ header button {
   }
 }
 header .menu-btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   border: none;
   outline: none;
   background-color: transparent;
   margin-bottom: 0.5rem;
   margin-right: 0;
-  height: 2rem;
+  width: 2rem;
+  height: 2.2rem;
   z-index: 2;
+  cursor: pointer;
 }
 header .menu-btn img {
-  width: auto;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  padding: 0;
 }
 
 * {
@@ -370,6 +402,7 @@ header .menu-btn img {
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: "Be Vietnam", sans-serif;
   font-size: calc(100vw / 90);
 }
@@ -394,6 +427,7 @@ body {
 }
 
 #page-mask {
+  display: none;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
   position: fixed;
   top: 0;
@@ -403,11 +437,7 @@ body {
   z-index: 1;
 }
 
-.page-mask-hidden {
-  display: none;
-}
-
-a, button {
+a, button, input[type=submit] {
   transition: 0.4s;
 }
 
@@ -591,6 +621,7 @@ main .functionality-sections p {
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: "Be Vietnam", sans-serif;
   font-size: calc(100vw / 90);
 }
@@ -615,6 +646,7 @@ body {
 }
 
 #page-mask {
+  display: none;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
   position: fixed;
   top: 0;
@@ -624,11 +656,7 @@ body {
   z-index: 1;
 }
 
-.page-mask-hidden {
-  display: none;
-}
-
-a, button {
+a, button, input[type=submit] {
   transition: 0.4s;
 }
 
@@ -680,12 +708,15 @@ section.testimonials .testimonials-slider {
   width: 100%;
   position: relative;
 }
+section.testimonials .testimonials-slider:hover .dot {
+  opacity: 1;
+}
 section.testimonials .testimonials-slider .slides {
   height: 13.5rem;
 }
 @media only screen and (max-width: 720px) {
   section.testimonials .testimonials-slider .slides {
-    height: 20rem;
+    height: 21rem;
   }
 }
 section.testimonials .testimonials-slider .slide {
@@ -695,14 +726,13 @@ section.testimonials .testimonials-slider .slide {
   height: 13.5rem;
   background-color: #fafafa;
   padding: 3.6rem 2.7rem 0;
-  border-radius: 0.5rem;
-  transition: 2s;
+  border-radius: 0.8rem;
+  transition: transform 2s;
 }
 @media only screen and (max-width: 720px) {
   section.testimonials .testimonials-slider .slide {
-    width: 86%;
-    height: 20rem;
-    padding: 4.5rem 2rem 0;
+    height: 21rem;
+    padding: 4.5rem 3.2rem 0;
   }
 }
 section.testimonials .testimonials-slider .slide img {
@@ -728,37 +758,6 @@ section.testimonials .testimonials-slider .slide h3 {
     margin-bottom: 1.5rem;
   }
 }
-section.testimonials .testimonials-slider .zero {
-  left: calc(50% - 88rem);
-}
-section.testimonials .testimonials-slider .first {
-  left: calc(50% - 52.5rem);
-}
-@media only screen and (max-width: 720px) {
-  section.testimonials .testimonials-slider .first {
-    right: 100%;
-  }
-}
-section.testimonials .testimonials-slider .second {
-  left: calc(50% - 17rem);
-}
-section.testimonials .testimonials-slider .third {
-  left: calc(50% + 18.5rem);
-}
-@media only screen and (max-width: 720px) {
-  section.testimonials .testimonials-slider .third {
-    left: 100%;
-  }
-}
-section.testimonials .testimonials-slider .fourth {
-  left: calc(50% + 54rem);
-}
-section.testimonials .testimonials-slider .fifth {
-  left: calc(50% + 89.5rem);
-}
-section.testimonials .testimonials-slider .sixth {
-  left: calc(50% + 125rem);
-}
 section.testimonials .testimonials-slider .dots {
   width: 34rem;
   line-height: 3rem;
@@ -770,9 +769,6 @@ section.testimonials .testimonials-slider .dots {
     margin-bottom: 2rem;
   }
 }
-section.testimonials .testimonials-slider .dots:hover .dot {
-  opacity: 1;
-}
 section.testimonials .testimonials-slider .dot {
   background-color: transparent;
   outline: none;
@@ -783,7 +779,7 @@ section.testimonials .testimonials-slider .dot {
   border-radius: 50%;
   border: 0.125rem solid #f25f3a;
   opacity: 0;
-  transition: 1s;
+  transition: background-color 1s;
 }
 @media only screen and (max-width: 720px) {
   section.testimonials .testimonials-slider .dot {
@@ -806,6 +802,7 @@ section.testimonials .testimonials-slider #dot2 {
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: "Be Vietnam", sans-serif;
   font-size: calc(100vw / 90);
 }
@@ -830,6 +827,7 @@ body {
 }
 
 #page-mask {
+  display: none;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
   position: fixed;
   top: 0;
@@ -839,11 +837,7 @@ body {
   z-index: 1;
 }
 
-.page-mask-hidden {
-  display: none;
-}
-
-a, button {
+a, button, input[type=submit] {
   transition: 0.4s;
 }
 
@@ -944,6 +938,7 @@ section.simplify .simplify-wrapper button:hover {
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: "Be Vietnam", sans-serif;
   font-size: calc(100vw / 90);
 }
@@ -968,6 +963,7 @@ body {
 }
 
 #page-mask {
+  display: none;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
   position: fixed;
   top: 0;
@@ -977,11 +973,7 @@ body {
   z-index: 1;
 }
 
-.page-mask-hidden {
-  display: none;
-}
-
-a, button {
+a, button, input[type=submit] {
   transition: 0.4s;
 }
 
@@ -1061,7 +1053,7 @@ footer .footer-wrapper {
   }
 }
 footer .footer-wrapper .social-media img {
-  width: 10vw;
+  width: 12vw;
   height: auto;
   margin-bottom: 5rem;
   padding-top: 0.125rem;
@@ -1081,9 +1073,9 @@ footer .footer-wrapper .social-media img {
   }
 }
 footer .footer-wrapper .social-media__links a {
-  margin: 0 0.3rem;
+  margin: 0 0.4rem;
   display: inline-block;
-  width: 1.25rem;
+  width: 1.5rem;
 }
 @media only screen and (max-width: 720px) {
   footer .footer-wrapper .social-media__links a {
@@ -1173,7 +1165,6 @@ footer .footer-wrapper .subscription-form input[type=submit] {
   font-family: "Be Vietnam", sans-serif;
   background-color: #f25f3a;
   color: #fafafa;
-  transition: 0.4s;
 }
 @media only screen and (max-width: 720px) {
   footer .footer-wrapper .subscription-form input[type=submit] {
@@ -1188,6 +1179,9 @@ footer .footer-wrapper .subscription-form input[type=submit] {
 footer .footer-wrapper .subscription-form input[type=submit]:hover {
   background-color: #f6866a;
   cursor: pointer;
+}
+footer .footer-wrapper .subscription-form input[type=submit]:active {
+  transform: translateY(-0.2rem);
 }
 footer .footer-wrapper .subscription-form .error-input-label {
   position: absolute;

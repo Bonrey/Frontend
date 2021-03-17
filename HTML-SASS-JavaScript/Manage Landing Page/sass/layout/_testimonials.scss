@@ -13,11 +13,15 @@ section.testimonials {
     width: 100%;
     position: relative;
 
+    &:hover .dot {
+      opacity: 1;
+    }
+
     .slides {
       height: 13.5rem;
 
       @media only screen and (max-width: 720px) {
-        height: 20rem;
+        height: 21rem;
       }
     }
 
@@ -28,13 +32,12 @@ section.testimonials {
       height: 13.5rem;
       background-color: $very-light-gray;
       padding: 3.6rem 2.7rem 0;
-      border-radius: 0.5rem;
-      transition: 2s;
+      border-radius: 0.8rem;
+      transition: transform 2s;
 
       @media only screen and (max-width: 720px) {
-        width: 86%;
-        height: 20rem;
-        padding: 4.5rem 2rem 0;
+        height: 21rem;
+        padding: 4.5rem 3.2rem 0;
       }
 
       img {
@@ -61,42 +64,6 @@ section.testimonials {
       }
     }
 
-    .zero {
-      left: calc(50% - 88rem);
-    }
-
-    .first {
-      //right: calc(50% + 18.5rem);  // 17rem = half of the slide's width; 1.5rem = margin
-      left: calc(50% - 52.5rem);
-      @media only screen and (max-width: 720px) {
-        right: 100%;
-      }
-    }
-
-    .second {
-      left: calc(50% - 17rem);
-    }
-
-    .third {
-      left: calc(50% + 18.5rem);  // 17rem = half of the slide's width; 1.5rem = margin
-
-      @media only screen and (max-width: 720px) {
-        left: 100%;
-      }
-    }
-
-    .fourth {
-      left: calc(50% + 54rem);  // 54 = 34/2 + 1.5 + 34 + 1.5
-    }
-
-    .fifth {
-      left: calc(50% + 89.5rem);
-    }
-
-    .sixth {
-      left: calc(50% + 125rem);
-    }
-
     .dots {
       width: 34rem;
       line-height: 3rem;
@@ -105,10 +72,6 @@ section.testimonials {
       @media only screen and (max-width: 720px) {
         line-height: 5rem;
         margin-bottom: 2rem;
-      }
-
-      &:hover .dot {
-        opacity: 1;
       }
     }
 
@@ -122,7 +85,7 @@ section.testimonials {
       border-radius: 50%;
       border: 0.125rem solid $bright-red;
       opacity: 0;
-      transition: 1s;
+      transition: background-color 1s;
 
       @media only screen and (max-width: 720px) {
         opacity: 1;

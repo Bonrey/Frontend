@@ -13,6 +13,7 @@
   font-size: 0.9rem;
   font-family: $BeVietnam;
   font-weight: $bold-w;
+  cursor: pointer;
   box-shadow: 0 1rem 1.5rem -0.3rem hsl(12, 88%, 80%);
   
   @media only screen and (max-width: 720px) {
@@ -24,7 +25,10 @@
 
   &:hover {
     background-color: hsl(12, 88%, 69%);
-    cursor: pointer;
+  }
+
+  &:active {
+    transform: translateY(-0.2rem);
   }
 }
 

@@ -6,28 +6,17 @@ const headerMenu = document.getElementById("header-menu");
 const menuButton = document.querySelector("button.menu-btn");
 const menuButtonImage = menuButton.firstElementChild;
 
-let mobileMenuOpened = false;
-
-function openMobileMenu() {
-  menuButtonImage.src = "images/icon-close.svg";
-  pageMask.classList.remove("page-mask-hidden");
-  headerMenu.classList.add("menu-mobile");
-  mobileMenuOpened = true;
-}
-
-function closeMobileMenu() {
-  menuButtonImage.src = "images/icon-hamburger.svg";
-  pageMask.classList.add("page-mask-hidden");
-  headerMenu.classList.remove("menu-mobile");
-  mobileMenuOpened = false;
-}
-
-menuButton.addEventListener("click", () => {
-  if (mobileMenuOpened) {
-    closeMobileMenu();
-  } else {
-    openMobileMenu();
-  }
+let menuOpened = false;
+menuButton.addEventListener("click", _ => {
+  menuButtonImage.src = menuOpened ? "images/icon-hamburger.svg" : "images/icon-close.svg";
+  pageMask.style.animation = headerMenu.style.animation = menuOpened ? "hide 1s 1" : "show 1s 1";
+  menuButtonImage.style.animation = menuOpened ? "rotate-clockwise 1s 1" : "rotate-counterclockwise 1s 1";
+  setTimeout(_ => {
+    pageMask.style.display = menuOpened ? "none" : "block";
+    headerMenu.style.display = menuOpened ? "none" : "flex";
+    headerMenu.classList.toggle("menu-mobile");
+    menuOpened = !menuOpened;
+  }, menuOpened ? 1000 : 0);
 });
 
 
@@ -35,9 +24,9 @@ menuButton.addEventListener("click", () => {
 // ___TESTIMONIALS___
 // ==================
 const allSlides = document.querySelectorAll(".slide");
-// const essentialSlides = document.querySelectorAll("#anisha, #ali, #richard, #shanai");
-// let currentPos = ["first", "second", "third", "fourth"];
-// let previousPos = [];
+for (let i = 0, offset = -88; i < allSlides.length; i++, offset += 35.5) {
+  allSlides[i].style.left = `calc(50% + ${offset}rem)`;
+}
 
 const dots = document.querySelectorAll(".dot");
 let [translate, current] = [0, 1];
@@ -55,26 +44,9 @@ function animateSlides() {
   }
 }
 
-// function shiftSlidesPosition(shift) {
-//   let result = [];
-//   for (let i = 0; i < 4; i++) {
-//     result.push(currentPos[(i + shift + 4) % 4]);
-//   }
-//   previousPos = currentPos;
-//   currentPos = result;
-// }
-//
-// function updateSlides(shift) {
-//   shiftSlidesPosition(shift);
-//   for (let i = 0; i < 4; i++) {
-//     essentialSlides[i].classList.replace(previousPos[i], currentPos[i]);
-//   }
-// }
-
 for (let i = 0; i < dots.length; i++) {
   dots[i].addEventListener("click", () => {
     colorDot(i);
-    //setTimeout(_ => updateSlides(shift), 1000);
     translate += (current - i) * 35.5;
     animateSlides();
     current = i;
@@ -94,7 +66,7 @@ function autoUpdateFunc() {
       // without this timeout, the above translateX would execute WITH transition of 1s
       setTimeout(() => {
         for (let i = 0; i < allSlides.length; i++) {
-          allSlides[i].style.transition = "2s";
+          allSlides[i].style.transition = "transform 2s";
         }
       }, 500);  // P.S. this number could be smaller
     }, 2000);
@@ -105,11 +77,11 @@ function autoUpdateFunc() {
 }
 
 let autoUpdate = setInterval(autoUpdateFunc, 4000);
-const testimonials = document.querySelector(".testimonials");
-testimonials.addEventListener("mouseenter", () => {
+const testimonialsSlider = document.querySelector(".testimonials-slider");
+testimonialsSlider.addEventListener("mouseenter", () => {
   clearInterval(autoUpdate);
 });
-testimonials.addEventListener("mouseleave", () => {
+testimonialsSlider.addEventListener("mouseleave", () => {
   autoUpdate = setInterval(autoUpdateFunc, 4000);
 });
 
@@ -157,22 +129,17 @@ document.addEventListener("click", e => {
 // ======================
 // ___ON WINDOW RESIZE___
 // ======================
-function mobileDefault() {
-  headerMenu.classList.add("menu-hidden");
-  menuButton.style.display = "inline-block";
-}
-
-function desktopDefault() {
-  headerMenu.classList.remove("menu-hidden");
-  menuButton.style.display = "none";
-  closeMobileMenu();
-}
-
 function onWindowResize() {
   if (outerWidth <= 720) {
-    mobileDefault();
+    headerMenu.style.display = menuOpened ? "flex" : "none";
+    menuButton.style.display = "flex";
   } else {
-    desktopDefault();
+    headerMenu.style.display = "block";
+    pageMask.style.display = menuButton.style.display = "none";
+    headerMenu.style.animation = menuButtonImage.style.animation = "none";
+    menuButtonImage.src = "images/icon-hamburger.svg";
+    headerMenu.classList.remove("menu-mobile");
+    menuOpened = false;
   }
 }
 

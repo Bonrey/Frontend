@@ -14,7 +14,8 @@ header {
   }
 
   img {
-    width: 10vw;
+    padding-top: 0.5rem;
+    width: 12vw;
     height: auto;
     
     @media only screen and (max-width: 720px) {
@@ -32,10 +33,6 @@ header {
     &:hover {
       color: $dark-grayish-blue;
     }
-  }
-
-  .menu-hidden {
-    display: none;
   }
 
   .menu-mobile {
@@ -68,18 +65,24 @@ header {
   }
 
   .menu-btn {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     border: none;
     outline: none;
     background-color: transparent;
     margin-bottom: 0.5rem;
     margin-right: 0;
-    height: 2rem;
+    width: 2rem;
+    height: 2.2rem;
     z-index: 2;
+    cursor: pointer;
+
 
     img {
-      width: auto;
-      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      padding: 0;
     }
   }
 }
