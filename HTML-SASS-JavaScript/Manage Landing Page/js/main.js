@@ -185,11 +185,11 @@ for (let i = 0; i < elements.length; i++) {
 // ========================
 // __FIRST TIME ANIMATION__
 // ========================
-if (outerWidth > 720) {
-  document.querySelector("header").style.animation = "show-header 1s ease-out 1";
-  document.querySelector(".intro-text").style.animation = "intro-text-show 1s ease-out 1";
-  document.querySelector(".intro-img").style.animation = "intro-image-show 1s ease-out 1";
-}
+// if (outerWidth > 720) {
+//   document.querySelector("header").style.animation = "show-header 1s ease-out 1";
+//   document.querySelector(".intro-text").style.animation = "intro-text-show 1s ease-out 1";
+//   document.querySelector(".intro-img").style.animation = "intro-image-show 1s ease-out 1";
+// }
 
 
 // ====================
