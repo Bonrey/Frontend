@@ -8,7 +8,6 @@ This is a solution to the [Manage landing page challenge on Frontend Mentor](htt
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -16,8 +15,6 @@ This is a solution to the [Manage landing page challenge on Frontend Mentor](htt
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -31,10 +28,6 @@ Users should be able to:
 - Receive an error message when the newsletter sign up `form` is submitted if:
   - The `input` field is empty
   - The email address is not formatted correctly
-
-### Screenshots
->![Desktop design preview](./design/screenshots/desktop.png)
->![Mobile design preview](./design/screenshots/mobile.png)
 
 ### Links
 
@@ -53,11 +46,13 @@ Users should be able to:
 
 ### What I learned
 
-- How to create a slideshow in JavaScript (probably the most difficult thing)
-- How to animate link underlines
+- Working with rem units to make the page responsive
+- Creating a slideshow in JavaScript (probably the most difficult part)
+- Animating link underlines
 - How to darken the background on menu popup
+- How to create a floating button
 - Using animation along with sound
-- Create responsive SVG images
+- Creating responsive SVG images
 - Using SVG images to create different shapes
 
 
