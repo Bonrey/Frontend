@@ -8,7 +8,7 @@ This is a solution to the [Manage landing page challenge on Frontend Mentor](htt
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -33,14 +33,8 @@ Users should be able to:
   - The email address is not formatted correctly
 
 ### Screenshots
-<details>
-  <summary>Desktop</summary>
-  ![Desktop design preview](./design/screenshots/desktop.png)
-</details>
-<details>
-  <summary>Mobile</summary>
-  ![Mobile design preview](./design/screenshots/mobile.png)
-</details>
+>![Desktop design preview](./design/screenshots/desktop.png)
+>![Mobile design preview](./design/screenshots/mobile.png)
 
 ### Links
 
@@ -59,18 +53,12 @@ Users should be able to:
 
 ### What I learned
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+- How to create a slideshow in JavaScript (probably the most difficult thing)
+- How to animate link underlines
+- How to darken the background on menu popup
+- Using animation along with sound
+- Create responsive SVG images
+- Using SVG images to create different shapes
 
 
 ### Continued development
@@ -82,6 +70,7 @@ Now I am planning on learning React and start applying it in my projects as well
 
 - [w3schools](https://www.w3schools.com/)
 - [Animating Link Underlines](https://tobiasahlin.com/blog/css-trick-animating-link-underlines/)
+- [Darkening the background on popup](https://stackoverflow.com/questions/31054353/darken-the-entire-page-when-opening-and-produce-a-fade-out-effect-when-closing-a)
 - Stack Overflow & Google 😁
 
 
