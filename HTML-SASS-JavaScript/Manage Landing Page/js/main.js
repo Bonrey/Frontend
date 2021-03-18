@@ -105,6 +105,7 @@ const submitButton = document.querySelector("input[type=submit]");
 const textField = document.querySelector("input[type=text]");
 const textFieldErrorLabel = form.nextElementSibling;
 
+errorSound.volume = 0.7;
 form.addEventListener("submit", e => e.preventDefault());
 
 function defaultInputField() {
@@ -184,11 +185,11 @@ for (let i = 0; i < elements.length; i++) {
 // ========================
 // __FIRST TIME ANIMATION__
 // ========================
-// if (outerWidth > 720) {
-//   document.querySelector("header").style.animation = "show-header 2s ease-out 1";
-//   document.querySelector(".intro-text").style.animation = "intro-text-show 2s ease-out 1";
-//   document.querySelector(".intro-img").style.animation = "intro-image-show 2s ease-out 1";
-// }
+if (outerWidth > 720) {
+  document.querySelector("header").style.animation = "show-header 1s ease-out 1";
+  document.querySelector(".intro-text").style.animation = "intro-text-show 1s ease-out 1";
+  document.querySelector(".intro-img").style.animation = "intro-image-show 1s ease-out 1";
+}
 
 
 // ====================
