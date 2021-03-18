@@ -163,7 +163,6 @@ p {
 }
 
 .attribution-container {
-  display: none;
   position: fixed;
   left: 1.4rem;
   bottom: 1rem;
