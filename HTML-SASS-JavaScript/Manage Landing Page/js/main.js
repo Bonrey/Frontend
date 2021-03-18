@@ -195,19 +195,19 @@ if (outerWidth > 720) {
 // ====================
 // __ON WINDOW RESIZE__
 // ====================
-function onWindowResize() {
-  if (outerWidth <= 720) {
-    headerMenu.style.display = menuOpened ? "flex" : "none";
-    menuButton.style.display = "flex";
-  } else {
-    headerMenu.style.display = "block";
-    pageMask.style.display = menuButton.style.display = "none";
-    headerMenu.style.animation = menuButtonImage.style.animation = "none";
-    menuButtonImage.src = "images/icon-hamburger.svg";
-    headerMenu.classList.remove("menu-mobile");
-    menuOpened = false;
-  }
-}
+// function onWindowResize() {
+//   if (outerWidth <= 720) {
+//     headerMenu.style.display = menuOpened ? "flex" : "none";
+//     menuButton.style.display = "flex";
+//   } else {
+//     headerMenu.style.display = "block";
+//     pageMask.style.display = menuButton.style.display = "none";
+//     headerMenu.style.animation = menuButtonImage.style.animation = "none";
+//     menuButtonImage.src = "images/icon-hamburger.svg";
+//     headerMenu.classList.remove("menu-mobile");
+//     menuOpened = false;
+//   }
+// }
 
-addEventListener("resize", onWindowResize);
-onWindowResize();  // to set the correct styles for a mobile/desktop
+// addEventListener("resize", onWindowResize);
+// onWindowResize();  // to set the correct styles for a mobile/desktop
