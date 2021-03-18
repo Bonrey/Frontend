@@ -17,7 +17,7 @@ header {
     padding-top: 0.5rem;
     width: 12vw;
     height: auto;
-    
+
     @media only screen and (max-width: 720px) {
       width: 30vw;
       height: auto;
@@ -25,13 +25,16 @@ header {
   }
 
   a {
-    text-decoration: none;
     color: $dark-blue;
     font-weight: $medium-w;
     margin: 1.3rem;
 
     &:hover {
       color: $dark-grayish-blue;
+
+      &::before {
+        background-color: $dark-grayish-blue;
+      }
     }
   }
 
@@ -76,7 +79,6 @@ header {
     height: 2.2rem;
     z-index: 2;
     cursor: pointer;
-
 
     img {
       max-width: 100%;

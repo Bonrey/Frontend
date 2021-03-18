@@ -3,13 +3,13 @@
 section.simplify {
   margin-top: 6rem;
   height: 13rem;
-  background: $bright-red url("../images/bg-simplify-section-desktop.svg") no-repeat 15rem bottom;
+  background: $bright-red url("../../images/bg-simplify-section-desktop.svg") no-repeat 15rem bottom;
   background-size: 100%;
   
   @media only screen and (max-width: 720px) {
     margin-top: 2rem;
     height: 36rem;
-    background: $bright-red url("../images/bg-simplify-section-mobile.svg") no-repeat center left;
+    background: $bright-red url("../../images/bg-simplify-section-mobile.svg") no-repeat center left;
     background-size: 25%;
   }
 
@@ -31,6 +31,7 @@ section.simplify {
     }
 
     h2 {
+      user-select: none;
       color: $white;
       width: 40%;
       

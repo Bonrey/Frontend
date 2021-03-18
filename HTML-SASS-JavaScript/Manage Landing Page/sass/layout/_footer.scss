@@ -89,13 +89,19 @@ footer {
         font-size: 1.3rem;
       }
 
-      a {
-        text-decoration: none;
-        color: $very-light-gray;
+      span {
         align-self: center;
+      }
+
+      a {
+        color: $very-light-gray;
 
         &:hover {
           color: $bright-red;
+
+          &::before {
+            background-color: $bright-red;
+          }
         }
       }
     }
@@ -184,11 +190,11 @@ footer {
 
       .error-input-label {
         position: absolute;
-        visibility: hidden;
+        opacity: 0;
         font-size: 0.75rem;
         padding-left: 1.2rem;
         color: $bright-red;
-        
+
         @media only screen and (max-width: 720px) {
           font-size: 1rem;
         }

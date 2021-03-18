@@ -1,6 +1,12 @@
 @import "base";
 
-// GET STARTED BUTTON
+// ===============
+// ____BUTTONS____
+// ===============
+button, input[type="submit"] {
+  transition: 0.4s;
+}
+
 .get-started-btn {
   background-color: $bright-red;
   color: $very-light-gray;
@@ -14,8 +20,8 @@
   font-family: $BeVietnam;
   font-weight: $bold-w;
   cursor: pointer;
-  box-shadow: 0 1rem 1.5rem -0.3rem hsl(12, 88%, 80%);
-  
+  box-shadow: 0 1rem 1rem -0.5rem hsl(12, 88%, 80%);
+
   @media only screen and (max-width: 720px) {
     width: 12rem;
     line-height: 3.6rem;
@@ -32,12 +38,149 @@
   }
 }
 
-// ATTRIBUTION
-.attribution {
-  font-size: 11px;
-  text-align: center;
 
-  a {
-    color: hsl(228, 45%, 44%);
+// =============
+// ____LINKS____
+// =============
+#header-menu a, .extra-links a, .attribution-text a {
+  transition: 0.4s ease-in-out;
+  position: relative;
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.1rem;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: 0.4s ease-in-out;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+
+// ============
+// ____TEXT____
+// ============
+h1, h2, h3 {
+  color: $very-dark-blue;
+}
+
+h1 {
+  font-size: 3.4rem;
+  line-height: 4rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  line-height: 2.7rem;
+
+  @media only screen and (max-width: 720px) {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  line-height: 1.6rem;
+  color: $dark-grayish-blue;
+
+  @media only screen and (max-width: 720px) {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+  }
+}
+
+
+// =========================
+// ___BACKGROUND DARKENER___
+// =========================
+#page-mask {
+  display: none;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+
+// ===================
+// ____ATTRIBUTION____
+// ===================
+.attribution-container {
+  display: none;
+  position: fixed;
+  left: 1.4rem;
+  bottom: 1rem;
+  z-index: 3;
+
+  #attribution-image {
+    user-select: none;
+    width: 3.6rem;
+    height: 3.6rem;
+    cursor: pointer;
+    border: 0.1rem solid $very-dark-blue;
+    border-radius: 25%;
+    opacity: 0.5;
+    transition: 0.4s;
+
+    &:hover {
+      filter: drop-shadow(0 0 0.5rem $dark-grayish-blue);
+    }
+  }
+
+  .attribution-text {
+    display: none;
+    background-color: $white;
+    width: 12rem;
+    border-radius: 2rem;
+    position: absolute;
+    bottom: 5.5rem;
+    left: 2.5rem;
+    padding: 1rem 2rem;
+    filter: drop-shadow(0 0 0.5rem $dark-grayish-blue);
+    transform-origin: -0.1rem calc(100% + 1rem);
+
+    .triangle {
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      bottom: -1rem;
+      left: -0.1rem;
+    }
+
+    span {
+      display: block;
+      font-weight: $bold-w;
+      color: $very-dark-blue;
+      line-height: 1.3rem;
+
+      &.author {
+        margin-top: 0.5rem;
+      }
+    }
+
+    a {
+      color: $bright-red;
+      font-weight: $medium-w;
+
+      &::before {
+        background-color: $bright-red;
+      }
+    }
   }
 }

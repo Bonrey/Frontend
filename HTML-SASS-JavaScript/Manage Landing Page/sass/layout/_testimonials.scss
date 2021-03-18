@@ -85,7 +85,7 @@ section.testimonials {
       border-radius: 50%;
       border: 0.125rem solid $bright-red;
       opacity: 0;
-      transition: background-color 1s;
+      transition: 1s;
 
       @media only screen and (max-width: 720px) {
         opacity: 1;

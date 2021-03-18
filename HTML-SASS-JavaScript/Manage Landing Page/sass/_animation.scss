@@ -1,3 +1,4 @@
+// #page-mask, #header-menu
 @keyframes show {
   from {
     opacity: 0;
@@ -16,6 +17,8 @@
   }
 }
 
+
+// .menu-btn img
 @keyframes rotate-clockwise {
   from {
     transform: rotate(0);
@@ -31,5 +34,78 @@
   }
   to {
     transform: rotate(-360deg);
+  }
+}
+
+
+// footer input[type=text]
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(0.3rem);
+  }
+  40%, 80% {
+    transform: translateX(-0.3rem);
+  }
+}
+
+
+// .attribution-text
+@keyframes show-attr {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hide-attr {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+
+// first time animation for header, .intro-text, .intro-img
+@keyframes intro-text-show {
+  0% {
+    transform: translateX(-120%);
+  }
+  70% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes intro-image-show {
+  0% {
+    transform: translateX(120%);
+  }
+  70% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes show-header {
+  from {
+    transform: translateY(-8rem);
+  }
+  to {
+    transform: translateY(0);
   }
 }
