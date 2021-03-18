@@ -209,4 +209,4 @@ function onWindowResize() {
 }
 
 addEventListener("resize", onWindowResize);
-onWindowResize();  // to set the correct styles for a mobile/desktop
+// onWindowResize();  // to set the correct styles for a mobile/desktop
