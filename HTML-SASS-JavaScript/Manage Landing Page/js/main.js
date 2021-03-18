@@ -184,11 +184,11 @@ for (let i = 0; i < elements.length; i++) {
 // ========================
 // __FIRST TIME ANIMATION__
 // ========================
-if (outerWidth > 720) {
-  document.querySelector("header").style.animation = "show-header 2s ease-out 1";
-  document.querySelector(".intro-text").style.animation = "intro-text-show 2s ease-out 1";
-  document.querySelector(".intro-img").style.animation = "intro-image-show 2s ease-out 1";
-}
+// if (outerWidth > 720) {
+//   document.querySelector("header").style.animation = "show-header 2s ease-out 1";
+//   document.querySelector(".intro-text").style.animation = "intro-text-show 2s ease-out 1";
+//   document.querySelector(".intro-img").style.animation = "intro-image-show 2s ease-out 1";
+// }
 
 
 // ====================
@@ -208,5 +208,5 @@ function onWindowResize() {
   }
 }
 
-// addEventListener("resize", onWindowResize);
-// onWindowResize();  // to set the correct styles for a mobile/desktop
+addEventListener("resize", onWindowResize);
+onWindowResize();  // to set the correct styles for a mobile/desktop
