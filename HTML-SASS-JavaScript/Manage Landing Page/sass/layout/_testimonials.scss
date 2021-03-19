@@ -25,13 +25,6 @@ section.testimonials {
       }
     }
 
-    .first { left: calc(50% - 52.5rem); }
-    .second { left: calc(50% - 17rem); }
-    .third { left: calc(50% + 18.5rem); }
-    .zero, .fourth, .fifth, .sixth {
-      visibility: hidden;
-    }
-
     .slide {
       position: absolute;
       display: inline-block;

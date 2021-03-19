@@ -841,18 +841,6 @@ section.testimonials .testimonials-slider .slides {
     height: 21rem;
   }
 }
-section.testimonials .testimonials-slider .first {
-  left: calc(50% - 52.5rem);
-}
-section.testimonials .testimonials-slider .second {
-  left: calc(50% - 17rem);
-}
-section.testimonials .testimonials-slider .third {
-  left: calc(50% + 18.5rem);
-}
-section.testimonials .testimonials-slider .zero, section.testimonials .testimonials-slider .fourth, section.testimonials .testimonials-slider .fifth, section.testimonials .testimonials-slider .sixth {
-  visibility: hidden;
-}
 section.testimonials .testimonials-slider .slide {
   position: absolute;
   display: inline-block;
