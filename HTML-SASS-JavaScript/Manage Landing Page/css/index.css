@@ -342,7 +342,100 @@ body {
   }
 }
 
-header {
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes rotate-clockwise {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate-counterclockwise {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(0.3rem);
+  }
+  40%, 80% {
+    transform: translateX(-0.3rem);
+  }
+}
+@keyframes show-attr {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes hide-attr {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes intro-text-show {
+  0% {
+    transform: translateX(-120%);
+  }
+  70% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes intro-image-show {
+  0% {
+    transform: translateX(120%);
+  }
+  70% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes show-header {
+  from {
+    transform: translateY(-8rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+#header {
   width: 1160px;
   min-width: 80%;
   max-width: 90%;
@@ -350,35 +443,37 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: show-header 1s ease-out 1;
 }
 @media only screen and (max-width: 720px) {
-  header {
+  #header {
     width: 86%;
+    animation: none;
   }
 }
-header img {
+#header img {
   padding-top: 0.5rem;
   width: 12vw;
   height: auto;
 }
 @media only screen and (max-width: 720px) {
-  header img {
+  #header img {
     width: 30vw;
     height: auto;
   }
 }
-header a {
+#header a {
   color: #242d52;
   font-weight: 500;
   margin: 1.3rem;
 }
-header a:hover {
+#header a:hover {
   color: #9095a7;
 }
-header a:hover::before {
+#header a:hover::before {
   background-color: #9095a7;
 }
-header .menu-mobile {
+#header .menu-mobile {
   position: absolute;
   width: 86%;
   height: 29rem;
@@ -392,20 +487,20 @@ header .menu-mobile {
   border-radius: 0.5rem;
   z-index: 2;
 }
-header .menu-mobile a {
+#header .menu-mobile a {
   font-size: 1.8rem;
   font-weight: 700;
   margin: 1rem;
 }
-header button {
+#header button {
   margin-right: 1.3rem;
 }
 @media only screen and (max-width: 720px) {
-  header button {
+  #header button {
     display: none;
   }
 }
-header .menu-btn {
+#header .menu-btn {
   display: flex;
   align-items: center;
   border: none;
@@ -418,7 +513,7 @@ header .menu-btn {
   z-index: 2;
   cursor: pointer;
 }
-header .menu-btn img {
+#header .menu-btn img {
   max-width: 100%;
   max-height: 100%;
   display: block;
@@ -457,6 +552,99 @@ body {
   }
 }
 
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes rotate-clockwise {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate-counterclockwise {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(0.3rem);
+  }
+  40%, 80% {
+    transform: translateX(-0.3rem);
+  }
+}
+@keyframes show-attr {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes hide-attr {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes intro-text-show {
+  0% {
+    transform: translateX(-120%);
+  }
+  70% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes intro-image-show {
+  0% {
+    transform: translateX(120%);
+  }
+  70% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes show-header {
+  from {
+    transform: translateY(-8rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 main {
   width: 1160px;
   min-width: 80%;
@@ -479,11 +667,13 @@ main .intro-text {
   grid-area: intro-text;
   align-self: center;
   width: 80%;
+  animation: intro-text-show 1s ease-out 1;
 }
 @media only screen and (max-width: 720px) {
   main .intro-text {
     margin: 0 auto;
     text-align: center;
+    animation: none;
   }
 }
 main .intro-text p {
@@ -502,10 +692,12 @@ main .intro-img {
   justify-self: end;
   width: 100%;
   height: auto;
+  animation: intro-image-show 1s ease-out 1;
 }
 @media only screen and (max-width: 720px) {
   main .intro-img {
     padding: 0 5%;
+    animation: none;
   }
 }
 main .functionality-intro {
@@ -544,7 +736,7 @@ main .functionality-sections section {
 main .functionality-sections section:last-child {
   margin-bottom: 0;
 }
-main .functionality-sections header {
+main .functionality-sections .section-header {
   margin: 0;
   width: 100%;
   display: flex;
@@ -552,13 +744,13 @@ main .functionality-sections header {
   align-items: center;
 }
 @media only screen and (max-width: 720px) {
-  main .functionality-sections header {
+  main .functionality-sections .section-header {
     background-color: #ffefeb;
     max-width: 100%;
     border-radius: 1.5rem 0 0 1.5rem;
   }
 }
-main .functionality-sections header div {
+main .functionality-sections .section-header div {
   display: inline-block;
   font-weight: 500;
   width: 4rem;
@@ -571,14 +763,14 @@ main .functionality-sections header div {
   border-radius: 1.3rem;
 }
 @media only screen and (max-width: 720px) {
-  main .functionality-sections header div {
+  main .functionality-sections .section-header div {
     line-height: 3rem;
     width: 5rem;
     border-radius: 1.5rem;
     margin-right: 1.5rem;
   }
 }
-main .functionality-sections header h3 {
+main .functionality-sections .section-header h3 {
   display: inline-block;
   height: 2.6rem;
   padding-bottom: 0.3rem;
@@ -648,6 +840,18 @@ section.testimonials .testimonials-slider .slides {
   section.testimonials .testimonials-slider .slides {
     height: 21rem;
   }
+}
+section.testimonials .testimonials-slider .first {
+  left: calc(50% - 52.5rem);
+}
+section.testimonials .testimonials-slider .second {
+  left: calc(50% - 17rem);
+}
+section.testimonials .testimonials-slider .third {
+  left: calc(50% + 18.5rem);
+}
+section.testimonials .testimonials-slider .zero, section.testimonials .testimonials-slider .fourth, section.testimonials .testimonials-slider .fifth, section.testimonials .testimonials-slider .sixth {
+  visibility: hidden;
 }
 section.testimonials .testimonials-slider .slide {
   position: absolute;

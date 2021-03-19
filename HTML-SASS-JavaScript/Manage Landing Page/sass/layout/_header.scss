@@ -1,6 +1,7 @@
 @import "../base";
+@import "../animation";
 
-header {
+#header {
   width: 1160px;
   min-width: 80%;
   max-width: 90%;
@@ -8,9 +9,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: show-header 1s ease-out 1;
 
   @media only screen and (max-width: 720px) {
     width: 86%;
+    animation: none;
   }
 
   img {

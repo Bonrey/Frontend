@@ -1,4 +1,5 @@
 @import "../base";
+@import "../animation";
 
 main {
   width: 1160px;
@@ -21,10 +22,12 @@ main {
     grid-area: intro-text;
     align-self: center;
     width: 80%;
+    animation: intro-text-show 1s ease-out 1;
 
     @media only screen and (max-width: 720px) {
       margin: 0 auto;
       text-align: center;
+      animation: none;
     }
 
     p {
@@ -44,9 +47,11 @@ main {
     justify-self: end;
     width: 100%;
     height: auto;
+    animation: intro-image-show 1s ease-out 1;
 
     @media only screen and (max-width: 720px) {
       padding: 0 5%;
+      animation: none;
     }
   }
 
@@ -87,7 +92,7 @@ main {
       }
     }
 
-    header {
+    .section-header {
       margin: 0;
       width: 100%;
       display: flex;
