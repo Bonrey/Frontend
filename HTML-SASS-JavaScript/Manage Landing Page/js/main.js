@@ -199,5 +199,6 @@ function onWindowResize() {
   }
 }
 
-addEventListener("resize", onWindowResize);
+// without the timeout, the outerWidth value won't have enough time to change when I press f12
+addEventListener("resize", _ => setTimeout(onWindowResize, 100));
 onWindowResize();  // to set the correct styles for a mobile/desktop
