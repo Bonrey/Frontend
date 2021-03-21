@@ -6,8 +6,7 @@ export default function Hero() {
   return (
     <img
       src={heroImage}
-      alt={"Hero"}
-      width={"32px"}
-      height={"100%"}/>
+      alt="Hero"
+    />
   );
 }
