@@ -1,10 +1,10 @@
 import React from 'react';
 import heroImage from '../assets/images/hero-desktop.jpg';
-import '../styles/components/_hero.scss';
 
 export default function Hero() {
   return (
     <img
+      className="hero"
       src={heroImage}
       alt="Hero"
     />
