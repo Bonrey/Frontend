@@ -1,0 +1,68 @@
+@import "base";
+
+#root {
+  height: 100%;
+}
+
+.WrapperDesktop {
+  background: $bg-gradient;
+  width: 55vw;
+  height: 100%;
+  min-height: 50rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url("../assets/images/hero-desktop.jpg") no-repeat top center;
+    background-size: cover;
+    width: 45vw;
+    height: 100%;
+    min-height: 50rem;
+  }
+}
+
+.WrapperMobile {
+  background: $bg-gradient;
+  padding-top: calc(7rem + 63vw); // Logo + Bg Image
+  min-height: calc(100% - 7rem - 63vw);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 7rem;
+    background: url("../assets/images/hero-mobile.jpg") no-repeat top;
+    background-size: cover;
+    width: 100%;
+    height: 63vw;
+  }
+}
+
+.MainDesktop {
+  background: url("../assets/images/bg-pattern-desktop.svg") center center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
+  .MainContent {
+    margin: 0 auto;
+    height: 100%;
+    width: 27rem;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.MainMobile {
+  width: 100%;
+  text-align: center;
+
+  .MainContent {
+    width: 100%;
+    padding: 5rem 4rem 7rem;
+    box-sizing: border-box;
+  }
+}
