@@ -1,0 +1,16 @@
+.Logo {
+  position: absolute;
+  top: 5rem;
+  width: 10rem;
+
+  @media only screen and (max-width: 720px) {
+    left: 4rem;
+    top: 2rem;
+    width: auto;
+    height: 3rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

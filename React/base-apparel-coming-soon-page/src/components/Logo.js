@@ -3,10 +3,11 @@ import logo from '../assets/images/logo.svg';
 
 export default function Logo() {
   return (
-    <img
-      className="logo"
-      src={logo}
-      alt="site logo"
-    />
+      <img
+        className="Logo"
+        src={logo}
+        alt="site logo"
+        onClick={() => window.location.reload()}
+      />
   );
 }
