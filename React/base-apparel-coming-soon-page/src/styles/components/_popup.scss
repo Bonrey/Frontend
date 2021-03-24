@@ -1,0 +1,27 @@
+@keyframes popup-animation {
+  from, to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.Popup {
+  padding: 0.7rem 1rem 0.6rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  border-radius: 1.5rem;
+  background-color: rgba(70, 70, 70, 0.6);
+  color: #F7F7F7;
+  white-space: nowrap;
+  position: absolute;
+  bottom: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.AnimatedPopup {
+  animation: popup-animation 3s 1 ease-out;
+}

@@ -2,13 +2,13 @@
 
 #root {
   height: 100%;
+  position: relative;
 }
 
-.WrapperDesktop {
+.Wrapper {
   background: $bg-gradient;
   width: 55vw;
   height: 100%;
-  min-height: 50rem;
 
   &::after {
     content: "";
@@ -19,35 +19,23 @@
     background-size: cover;
     width: 45vw;
     height: 100%;
-    min-height: 50rem;
+    box-shadow: -0.1rem 0 0.1rem hsla(0, 36%, 70%, 0.3),
+                -0.2rem 0 0.2rem hsla(0, 36%, 70%, 0.3),
+                -0.4rem 0 0.4rem hsla(0, 36%, 70%, 0.3);
   }
 }
 
-.WrapperMobile {
-  background: $bg-gradient;
-  padding-top: calc(7rem + 63vw); // Logo + Bg Image
-  min-height: calc(100% - 7rem - 63vw);
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 7rem;
-    background: url("../assets/images/hero-mobile.jpg") no-repeat top;
-    background-size: cover;
-    width: 100%;
-    height: 63vw;
-  }
-}
-
-.MainDesktop {
+.Main {
   background: url("../assets/images/bg-pattern-desktop.svg") center center;
   background-size: cover;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
 
   .MainContent {
     margin: 0 auto;
     height: 100%;
+    min-height: 100vh;
     width: 27rem;
     max-width: 90%;
     display: flex;
@@ -56,13 +44,40 @@
   }
 }
 
-.MainMobile {
-  width: 100%;
-  text-align: center;
-
-  .MainContent {
+@media only screen and (max-width: 700px) {
+  .Wrapper {
     width: 100%;
-    padding: 5rem 4rem 7rem;
-    box-sizing: border-box;
+    background: $bg-gradient;
+    padding-top: calc(7rem + 63vw); // Logo + Bg Image
+    min-height: calc(100% - 7rem - 63vw);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 7rem;
+      background: url("../assets/images/hero-mobile.jpg") no-repeat top;
+      background-size: cover;
+      width: 100%;
+      height: 63vw;
+      box-shadow: 0 0.1rem 0.1rem hsla(0, 36%, 70%, 0.3),
+                  0 0.2rem 0.2rem hsla(0, 36%, 70%, 0.3),
+                  0 0.4rem 0.4rem hsla(0, 36%, 70%, 0.3),
+                  inset 0 0.1rem 0.1rem hsla(0, 36%, 70%, 0.3),
+                  inset 0 0.2rem 0.2rem hsla(0, 36%, 70%, 0.3);
+    }
+  }
+
+  .Main {
+    min-height: auto;
+    width: 100%;
+    text-align: center;
+    background: none;
+
+    .MainContent {
+      min-height: auto;
+      width: 100%;
+      padding: 5rem 4rem 10rem;
+      box-sizing: border-box;
+    }
   }
 }

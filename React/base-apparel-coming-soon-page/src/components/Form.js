@@ -1,11 +1,13 @@
 import React from 'react';
 import iconArrow from '../assets/images/icon-arrow.svg';
 import errorIcon from '../assets/images/icon-error.svg';
+import Popup from "./Popup";
 
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      emailSent: '',
       email: '',
       validInput: true
     };
@@ -15,15 +17,15 @@ export default class Form extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ email: event.target.value, validInput: true });
+    this.setState({ emailSent: '', email: event.target.value, validInput: true });
   }
 
   handleClick(event) {
     event.preventDefault();
     if (!/\w+@\w+\.\w+/.test(this.state.email)) {
-      this.setState({ email: 'janeappleseed@email.com', validInput: false });
+      this.setState({ emailSent: '', email: 'janeappleseed@email.com', validInput: false });
     } else {
-      this.setState({ email: '', validInput: true });
+      this.setState({ emailSent: this.state.email, email: '', validInput: true });
     }
   }
 
@@ -34,6 +36,7 @@ export default class Form extends React.Component {
           type="text"
           placeholder="Email Address"
           value={this.state.email}
+          maxLength="60"
           onChange={this.handleChange}
           className={this.state.validInput ? "DefaultBorder" : "ErrorBorder"}
         />
@@ -46,6 +49,10 @@ export default class Form extends React.Component {
           <p className="ErrorLabel">Please provide a valid email</p>
         </div>
         }
+        <Popup
+          classNames={`Popup ${this.state.emailSent ? "AnimatedPopup" : ""}`}
+          email={this.state.emailSent}
+        />
       </form>
     );
   }

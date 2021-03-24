@@ -1,9 +1,44 @@
-.attribution {
-  position: absolute;
-  font-size: 11px;
-  text-align: center;
+@import "../base";
 
-  a {
-    color: hsl(228, 45%, 44%);
+footer {
+  width: 55vw;
+  position: absolute;
+  bottom: 3rem;
+
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+  }
+
+  .attribution {
+    text-align: center;
+    font-size: 0.8rem;
+    color: $desaturated-red;
+
+    @media only screen and (max-width: 700px) {
+      font-size: 1rem;
+    }
+
+    a {
+      color: $dark-grayish-red;
+      text-decoration: none;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 0.1rem;
+        bottom: 0;
+        left: 0.05rem;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: 0.4s ease-in-out;
+        background-color: $dark-grayish-red;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+      }
+    }
   }
 }

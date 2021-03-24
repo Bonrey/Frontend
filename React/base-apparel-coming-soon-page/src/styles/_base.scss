@@ -25,5 +25,8 @@ html {
 
 body {
   min-height: 100vh;
-  height: 100vh;
+
+  @media only screen and (max-height: 500px) {
+    height: 500px;
+  }
 }
