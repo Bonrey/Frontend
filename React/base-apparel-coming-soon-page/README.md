@@ -51,7 +51,7 @@ Especially, about React:
 - First of all, setting up a react project
   - Using npm
   - Working with package.json
-  - Differently structuring the project
+  - Structuring a react-app project
 - Working with Functional and Class components
 - Using State and Props to dynamically update UI elements
 - Using SASS with React
