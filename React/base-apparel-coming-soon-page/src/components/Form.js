@@ -34,6 +34,7 @@ export default class Form extends React.Component {
       <form>
         <input
           type="text"
+          aria-label="email input field"
           placeholder="Email Address"
           value={this.state.email}
           maxLength="60"
