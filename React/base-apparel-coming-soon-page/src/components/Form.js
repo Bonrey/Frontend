@@ -23,7 +23,7 @@ export default class Form extends React.Component {
   handleClick(event) {
     event.preventDefault();
     if (!/\w+@\w+\.\w+/.test(this.state.email)) {
-      this.setState({ emailSent: '', email: 'janeappleseed@email.com', validInput: false });
+      this.setState({ emailSent: '', validInput: false });
     } else {
       this.setState({ emailSent: this.state.email, email: '', validInput: true });
     }
