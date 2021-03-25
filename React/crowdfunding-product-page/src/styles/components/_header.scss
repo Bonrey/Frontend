@@ -1,0 +1,22 @@
+.Header {
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 8% 0;
+
+  img:hover {
+    cursor: pointer;
+  }
+
+  .HeaderLinks {
+
+    a {
+      font-weight: 500;
+      text-decoration: none;
+      color: #fafafa;
+      margin: 0 1rem;
+    }
+  }
+
+}
