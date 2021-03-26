@@ -2,14 +2,16 @@ import React from 'react';
 
 import logo from '../assets/images/logo.svg';
 
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+
 export default function Header() {
   return (
-    <header className="Header">
+    <header className="header">
       <img src={logo} alt="site logo" />
-      <div className="HeaderLinks">
-        <a href="/#">About</a>
-        <a href="/#">Discover</a>
-        <a href="/#">Get Started</a>
+      <div className="header-links">
+        <AnchorLink className="nav-link" href="#about">About</AnchorLink>
+        <AnchorLink className="nav-link" href="#discover">Discover</AnchorLink>
+        <AnchorLink className="nav-link" href="#get-started">Get Started</AnchorLink>
       </div>
     </header>
   );
