@@ -1,0 +1,85 @@
+main {
+  width: 46rem;
+  max-width: 90%;
+  margin: 0 auto;
+
+  .main-get-started {
+    width: 100%;
+    border-radius: 0.8rem;
+    background-color: #fff;
+    position: relative;
+    text-align: center;
+    padding: 3rem;
+    box-sizing: border-box;
+
+    img {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    p {
+      margin: 1rem 0 2.5rem;
+    }
+
+    .bookmark-section {
+      display: flex;
+      justify-content: space-between;
+
+      button.back-btn {
+        width: 12rem;
+      }
+
+      label {
+        font-weight: bold;
+        display: inline-block;
+        width: 10.5rem;
+        height: 3rem;
+        padding-left: 2.5rem;
+        box-sizing: border-box;
+        line-height: 3rem;
+        border-radius: 1.5rem;
+        cursor: pointer;
+        position: relative;
+
+        &.default {
+          background-color: var(--gray);
+          color: var(--dark-gray);
+        }
+
+        &.active {
+          background-color: var(--light-cyan);
+          color: var(--dark-cyan);
+        }
+
+        input[type="checkbox"] {
+          width: 3rem;
+          height: 3rem;
+          appearance: none;
+          outline: none;
+          color: var(--dark-gray);
+          background: url("../../assets/images/icon-bookmark-default.svg") no-repeat;
+          background-size: 100%;
+          position: absolute;
+          left: 0;
+          cursor: pointer;
+
+          &:checked {
+            background: url("../../assets/images/icon-bookmark-active.svg") no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+    }
+  }
+
+  .MainDiscover {
+
+  }
+
+  .MainAbout {
+
+  }
+
+}
