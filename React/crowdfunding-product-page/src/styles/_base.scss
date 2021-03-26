@@ -1,8 +1,10 @@
 :root {
+  --light-cyan: hsl(176, 40%, 94%);
   --moderate-cyan: hsl(176, 50%, 47%);
   --dark-cyan: hsl(176, 72%, 28%);
   --black: hsl(0, 0%, 0%);
   --dark-gray: hsl(0, 0%, 48%);
+  --gray: #ececec;
 
   --comissioner: 'Commissioner', sans-serif;
   --regular: 400;
@@ -21,8 +23,9 @@ html {
 }
 
 body {
-  background-color: #fafafa;
+  background-color: var(--gray);
   min-height: 100vh;
+  padding-top: 20%;
 
   &::before {
     content: "";
@@ -34,5 +37,34 @@ body {
     height: 0;
     padding-top: 27.77%;  // (img-height / img-width * 100%)
     z-index: -1;
+  }
+}
+
+.darkened::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.6);
+  z-index: 2;
+}
+
+button {
+  height: 3.2rem;
+  line-height: 3.2rem;
+  border-radius: 1.6rem;
+  font-size: 1rem;
+  font-family: var(--comissioner);
+  font-weight: bold;
+  outline: none;
+  border: none;
+  background-color: var(--moderate-cyan);
+  color: #fff;
+  transition: 0.4s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--dark-cyan);
   }
 }
