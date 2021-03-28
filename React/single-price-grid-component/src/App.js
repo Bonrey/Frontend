@@ -1,17 +1,10 @@
-import './App.css';
-
 import React from 'react';
 
-import Join from './components/Join';
-import Subscription from './components/Subscription';
-import Why from './components/Why';
+import './App.scss';
+import Card from "./components/Card";
 
 export default function App() {
   return (
-    <div>
-      <Join />
-      <Subscription />
-      <Why />
-    </div>
+    <Card />
   );
 }

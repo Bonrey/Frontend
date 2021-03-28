@@ -1,0 +1,46 @@
+@keyframes card-appear-desktop {
+  0% {
+    transform: translateY(-100vh);
+  }
+  75% {
+    transform: translateY(1.8rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes card-appear-mobile {
+  0% {
+    transform: translateX(100vw);
+  }
+  75% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+main {
+  width: 40rem;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  filter: drop-shadow(0 1rem 1rem hsla(218, 22%, 67%, 0.6));
+  animation: card-appear-desktop 1s 1 ease-out;
+
+  @media only screen and (max-width: 700px) {
+    width: 22rem;
+    max-width: 90vw;
+    filter: drop-shadow(0 0.6rem 0.6rem hsla(218, 22%, 67%, 0.6));
+    animation: card-appear-mobile 1s 1 ease-out;
+  }
+
+  .main-bottom {
+    display: flex;
+
+    @media only screen and (max-width: 700px) {
+      flex-direction: column;
+    }
+  }
+}

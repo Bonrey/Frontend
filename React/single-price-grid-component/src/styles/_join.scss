@@ -1,0 +1,29 @@
+section.join {
+  background-color: var(--white);
+  padding: 2.2rem;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: 700px) {
+    padding: 1.8rem;
+  }
+
+  h1 {
+    color: var(--cyan);
+  }
+
+  p:nth-of-type(1) {
+    color: var(--bright-yellow);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem;
+  }
+
+  p:nth-of-type(2) {
+    color: var(--grayish-blue);
+    line-height: 1.5rem;
+
+    @media only screen and (max-width: 700px) {
+      line-height: 1.8rem;
+    }
+  }
+}

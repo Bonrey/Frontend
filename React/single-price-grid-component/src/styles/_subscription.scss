@@ -1,0 +1,73 @@
+section.subscription {
+  background-color: var(--cyan);
+  flex-basis: 50%;
+  padding: 2.2rem;
+  position: relative;
+
+  @media only screen and (max-width: 700px) {
+    padding: 1.8rem;
+    height: 11rem;
+    flex-basis: auto;
+  }
+
+  h2 {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+    p:nth-of-type(1) {
+      color: hsla(0, 0%, 100%, 0.5);
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+
+      span {
+        color: var(--white);
+        font-size: 2rem;
+        font-weight: bold;
+        margin-right: 0.6rem;
+      }
+    }
+
+    p:nth-of-type(2) {
+      color: var(--graish-white);
+    }
+
+    button {
+      border: none;
+      outline: none;
+      padding: 0.8rem 0;
+      font-family: 'Karla', sans-serif;
+      font-size: 1.1rem;
+      background-color: var(--bright-yellow);
+      color: var(--white);
+      border-radius: 0.4rem;
+      position: absolute;
+      bottom: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 4.4rem);
+      box-shadow: 0 0.1rem 0.1rem hsla(179, 62%, 30%, 0.3),
+                  0 0.3rem 0.3rem hsla(179, 62%, 30%, 0.3),
+                  0 0.6rem 0.6rem hsla(179, 62%, 30%, 0.3);
+      cursor: pointer;
+      transition: 0.4s;
+
+      &:hover {
+        background-color: hsl(71, 73%, 46%);
+      }
+
+      &:active {
+        transform: translate(-50%, 0.1rem);
+        box-shadow: 0 0.1rem 0.1rem hsla(179, 62%, 30%, 0.7),
+                    0 0.2rem 0.2rem hsla(179, 62%, 30%, 0.7),
+                    0 0.4rem 0.4rem hsla(179, 62%, 30%, 0.7);
+      }
+
+      @media only screen and (max-width: 700px) {
+        width: calc(100% - 3.6rem);
+        bottom: 1.8rem;
+      }
+    }
+}
