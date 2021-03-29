@@ -1,0 +1,25 @@
+.attribution {
+  width: 100%;
+  position: absolute;
+  bottom: -3rem;
+  text-align: center;
+
+  span {
+    font-size: 0.8rem;
+    color: hsl(0, 0%, 30%);
+
+    &:first-child {
+      margin-right: 0.2rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--grayish-blue);
+    transition: 0.4s;
+
+    &:hover {
+      color: hsl(0, 0%, 30%);
+    }
+  }
+}
