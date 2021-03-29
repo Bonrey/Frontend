@@ -1,0 +1,45 @@
+@keyframes card-appear-desktop {
+  0% {
+    transform: translateY(-100vh);
+  }
+  75% {
+    transform: translateY(1.8rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes card-appear-mobile {
+  0% {
+    transform: translateX(100vw);
+  }
+  75% {
+    transform: translateX(-1.5rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@mixin fading($animation-name) {
+  animation: $animation-name 2s 1 forwards;
+}

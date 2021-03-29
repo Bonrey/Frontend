@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function SubscriptionSection() {
+export default function SubscriptionSection(props) {
   return (
-    <div className="thank-you">
+    <div className={props.className}>
       <h1>Thank you!</h1>
     </div>
   );
