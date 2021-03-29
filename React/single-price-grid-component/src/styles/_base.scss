@@ -23,16 +23,17 @@ html {
 }
 
 body {
-  padding: 4rem 0;
-  box-sizing: border-box;
   min-height: 100vh;
   background-color: var(--light-gray);
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 #root {
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  padding: 4rem 0 5rem;
+  box-sizing: border-box;
 }
