@@ -29,9 +29,9 @@ main {
 
 @import "animation";
 .card-fade-in {
-  @include fading(show);
+  @include fading(in, 2s);
 }
 
 .card-fade-out {
-  @include fading(hide);
+  @include fading(out, 1s);
 }

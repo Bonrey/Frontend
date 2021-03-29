@@ -22,7 +22,7 @@
   }
 }
 
-@keyframes show {
+@keyframes in {
   from {
     opacity: 0;
   }
@@ -31,7 +31,7 @@
   }
 }
 
-@keyframes hide {
+@keyframes out {
   from {
     opacity: 1;
   }
@@ -40,6 +40,6 @@
   }
 }
 
-@mixin fading($animation-name) {
-  animation: $animation-name 2s 1 forwards;
+@mixin fading($animation-name, $time) {
+  animation: $animation-name $time 1 ease-out forwards;
 }

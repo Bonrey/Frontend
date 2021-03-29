@@ -21,9 +21,9 @@
 
 @import "animation";
 .thanks-fade-in {
-  @include fading(show);
+  @include fading(in, 2s);
 }
 
 .thanks-fade-out {
-  @include fading(hide);
+  @include fading(out, 1s);
 }

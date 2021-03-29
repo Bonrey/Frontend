@@ -25,17 +25,17 @@ export default class App extends React.Component {
         cardHidden: true,
         thanksFadeIn: true
       }
-    ), 2000);
+    ), 1000);
     // 3) Fade out the "ThankYou" box
     setTimeout(_ => this.setState({
         thanksFadeIn: false
-    }), 4000);
+    }), 3000);
     // 4) Hide the "ThankYou" box and Fade in the card component
     setTimeout(_ => this.setState({
         cardFadeOut: false,
         cardHidden: false,
       }
-    ), 6000);
+    ), 4000);
   }
 
   componentDidMount() {
