@@ -1,0 +1,37 @@
+.popup {
+  background-color: #fff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.8rem;
+  text-align: center;
+  width: 34rem;
+  padding: 0 3rem;
+  box-sizing: border-box;
+  z-index: 3;
+  opacity: 0;
+
+  img {
+    margin: 2rem 0 3rem;
+  }
+
+  p {
+    margin: 1.5rem 0 2rem;
+    line-height: 1.6rem;
+    color: var(--dark-gray);
+  }
+
+  button.got-it-btn {
+    width: 6rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.show-popup {
+  animation: show-popup 400ms 1 forwards ease-in-out;
+}
+
+.hide-popup {
+  animation: hide-popup 400ms 1 forwards ease-in-out;
+}

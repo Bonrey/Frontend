@@ -1,0 +1,78 @@
+.main-about {
+  > h2 {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  > p {
+    line-height: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  &__card {
+    border: 0.05rem solid hsla(0, 0%, 48%, 0.5);
+    margin-bottom: 1.5rem;
+    border-radius: 0.6rem;
+    padding: 2.2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        color: var(--moderate-cyan);
+        font-weight: var(--medium);
+      }
+    }
+
+    > p {
+      line-height: 1.8rem;
+      margin: 1.7rem 0;
+    }
+
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        display: flex;
+        align-items: center;
+
+        span {
+          font-weight: bold;
+          font-size: 2rem;
+          color: black;
+          margin-right: 0.5rem;
+          padding-bottom: 0.1rem;
+        }
+      }
+
+      button {
+        width: 11rem;
+      }
+    }
+
+    &.disabled {
+      opacity: 0.5;
+
+      button {
+        background-color: var(--dark-gray);
+        color: white;
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

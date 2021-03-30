@@ -1,0 +1,59 @@
+.main-discover {
+  .stats {
+    display: flex;
+    justify-content: space-between;
+
+    div.info-box {
+      height: 5rem;
+      position: relative;
+
+      &:first-child {
+        flex-basis: 38%;
+      }
+
+      &:nth-child(2) {
+        flex-basis: 38%;
+      }
+
+      &:last-child {
+        flex-basis: 24%;
+      }
+
+      &:nth-child(2)::before, &:last-child::before {
+        content: "";
+        width: 0.05rem;
+        height: 4.4rem;
+        position: absolute;
+        top: 0.3rem;
+        left: -3rem;
+        background-color: hsla(0, 0%, 0%, 0.3);
+      }
+
+      span:first-child {
+        display: block;
+        font-size: 2.4rem;
+        font-weight: var(--bold);
+        margin-bottom: 0.5rem;
+      }
+
+      span:last-child {
+        color: var(--dark-gray);
+        font-weight: var(--medium);
+      }
+    }
+  }
+
+  .progress-bar-container {
+    width: 100%;
+    height: 0.9rem;
+    border-radius: 0.45rem;
+    margin-top: 2rem;
+    background-color: var(--light-gray);
+
+    .progress {
+      background-color: var(--moderate-cyan);
+      border-radius: 0.45rem;
+      height: 100%;
+    }
+  }
+}
