@@ -26,6 +26,7 @@ body {
   background-color: var(--light-gray);
   min-height: 100vh;
   padding-top: 20%;
+  animation: fade-in-body 1s 1;
 }
 body::before {
   content: "";
@@ -93,6 +94,14 @@ p {
   color: var(--dark-gray);
 }
 
+@keyframes fade-in-body {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes show-popup {
   from {
     transform: translate(-50%, -50%) scale(0);
@@ -189,6 +198,11 @@ p {
 .main-start .bookmark-section label.active {
   background-color: var(--light-cyan);
   color: var(--dark-cyan);
+}
+.main-start .bookmark-section label img {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
 }
 .main-start .bookmark-section label input[type=checkbox] {
   width: 3rem;

@@ -43,6 +43,12 @@
         color: var(--dark-cyan);
       }
 
+      img {
+        position: absolute;
+        width: 3rem;
+        height: 3rem;
+      }
+
       input[type="checkbox"] {
         width: 3rem;
         height: 3rem;

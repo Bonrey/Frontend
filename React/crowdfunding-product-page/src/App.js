@@ -11,15 +11,10 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      preloaded: false,
       btnClicked: false,
       popupVisible: false,
       popupFadeIn: false
     };
-  }
-
-  componentDidMount() {
-    this.setState({ preloaded: true });
   }
 
   handleClick(popupVisible) {
@@ -32,8 +27,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        {!this.state.preloaded && <Preloaded />}
-        {this.state.preloaded &&
+        <Preloaded />
         <div className={!this.state.btnClicked ? "" : this.state.popupFadeIn ? "dark-bg fade-in" : "dark-bg fade-out"}>
           <Header />
           <Main
@@ -43,7 +37,6 @@ export default class App extends React.Component {
           />
           {/*<Attribution />*/}
         </div>
-        }
       </div>
     );
   }
