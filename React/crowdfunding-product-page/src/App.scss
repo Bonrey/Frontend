@@ -1,6 +1,9 @@
-@import "./styles/base";
+@import "styles/base";
+@import "styles/animation";
 
-@import "./styles/components/header";
-@import "./styles/components/main";
-@import "./styles/components/gratitude-popup";
-@import "./styles/components/attribution";
+@import "styles/components/header";
+@import "styles/components/main-start";
+@import "styles/components/main-discover";
+@import "styles/components/main-about";
+@import "styles/components/popup";
+@import "styles/components/attribution";
