@@ -15,3 +15,24 @@ export default function Preloaded() {
   }
   return <div style={{display: "none"}}>{imagesToPreload}</div>;
 }
+
+export const pledgesDescription = [
+  {
+    id: "bamboo-stand",
+    heading: "Bamboo Stand",
+    paragraph: "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and\n" +
+      "you’ll be added to a special Backer member list.",
+  },
+  {
+    id: "black-edition-stand",
+    heading: "Black Edition Stand",
+    paragraph: "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer\n" +
+      "member list. Shipping is included.",
+  },
+  {
+    id: "mahogany-special-edition",
+    heading: "Mahogany Special Edition",
+    paragraph: "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added\n" +
+      "to our Backer member list. Shipping is included.",
+  }
+];
