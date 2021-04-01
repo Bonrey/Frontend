@@ -5,23 +5,26 @@ import Header from './components/Header';
 import Main from './components/Main';
 //import Attribution from './components/Attribution';
 
-import './css/App.min.css';
+import './App.scss';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       btnClicked: false,
-      popupVisible: false,
+      pledgesMenuVisible: false,
+      selectedPledge: "",
       popupFadeIn: false
     };
   }
 
-  handleClick(popupVisible) {
-    this.setState({ btnClicked: true, popupFadeIn: popupVisible });
-    setTimeout(_ => this.setState({
-      popupVisible: popupVisible
-    }), popupVisible ? 0 : 400);
+  handleClick(selected) {
+    // this.setState({ btnClicked: true, popupFadeIn: popupVisible });
+    // setTimeout(_ => this.setState({
+    //   popupVisible: popupVisible
+    // }), popupVisible ? 0 : 400);
+
+    this.setState({ pledgesMenuVisible: true, selectedPledge: selected });
   }
 
   render() {
@@ -32,8 +35,9 @@ export default class App extends React.Component {
           <Header />
           <Main
             className={!this.state.btnClicked ? "" : this.state.popupFadeIn ? " show-popup" : " hide-popup"}
-            popupVisible={this.state.popupVisible}
-            onClick={param => this.handleClick(param)}
+            pledgesMenuVisible={this.state.pledgesMenuVisible}
+            selectedPledge = {this.state.selectedPledge}
+            onClick={id => this.handleClick(id)}
           />
           {/*<Attribution />*/}
         </div>

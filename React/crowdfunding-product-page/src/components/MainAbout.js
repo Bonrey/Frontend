@@ -7,10 +7,12 @@ export default function MainAbout(props) {
   for (let i = 0; i < 3; i++) {
     cards.push(<MainAboutCard
       key={props.pledgesDescription[i].id}
+      id={props.pledgesDescription[i].id}
       heading={props.pledgesDescription[i].heading}
       paragraph={props.pledgesDescription[i].paragraph}
       pledgeSum={props.pledgesData[i].pledgeSum}
       leftNumber={props.pledgesData[i].leftNumber}
+      onClick={props.onClick}
     />);
   }
 

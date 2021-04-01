@@ -13,7 +13,6 @@ export default class Main extends React.Component {
     super(props);
     this.state = {
       pledgesData: [
-        { pledgeSum: 0, leftNumber: 0 },
         { pledgeSum: 25, leftNumber: 101 },
         { pledgeSum: 75, leftNumber: 64 },
         { pledgeSum: 200, leftNumber: 0 }
@@ -26,14 +25,22 @@ export default class Main extends React.Component {
       <main>
         <MainStart onClick={_ => this.props.onClick(true)} />
         <MainDiscover progress={89} />
-        <MainAbout pledgesDescription={pledgesDescription} pledgesData={this.state.pledgesData} />
-        <PledgesContainer pledgesDescription={pledgesDescription} pledgesData={this.state.pledgesData} />
-        {this.props.popupVisible &&
-        <Popup
-          className={this.props.className}
-          onClick={_ => this.props.onClick(false)}
+        <MainAbout
+          pledgesDescription={pledgesDescription}
+          pledgesData={this.state.pledgesData}
+          onClick={this.props.onClick}
         />
-        }
+        {this.props.pledgesMenuVisible && <PledgesContainer
+          pledgesDescription={pledgesDescription}
+          pledgesData={this.state.pledgesData}
+          selected={this.props.selectedPledge}
+        />}
+        {/*{this.props.popupVisible &&*/}
+        {/*// <Popup*/}
+        {/*//   className={this.props.className}*/}
+        {/*//   onClick={_ => this.props.onClick(false)}*/}
+        {/*// />*/}
+        {/*}*/}
       </main>
     );
   }

@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default function MainAboutCard(props) {
-  const button = !props.leftNumber ? <button>Out of stock</button> : <button>Select Reward</button>;
+  const button = !props.leftNumber ?
+    <button>Out of stock</button> :
+    <button onClick={_ => props.onClick(props.id)}>Select Reward</button>;
 
   return (
     <section className={`main-about__card ${!props.leftNumber ? "disabled" : ""}`}>

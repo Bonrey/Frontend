@@ -6,8 +6,6 @@ export default class MainStartBottom extends React.Component {
     this.state = { bookmarked: false };
   }
 
-  handleChange = e => this.setState({ bookmarked: e.target.checked });
-
   render() {
     return (
       <div className="bookmark-section">
@@ -17,7 +15,7 @@ export default class MainStartBottom extends React.Component {
           onClick={this.props.onClick}>Back this project
         </button>
         <label className={this.state.bookmarked ? "active" : "default"}>
-          <input type="checkbox" onChange={this.handleChange} />
+          <input type="checkbox" onChange={e => this.setState({ bookmarked: e.target.checked })} />
           {this.state.bookmarked ? "Bookmarked" : "Bookmark"}
         </label>
       </div>

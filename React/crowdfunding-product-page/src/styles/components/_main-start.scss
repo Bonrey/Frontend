@@ -55,14 +55,14 @@
         appearance: none;
         outline: none;
         color: var(--dark-gray);
-        background: url("../assets/images/icon-bookmark-default.svg") no-repeat;
+        background: url("../../assets/images/icon-bookmark-default.svg") no-repeat;
         background-size: 100%;
         position: absolute;
         left: 0;
         cursor: pointer;
 
         &:checked {
-          background: url("../assets/images/icon-bookmark-active.svg") no-repeat;
+          background: url("../../assets/images/icon-bookmark-active.svg") no-repeat;
           background-size: 100%;
         }
       }
