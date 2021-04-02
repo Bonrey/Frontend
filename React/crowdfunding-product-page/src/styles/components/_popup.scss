@@ -11,6 +11,8 @@
   box-sizing: border-box;
   z-index: 3;
   opacity: 0;
+  animation-delay: 600ms;
+  animation: show-popup 400ms 1 forwards ease-in-out;
 
   img {
     margin: 2rem 0 3rem;
@@ -26,10 +28,6 @@
     width: 6rem;
     margin-bottom: 2rem;
   }
-}
-
-.show-popup {
-  animation: show-popup 400ms 1 forwards ease-in-out;
 }
 
 .hide-popup {

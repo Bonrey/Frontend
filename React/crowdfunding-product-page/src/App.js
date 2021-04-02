@@ -14,27 +14,40 @@ export default class App extends React.Component {
       btnClicked: false,
       pledgesMenuVisible: false,
       selectedPledge: "",
-      popupFadeIn: false
+      fadeIn: false
     };
   }
 
   handleClick(selected) {
-    // this.setState({ btnClicked: true, popupFadeIn: popupVisible });
-    // setTimeout(_ => this.setState({
-    //   popupVisible: popupVisible
-    // }), popupVisible ? 0 : 400);
-
-    this.setState({ pledgesMenuVisible: true, selectedPledge: selected });
+    if (selected === "close") {
+      document.body.style.overflow = "visible";
+      this.setState({
+        btnClicked: true,
+        fadeIn: false
+      });
+      setTimeout(_ => this.setState({
+        pledgesMenuVisible: false,
+        selectedPledge: ""
+      }), 600);
+    } else {
+      document.body.style.overflow = "hidden";
+      this.setState({
+        btnClicked: true,
+        fadeIn: true,
+        pledgesMenuVisible: true,
+        selectedPledge: selected
+      });
+    }
   }
 
   render() {
     return (
       <div>
         <Preloaded />
-        <div className={!this.state.btnClicked ? "" : this.state.popupFadeIn ? "dark-bg fade-in" : "dark-bg fade-out"}>
+        <div className={!this.state.btnClicked ? "" : this.state.fadeIn ? "dark-bg fade-in" : "dark-bg fade-out"}>
           <Header />
           <Main
-            className={!this.state.btnClicked ? "" : this.state.popupFadeIn ? " show-popup" : " hide-popup"}
+            className={this.state.fadeIn ? "show-pledges" : "hide-pledges"}
             pledgesMenuVisible={this.state.pledgesMenuVisible}
             selectedPledge = {this.state.selectedPledge}
             onClick={id => this.handleClick(id)}

@@ -55,12 +55,12 @@ body {
 
   &.fade-in::before {
     z-index: 2;
-    animation: darken-bg 400ms 1 forwards ease-in-out;
+    animation: darken-bg 600ms 1 forwards ease-out;
   }
 
   &.fade-out::before {
     z-index: -1;
-    animation: lighten-bg 400ms 1 forwards ease-in-out;
+    animation: lighten-bg 600ms 1 forwards ease-in;
   }
 }
 
@@ -79,7 +79,7 @@ main {
   }
 }
 
-button {
+button:not(.close) {
   height: 3.2rem;
   line-height: 3.2rem;
   border-radius: 1.6rem;
@@ -89,7 +89,7 @@ button {
   outline: none;
   border: none;
   background-color: var(--moderate-cyan);
-  color: #fff;
+  color: white;
   transition: 0.4s;
 
   &:hover {

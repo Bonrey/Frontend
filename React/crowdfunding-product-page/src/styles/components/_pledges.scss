@@ -1,18 +1,31 @@
 .pledges-container-wrapper {
   position: fixed;
+  z-index: 3;
   width: 46rem;
-  top: 3rem;
-  overflow: scroll;
+  top: 50%;
+  transform: translateY(-50%);
+  max-height: 96vh;
+  display: flex;
+  margin: 0;
+
+  &.show-pledges {
+    animation: show-pledges 600ms 1 ease-in-out;
+  }
+
+  &.hide-pledges {
+    animation: hide-pledges 600ms 1 ease-in-out;
+  }
 }
 
 .pledges-container {
-  margin: 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   .close {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 0;
+    right: 0;
     background: none;
     outline: none;
     border: none;
@@ -33,7 +46,16 @@
   }
 
   > p {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .pledge-cards {
+    overflow: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .pledge {
@@ -42,6 +64,10 @@
     border-radius: 0.6rem;
     padding: 1.5rem 0;
     position: relative;
+
+    &:first-child {
+      margin-top: 0;
+    }
 
     &.green-border {
       border: 0.1rem solid var(--moderate-cyan);
@@ -169,13 +195,13 @@
 
       label {
         position: relative;
+        line-height: 2.8rem;
 
         span {
           position: absolute;
           left: 1rem;
           font-weight: bold;
           font-size: 1.1rem;
-          line-height: 2.8rem;
           color: hsla(0, 0%, 48%, 0.7);
         }
       }

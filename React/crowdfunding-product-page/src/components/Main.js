@@ -16,14 +16,24 @@ export default class Main extends React.Component {
         { pledgeSum: 25, leftNumber: 101 },
         { pledgeSum: 75, leftNumber: 64 },
         { pledgeSum: 200, leftNumber: 0 }
-      ]
+      ],
+      popupFadeIn: false,
+      pledgesMenu: props.className
+    }
+  }
+
+  handleClick = (min, curr) => {
+    if (curr >= min) {
+      this.setState({popupFadeIn: true});
+    } else {
+
     }
   }
 
   render() {
     return (
       <main>
-        <MainStart onClick={_ => this.props.onClick(true)} />
+        <MainStart onClick={_ => this.props.onClick("")} />
         <MainDiscover progress={89} />
         <MainAbout
           pledgesDescription={pledgesDescription}
@@ -34,13 +44,16 @@ export default class Main extends React.Component {
           pledgesDescription={pledgesDescription}
           pledgesData={this.state.pledgesData}
           selected={this.props.selectedPledge}
+          className={this.props.className}
+          onClick={(min, curr, e) => this.handleClick(min, curr, e)}
+          onClose={_ => this.props.onClick("close")}
         />}
-        {/*{this.props.popupVisible &&*/}
-        {/*// <Popup*/}
-        {/*//   className={this.props.className}*/}
-        {/*//   onClick={_ => this.props.onClick(false)}*/}
-        {/*// />*/}
-        {/*}*/}
+        {this.state.popupFadeIn &&
+        <Popup
+          className={this.props.className}
+          onClick={_ => this.props.onClick(false)}
+        />
+        }
       </main>
     );
   }

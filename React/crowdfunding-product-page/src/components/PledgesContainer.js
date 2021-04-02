@@ -2,26 +2,28 @@ import React, {useState} from 'react';
 import Pledge from "./Pledge";
 
 export default function PledgesContainer(props) {
-  const [selected, select] = useState("");
+  const [selected, select] = useState(props.selected);
 
   const pledges = [];
   for (let i = 0; i < 3; i++) {
+    let pledgeId = props.pledgesDescription[i].id;
     pledges.push(<Pledge
-      key={props.pledgesDescription[i].id}
-      id={props.pledgesDescription[i].id}
+      key={pledgeId}
+      id={pledgeId}
       heading={props.pledgesDescription[i].heading}
       paragraph={props.pledgesDescription[i].paragraph}
       pledgeSum={props.pledgesData[i].pledgeSum}
       leftNumber={props.pledgesData[i].leftNumber}
-      onChange={e => select(e.target.id)}
-      selected={props.selected || selected === props.pledgesDescription[i].id}
+      onChange={id => select(id)}
+      onClick={(min, curr) => props.onClick(min, curr)}
+      selected={selected === pledgeId}
     />);
   }
 
   return (
-    <div className="pledges-container-wrapper">
+    <div className={`pledges-container-wrapper ${props.className}`}>
       <section className="pledges-container">
-        <button className="close">
+        <button className="close" onClick={props.onClose}>
           <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
             <title>Close</title>
             <path
@@ -31,19 +33,21 @@ export default function PledgesContainer(props) {
         </button>
         <h2>Back this project</h2>
         <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
-        <div className={`pledge ${selected === "no-reward" ? "green-border" : ""}`}>
-          <header>
-            <div>
-              <label>
-                <input id={props.id} type="radio" name="radio-group" onChange={_ => select("no-reward")} />
-                Pledge with no reward
-              </label>
-            </div>
-          </header>
-          <p>Choose to support us without a reward if you simply believe in our project. As a backer,
-            you will be signed up to receive product updates via email.</p>
+        <div className="pledge-cards">
+          <div className={`pledge ${selected === "no-reward" ? "green-border" : ""}`}>
+            <header>
+              <div>
+                <label>
+                  <input id={props.id} type="radio" name="radio-group" onChange={_ => select("no-reward")} />
+                  Pledge with no reward
+                </label>
+              </div>
+            </header>
+            <p>Choose to support us without a reward if you simply believe in our project. As a backer,
+              you will be signed up to receive product updates via email.</p>
+          </div>
+          {pledges}
         </div>
-        {pledges}
       </section>
     </div>
   );
