@@ -20,18 +20,18 @@
 
 @keyframes hide-popup {
   from {
-    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
+    transform: translate(-50%, -50%) rotate(0) scale(1);
   }
   to {
-    transform: translate(-50%, -50%) scale(0);
     opacity: 0;
+    transform: translate(-50%, -50%) rotate(720deg) scale(0);
   }
 }
 
 @keyframes show-pledges {
   from {
-    opacity: 0;
+    opacity: 0.5;
     transform: translateY(100vh);
   }
 
@@ -48,7 +48,7 @@
   }
 
   to {
-    opacity: 0;
+    opacity: 0.5;
     transform: translateY(100vh);
   }
 }

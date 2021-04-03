@@ -22,14 +22,6 @@ export default class Main extends React.Component {
     }
   }
 
-  handleClick = (min, curr) => {
-    if (curr >= min) {
-      this.setState({popupFadeIn: true});
-    } else {
-
-    }
-  }
-
   render() {
     return (
       <main>
@@ -44,14 +36,14 @@ export default class Main extends React.Component {
           pledgesDescription={pledgesDescription}
           pledgesData={this.state.pledgesData}
           selected={this.props.selectedPledge}
-          className={this.props.className}
-          onClick={(min, curr, e) => this.handleClick(min, curr, e)}
+          className={this.props.pledgesClassName}
+          onClick={(min, curr) => this.props.onPledgesClick(min, curr)}
           onClose={_ => this.props.onClick("close")}
         />}
-        {this.state.popupFadeIn &&
+        {!this.props.popupDisappear &&
         <Popup
-          className={this.props.className}
-          onClick={_ => this.props.onClick(false)}
+          className={this.props.popupClassName}
+          onClick={_ => this.props.onClick("got-it")}
         />
         }
       </main>

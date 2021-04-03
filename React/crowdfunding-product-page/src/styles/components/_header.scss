@@ -1,13 +1,13 @@
 .header {
   position: absolute;
   top: 0;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
   height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 8% 0;
+  padding: 3.2vw 8.4vw 0 9vw;
 
   img:hover {
     cursor: pointer;

@@ -1,8 +1,24 @@
 .attribution {
-  font-size: 11px;
+  margin-bottom: 2rem;
+  letter-spacing: 0.07rem;
+  width: 100%;
   text-align: center;
-}
 
-.attribution a {
-  color: hsl(228, 45%, 44%);
+  span {
+    font-size: 0.8rem;
+
+    &:first-child {
+      margin-right: 0.4rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    transition: 0.4s;
+
+    &:hover {
+      color: black;
+    }
+  }
 }
