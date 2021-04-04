@@ -46,7 +46,7 @@ export default class App extends React.Component {
       setTimeout(_ => this.setState({
         pledgesMenuVisible: false,
         selectedPledge: ""
-      }), 600);
+      }), 570);
     } else if (selected === "got-it") {
       document.body.style.overflowY = "visible";
       this.setState({
@@ -55,7 +55,7 @@ export default class App extends React.Component {
       });
       setTimeout(_ => this.setState({
         popupDisappear: true
-      }), 600);
+      }), 570);
     } else {
       document.body.style.overflowY = "hidden";
       this.setState({
@@ -73,10 +73,10 @@ export default class App extends React.Component {
       setTimeout(_ => this.setState({
         pledgesMenuVisible: false,
         selectedPledge: ""
-      }), 600);
+      }), 570);
     } else {
       this.setState({ shakeLabel: id });
-      setTimeout(_ => this.setState({ shakeLabel: "" }), 600);
+      setTimeout(_ => this.setState({ shakeLabel: "" }), 570);
     }
   }
 
@@ -84,7 +84,7 @@ export default class App extends React.Component {
     if (param === "anchor" || this.state.menuShown) {
       document.getElementById("header").style.zIndex = "0";
       this.setState({ menuFadeIn: false });
-      setTimeout(_ => this.setState({ menuShown: false }), 400);
+      setTimeout(_ => this.setState({ menuShown: false }), 380);
     } else {
       document.getElementById("header").style.zIndex = "3";
       this.setState({ menuFadeIn: true, menuShown: true });
