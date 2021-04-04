@@ -1,7 +1,8 @@
 .pledges-container-wrapper {
   position: fixed;
-  z-index: 3;
+  z-index: 4;
   width: 46rem;
+  max-width: 90%;
   top: 50%;
   transform: translateY(-50%);
   max-height: 96vh;
@@ -47,6 +48,11 @@
 
   > p {
     margin-bottom: 2.5rem;
+    line-height: 1.7rem;
+
+    @media only screen and (max-width: 720px) {
+      margin-bottom: 1.6rem;
+    }
   }
 
   .pledge-cards {
@@ -59,7 +65,7 @@
   }
 
   .pledge {
-    border: 0.04rem solid hsla(0, 0%, 48%, 0.5);
+    border: 0.1rem solid hsla(0, 0%, 48%, 0.5);
     margin-top: 1.2rem;
     border-radius: 0.6rem;
     padding: 1.5rem 0;
@@ -94,9 +100,20 @@
       padding-right: 1.5rem;
       height: 2rem;
 
-      div {
+      div.header-labels {
         display: flex;
         align-items: center;
+
+        @media only screen and (max-width: 720px) {
+          &:not(.no-reward-label) {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          &.no-reward-label label {
+            margin: 0.1rem 0 0;
+          }
+        }
 
         label {
           font-weight: bold;
@@ -105,6 +122,10 @@
           cursor: pointer;
           display: inline-block;
           transition: 300ms;
+
+          @media only screen and (max-width: 720px) {
+            margin-bottom: 0.3rem;
+          }
 
           &:hover {
             color: var(--moderate-cyan);
@@ -121,20 +142,20 @@
             position: absolute;
             left: 1.5rem;
             top: 2rem;
-            width: 1.25rem;
-            height: 1.25rem;
-            border: 0.0625rem solid hsla(0, 0%, 48%, 0.5);
+            width: 20px;
+            height: 20px;
+            border: 1px solid hsla(0, 0%, 48%, 0.5);
             border-radius: 50%;
             transition: border 300ms;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             &::after {
               content: "";
-              width: 0.75rem;
-              height: 0.75rem;
+              width: 12px;
+              height: 12px;
               border-radius: 50%;
-              position: absolute;
-              left: 0.1875rem;
-              top: 0.1875rem;
               background-color: var(--moderate-cyan);
               transition: 200ms;
             }
@@ -151,31 +172,44 @@
           }
         }
 
-        p {
+        .pledge-sum {
           color: var(--moderate-cyan);
           font-weight: var(--medium);
-        }
-      }
 
-      > p {
-        display: flex;
-        align-items: center;
-
-        span {
-          font-weight: bold;
-          font-size: 1.6rem;
-          color: black;
-          margin-right: 0.3rem;
-          padding-bottom: 0.1rem;
+          &.shake {
+            animation: pledge-sum-shake 600ms 1;
+          }
         }
       }
     }
 
-    > p {
+    p.left-number {
+      display: flex;
+      align-items: center;
+
+      @media only screen and (max-width: 720px) {
+        padding-top: 1rem;
+        padding-left: 1.5rem;
+      }
+
+      span {
+        font-weight: bold;
+        font-size: 1.6rem;
+        color: black;
+        margin-right: 0.3rem;
+        padding-bottom: 0.1rem;
+      }
+    }
+
+    .pledge-paragraph {
       padding-left: 4rem;
       padding-right: 1.5rem;
-      line-height: 1.6rem;
+      line-height: 1.7rem;
       margin: 1.5rem 0 0.5rem;
+
+      @media only screen and (max-width: 720px) {
+        padding-left: 1.5rem;
+      }
     }
 
     hr {
@@ -193,52 +227,79 @@
       padding-right: 1.5rem;
       transform-origin: top;
 
-      label {
-        position: relative;
-        line-height: 2.8rem;
+      @media only screen and (max-width: 720px) {
+        flex-direction: column;
+      }
 
-        span {
-          position: absolute;
-          left: 1rem;
-          font-weight: bold;
-          font-size: 1.1rem;
-          color: hsla(0, 0%, 48%, 0.7);
+      > p {
+        @media only screen and (max-width: 720px) {
+          margin-bottom: 1.5rem;
         }
       }
 
-      input[type="number"] {
-        -moz-appearance: textfield;
-
-        &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
+      form {
+        @media only screen and (max-width: 720px) {
+          width: 100%;
+          display: flex;
         }
 
-        height: 2.8rem;
-        border-radius: 1.4rem;
-        outline: none;
-        border: 0.08rem solid hsla(0, 0%, 48%, 0.7);
-        width: 5.2rem;
-        padding-left: 2rem;
-        padding-right: 1rem;
-        box-sizing: border-box;
-        margin-right: 0.8rem;
-        font-size: 1.1rem;
+        label {
+          position: relative;
+          line-height: 2.8rem;
 
-        &:focus {
-          border: 0.1rem solid var(--moderate-cyan);
+          @media only screen and (max-width: 720px) {
+            flex-basis: 40%;
+            margin-right: 1rem;
+          }
+
+          span {
+            position: absolute;
+            left: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: hsla(0, 0%, 48%, 0.7);
+          }
+
+          input[type="number"] {
+            -moz-appearance: textfield;
+
+            &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+
+            height: 2.8rem;
+            border-radius: 1.4rem;
+            outline: none;
+            border: 0.08rem solid hsla(0, 0%, 48%, 0.7);
+            width: 5.2rem;
+            padding-left: 2rem;
+            padding-right: 1rem;
+            box-sizing: border-box;
+            margin-right: 0.8rem;
+            font-size: 1.1rem;
+
+            @media only screen and (max-width: 720px) {
+              width: 100%;
+            }
+
+            &:focus {
+              border: 0.1rem solid var(--moderate-cyan);
+            }
+          }
         }
-      }
 
-      button {
-        height: 2.8rem;
-        line-height: 2.8rem;
-        border-radius: 1.4rem;
-        width: 7rem;
+        button {
+          height: 2.8rem;
+          line-height: 2.8rem;
+          border-radius: 1.4rem;
+          width: 7rem;
+
+          @media only screen and (max-width: 720px) {
+            flex-basis: 60%;
+          }
+        }
       }
     }
-  }
-
-  .functionality {
   }
 }

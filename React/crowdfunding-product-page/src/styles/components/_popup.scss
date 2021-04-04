@@ -9,27 +9,39 @@
   width: 34rem;
   padding: 0 3rem;
   box-sizing: border-box;
-  z-index: 3;
+  z-index: 4;
+
+  @media only screen and (max-width: 720px) {
+    width: 90%;
+    padding: 0 2rem;
+  }
 
   img {
     margin: 2rem 0 3rem;
+
+    @media only screen and (max-width: 720px) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   p {
     margin: 1.5rem 0 2rem;
     line-height: 1.6rem;
-    color: var(--dark-gray);
+
+    @media only screen and (max-width: 720px) {
+      margin-top: 2rem;
+    }
   }
 
   button.got-it-btn {
-    width: 6rem;
+    width: 7rem;
     margin-bottom: 2rem;
   }
 }
 
 .show-popup {
   animation-delay: 600ms;
-  animation: show-popup 600ms 1;
+  animation: show-popup 600ms 1 ease-in-out;
 }
 
 .hide-popup {

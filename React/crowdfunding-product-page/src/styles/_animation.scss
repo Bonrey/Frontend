@@ -71,6 +71,18 @@
   }
 }
 
+@keyframes pledge-sum-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translate(0.3rem);
+  }
+  40%, 80% {
+    transform: translateX(-0.3rem);
+  }
+}
+
 @keyframes show-functionality {
   0% {
     opacity: 0;
@@ -95,6 +107,24 @@
   }
   100% {
     max-height: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes show-menu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hide-menu {
+  0% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
   }
 }

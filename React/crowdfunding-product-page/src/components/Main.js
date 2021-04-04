@@ -25,7 +25,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <main>
-        <MainStart onClick={_ => this.props.onClick("")} />
+        <MainStart onClick={_ => this.props.onClick("")} width={this.props.width} />
         <MainDiscover progress={89} />
         <MainAbout
           pledgesDescription={pledgesDescription}
@@ -37,15 +37,15 @@ export default class Main extends React.Component {
           pledgesData={this.state.pledgesData}
           selected={this.props.selectedPledge}
           className={this.props.pledgesClassName}
-          onClick={(min, curr) => this.props.onPledgesClick(min, curr)}
+          shakeLabel={this.props.shakeLabel}
+          onClick={(min, curr, id) => this.props.onPledgesClick(min, curr, id)}
           onClose={_ => this.props.onClick("close")}
+          width={this.props.width}
         />}
-        {!this.props.popupDisappear &&
-        <Popup
+        {!this.props.popupDisappear && <Popup
           className={this.props.popupClassName}
           onClick={_ => this.props.onClick("got-it")}
-        />
-        }
+        />}
       </main>
     );
   }

@@ -3,9 +3,20 @@
     display: flex;
     justify-content: space-between;
 
+    @media only screen and (max-width: 720px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
     div.info-box {
       height: 5rem;
       position: relative;
+
+      @media only screen and (max-width: 720px) {
+        &:not(:first-child) {
+          margin-top: 3rem;
+        }
+      }
 
       &:first-child {
         flex-basis: 38%;
@@ -27,6 +38,14 @@
         top: 0.3rem;
         left: -3rem;
         background-color: hsla(0, 0%, 0%, 0.3);
+
+        @media only screen and (max-width: 720px) {
+          width: 6rem;
+          height: 0.05rem;
+          left: 50%;
+          transform: translateX(-50%);
+          top: -1rem;
+        }
       }
 
       span:first-child {

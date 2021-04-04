@@ -1,18 +1,36 @@
 import React from 'react';
 
 import logo from '../assets/images/logo.svg';
+import showMenu from '../assets/images/icon-hamburger.svg';
+import closeMenu from '../assets/images/icon-close-menu.svg';
 
-import AnchorLink from 'react-anchor-link-smooth-scroll'
-
-export default function Header() {
+export default function Header(props) {
   return (
-    <header className="header">
+    <header id="header">
       <img src={logo} alt="site logo" onClick={_ => window.location.reload()} />
-      <div className="header-links">
-        <AnchorLink className="nav-link" href="#about">About</AnchorLink>
-        <AnchorLink className="nav-link" href="#discover">Discover</AnchorLink>
-        <AnchorLink className="nav-link" href="#get-started">Get Started</AnchorLink>
-      </div>
+      {(props.width > 720 || props.menuShown) &&
+      <div className={`header-links ${props.width <= 720 ? props.className : ""}`}>
+        <a
+          className="nav-link"
+          href="#about"
+          onClick={_ => props.onClick("anchor")}>About
+        </a>
+        <a
+          className="nav-link"
+          href="#discover"
+          onClick={_ => props.onClick("anchor")}>Discover
+        </a>
+        <a
+          className="nav-link"
+          href="#get-started"
+          onClick={_ => props.onClick("anchor")}>Get Started
+        </a>
+      </div>}
+      {props.width <= 720 &&
+      <button aria-label="menu button" className="menu-btn" onClick={props.onClick}>
+        <img src={props.className === "show-menu" ? closeMenu : showMenu} alt="menu btn" />
+      </button>}
     </header>
   );
+
 }

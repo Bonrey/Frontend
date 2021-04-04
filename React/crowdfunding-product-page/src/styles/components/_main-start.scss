@@ -1,7 +1,6 @@
 .main-start {
   position: relative;
   text-align: center;
-  z-index: 0;
 
   img {
     position: absolute;
@@ -10,13 +9,28 @@
     transform: translateX(-50%);
   }
 
+  @media only screen and (max-width: 720px) {
+    h1 {
+      font-size: 1.7rem;
+      padding-top: 1.6rem;
+    }
+  }
+
   p {
     margin: 1rem 0 2.5rem;
+
+    @media only screen and (max-width: 720px) {
+      margin: 1.5rem 0;
+    }
   }
 
   .bookmark-section {
     display: flex;
     justify-content: space-between;
+
+    @media only screen and (max-width: 720px) {
+      padding: 0 1rem;
+    }
 
     button.back-btn {
       width: 12rem;
@@ -33,6 +47,10 @@
       border-radius: 1.5rem;
       cursor: pointer;
       position: relative;
+
+      @media only screen and (max-width: 720px) {
+        width: 0;
+      }
 
       &.default {
         background-color: var(--light-gray);

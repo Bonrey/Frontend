@@ -9,7 +9,7 @@ export default function MainStart(props) {
       <img src={logoMastercraft} alt="logo mastercraft" />
       <h1>Mastercraft Bamboo Monitor Riser</h1>
       <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
-      <MainStartBottom onClick={props.onClick} />
+      <MainStartBottom onClick={props.onClick} width={props.width} />
     </div>
   );
 }

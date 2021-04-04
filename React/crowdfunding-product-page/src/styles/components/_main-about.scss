@@ -17,6 +17,10 @@
     border-radius: 0.6rem;
     padding: 2.2rem;
 
+    @media only screen and (max-width: 720px) {
+      padding: 1.5rem;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -26,8 +30,17 @@
       justify-content: space-between;
       align-items: center;
 
+      @media only screen and (max-width: 720px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       h3 {
         font-size: 1.2rem;
+
+        @media only screen and (max-width: 720px) {
+          margin-bottom: 0.5rem;
+        }
       }
 
       p {
@@ -46,9 +59,18 @@
       justify-content: space-between;
       align-items: center;
 
+      @media only screen and (max-width: 720px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       p {
         display: flex;
         align-items: center;
+
+        @media only screen and (max-width: 720px) {
+          margin-bottom: 1.6rem;
+        }
 
         span {
           font-weight: bold;
@@ -73,6 +95,7 @@
 
         &:hover {
           cursor: not-allowed;
+          background-color: var(--dark-gray);
         }
       }
     }

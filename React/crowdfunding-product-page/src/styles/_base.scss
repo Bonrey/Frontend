@@ -21,6 +21,11 @@
 html {
   font-size: 16px;
   font-family: var(--comissioner);
+  scroll-behavior: smooth;
+
+  @media only screen and (max-width: 720px) {
+    font-size: 14px;
+  }
 }
 
 body {
@@ -30,6 +35,10 @@ body {
   min-height: 100vh;
   padding-top: 21vw;
   animation: fade-in-body 1s 1;
+
+  @media only screen and (max-width: 720px) {
+    padding-top: 65vw;
+  }
 
   &::before {
     content: "";
@@ -50,6 +59,12 @@ body {
     height: 0;
     padding-top: 27.77vw;  // (img-height / img-width * 100%)
     z-index: -1;
+
+    @media only screen and (max-width: 720px) {
+      background: url("../assets/images/image-hero-mobile.jpg") no-repeat top;
+      background-size: cover;
+      padding-top: 80vw;
+    }
   }
 }
 
@@ -87,10 +102,15 @@ main {
     box-sizing: border-box;
     margin-bottom: 1.5rem;
     filter: drop-shadow(0 0 1rem hsla(0, 0%, 0%, 0.1));
+
+    @media only screen and (max-width: 720px) {
+      padding: 2rem;
+      margin-bottom: 1rem;
+    }
   }
 }
 
-button:not(.close) {
+main button:not(.close) {
   height: 3.2rem;
   line-height: 3.2rem;
   border-radius: 1.6rem;

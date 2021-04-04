@@ -12,11 +12,12 @@ export default class MainStartBottom extends React.Component {
         <button
           className="back-btn"
           type="button"
-          onClick={this.props.onClick}>Back this project
+          onClick={this.props.onClick}>
+          Back this project
         </button>
         <label className={this.state.bookmarked ? "active" : "default"}>
           <input type="checkbox" onChange={e => this.setState({ bookmarked: e.target.checked })} />
-          {this.state.bookmarked ? "Bookmarked" : "Bookmark"}
+          {this.props.width <= 720 ? "" : this.state.bookmarked ? "Bookmarked" : "Bookmark"}
         </label>
       </div>
     );

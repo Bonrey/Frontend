@@ -29,11 +29,13 @@ export default class Pledge extends React.Component {
   }
 
   render() {
+    const leftNumber = <p className="left-number"><span>{this.props.leftNumber}</span>left</p>;
+
     return (
       <div
         className={`pledge ${this.props.selected ? "green-border" : ""} ${!this.props.leftNumber ? "disabled-card" : ""}`}>
         <header>
-          <div>
+          <div className="header-labels">
             <label>
               <input
                 id={this.props.id}
@@ -44,13 +46,14 @@ export default class Pledge extends React.Component {
               />
               {this.props.heading}
             </label>
-            <p>Pledge ${this.props.pledgeSum} or more</p>
+            <p className={`pledge-sum ${this.props.id === this.props.shakeLabel ? "shake" : ""}`}>Pledge
+              ${this.props.pledgeSum} or more</p>
           </div>
-          <p><span>{this.props.leftNumber}</span>left</p>
+          {this.props.width > 720 && leftNumber}
         </header>
-        <p>{this.props.paragraph}</p>
-        {this.state.functionalityShown &&
-        <div className={this.props.selected ? "show" : "hide"}>
+        <p className="pledge-paragraph">{this.props.paragraph}</p>
+        {this.props.width <= 720 && leftNumber}
+        {this.state.functionalityShown && <div className={this.props.selected ? "show" : "hide"}>
           <hr />
           <div className="pledge__functionality">
             <p>Enter your pledge</p>
@@ -64,13 +67,12 @@ export default class Pledge extends React.Component {
                   onChange={this.handleChange} />
               </label>
               <button
-                onClick={_ => this.props.onClick(this.props.pledgeSum, this.state.currentSum)}>
+                onClick={_ => this.props.onClick(this.props.pledgeSum, this.state.currentSum, this.props.id)}>
                 Continue
               </button>
             </form>
           </div>
-        </div>
-        }
+        </div>}
       </div>
     );
   }

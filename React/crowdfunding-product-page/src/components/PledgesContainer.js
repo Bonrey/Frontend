@@ -13,10 +13,12 @@ export default function PledgesContainer(props) {
       heading={props.pledgesDescription[i].heading}
       paragraph={props.pledgesDescription[i].paragraph}
       pledgeSum={props.pledgesData[i].pledgeSum}
+      shakeLabel={props.shakeLabel}
       leftNumber={props.pledgesData[i].leftNumber}
       onChange={id => select(id)}
-      onClick={(min, curr) => props.onClick(min, curr)}
+      onClick={(min, curr, id) => props.onClick(min, curr, id)}
       selected={selected === pledgeId}
+      width={props.width}
     />);
   }
 
@@ -36,14 +38,14 @@ export default function PledgesContainer(props) {
         <div className="pledge-cards">
           <div className={`pledge ${selected === "no-reward" ? "green-border" : ""}`}>
             <header>
-              <div>
+              <div className="header-labels no-reward-label">
                 <label>
                   <input id={props.id} type="radio" name="radio-group" onChange={_ => select("no-reward")} />
                   Pledge with no reward
                 </label>
               </div>
             </header>
-            <p>Choose to support us without a reward if you simply believe in our project. As a backer,
+            <p className="pledge-paragraph">Choose to support us without a reward if you simply believe in our project. As a backer,
               you will be signed up to receive product updates via email.</p>
           </div>
           {pledges}

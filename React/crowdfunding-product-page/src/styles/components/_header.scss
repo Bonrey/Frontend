@@ -1,4 +1,4 @@
-.header {
+#header {
   position: absolute;
   top: 0;
   width: 100vw;
@@ -9,6 +9,11 @@
   align-items: center;
   padding: 3.2vw 8.4vw 0 9vw;
 
+  @media only screen and (max-width: 720px) {
+    padding: 6vw 8vw 0;
+    height: 4rem;
+  }
+
   img:hover {
     cursor: pointer;
   }
@@ -17,8 +22,55 @@
     .nav-link {
       font-weight: 500;
       text-decoration: none;
-      color: #fafafa;
+      color: white;
       margin: 0 1rem;
+
+      @media only screen and (max-width: 720px) {
+        flex-basis: 33%;
+        line-height: 5rem;
+        color: black;
+        font-weight: var(--semi-bold);
+        font-size: 1.3rem;
+        margin: 0;
+        padding-left: 2rem;
+
+        &:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 0.04rem;
+          background-color: hsla(0, 0%, 48%, 0.5);
+        }
+      }
     }
+    
+    @media only screen and (max-width: 720px) {
+      background-color: white;
+      border-radius: 0.6rem;
+      position: absolute;
+      top: 5.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .menu-btn {
+    background: none;
+    outline: none;
+    border: none;
+  }
+
+  .show-menu {
+    animation: show-menu 400ms forwards 1 ease-out;
+  }
+
+  .hide-menu {
+    animation: hide-menu 400ms forwards 1 ease-in;
   }
 }
