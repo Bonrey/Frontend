@@ -1,4 +1,4 @@
-# Frontend Mentor - Single price grid component
+# Frontend Mentor - Crowdfunding product page
 
 ![Design preview for the Crowdfunding product page coding challenge](./src/assets/design/desktop-preview.jpg)
 
