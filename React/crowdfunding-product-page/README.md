@@ -1,6 +1,6 @@
 # Frontend Mentor - Single price grid component
 
-![Design preview for the Crowdfunding product page coding challenge](./src/design/desktop-preview.jpg)
+![Design preview for the Crowdfunding product page coding challenge](./src/assets/design/desktop-preview.jpg)
 
 ## Table of contents
 
