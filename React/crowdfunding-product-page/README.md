@@ -46,7 +46,7 @@ Users should be able to:
 
 ### Continued development
 
-Now I am planning to learn writing better code and try to make my sites work smoother and without glitches.
+Now I am planning to start writing cleaner code and make my sites work smoother and without glitches.
 
 ## Author
 
