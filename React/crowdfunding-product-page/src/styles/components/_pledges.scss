@@ -260,19 +260,12 @@
             color: hsla(0, 0%, 48%, 0.7);
           }
 
-          input[type="number"] {
-            -moz-appearance: textfield;
-
-            &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
-              -webkit-appearance: none;
-              margin: 0;
-            }
-
+          input[type="text"] {
             height: 2.8rem;
             border-radius: 1.4rem;
             outline: none;
             border: 0.08rem solid hsla(0, 0%, 48%, 0.7);
-            width: 5.2rem;
+            width: 5.8rem;
             padding-left: 2rem;
             padding-right: 1rem;
             box-sizing: border-box;

@@ -5,13 +5,14 @@ import MainAboutCard from "./MainAboutCard";
 export default function MainAbout(props) {
   const cards = [];
   for (let i = 0; i < 3; i++) {
+    const id = props.pledgesDescription[i].id;
     cards.push(<MainAboutCard
-      key={props.pledgesDescription[i].id}
-      id={props.pledgesDescription[i].id}
+      key={id}
+      id={id}
       heading={props.pledgesDescription[i].heading}
       paragraph={props.pledgesDescription[i].paragraph}
-      pledgeSum={props.pledgesData[i].pledgeSum}
-      leftNumber={props.pledgesData[i].leftNumber}
+      pledgeSum={props.pledgesData[id].pledgeSum}
+      leftNumber={props.pledgesData[id].leftNumber}
       onClick={props.onClick}
     />);
   }

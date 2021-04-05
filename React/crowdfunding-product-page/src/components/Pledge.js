@@ -10,7 +10,10 @@ export default class Pledge extends React.Component {
   }
 
   handleChange = (e) => {
-    this.setState({ currentSum: e.target.value });
+    let val = e.target.value;
+    if (val.length === 0 || /^[1-9]\d{0,3}$/.test(val)) {
+      this.setState({ currentSum: val });
+    }
   }
 
   componentDidMount() {
@@ -62,7 +65,7 @@ export default class Pledge extends React.Component {
                 <span>$</span>
                 <input
                   autoFocus
-                  type="number"
+                  type="text"
                   value={this.state.currentSum}
                   onChange={this.handleChange} />
               </label>

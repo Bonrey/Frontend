@@ -12,9 +12,9 @@ export default function PledgesContainer(props) {
       id={pledgeId}
       heading={props.pledgesDescription[i].heading}
       paragraph={props.pledgesDescription[i].paragraph}
-      pledgeSum={props.pledgesData[i].pledgeSum}
+      pledgeSum={props.pledgesData[pledgeId].pledgeSum}
       shakeLabel={props.shakeLabel}
-      leftNumber={props.pledgesData[i].leftNumber}
+      leftNumber={props.pledgesData[pledgeId].leftNumber}
       onChange={id => select(id)}
       onClick={(min, curr, id) => props.onClick(min, curr, id)}
       selected={selected === pledgeId}
@@ -40,7 +40,13 @@ export default function PledgesContainer(props) {
             <header>
               <div className="header-labels no-reward-label">
                 <label>
-                  <input id={props.id} type="radio" name="radio-group" onChange={_ => select("no-reward")} />
+                  <input
+                    type="radio"
+                    name="radio-group"
+                    onChange={_ => {
+                      select("no-reward");
+                      props.onClick(0, 0, "no-reward");
+                    }} />
                   Pledge with no reward
                 </label>
               </div>

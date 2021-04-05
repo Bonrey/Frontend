@@ -21,7 +21,14 @@ export default class App extends React.Component {
       shakeLabel: "",
       menuFadeIn: false,
       menuShown: false,
-      width: window.outerWidth
+      moneyBacked: 89914,
+      totalBackers: 5007,
+      width: window.outerWidth,
+      pledgesData: {
+        "bamboo-stand": { pledgeSum: 25, leftNumber: 101 },
+        "black-edition-stand": { pledgeSum: 75, leftNumber: 64 },
+        "mahogany-special-edition": { pledgeSum: 200, leftNumber: 1 },
+      }
     };
   }
 
@@ -68,12 +75,22 @@ export default class App extends React.Component {
   }
 
   handlePledgesClick = (min, curr, id) => {
-    if (curr >= min) {
-      this.setState({ pledgesFadeIn: false, popupFadeIn: true, popupDisappear: false });
-      setTimeout(_ => this.setState({
-        pledgesMenuVisible: false,
-        selectedPledge: ""
-      }), 570);
+    let noReward = id === "no-reward";
+    if (noReward || curr >= min) {
+      setTimeout(_ => {
+        this.setState({ pledgesFadeIn: false, popupFadeIn: true, popupDisappear: false });
+      }, noReward ? 2000 : 0);
+      setTimeout(_ => this.setState(prevState => {
+        let pledgesData = { ...prevState.pledgesData };
+        if (!noReward) pledgesData[id].leftNumber--;
+        return {
+          pledgesMenuVisible: false,
+          selectedPledge: "",
+          moneyBacked: this.state.moneyBacked + Number.parseInt(curr),
+          totalBackers: this.state.totalBackers + 1,
+          pledgesData: pledgesData
+        }
+      }), noReward ? 2570 : 570);
     } else {
       this.setState({ shakeLabel: id });
       setTimeout(_ => this.setState({ shakeLabel: "" }), 570);
@@ -113,6 +130,9 @@ export default class App extends React.Component {
             popupDisappear={this.state.popupDisappear}
             onClick={id => this.handleClick(id)}
             onPledgesClick={(min, curr, id) => this.handlePledgesClick(min, curr, id)}
+            moneyBacked={this.state.moneyBacked}
+            totalBackers={this.state.totalBackers}
+            pledgesData={this.state.pledgesData}
             width={this.state.width}
           />
           <Attribution />

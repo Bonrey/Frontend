@@ -8,45 +8,33 @@ import Popup from "./Popup";
 
 import {pledgesDescription} from "./Preloaded";
 
-export default class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pledgesData: [
-        { pledgeSum: 25, leftNumber: 101 },
-        { pledgeSum: 75, leftNumber: 64 },
-        { pledgeSum: 200, leftNumber: 0 }
-      ],
-      popupFadeIn: false,
-      pledgesMenu: props.className
-    }
-  }
-
-  render() {
-    return (
-      <main>
-        <MainStart onClick={_ => this.props.onClick("")} width={this.props.width} />
-        <MainDiscover progress={89} />
-        <MainAbout
-          pledgesDescription={pledgesDescription}
-          pledgesData={this.state.pledgesData}
-          onClick={this.props.onClick}
-        />
-        {this.props.pledgesMenuVisible && <PledgesContainer
-          pledgesDescription={pledgesDescription}
-          pledgesData={this.state.pledgesData}
-          selected={this.props.selectedPledge}
-          className={this.props.pledgesClassName}
-          shakeLabel={this.props.shakeLabel}
-          onClick={(min, curr, id) => this.props.onPledgesClick(min, curr, id)}
-          onClose={_ => this.props.onClick("close")}
-          width={this.props.width}
-        />}
-        {!this.props.popupDisappear && <Popup
-          className={this.props.popupClassName}
-          onClick={_ => this.props.onClick("got-it")}
-        />}
-      </main>
-    );
-  }
+export default function Main(props) {
+  return (
+    <main>
+      <MainStart onClick={_ => props.onClick("")} width={props.width} />
+      <MainDiscover
+        moneyBacked={props.moneyBacked}
+        totalBackers={props.totalBackers}
+      />
+      <MainAbout
+        pledgesDescription={pledgesDescription}
+        pledgesData={props.pledgesData}
+        onClick={props.onClick}
+      />
+      {props.pledgesMenuVisible && <PledgesContainer
+        pledgesDescription={pledgesDescription}
+        pledgesData={props.pledgesData}
+        selected={props.selectedPledge}
+        className={props.pledgesClassName}
+        shakeLabel={props.shakeLabel}
+        onClick={(min, curr, id) => props.onPledgesClick(min, curr, id)}
+        onClose={_ => props.onClick("close")}
+        width={props.width}
+      />}
+      {!props.popupDisappear && <Popup
+        className={props.popupClassName}
+        onClick={_ => props.onClick("got-it")}
+      />}
+    </main>
+  );
 }
