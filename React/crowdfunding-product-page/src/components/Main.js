@@ -17,7 +17,7 @@ export default function Main(props) {
         totalBackers={props.totalBackers}
       />
       <MainAbout
-        pledgesDescription={pledgesDescription}
+        pledgesDescription={pledgesDescription.slice(1)}
         pledgesData={props.pledgesData}
         onClick={props.onClick}
       />

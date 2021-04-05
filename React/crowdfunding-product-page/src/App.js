@@ -25,6 +25,7 @@ export default class App extends React.Component {
       totalBackers: 5007,
       width: window.outerWidth,
       pledgesData: {
+        "no-reward": { pledgesSum: "none", leftNumber: "none" },
         "bamboo-stand": { pledgeSum: 25, leftNumber: 101 },
         "black-edition-stand": { pledgeSum: 75, leftNumber: 64 },
         "mahogany-special-edition": { pledgeSum: 200, leftNumber: 1 },
@@ -77,9 +78,7 @@ export default class App extends React.Component {
   handlePledgesClick = (min, curr, id) => {
     let noReward = id === "no-reward";
     if (noReward || curr >= min) {
-      setTimeout(_ => {
-        this.setState({ pledgesFadeIn: false, popupFadeIn: true, popupDisappear: false });
-      }, noReward ? 2000 : 0);
+      this.setState({ pledgesFadeIn: false, popupFadeIn: true, popupDisappear: false });
       setTimeout(_ => this.setState(prevState => {
         let pledgesData = { ...prevState.pledgesData };
         if (!noReward) pledgesData[id].leftNumber--;
@@ -90,7 +89,7 @@ export default class App extends React.Component {
           totalBackers: this.state.totalBackers + 1,
           pledgesData: pledgesData
         }
-      }), noReward ? 2570 : 570);
+      }), 570);
     } else {
       this.setState({ shakeLabel: id });
       setTimeout(_ => this.setState({ shakeLabel: "" }), 570);

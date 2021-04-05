@@ -5,7 +5,7 @@ export default function PledgesContainer(props) {
   const [selected, select] = useState(props.selected);
 
   const pledges = [];
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 4; i++) {
     let pledgeId = props.pledgesDescription[i].id;
     pledges.push(<Pledge
       key={pledgeId}
@@ -36,24 +36,6 @@ export default function PledgesContainer(props) {
         <h2>Back this project</h2>
         <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
         <div className="pledge-cards">
-          <div className={`pledge ${selected === "no-reward" ? "green-border" : ""}`}>
-            <header>
-              <div className="header-labels no-reward-label">
-                <label>
-                  <input
-                    type="radio"
-                    name="radio-group"
-                    onChange={_ => {
-                      select("no-reward");
-                      props.onClick(0, 0, "no-reward");
-                    }} />
-                  Pledge with no reward
-                </label>
-              </div>
-            </header>
-            <p className="pledge-paragraph">Choose to support us without a reward if you simply believe in our project. As a backer,
-              you will be signed up to receive product updates via email.</p>
-          </div>
           {pledges}
         </div>
       </section>

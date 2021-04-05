@@ -11,12 +11,17 @@ const images = {
 export default function Preloaded() {
   let imagesToPreload = [];
   for (let image in images) {
-    imagesToPreload.push(<img key={image} src={images[image]} alt={image + " preloaded"}/>);
+    imagesToPreload.push(<img key={image} src={images[image]} alt={image + " preloaded"} />);
   }
-  return <div style={{display: "none"}}>{imagesToPreload}</div>;
+  return <div style={{ display: "none" }}>{imagesToPreload}</div>;
 }
 
 export const pledgesDescription = [
+  {
+    id: "no-reward",
+    heading: "Pledge with no reward",
+    paragraph: "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
+  },
   {
     id: "bamboo-stand",
     heading: "Bamboo Stand",

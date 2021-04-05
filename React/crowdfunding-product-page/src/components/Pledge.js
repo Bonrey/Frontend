@@ -49,13 +49,14 @@ export default class Pledge extends React.Component {
               />
               {this.props.heading}
             </label>
+            {this.props.id !== "no-reward" &&
             <p className={`pledge-sum ${this.props.id === this.props.shakeLabel ? "shake" : ""}`}>Pledge
-              ${this.props.pledgeSum} or more</p>
+              ${this.props.pledgeSum} or more</p>}
           </div>
-          {this.props.width > 720 && leftNumber}
+          {(this.props.id !== "no-reward" && this.props.width > 720) && leftNumber}
         </header>
         <p className="pledge-paragraph">{this.props.paragraph}</p>
-        {this.props.width <= 720 && leftNumber}
+        {(this.props.id !== "no-reward" && this.props.width <= 720) && leftNumber}
         {this.state.functionalityShown && <div className={this.props.selected ? "show" : "hide"}>
           <hr />
           <div className="pledge__functionality">
