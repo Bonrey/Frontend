@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Draggable} from "react-beautiful-dnd";
+
 import {lightTheme, darkTheme} from '../../assets/styles/Colors';
 import Item from './Checkbox';
 
-const Container = styled.li`
+const ListItem = styled.li`
   position: relative;
   height: 3.2rem;
   display: flex;
@@ -35,14 +37,24 @@ const CrossButton = styled.a`
 
 export default function TodoItem(props) {
   return (
-    <Container>
-      <Item todoText={props.todoText} />
-      <CrossButton>
-        <svg width="18" height="18">
-          <path fill="#494C6B"
-                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z" />
-        </svg>
-      </CrossButton>
-    </Container>
+    <Draggable draggableId={props.id} index={props.index}>
+      {provided => (
+        <ListItem {...provided.draggableProps} ref={provided.innerRef}
+                  {...provided.dragHandleProps}>
+          <Item
+            id={props.id}
+            todoText={props.todoText}
+            completed={props.completed}
+            onChange={props.onChange}
+          />
+          <CrossButton onClick={props.onClick}>
+            <svg width="18" height="18">
+              <path fill="#494C6B"
+                    d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z" />
+            </svg>
+          </CrossButton>
+        </ListItem>
+      )}
+    </Draggable>
   );
 }

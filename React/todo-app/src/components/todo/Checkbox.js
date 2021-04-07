@@ -14,8 +14,8 @@ const CheckboxContainer = styled.label`
 `
 
 const Checkbox = styled.input`
-  width: 1.38rem;
-  height: 1.38rem;
+  width: 24px;
+  height: 24px;
   margin: 0 1.2rem;
   appearance: none;
   outline: none;
@@ -26,14 +26,14 @@ const Checkbox = styled.input`
     
   &::after {
     content: "";
-    width: 1.12rem;
-    height: 1.12rem;
+    width: 20px;
+    height: 20px;
     position: absolute;
-    left: 0.13rem;
-    top: 0.13rem;
+    left: 2px;
+    top: 2px;
     border-radius: 50%;
     background: white;
-    box-shadow: 0 0 0 0.14rem ${lightTheme["very-light-grayish-blue"]};
+    box-shadow: 0 0 0 2px ${lightTheme["very-light-grayish-blue"]};
     transition: 600ms;
   }
     
@@ -79,7 +79,11 @@ const TodoText = styled.span`
 export default function Item(props) {
   return (
     <CheckboxContainer>
-      <Checkbox type="checkbox" />
+      <Checkbox
+        type="checkbox"
+        onChange={_ => props.onChange(props.id)}
+        checked={props.completed}
+      />
       <TodoText>{props.todoText}</TodoText>
     </CheckboxContainer>
   );
