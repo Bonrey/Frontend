@@ -27,6 +27,8 @@ const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     background: ${lightTheme["very-light-gray"]};
     animation: ${bodyFadeIn} 1s 1;
+    pointer-events: ${props => props.isDragging ? "none" : "auto"};
+    cursor: default!important;
     
     &:before {
       content: "";
@@ -35,7 +37,7 @@ const GlobalStyles = createGlobalStyle`
       background: url(${lightThemeBg}) no-repeat center;
       background-size: cover;
       z-index: -1;
-      position: absolute;
+      position: fixed;
       top: 0;
     }
   }

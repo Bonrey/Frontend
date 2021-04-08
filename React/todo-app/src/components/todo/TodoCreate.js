@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import {lightTheme, darkTheme} from '../../assets/styles/Colors';
 
 const Container = styled.form`
-  height: 3.4rem;
-  margin-bottom: 1rem;
+  width: 30rem;
+  height: 3.6rem;
+  margin-bottom: 1.5rem;
   border-radius: 0.4rem;
   overflow: hidden;
   background: ${props => props.darkTheme ? darkTheme["very-dark-blue"] : "white"}

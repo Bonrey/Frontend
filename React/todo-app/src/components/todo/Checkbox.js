@@ -34,7 +34,7 @@ const Checkbox = styled.input`
     border-radius: 50%;
     background: white;
     box-shadow: 0 0 0 2px ${lightTheme["very-light-grayish-blue"]};
-    transition: 600ms;
+    transition: 400ms;
   }
     
   &:checked {
@@ -57,7 +57,7 @@ const Checkbox = styled.input`
 const TodoText = styled.span`
   position: relative;
   color: ${props => props.darkTheme ? darkTheme["light-grayish-blue"] : lightTheme["very-dark-grayish-blue"]};
-  transition: 600ms ease-out;
+  transition: 400ms ease-out;
   padding-top: 0.2rem;
   line-height: 1.3rem;
 
@@ -71,10 +71,9 @@ const TodoText = styled.span`
     left: 0;
     transform-origin: left;
     transform: scaleX(0);
-    transition: 600ms ease-out;
+    transition: 400ms ease-out;
   }
 `
-
 
 export default function Item(props) {
   return (
@@ -84,7 +83,7 @@ export default function Item(props) {
         onChange={_ => props.onChange(props.id)}
         checked={props.completed}
       />
-      <TodoText>{props.todoText}</TodoText>
+      <TodoText>{props.text}</TodoText>
     </CheckboxContainer>
   );
 }

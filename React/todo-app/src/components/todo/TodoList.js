@@ -1,54 +1,52 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 
-import TodoItem from './TodoItem';
 import TodoStats from "./TodoStats";
-import {lightTheme} from "../../assets/styles/Colors";
+import TodoItem from "./TodoItem";
 
-const Container = styled.ul`
+const Container = styled.div`
   border-radius: 0.4rem;
   overflow: hidden;
-  filter: drop-shadow(0 0 1rem ${lightTheme["dark-grayish-blue"]});
+  box-shadow: 0 0 0.1rem hsla(235, 19%, 35%, 0.15),
+              0 0 0.2rem hsla(235, 19%, 35%, 0.15),
+              0 0 0.4rem hsla(235, 19%, 35%, 0.15),
+              0 0 0.8rem hsla(235, 19%, 35%, 0.15),
+              0 0 1.6rem hsla(235, 19%, 35%, 0.15);
 `
 
-export default function TodoList(props) {
-  let todoItems = [], index = 0;
-  for (let key in props.todoItems) {
-    if (props.todoItems.hasOwnProperty(key) && (
-      props.filter === "all" ||
-      (props.filter === "active" && !props.todoItems[key].completed) ||
-      (props.filter === "completed" && props.todoItems[key].completed))) {
-      todoItems.push(<TodoItem
-        key={key} id={key} index={index++}
-        todoText={props.todoItems[key].text}
-        completed={props.todoItems[key].completed}
-        onChange={props.onChange}
-        onClick={_ => props.clear(key)}
-      />);
-    }
+export default class TodoList extends React.Component {
+  render() {
+    return (
+      <Container>
+        <DragDropContext
+          onDragStart={this.props.onDragStart}
+          onDragUpdate={this.props.onDragUpdate}
+          onDragEnd={this.props.onDragEnd}>
+          <Droppable droppableId="droppable">
+            {provided => (
+              <ul {...provided.droppableProps} ref={provided.innerRef}>
+                {this.props.todoItems.map((item, index) => (
+                  (this.props.filter === "all" ||
+                    (this.props.filter === "active" && !item.completed) ||
+                    (this.props.filter === "completed" && item.completed)) ?
+                    <TodoItem
+                      key={item.id} item={item} index={index}
+                      onChange={this.props.onChange} clear={this.props.clear}
+                      isDragging={this.props.isDragging}
+                      currDragIndex={this.props.currDragIndex}
+                    /> : null))}
+                {provided.placeholder}
+              </ul>)}
+          </Droppable>
+        </DragDropContext>
+        <TodoStats
+          leftNumber={this.props.leftNumber}
+          filter={this.props.filter}
+          onChange={this.props.onRadioBtnChange}
+          onClick={this.props.clearAllCompleted}
+        />
+      </Container>
+    );
   }
-
-  const [items, updateItems] = useState(props.todoItems);
-
-  return (
-    <Container>
-      <DragDropContext>
-        <Droppable droppableId="todo-list">
-          {provided => (
-            <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {todoItems}
-              {/*{provided.placeholder}*/}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
-      <TodoStats
-        leftNumber={props.leftNumber}
-        filter={props.filter}
-        onChange={props.onRadioBtnChange}
-        onClick={props.clearAllCompleted}
-      />
-    </Container>
-  );
 }

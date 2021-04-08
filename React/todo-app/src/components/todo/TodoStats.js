@@ -8,7 +8,7 @@ const StatsContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  height: 2.4rem;
+  height: 3.2rem;
   padding: 0 1.2rem;
   position: relative;
   color: ${props => props.darkTheme ? darkTheme["light-grayish-blue-hover"] : lightTheme["dark-grayish-blue"]};
