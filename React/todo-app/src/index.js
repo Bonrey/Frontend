@@ -9,7 +9,7 @@ import Main from './components/Main';
 const Wrapper = styled.div`
   position: relative;
   width: 30rem;
-  max-width: 90vw;
+  max-width: 90%;
   height: 100%;
   box-sizing: border-box;
   margin: 0 auto;
@@ -35,17 +35,28 @@ class App extends React.Component {
     }
   }
 
+  switchTheme = _ => {
+    this.setState({ darkTheme: !this.state.darkTheme });
+  }
+
   render() {
     return (
       <Wrapper>
-        <GlobalStyles isDragging={this.state.isDragging} />
-        <Header darkTheme={this.state.darkTheme} />
+        <GlobalStyles
+          isDragging={this.state.isDragging}
+          darkTheme={this.state.darkTheme}
+        />
+        <Header
+          switchTheme={this.switchTheme}
+          darkTheme={this.state.darkTheme}
+        />
         <Main
           isDragging={this.state.isDragging}
           currDragIndex={this.state.currDragIndex}
           onDragStart={this.handleOnDragStart}
           onDragUpdate={this.handleOnDragUpdate}
           resetDrag={_ => this.setState({ isDragging: false, currDragIndex: -1 })}
+          darkTheme={this.state.darkTheme}
         />
       </Wrapper>
     );

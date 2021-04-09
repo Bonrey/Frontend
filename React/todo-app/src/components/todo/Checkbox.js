@@ -14,8 +14,8 @@ const CheckboxContainer = styled.label`
 `
 
 const Checkbox = styled.input`
-  width: 24px;
-  height: 24px;
+  width: 1.3rem;
+  height: 1.3rem;
   margin: 0 1.2rem;
   appearance: none;
   outline: none;
@@ -26,15 +26,17 @@ const Checkbox = styled.input`
     
   &::after {
     content: "";
-    width: 20px;
-    height: 20px;
+    width: 1.1rem;
+    height: 1.1rem;
     position: absolute;
-    left: 2px;
-    top: 2px;
+    left: 0.1rem;
+    top: 0.1rem;
     border-radius: 50%;
-    background: white;
-    box-shadow: 0 0 0 2px ${lightTheme["very-light-grayish-blue"]};
-    transition: 400ms;
+    background: ${props => props.darkTheme ? darkTheme["very-dark-desaturated-blue"] : "white"};
+    box-shadow: 0 0 0 0.12rem ${props => props.darkTheme ?
+      darkTheme["very-dark-grayish-blue-2"] :
+      lightTheme["very-light-grayish-blue"]};
+    transition: 500ms;
   }
     
   &:checked {
@@ -44,11 +46,15 @@ const Checkbox = styled.input`
     }
     
     & + span {
-      color: ${lightTheme["very-light-grayish-blue"]};
+      color: ${props => props.darkTheme ?
+        darkTheme["very-dark-grayish-blue-1"] :
+        lightTheme["very-light-grayish-blue"]};
     
       &::before {
         transform: scaleX(1);
-        background-color: ${lightTheme["very-light-grayish-blue"]};
+        background-color: ${props => props.darkTheme ?
+          darkTheme["very-dark-grayish-blue-1"] :
+          lightTheme["very-light-grayish-blue"]};
       }
     }
   }
@@ -57,7 +63,7 @@ const Checkbox = styled.input`
 const TodoText = styled.span`
   position: relative;
   color: ${props => props.darkTheme ? darkTheme["light-grayish-blue"] : lightTheme["very-dark-grayish-blue"]};
-  transition: 400ms ease-out;
+  transition: 500ms;
   padding-top: 0.2rem;
   line-height: 1.3rem;
 
@@ -65,13 +71,15 @@ const TodoText = styled.span`
     content: "";
     position: absolute;
     width: 100%;
-    height: 0.1rem;
-    background-color: ${props => props.darkTheme ? darkTheme["light-grayish-blue"] : lightTheme["very-dark-grayish-blue"]};
+    height: 1px;
+    background-color: ${props => props.darkTheme ?
+              darkTheme["light-grayish-blue"] :
+              lightTheme["very-dark-grayish-blue"]};
     bottom: 0.6rem;
     left: 0;
     transform-origin: left;
     transform: scaleX(0);
-    transition: 400ms ease-out;
+    transition: transform 400ms, background-color 500ms;
   }
 `
 
@@ -82,8 +90,9 @@ export default function Item(props) {
         type="checkbox"
         onChange={_ => props.onChange(props.id)}
         checked={props.completed}
+        darkTheme={props.darkTheme}
       />
-      <TodoText>{props.text}</TodoText>
+      <TodoText darkTheme={props.darkTheme}>{props.text}</TodoText>
     </CheckboxContainer>
   );
 }

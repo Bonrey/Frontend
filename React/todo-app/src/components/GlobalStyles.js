@@ -1,8 +1,11 @@
-import {createGlobalStyle, keyframes} from 'styled-components';
-import {lightTheme} from "../assets/styles/Colors";
-import lightThemeBg from "../assets/images/bg-desktop-light.jpg";
+import {createGlobalStyle, css, keyframes} from 'styled-components';
+import {lightTheme, darkTheme} from "../assets/styles/Colors";
+import lightThemeDesktopBg from "../assets/images/bg-desktop-light.jpg";
+import darkThemeDesktopBg from "../assets/images/bg-desktop-dark.jpg";
+import lightThemeMobileBg from "../assets/images/bg-mobile-light.jpg";
+import darkThemeMobileBg from "../assets/images/bg-mobile-dark.jpg";
 
-const bodyFadeIn = keyframes`
+const fadeIn = keyframes`
   from {
     opacity: 0;
   }
@@ -21,25 +24,59 @@ const GlobalStyles = createGlobalStyle`
   html {
     font-size: 18px;
     font-family: 'Josefin Sans', sans-serif;
+    
+    @media only screen and (max-width: 600px) {
+      font-size: 14px;
+    }
   }
   
   body {
     min-height: 100vh;
-    background: ${lightTheme["very-light-gray"]};
-    animation: ${bodyFadeIn} 1s 1;
+    background-color: ${props => props.darkTheme ? darkTheme["very-dark-blue"] : lightTheme["very-light-gray"]};
+    animation: ${fadeIn} 1s 1;
     pointer-events: ${props => props.isDragging ? "none" : "auto"};
+    transition: background-color 500ms;
     cursor: default!important;
     
-    &:before {
+    &:before, &:after {
       content: "";
       width: 100%;
       height: 300px;
-      background: url(${lightThemeBg}) no-repeat center;
-      background-size: cover;
+      transition: opacity 500ms;
       z-index: -1;
       position: fixed;
       top: 0;
+      
+      @media only screen and (max-width: 375px) {
+        height: 200px;
+      }
     }
+    
+    &:before {
+      background: url(${lightThemeDesktopBg}) no-repeat center;
+      background-size: cover;
+      
+      @media only screen and (max-width: 375px) {
+        background: url(${lightThemeMobileBg}) no-repeat center;
+      }
+    }
+    
+    &:after {
+      background: url(${darkThemeDesktopBg}) no-repeat center;
+      background-size: cover;
+      
+      @media only screen and (max-width: 375px) {
+        background: url(${darkThemeMobileBg}) no-repeat center;
+      }
+    }
+    
+    ${props => props.darkTheme ? css`
+      &:before { opacity: 0; }
+      &:after { opacity: 1; }
+    ` : css`
+      &:before { opacity: 1; }
+      &:after { opacity: 0; }
+    `}
   }
 `
 

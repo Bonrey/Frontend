@@ -11,8 +11,7 @@ const Container = styled.div`
   box-shadow: 0 0 0.1rem hsla(235, 19%, 35%, 0.15),
               0 0 0.2rem hsla(235, 19%, 35%, 0.15),
               0 0 0.4rem hsla(235, 19%, 35%, 0.15),
-              0 0 0.8rem hsla(235, 19%, 35%, 0.15),
-              0 0 1.6rem hsla(235, 19%, 35%, 0.15);
+              0 0 0.8rem hsla(235, 19%, 35%, 0.15);
 `
 
 export default class TodoList extends React.Component {
@@ -35,6 +34,7 @@ export default class TodoList extends React.Component {
                       onChange={this.props.onChange} clear={this.props.clear}
                       isDragging={this.props.isDragging}
                       currDragIndex={this.props.currDragIndex}
+                      darkTheme={this.props.darkTheme}
                     /> : null))}
                 {provided.placeholder}
               </ul>)}
@@ -45,6 +45,7 @@ export default class TodoList extends React.Component {
           filter={this.props.filter}
           onChange={this.props.onRadioBtnChange}
           onClick={this.props.clearAllCompleted}
+          darkTheme={this.props.darkTheme}
         />
       </Container>
     );

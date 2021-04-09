@@ -2,17 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import TodoList from './todo/TodoList';
 
-import {lightTheme} from "../assets/styles/Colors";
-
-const MainContainer = styled.main`
-  margin-top: 13.5rem;
-`
+import {darkTheme, lightTheme} from "../assets/styles/Colors";
+import TodoCreate from "./todo/TodoCreate";
 
 const BottomHint = styled.p`
   font-size: 0.8rem;
   padding: 3rem 0;
   text-align: center;
-  color: ${lightTheme["dark-grayish-blue"]};
+  transition: color 500ms;
+  color: ${props => props.darkTheme ?
+  darkTheme["dark-grayish-blue"] :
+  lightTheme["dark-grayish-blue"]};
+  
+  @media only screen and (max-width: 600px) {
+    padding-top: 7rem;
+  }
 `
 
 export default class Main extends React.Component {
@@ -79,7 +83,7 @@ export default class Main extends React.Component {
     this.props.resetDrag();
     if (result.destination) {
       this.setState(prevState => {
-        let newTodoItems = [...this.state.todoItems];
+        let newTodoItems = [...prevState.todoItems];
         const [reorderedItem] = newTodoItems.splice(result.source.index, 1);
         newTodoItems.splice(result.destination.index, 0, reorderedItem);
         return { todoItems: newTodoItems };
@@ -89,7 +93,13 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <MainContainer>
+      <main>
+        <TodoCreate
+          onSubmit={this.addNewItem}
+          onChange={e => this.setState({ newTodo: e.target.value })}
+          value={this.state.newTodo}
+          darkTheme={this.props.darkTheme}
+        />
         <TodoList
           todoItems={this.state.todoItems}
           onChange={id => this.handleCheckboxChange(id)}
@@ -103,9 +113,12 @@ export default class Main extends React.Component {
           onDragStart={this.props.onDragStart}
           onDragUpdate={this.props.onDragUpdate}
           onDragEnd={this.handleOnDragEnd}
+          darkTheme={this.props.darkTheme}
         />
-        <BottomHint>Drag and drop to reorder list</BottomHint>
-      </MainContainer>
+        <BottomHint darkTheme={this.props.darkTheme}>
+          Drag and drop to reorder list
+        </BottomHint>
+      </main>
     );
   }
 }
