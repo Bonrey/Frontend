@@ -24,12 +24,12 @@ export default class Main extends React.Component {
     super(props);
     this.state = {
       todoItems: [
-        { id: 0, text: "Completed online JavaScript course", completed: true },
-        { id: 1, text: "Jog around the park", completed: false },
-        { id: 2, text: "10 minutes meditation", completed: false },
-        { id: 3, text: "Read for 1 hour", completed: false },
-        { id: 4, text: "Pick up groceries", completed: false },
-        { id: 5, text: "Complete Todo App on Frontend Mentor", completed: false }
+        { id: 0, text: "Completed online JavaScript course", completed: true, clearAnim: false, showAnim: false },
+        { id: 1, text: "Jog around the park", completed: false, clearAnim: false, showAnim: false },
+        { id: 2, text: "10 minutes meditation", completed: false, clearAnim: false, showAnim: false },
+        { id: 3, text: "Read for 1 hour", completed: false, clearAnim: false, showAnim: false },
+        { id: 4, text: "Pick up groceries", completed: false, clearAnim: false, showAnim: false },
+        { id: 5, text: "Complete Todo App on Frontend Mentor", completed: false, clearAnim: false, showAnim: false }
       ],
       idCount: 6,
       newTodo: "",
@@ -43,11 +43,17 @@ export default class Main extends React.Component {
     if (this.state.newTodo.length > 0) {
       this.setState(prevState => {
         let newTodoItems = [...prevState.todoItems];
-        newTodoItems.push({ id: prevState.idCount, text: prevState.newTodo, completed: false });
+        newTodoItems.push({
+          id: prevState.idCount,
+          text: prevState.newTodo,
+          completed: false,
+          clearAnim: false,
+          showAnim: false
+        });
         return {
           todoItems: newTodoItems,
           idCount: prevState.idCount + 1,
-          newTodo: "", leftNumber: prevState.leftNumber + 1
+          newTodo: "", leftNumber: prevState.leftNumber + 1,
         };
       });
     }
@@ -71,12 +77,37 @@ export default class Main extends React.Component {
   clear = index => {
     this.setState(prevState => {
       let newTodoItems = [...prevState.todoItems];
-      newTodoItems.splice(index, 1);
-      return {
-        todoItems: newTodoItems,
-        leftNumber: prevState.todoItems[index].completed ? prevState.leftNumber : prevState.leftNumber - 1
-      };
+      newTodoItems[index].clearAnim = true;
+      return { todoItems: newTodoItems };
     });
+
+    setTimeout(_ => {
+      this.setState(prevState => {
+        let newTodoItems = [...prevState.todoItems];
+        newTodoItems.splice(index, 1);
+        return {
+          todoItems: newTodoItems,
+          leftNumber: prevState.todoItems[index].completed ? prevState.leftNumber : prevState.leftNumber - 1
+        };
+      });
+    }, 800);
+  }
+
+  clearAllCompleted = _ => {
+    this.setState(prevState => {
+      let newTodoItems = [...prevState.todoItems];
+      for (let i = 0; i < newTodoItems.length; i++) {
+        if (newTodoItems[i].completed) {
+          newTodoItems[i].clearAnim = true;
+        }
+      }
+      return { todoItems: newTodoItems };
+    });
+
+    setTimeout(_ =>
+      this.setState({
+        todoItems: this.state.todoItems.filter(item => !item.completed)
+      }), 800);
   }
 
   handleOnDragEnd = result => {
@@ -91,6 +122,29 @@ export default class Main extends React.Component {
     }
   }
 
+  handleRadioBtnChange = id => {
+    this.setState(prevState => {
+      let newTodoItems = [...prevState.todoItems];
+      for (let i = 0; i < newTodoItems.length; i++) {
+        if (newTodoItems[i].completed) {
+          if (id === "active") {
+            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [true, false];
+          } else if (id === "completed") {
+            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [false, false];
+          } else {
+            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [false, false];
+          }
+        } else {
+          if (id === "completed") {
+            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [true, false];
+          } else {
+            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [false, false];
+          }
+        }
+      }
+    });
+  }
+
   render() {
     return (
       <main>
@@ -103,9 +157,9 @@ export default class Main extends React.Component {
         <TodoList
           todoItems={this.state.todoItems}
           onChange={id => this.handleCheckboxChange(id)}
-          onRadioBtnChange={id => this.setState({ filter: id })}
+          onRadioBtnChange={id => this.handleRadioBtnChange(id)}
           clear={index => this.clear(index)}
-          clearAllCompleted={_ => this.setState({ todoItems: this.state.todoItems.filter(item => !item.completed) })}
+          clearAllCompleted={this.clearAllCompleted}
           leftNumber={this.state.leftNumber}
           filter={this.state.filter}
           isDragging={this.props.isDragging}
@@ -114,6 +168,7 @@ export default class Main extends React.Component {
           onDragUpdate={this.props.onDragUpdate}
           onDragEnd={this.handleOnDragEnd}
           darkTheme={this.props.darkTheme}
+          showItemAnimation={this.state.showItemAnimation}
         />
         <BottomHint darkTheme={this.props.darkTheme}>
           Drag and drop to reorder list

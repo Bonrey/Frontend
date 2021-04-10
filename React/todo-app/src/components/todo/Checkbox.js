@@ -7,6 +7,7 @@ const CheckboxContainer = styled.label`
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  white-space: nowrap;
   
   &:hover input::after {
     box-shadow: 0 0 0 0.1rem transparent;
@@ -21,6 +22,7 @@ const Checkbox = styled.input`
   outline: none;
   cursor: pointer;
   background: url(${iconCheck}) no-repeat center, ${primary["check-bg"]};
+  background-size: 45%, cover;
   border-radius: 50%;
   position: relative;
     

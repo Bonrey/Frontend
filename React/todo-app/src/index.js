@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   height: 100%;
   box-sizing: border-box;
   margin: 0 auto;
+  padding-left: calc(100vw - 100%);
 `
 
 class App extends React.Component {

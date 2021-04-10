@@ -16,6 +16,10 @@ const Container = styled.div`
 
 export default class TodoList extends React.Component {
   render() {
+    const itemShown = item => (this.props.filter === "all" ||
+      (this.props.filter === "active" && !item.completed) ||
+      (this.props.filter === "completed" && item.completed));
+
     return (
       <Container>
         <DragDropContext
@@ -25,17 +29,15 @@ export default class TodoList extends React.Component {
           <Droppable droppableId="droppable">
             {provided => (
               <ul {...provided.droppableProps} ref={provided.innerRef}>
-                {this.props.todoItems.map((item, index) => (
-                  (this.props.filter === "all" ||
-                    (this.props.filter === "active" && !item.completed) ||
-                    (this.props.filter === "completed" && item.completed)) ?
-                    <TodoItem
-                      key={item.id} item={item} index={index}
-                      onChange={this.props.onChange} clear={this.props.clear}
-                      isDragging={this.props.isDragging}
-                      currDragIndex={this.props.currDragIndex}
-                      darkTheme={this.props.darkTheme}
-                    /> : null))}
+                {this.props.todoItems.map((item, index) =>
+                  <TodoItem
+                    key={item.id} item={item} index={index}
+                    onChange={this.props.onChange} clear={this.props.clear}
+                    isDragging={this.props.isDragging}
+                    currDragIndex={this.props.currDragIndex}
+                    darkTheme={this.props.darkTheme}
+                  />
+                )}
                 {provided.placeholder}
               </ul>)}
           </Droppable>

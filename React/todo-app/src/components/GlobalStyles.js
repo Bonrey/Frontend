@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Josefin Sans', sans-serif;
     
     @media only screen and (max-width: 600px) {
-      font-size: 14px;
+      font-size: 0.8rem;
     }
   }
   
@@ -47,7 +47,7 @@ const GlobalStyles = createGlobalStyle`
       position: fixed;
       top: 0;
       
-      @media only screen and (max-width: 375px) {
+      @media only screen and (max-width: 425px) {
         height: 200px;
       }
     }

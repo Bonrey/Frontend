@@ -1,0 +1,50 @@
+@keyframes clear-animation {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes show-animation {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.list-item {
+  position: relative;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: white;
+  border-bottom: 0.05rem solid hsl(236, 33%, 92%);
+  transition: background-color 500ms, color 500ms, border-bottom 500ms;
+  animation: none;
+}
+
+.list-item.dark-theme {
+  background-color: hsl(235, 24%, 19%);
+  border-bottom: 0.05rem solid hsl(237, 14%, 26%);
+}
+
+.list-item:hover a svg {
+  opacity: 1;
+}
+
+.list-item.clear-item {
+  animation: clear-animation 800ms 1;
+}
+
+.list-item.show-item {
+  animation: show-animation 800ms 1;
+}
