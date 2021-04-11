@@ -23,17 +23,18 @@ const BottomHint = styled.p`
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
+    // localStorage.clear();
 
-    let todoItemsData = [];
-    if (localStorage.getItem("todoItems")) {
-      todoItemsData = JSON.parse(localStorage.getItem("todoItems"));
-      for (const key in todoItemsData) {
-        todoItemsData[key].clearAnim = todoItemsData[key].showAnim = false;
-      }
-    } else {  // DEFAULT VALUES FOR THE FIRST LAUNCH
+    // DEFAULT VALUES FOR THE FIRST LAUNCH
+    if (!localStorage.getItem("todoItems")) {
       localStorage.setItem("idCount", data.idCount.toString());
       localStorage.setItem("leftNumber", data.leftNumber.toString());
       localStorage.setItem("todoItems", JSON.stringify(data.todoItems));
+    }
+
+    let todoItemsData = JSON.parse(localStorage.getItem("todoItems"));
+    for (const key in todoItemsData) {
+      todoItemsData[key].clearAnim = todoItemsData[key].showAnim = false;
     }
 
     this.state = {
@@ -70,6 +71,7 @@ export default class Main extends React.Component {
     localStorage.setItem("todoItems", JSON.stringify(this.state.todoItems));
     localStorage.setItem("idCount", this.state.idCount.toString());
     localStorage.setItem("leftNumber", this.state.leftNumber.toString());
+    console.log(localStorage);
   }
 
   handleCheckboxChange = id => {
@@ -103,7 +105,7 @@ export default class Main extends React.Component {
           leftNumber: prevState.todoItems[index].completed ? prevState.leftNumber : prevState.leftNumber - 1
         };
       });
-    }, 800);
+    }, 600);
   }
 
   clearAllCompleted = _ => {
@@ -120,7 +122,7 @@ export default class Main extends React.Component {
     setTimeout(_ =>
       this.setState({
         todoItems: this.state.todoItems.filter(item => !item.completed)
-      }), 800);
+      }), 600);
   }
 
   handleOnDragEnd = result => {

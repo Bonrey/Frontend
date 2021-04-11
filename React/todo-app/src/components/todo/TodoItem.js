@@ -31,6 +31,7 @@ export default function TodoItem(props) {
   function getItemStyle(isDragging, draggableStyle) {
     return {
       borderRadius: isDragging && props.currDragIndex === 0 ? "0.4rem 0.4rem 0 0" : "0",
+      outline: isDragging && `${props.darkTheme ? "white" : "hsl(235, 19%, 35%)"} dashed 0.1rem`,
       cursor: "default",
       ...draggableStyle,
     };
@@ -38,7 +39,7 @@ export default function TodoItem(props) {
 
   const [visible, setVisibility] = useState(true);
   useEffect(_ => {
-    setTimeout(_ => setVisibility(!props.clearAnim), props.clearAnim ? 800 : 0);
+    setTimeout(_ => setVisibility(!props.clearAnim), props.clearAnim ? 600 : 0);
   });
 
   return visible ?

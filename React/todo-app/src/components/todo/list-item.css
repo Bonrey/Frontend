@@ -42,9 +42,9 @@
 }
 
 .list-item.clear-item {
-  animation: clear-animation 800ms 1;
+  animation: clear-animation 600ms 1;
 }
 
 .list-item.show-item {
-  animation: show-animation 800ms 1;
+  animation: show-animation 600ms 1;
 }
