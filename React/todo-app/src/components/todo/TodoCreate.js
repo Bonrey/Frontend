@@ -43,6 +43,7 @@ export default class TodoCreate extends React.Component {
           onChange={this.props.onChange}
           darkTheme={this.props.darkTheme}
         />
+        <input type="submit" hidden />
       </Container>
     );
   }

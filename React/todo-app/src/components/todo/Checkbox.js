@@ -93,6 +93,7 @@ export default function Item(props) {
         onChange={_ => props.onChange(props.id)}
         checked={props.completed}
         darkTheme={props.darkTheme}
+        aria-hidden
       />
       <TodoText darkTheme={props.darkTheme}>{props.text}</TodoText>
     </CheckboxContainer>
