@@ -39,7 +39,7 @@ export default function TodoItem(props) {
 
   const [visible, setVisibility] = useState(true);
   useEffect(_ => {
-    setTimeout(_ => setVisibility(!props.clearAnim), props.clearAnim ? 600 : 0);
+    setTimeout(_ => setVisibility(!props.clearAnim), props.clearAnim ? 570 : 0);
   });
 
   return visible ?
