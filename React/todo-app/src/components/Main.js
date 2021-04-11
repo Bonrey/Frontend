@@ -24,9 +24,14 @@ export default class Main extends React.Component {
   constructor(props) {
     super(props);
     // localStorage.clear();
+    fetch('../data.json').then(resp => {
+      console.log(resp.json());
+    });
 
     // DEFAULT VALUES FOR THE FIRST LAUNCH
     if (!localStorage.getItem("todoItems")) {
+
+
       localStorage.setItem("idCount", data.idCount.toString());
       localStorage.setItem("leftNumber", data.leftNumber.toString());
       localStorage.setItem("todoItems", JSON.stringify(data.todoItems));
