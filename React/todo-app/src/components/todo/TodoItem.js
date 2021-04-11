@@ -38,7 +38,7 @@ export default function TodoItem(props) {
 
   const [visible, setVisibility] = useState(true);
   useEffect(_ => {
-    setTimeout(_ => setVisibility(!props.hidden), props.hidden ? 800 : 0);
+    setTimeout(_ => setVisibility(!props.clearAnim), props.clearAnim ? 800 : 0);
   });
 
   return visible ?
@@ -50,7 +50,7 @@ export default function TodoItem(props) {
                   style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
                   className={`list-item
                     ${props.darkTheme ? " dark-theme" : ""}
-                    ${props.item.clearAnim ? " clear-item" : props.item.showAnim ? " show-item" : ""}
+                    ${props.item.clearAnim || props.clearAnim ? " clear-item" : props.item.showAnim ? " show-item" : ""}
                   `}>
           <Checkbox
             id={props.item.id} text={props.item.text}

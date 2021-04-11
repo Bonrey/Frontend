@@ -36,6 +36,7 @@ export default class TodoList extends React.Component {
                     isDragging={this.props.isDragging}
                     currDragIndex={this.props.currDragIndex}
                     darkTheme={this.props.darkTheme}
+                    clearAnim={!itemShown(item)}
                   />
                 )}
                 {provided.placeholder}

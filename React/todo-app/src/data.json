@@ -1,0 +1,12 @@
+{
+  "todoItems": [
+    { "id": 0, "text": "Completed online JavaScript course", "completed": true, "clearAnim": false, "showAnim": false },
+    { "id": 1, "text": "Jog around the park", "completed": false, "clearAnim": false, "showAnim": false },
+    { "id": 2, "text": "10 minutes meditation", "completed": false, "clearAnim": false, "showAnim": false },
+    { "id": 3, "text": "Read for 1 hour", "completed": false, "clearAnim": false, "showAnim": false },
+    { "id": 4, "text": "Pick up groceries", "completed": false, "clearAnim": false, "showAnim": false },
+    { "id": 5, "text": "Complete Todo App on Frontend Mentor", "completed": false, "clearAnim": false, "showAnim": false }
+  ],
+  "idCount": 6,
+  "leftNumber": 5
+}

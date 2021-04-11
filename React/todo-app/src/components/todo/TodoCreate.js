@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {lightTheme, darkTheme} from '../../assets/styles/Colors';
+import {primary, lightTheme, darkTheme} from '../../assets/styles/Colors';
 
 const Container = styled.form`
   width: 100%;
@@ -22,6 +22,7 @@ const TextField = styled.input`
   box-sizing: border-box;
   line-height: 3.4rem;
   transition: background-color 500ms, color 500ms;
+  caret-color: ${props => props.darkTheme ? darkTheme["light-grayish-blue"] : primary["bright-blue"]};
   background: ${props => props.darkTheme ? darkTheme["very-dark-desaturated-blue"] : "white"};
   color: ${props => props.darkTheme ? darkTheme["light-grayish-blue"] : lightTheme["very-dark-grayish-blue"]};
   

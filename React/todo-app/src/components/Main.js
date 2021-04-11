@@ -4,6 +4,7 @@ import TodoList from './todo/TodoList';
 
 import {darkTheme, lightTheme} from "../assets/styles/Colors";
 import TodoCreate from "./todo/TodoCreate";
+import data from "../data.json";
 
 const BottomHint = styled.p`
   font-size: 0.8rem;
@@ -22,18 +23,24 @@ const BottomHint = styled.p`
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
+
+    let todoItemsData = [];
+    if (localStorage.getItem("todoItems")) {
+      todoItemsData = JSON.parse(localStorage.getItem("todoItems"));
+      for (const key in todoItemsData) {
+        todoItemsData[key].clearAnim = todoItemsData[key].showAnim = false;
+      }
+    } else {  // DEFAULT VALUES FOR THE FIRST LAUNCH
+      localStorage.setItem("idCount", data.idCount.toString());
+      localStorage.setItem("leftNumber", data.leftNumber.toString());
+      localStorage.setItem("todoItems", JSON.stringify(data.todoItems));
+    }
+
     this.state = {
-      todoItems: [
-        { id: 0, text: "Completed online JavaScript course", completed: true, clearAnim: false, showAnim: false },
-        { id: 1, text: "Jog around the park", completed: false, clearAnim: false, showAnim: false },
-        { id: 2, text: "10 minutes meditation", completed: false, clearAnim: false, showAnim: false },
-        { id: 3, text: "Read for 1 hour", completed: false, clearAnim: false, showAnim: false },
-        { id: 4, text: "Pick up groceries", completed: false, clearAnim: false, showAnim: false },
-        { id: 5, text: "Complete Todo App on Frontend Mentor", completed: false, clearAnim: false, showAnim: false }
-      ],
-      idCount: 6,
+      idCount: Number.parseInt(localStorage.getItem("idCount")),
+      leftNumber: Number.parseInt(localStorage.getItem("leftNumber")),
+      todoItems: todoItemsData,
       newTodo: "",
-      leftNumber: 5,
       filter: "all"
     };
   }
@@ -57,6 +64,12 @@ export default class Main extends React.Component {
         };
       });
     }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("todoItems", JSON.stringify(this.state.todoItems));
+    localStorage.setItem("idCount", this.state.idCount.toString());
+    localStorage.setItem("leftNumber", this.state.leftNumber.toString());
   }
 
   handleCheckboxChange = id => {
@@ -126,22 +139,10 @@ export default class Main extends React.Component {
     this.setState(prevState => {
       let newTodoItems = [...prevState.todoItems];
       for (let i = 0; i < newTodoItems.length; i++) {
-        if (newTodoItems[i].completed) {
-          if (id === "active") {
-            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [true, false];
-          } else if (id === "completed") {
-            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [false, false];
-          } else {
-            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [false, false];
-          }
-        } else {
-          if (id === "completed") {
-            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [true, false];
-          } else {
-            [newTodoItems[i].clearAnim, newTodoItems[i].showAnim] = [false, false];
-          }
-        }
+        newTodoItems[i].showAnim = (newTodoItems[i].completed && prevState.filter === "active" && id !== "active") ||
+          (!newTodoItems[i].completed && prevState.filter === "completed" && id !== "completed");
       }
+      return { todoItems: newTodoItems, filter: id };
     });
   }
 
