@@ -9,6 +9,10 @@ const Container = styled.form`
   margin-bottom: 1.5rem;
   border-radius: 0.4rem;
   overflow: hidden;
+  box-shadow: 0 0.1rem 0.1rem hsla(235, 19%, 35%, 0.15),
+              0 0.1rem 0.3rem hsla(235, 19%, 35%, 0.15),
+              0 0.1rem 0.5rem hsla(235, 19%, 35%, 0.15),
+              0 0.1rem 0.7rem hsla(235, 19%, 35%, 0.15);
 `
 
 const TextField = styled.input`

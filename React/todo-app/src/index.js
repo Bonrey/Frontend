@@ -5,6 +5,7 @@ import styled from "styled-components";
 import GlobalStyles from './components/GlobalStyles';
 import Header from './components/Header';
 import Main from './components/Main';
+import Attribution from "./components/Attribution";
 
 const Wrapper = styled.div`
   position: relative;
@@ -59,6 +60,7 @@ class App extends React.Component {
           resetDrag={_ => this.setState({ isDragging: false, currDragIndex: -1 })}
           darkTheme={this.state.darkTheme}
         />
+        <Attribution darkTheme={this.state.darkTheme} />
       </Wrapper>
     );
   }

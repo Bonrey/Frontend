@@ -8,12 +8,10 @@ import data from "../data.json";
 
 const BottomHint = styled.p`
   font-size: 0.8rem;
-  padding: 3rem 0;
+  padding: 3rem 0 6rem;
   text-align: center;
   transition: color 500ms;
-  color: ${props => props.darkTheme ?
-  darkTheme["dark-grayish-blue"] :
-  lightTheme["dark-grayish-blue"]};
+  color: ${props => props.darkTheme ? darkTheme["dark-grayish-blue"] : lightTheme["dark-grayish-blue"]};
   
   @media only screen and (max-width: 600px) {
     padding-top: 7rem;
