@@ -33,10 +33,14 @@ const GlobalStyles = createGlobalStyle`
   body {
     min-height: 100vh;
     background-color: ${props => props.darkTheme ? darkTheme["very-dark-blue"] : lightTheme["very-light-gray"]};
-    animation: ${fadeIn} 1s 1;
     pointer-events: ${props => props.isDragging ? "none" : "auto"};
     transition: background-color 500ms;
     cursor: default!important;
+  }
+  
+  #root {
+    min-height: 100vh;
+    animation: ${fadeIn} 1s 1;
     
     &:before, &:after {
       content: "";
