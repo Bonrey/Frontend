@@ -21,7 +21,7 @@ const CrossButton = styled.a`
     opacity: 0;
     transition: opacity 400ms;
     
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 768px) {
       opacity: 1;
     }
   }

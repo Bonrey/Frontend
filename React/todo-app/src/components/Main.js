@@ -31,15 +31,10 @@ export default class Main extends React.Component {
       localStorage.setItem("todoItems", JSON.stringify(data.todoItems));
     }
 
-    let todoItemsData = JSON.parse(localStorage.getItem("todoItems"));
-    for (const key in todoItemsData) {
-      todoItemsData[key].clearAnim = todoItemsData[key].showAnim = false;
-    }
-
     this.state = {
       idCount: Number.parseInt(localStorage.getItem("idCount")),
       leftNumber: Number.parseInt(localStorage.getItem("leftNumber")),
-      todoItems: todoItemsData,
+      todoItems: JSON.parse(localStorage.getItem("todoItems")),
       newTodo: "",
       filter: "all"
     };
@@ -70,7 +65,6 @@ export default class Main extends React.Component {
     localStorage.setItem("todoItems", JSON.stringify(this.state.todoItems));
     localStorage.setItem("idCount", this.state.idCount.toString());
     localStorage.setItem("leftNumber", this.state.leftNumber.toString());
-    console.log(localStorage);
   }
 
   handleCheckboxChange = id => {
@@ -145,6 +139,13 @@ export default class Main extends React.Component {
       }
       return { todoItems: newTodoItems, filter: id };
     });
+    setTimeout(_ => this.setState(prevState => {
+      let todoItems = [...prevState.todoItems];
+      for (let i = 0; i < todoItems.length; i++) {
+        todoItems[i].showAnim = false;
+      }
+      return { todoItems };
+    }), 600);
   }
 
   render() {
