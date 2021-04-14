@@ -25,21 +25,56 @@ const Wrapper = styled.div`
   }
 `
 
+const btnNames = ["rock", "paper", "scissors"];
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rulesPopup: false
+      gameStarted: false,
+      userBtnName: "",
+      computerBtnName: "",
+      rulesPopup: false,
+      score: 0
     };
   }
 
+  computerWon = (user, computer) => {
+    return (user === "rock" && computer === "paper") ||
+      (user === "paper" && computer === "scissors") ||
+      (user === "scissors" && computer === "rock");
+  }
+
+  handleClick = (gameStarted, userBtnName = "") => {
+    this.setState({ gameStarted, userBtnName });
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevState.gameStarted) {
+      
+    }
+  }
+
   render() {
+    let computerBtnName = this.state.userBtnName;
+    while (this.state.gameStarted && computerBtnName === this.state.userBtnName) {
+      computerBtnName = btnNames[Math.floor(Math.random() * 3)];
+    }
+    // const computerWon = this.computerWon();
+
     return (
       <>
         <GlobalStyle />
         <Wrapper rulesPopup={this.state.rulesPopup}>
-          <Header />
-          <Main onRulesClick={() => this.setState({ rulesPopup: true })} />
+          <Header score={this.state.score} computerWon={computerWon} />
+          <Main
+            onClick={this.handleClick}
+            gameStarted={this.state.gameStarted}
+            userBtnName={this.state.userBtnName}
+            computerBtnName={computerBtnName}
+            onRulesClick={() => this.setState({ rulesPopup: true })}
+            computerWon={computerWon}
+          />
         </Wrapper>
         <Rules
           rulesPopup={this.state.rulesPopup}

@@ -53,18 +53,19 @@ const Image = styled.img`
 `
 
 const popup = {
-  hidden: {
-    opacity: 0,
-    scale: 0,
+  initial: {
     translateX: "-50%",
-    translateY: "-50%"
+    translateY: "-250%",
+    opacity: 0
   },
   visible: {
-    opacity: 1,
-    scale: 1,
-    translateX: "-50%",
-    translateY: "-50%"
+    translateY: "-50%",
+    opacity: 1
   },
+  hidden: {
+    translateY: "150%",
+    opacity: 0
+  }
 }
 
 const Rules = props => {
@@ -72,11 +73,10 @@ const Rules = props => {
     <AnimatePresence>
       {props.rulesPopup &&
       <RulesPopup
-        key="rules-popup"
-        initial="hidden"
-        animate="visible"
         variants={popup}
-        exit={{ opacity: 0, scale: 0 }}
+        initial="initial"
+        animate="visible"
+        exit="hidden"
       >
         <TopPart>
           <Heading>Rules</Heading>

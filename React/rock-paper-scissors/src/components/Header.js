@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import colors from "../styles/colors";
 import logo from '../assets/images/logo.svg';
@@ -48,16 +48,23 @@ const ScoreBoard = styled.div`
   }
 `
 
-const Header = () => {
-  return (
-    <HeaderWrapper>
-      <Logo src={logo} alt="site logo" />
-      <ScoreBoard>
-        <span>Score</span>
-        <span>12</span>
-      </ScoreBoard>
-    </HeaderWrapper>
-  );
-}
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      score: 0
+    };
+  }
 
-export default Header;
+  render() {
+    return (
+      <HeaderWrapper>
+        <Logo src={logo} alt="site logo" />
+        <ScoreBoard>
+          <span>Score</span>
+          <span>{this.state.score}</span>
+        </ScoreBoard>
+      </HeaderWrapper>
+    );
+  }
+}

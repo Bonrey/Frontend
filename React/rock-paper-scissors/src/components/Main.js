@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import colors from "../styles/colors";
-import MainOriginalStart from "./main/MainOriginalStart";
 
-const MainWrapper = styled.main`
-  flex-basis: 72%;
-`
+import MainOriginalStart from "./main/MainOriginalStart";
+import MainOriginalPlay from "./main/MainOriginalPlay";
 
 const RulesButton = styled.button`
   outline: none;
@@ -30,11 +28,20 @@ const RulesButton = styled.button`
   }
 `
 
-export default function Main(props) {
+const Main = ({ gameStarted, userBtnName, computerBtnName, onClick, onRulesClick }) => {
   return (
-    <MainWrapper>
-      <MainOriginalStart />
-      <RulesButton onClick={props.onRulesClick}>Rules</RulesButton>
-    </MainWrapper>
+    <main style={{ flexBasis: "72%" }}>
+      {!gameStarted ?
+        <MainOriginalStart onClick={userBtnName => onClick(true, userBtnName)} /> :
+        <MainOriginalPlay
+          userBtnName={userBtnName}
+          computerBtnName={computerBtnName}
+          onClick={_ => onClick(false)}
+        />
+      }
+      <RulesButton onClick={onRulesClick}>Rules</RulesButton>
+    </main>
   );
 }
+
+export default Main;

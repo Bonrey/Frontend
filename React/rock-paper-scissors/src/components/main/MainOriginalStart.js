@@ -11,12 +11,12 @@ const GameButtons = styled.div`
   background: url(${bgTriangle}) no-repeat center 7rem / 14rem auto;
 `
 
-const MainOriginalStart = () => {
+const MainOriginalStart = ({ onClick }) => {
   return (
     <GameButtons>
-      <GameButton initial btnName="paper" />
-      <GameButton initial btnName="scissors" />
-      <GameButton initial btnName="rock" />
+      <GameButton btnName="paper" onClick={_ => onClick("paper")} />
+      <GameButton btnName="scissors" onClick={_ => onClick("scissors")} />
+      <GameButton btnName="rock" onClick={_ => onClick("rock")} />
     </GameButtons>
   );
 }
