@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import bgTriangle from "../../assets/images/bg-triangle.svg";
+import bgTriangleDesktop from "../../assets/images/bg-triangle-desktop.svg";
+import bgTriangleMobile from "../../assets/images/bg-triangle-mobile.svg";
 import GameButton from "./GameButton";
 
 const GameButtons = styled.div`
@@ -8,7 +9,11 @@ const GameButtons = styled.div`
   height: 100%;
   margin: 0 auto;
   position: relative;
-  background: url(${bgTriangle}) no-repeat center 7rem / 14rem auto;
+  background: url(${bgTriangleDesktop}) no-repeat center 7rem / 14rem auto;
+  
+  @media only screen and (max-width: 1000px) {
+    background: url(${bgTriangleMobile}) no-repeat center 7rem / 9rem auto;
+  }
 `
 
 const MainOriginalStart = ({ onClick }) => {

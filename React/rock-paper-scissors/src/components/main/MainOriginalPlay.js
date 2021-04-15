@@ -26,34 +26,70 @@ const Player = styled(motion.div)`
     left: 4.5rem;
     top: 5.5rem;
     background-color: hsl(214, 47%, 17%);
-    z-index: -1;
+    z-index: -3;
+    
+    @media only screen and (max-width: 1000px) {
+      width: 6rem;
+      height: 6rem;
+      left: 1.5rem;
+      top: 1.5rem;
+    }
   }
 `
 
-const Heading = styled.h2`
+const PlayerLabel = styled.p`
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 0.1rem;
   font-size: 1.2rem;
   color: white;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  
+  @media only screen and (max-width: 1000px) {
+    font-size: 0.9rem;
+    letter-spacing: 0.07rem;
+    top: 9rem;
+  }
 `
 
-const MainOriginalPlay = ({ userBtnName, computerBtnName, onClick }) => {
+const MainOriginalPlay = ({ userBtnName, computerBtnName, onClick, gameResult }) => {
   const [visible, makeVisible] = useState(false);
   useEffect(_ => {
-    setTimeout(_ => makeVisible(true), 1000);
+    const visibilityTimer = setTimeout(_ => makeVisible(true), 1000);
+    return () => clearTimeout(visibilityTimer);
+  }, []);
+
+  const [windowWidth, setWindowWidth] = useState(window.outerWidth);
+  useEffect(() => {
+    const updateWidth = () => setWindowWidth(window.outerWidth);
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   });
 
   return (
     <ButtonsWrapper>
-      <Player animate={{ x: "-8rem" }} transition={{ delay: 2 }}>
-        <Heading>You Picked</Heading>
-        <GameButton play btnName={userBtnName} />
+      <Player
+        transition={{ delay: 2 }}
+        animate={windowWidth > 1000 && { x: "-8rem" }}
+      >
+        <PlayerLabel>You Picked</PlayerLabel>
+        <GameButton
+          play btnName={userBtnName} winner={gameResult === 1} windowWidth={windowWidth}
+        />
       </Player>
-      <Result onClick={onClick} />
-      <Player computer animate={{ x: "8rem" }} transition={{ delay: 2 }}>
-        <Heading>The House Picked</Heading>
-        {visible && <GameButton btnName={computerBtnName} play />}
+      <Result onClick={onClick} userWon={gameResult === 1} />
+      <Player
+        computer
+        transition={{ delay: 2 }}
+        animate={windowWidth > 1000 && { x: "8rem" }}
+      >
+      <PlayerLabel>The House Picked</PlayerLabel>
+        {visible && <GameButton
+          play btnName={computerBtnName} winner={gameResult === -1} windowWidth={windowWidth}
+        />}
       </Player>
     </ButtonsWrapper>
   );

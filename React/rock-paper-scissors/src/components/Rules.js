@@ -15,6 +15,13 @@ const RulesPopup = styled(motion.div)`
   box-sizing: border-box;
   border-radius: 0.6rem;
   z-index: 10;
+  
+  @media only screen and (max-width: 1000px) {
+    width: 16rem;
+    height: 16rem;
+    padding-top: 1rem;
+    border-radius: 0.4rem;
+  }
 `
 
 const TopPart = styled.div`
@@ -28,6 +35,11 @@ const Heading = styled.h2`
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  
+  @media only screen and (max-width: 1000px) {
+    font-size: 1.2rem;
+    letter-spacing: 0.08rem;
+  }
 `
 
 const CloseButton = styled(motion.button)`
@@ -40,6 +52,11 @@ const CloseButton = styled(motion.button)`
   opacity: 0.25;
   transition: opacity 200ms;
   
+  @media only screen and (max-width: 1000px) {
+    width: 1rem;
+    height: 1rem;
+  }
+  
   &:hover {
     opacity: 1;
   }
@@ -50,6 +67,11 @@ const Image = styled.img`
   left: 50%;
   top: 25%;
   transform: translateX(-50%);
+  
+  @media only screen and (max-width: 1000px) {
+    width: 75%;
+    height: auto;
+  }
 `
 
 const popup = {

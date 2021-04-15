@@ -6,6 +6,11 @@ const Wrapper = styled(motion.div)`
   position: absolute;
   left: 50%;
   top: 9rem;
+  z-index: 1;
+  
+  @media only screen and (max-width: 1000px) {
+    top: 15.5rem;
+  }
 `
 
 const Verdict = styled.p`
@@ -15,6 +20,11 @@ const Verdict = styled.p`
   font-size: 3rem;
   text-align: center;
   margin-bottom: 1rem;
+  
+  @media only screen and (max-width: 1000px) {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
 `
 
 const PlayAgainBtn = styled(motion.button)`
@@ -28,20 +38,24 @@ const PlayAgainBtn = styled(motion.button)`
   font-size: 1rem;
   letter-spacing: 0.08rem;
   cursor: pointer;
-  color: ${({ computerWon }) => computerWon ? "hsl(349, 61%, 52%)" : "black"};
+  color: ${({ userWon }) => userWon ? "hsl(229, 25%, 31%)" : "hsl(349, 61%, 52%)"};
+  
+  @media only screen and (max-width: 1000px) {
+    width: 10rem;
+  }
 `
 
-const Result = ({ computerWon, onClick }) => {
+const Result = ({ userWon, onClick }) => {
   return (
     <Wrapper
       initial={{ translateX: "-50%", scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ delay: 2 }}
     >
-      <Verdict>You {computerWon ? "lose" : "win"}</Verdict>
+      <Verdict>You {userWon ? "win" : "lose"}</Verdict>
       <PlayAgainBtn
         type="button"
-        computerWon={computerWon}
+        userWon={userWon}
         whileHover={{ opacity: 0.9 }}
         whileTap={{ y: "-0.2rem" }}
         onClick={onClick}

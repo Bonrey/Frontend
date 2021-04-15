@@ -22,6 +22,11 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    
+    @media only screen and (max-width: 1000px) {
+      align-items: flex-start;
+    }
   }
 `
 
