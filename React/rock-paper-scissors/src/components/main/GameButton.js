@@ -81,6 +81,7 @@ const ButtonBorder = styled.span.attrs(({ play }) => ({
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 1;
   
   @media only screen and (max-width: 1000px) {
     box-shadow: inset 0 -${({ gameState }) => btnParamsMobile[gameState].size.shadow}rem ${({ btnName }) => colors[`${btnName}-shadow`]};
@@ -99,6 +100,7 @@ const ButtonImage = styled.span.attrs(({ play }) => ({
   position: absolute;
   left: 12%;
   top: 12%;
+  z-index: 1;
   
   @media only screen and (max-width: 1000px) {
     box-shadow: inset 0 ${({ gameState }) => btnParamsMobile[gameState].size.shadow}rem hsla(229, 25%, 31%, 0.15);
@@ -125,7 +127,6 @@ const GameButton = ({ play = false, player = "user", btnName, onClick, winner, w
     >
       {play && winner && <>
         <Frame
-          zIndex={-2}
           size={windowWidth <= 1000 ? "7rem" : "12rem"}
           radius={"50%"}
           center
@@ -134,7 +135,6 @@ const GameButton = ({ play = false, player = "user", btnName, onClick, winner, w
           transition={{ repeat: Infinity, delay: 2, times: [0.2, 0.45, 0.75, 1], duration: 2 }}
         />
         <Frame
-          zIndex={-2}
           size={windowWidth <= 1000 ? "7rem" : "12rem"}
           radius={"50%"}
           center
@@ -143,7 +143,6 @@ const GameButton = ({ play = false, player = "user", btnName, onClick, winner, w
           transition={{ repeat: Infinity, delay: 2, times: [0.1, 0.35, 0.75, 1], duration: 2 }}
         />
         <Frame
-          zIndex={-2}
           size={windowWidth <= 1000 ? "7rem" : "12rem"}
           radius={"50%"}
           center
