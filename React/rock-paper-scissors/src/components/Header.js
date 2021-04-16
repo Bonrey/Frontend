@@ -48,7 +48,7 @@ const ScoreBoard = styled.div`
     border-radius: 0.2rem;
   }
   
-  > span:first-child {
+  .score-label {
     color: ${colors["score-text"]};
     font-weight: bold;
     text-transform: uppercase;
@@ -60,27 +60,33 @@ const ScoreBoard = styled.div`
     }
   }
   
-  > span:last-child {
+  .score {
     color: ${colors["dark-text"]};
-    font-size: 3.6rem;
-    vertical-align: bottom;
-    line-height: 3.5rem;
+    font-size: 3.4rem;
+    height: 3.6rem;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
     @media only screen and (max-width: 1000px) {
-      font-size: 2.6rem;
-      line-height: 2.4rem;
+      font-size: 2rem;
+      height: 2.4rem;
     }
   }
 `
 
-const Header = ({ score }) => {
+const Header = ({ userScore, computerScore }) => {
   return (
     <HeaderWrapper>
       <Logo src={logo} alt="site logo" />
       <ScoreBoard>
-        <span>Score</span>
-        <span>{score}</span>
+        <span className="score-label">Score</span>
+        <p className="score">
+          <span>{userScore}</span>
+          <span style={{ paddingBottom: "0.5rem" }}>:</span>
+          <span>{computerScore}</span>
+        </p>
       </ScoreBoard>
     </HeaderWrapper>
   );

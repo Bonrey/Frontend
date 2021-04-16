@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from "styled-components";
 import bgTriangleDesktop from "../../assets/images/bg-triangle-desktop.svg";
 import bgTriangleMobile from "../../assets/images/bg-triangle-mobile.svg";
@@ -16,7 +16,26 @@ const GameButtons = styled.div`
   }
 `
 
-const MainOriginalStart = ({ onClick }) => {
+
+const MainOriginalStart = ({ onClick, rulesPopup }) => {
+  useEffect(() => {
+    const playButtons = [
+      document.querySelector(".paper"),
+      document.querySelector(".scissors"),
+      document.querySelector(".rock"),
+    ];
+
+    const handleKeyDown = event => {
+      const code = event.keyCode;
+      if (code >= 49 && code <= 51 && !rulesPopup) {
+        playButtons[code - 49].click();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  });
+
   return (
     <GameButtons>
       <GameButton btnName="paper" onClick={_ => onClick("paper")} />

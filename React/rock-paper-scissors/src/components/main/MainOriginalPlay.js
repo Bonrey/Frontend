@@ -55,7 +55,7 @@ const PlayerLabel = styled.p`
   }
 `
 
-const MainOriginalPlay = ({ userBtnName, computerBtnName, onClick, gameResult }) => {
+const MainOriginalPlay = ({ userBtnName, computerBtnName, onClick, gameResult, rulesPopup }) => {
   const [visible, makeVisible] = useState(false);
   useEffect(_ => {
     const visibilityTimer = setTimeout(_ => makeVisible(true), 1000);
@@ -69,27 +69,26 @@ const MainOriginalPlay = ({ userBtnName, computerBtnName, onClick, gameResult })
     return () => window.removeEventListener("resize", updateWidth);
   });
 
+  useEffect(() => {
+    const handleKeyDown = event => {
+      if ((event.keyCode === 13 || event.keyCode === 32) && visible && !rulesPopup) {
+        document.getElementById("playAgainBtn").click();
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  });
+
   return (
     <ButtonsWrapper>
-      <Player
-        transition={{ delay: 2 }}
-        animate={windowWidth > 1000 && { x: "-8rem" }}
-      >
+      <Player transition={{ delay: 2 }} animate={windowWidth > 1000 ? { x: "-8rem" } : { x: 0 }}>
         <PlayerLabel>You Picked</PlayerLabel>
-        <GameButton
-          play btnName={userBtnName} winner={gameResult === 1} windowWidth={windowWidth}
-        />
+        <GameButton play btnName={userBtnName} winner={gameResult === 1} />
       </Player>
       <Result onClick={onClick} userWon={gameResult === 1} />
-      <Player
-        computer
-        transition={{ delay: 2 }}
-        animate={windowWidth > 1000 && { x: "8rem" }}
-      >
-      <PlayerLabel>The House Picked</PlayerLabel>
-        {visible && <GameButton
-          play btnName={computerBtnName} winner={gameResult === -1} windowWidth={windowWidth}
-        />}
+      <Player computer transition={{ delay: 2 }} animate={windowWidth > 1000 ? { x: "8rem" } : { x: 0 }}>
+        <PlayerLabel>The House Picked</PlayerLabel>
+        {visible && <GameButton play btnName={computerBtnName} winner={gameResult === -1} />}
       </Player>
     </ButtonsWrapper>
   );

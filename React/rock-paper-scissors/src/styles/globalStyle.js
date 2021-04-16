@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
     
     @media only screen and (max-width: 1000px) {
       align-items: flex-start;

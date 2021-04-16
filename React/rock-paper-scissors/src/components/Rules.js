@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from "styled-components";
 import {AnimatePresence, motion} from "framer-motion"
 
@@ -91,18 +91,23 @@ const popup = {
 }
 
 const Rules = props => {
+  useEffect(() => {
+    const handleKeyDown = event => {
+      if ((event.keyCode === 82 || event.keyCode === 27) && props.rulesPopup) {
+        document.getElementById("closeRulesBtn").click();
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  });
+
   return (
     <AnimatePresence>
       {props.rulesPopup &&
-      <RulesPopup
-        variants={popup}
-        initial="initial"
-        animate="visible"
-        exit="hidden"
-      >
+      <RulesPopup variants={popup} initial="initial" animate="visible" exit="hidden">
         <TopPart>
           <Heading>Rules</Heading>
-          <CloseButton onClick={props.onRulesClose}>
+          <CloseButton id="closeRulesBtn" onClick={props.onRulesClose}>
             <svg viewBox="0 0 20 20" width="100%" height="100%">
               <title>close</title>
               <path

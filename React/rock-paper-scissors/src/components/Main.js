@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import colors from "../styles/colors";
 
@@ -19,7 +19,7 @@ const RulesButton = styled.button`
   border-radius: 0.5rem;
   background-color: transparent;
   color: white;
-  position: fixed;
+  position: absolute;
   bottom: 2rem;
   right: 2rem;
   width: 7rem;
@@ -29,7 +29,7 @@ const RulesButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   cursor: pointer;
-  transition: 200ms;
+  transition: background-color 200ms;
   z-index: 1;
   
   &:hover {
@@ -39,23 +39,36 @@ const RulesButton = styled.button`
   @media only screen and (max-width: 1000px) {
     right: 50%;
     transform: translateX(50%);
-    bottom: 1.5rem;
   }
 `
 
 const Main = (props) => {
+  useEffect(() => {
+    const handleKeyDown = event => {
+      if (event.keyCode === 82 && !props.rulesPopup) {
+        document.getElementById("openRulesBtn").click();
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  });
+
   return (
     <MainWrapper>
       {!props.gameStarted ?
-        <MainOriginalStart onClick={userBtnName => props.onClick(true, userBtnName)} /> :
+        <MainOriginalStart
+          onClick={userBtnName => props.onClick(true, userBtnName)}
+          rulesPopup={props.rulesPopup}
+        /> :
         <MainOriginalPlay
           userBtnName={props.userBtnName}
           computerBtnName={props.computerBtnName}
           onClick={_ => props.onClick(false)}
           gameResult={props.gameResult}
+          rulesPopup={props.rulesPopup}
         />
       }
-      <RulesButton onClick={props.onRulesClick}>Rules</RulesButton>
+      <RulesButton id="openRulesBtn" onClick={props.onRulesClick}>Rules</RulesButton>
     </MainWrapper>
   );
 }

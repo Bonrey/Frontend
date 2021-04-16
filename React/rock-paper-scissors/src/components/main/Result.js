@@ -6,7 +6,7 @@ const Wrapper = styled(motion.div)`
   position: absolute;
   left: 50%;
   top: 9rem;
-  z-index: 1;
+  z-index: 2;
   
   @media only screen and (max-width: 1000px) {
     top: 15.5rem;
@@ -54,6 +54,7 @@ const Result = ({ userWon, onClick }) => {
     >
       <Verdict>You {userWon ? "win" : "lose"}</Verdict>
       <PlayAgainBtn
+        id="playAgainBtn"
         type="button"
         userWon={userWon}
         whileHover={{ opacity: 0.9 }}

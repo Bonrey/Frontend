@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 1000px) {
     width: 18rem;
     height: 100vh;
+    min-height: 36rem;
   }
   
   &:after {
@@ -34,13 +35,20 @@ const btnNames = ["rock", "paper", "scissors"];
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+
+    if (!localStorage.getItem("userScore")) {
+      localStorage.setItem("userScore", "0");
+      localStorage.setItem("computerScore", "0");
+    }
+
     this.state = {
       gameStarted: false,
       userBtnName: "",
       computerBtnName: "",
       gameResult: 0,
       rulesPopup: false,
-      score: 0
+      userScore: parseInt(localStorage.getItem("userScore")),
+      computerScore: parseInt(localStorage.getItem("computerScore"))
     };
   }
 
@@ -61,9 +69,17 @@ export default class App extends React.Component {
       let gameResult = this.getGameResult(userBtnName, computerBtnName);
       this.setState({ gameStarted, userBtnName, computerBtnName, gameResult });
       setTimeout(_ => {
-        this.setState({score: Math.max(this.state.score + gameResult, 0)})
+        this.setState({
+          userScore: this.state.userScore + Math.max(gameResult, 0),
+          computerScore: this.state.computerScore - Math.min(gameResult, 0)
+        })
       }, 2000);
     }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("userScore", this.state.userScore.toString());
+    localStorage.setItem("computerScore", this.state.computerScore.toString());
   }
 
   render() {
@@ -71,7 +87,7 @@ export default class App extends React.Component {
       <>
         <GlobalStyle />
         <Wrapper rulesPopup={this.state.rulesPopup}>
-          <Header score={this.state.score} />
+          <Header userScore={this.state.userScore} computerScore={this.state.computerScore} />
           <Main
             onClick={this.handleClick}
             gameStarted={this.state.gameStarted}
@@ -79,6 +95,7 @@ export default class App extends React.Component {
             computerBtnName={this.state.computerBtnName}
             onRulesClick={() => this.setState({ rulesPopup: true })}
             gameResult={this.state.gameResult}
+            rulesPopup={this.state.rulesPopup}
           />
         </Wrapper>
         <Rules

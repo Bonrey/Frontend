@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {motion} from "framer-motion";
-import {Frame} from "framer";
+// import {Frame} from "framer";
 
 import colors from "../../styles/colors";
 import {buttonIcons} from "../../assets/icons";
@@ -107,15 +107,46 @@ const ButtonImage = styled.span.attrs(({ play }) => ({
   }
 `
 
+const Wave = styled(motion.div)`
+  position: absolute;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  background-color: rgb(38, 53, 83);
+  left: 50%;
+  top: 50%;
+  
+  @media only screen and (max-width: 1000px) {
+    width: 7rem;
+    height: 7rem;
+  }
+`
+
 const button = {
   hover: { scale: 1.1 },
   pressed: { scale: 0.95 },
 };
 
-const GameButton = ({ play = false, player = "user", btnName, onClick, winner, windowWidth }) => {
+const data = [
+  { scale: [1.96, 2.6, 2.6, 2.6], opacity: [0, 0.3, 0.3, 0], times: [0.2, 0.45, 0.75, 1] },
+  { scale: [1.4, 1.96, 1.96, 1.96], opacity: [0, 0.6, 0.6, 0], times: [0.1, 0.35, 0.75, 1] },
+  { scale: [1, 1.4, 1.4, 1.4], opacity: [0, 0.9, 0.9, 0], times: [0, 0.25, 0.75, 1] }
+];
+
+const GameButton = ({ play = false, player = "user", btnName, onClick, winner }) => {
+  const waves = data.map((item, index) =>
+    <Wave
+      key={index}
+      initial={{ translateX: "-50%", translateY: "-50%" }}
+      animate={{ scale: item.scale, opacity: item.opacity }}
+      transition={{ repeat: Infinity, delay: 2, duration: 2, times: item.times }}
+    />
+  );
+
   return (
     <ButtonContainer
       play={play}
+      className={!play && btnName}
       btnName={btnName}
       player={player}
       initial={{ scale: 0 }}
@@ -125,32 +156,7 @@ const GameButton = ({ play = false, player = "user", btnName, onClick, winner, w
       whileTap="pressed"
       onClick={onClick}
     >
-      {play && winner && <>
-        <Frame
-          size={windowWidth <= 1000 ? "7rem" : "12rem"}
-          radius={"50%"}
-          center
-          backgroundColor={"rgb(38, 53, 83)"}
-          animate={{ scale: [1.96, 2.6, 2.6, 2.6], opacity: [0, 0.3, 0.3, 0] }}
-          transition={{ repeat: Infinity, delay: 2, times: [0.2, 0.45, 0.75, 1], duration: 2 }}
-        />
-        <Frame
-          size={windowWidth <= 1000 ? "7rem" : "12rem"}
-          radius={"50%"}
-          center
-          backgroundColor={"rgb(38, 53, 83)"}
-          animate={{ scale: [1.4, 1.96, 1.96, 1.96], opacity: [0, 0.6, 0.6, 0] }}
-          transition={{ repeat: Infinity, delay: 2, times: [0.1, 0.35, 0.75, 1], duration: 2 }}
-        />
-        <Frame
-          size={windowWidth <= 1000 ? "7rem" : "12rem"}
-          radius={"50%"}
-          center
-          backgroundColor={"rgb(38, 53, 83)"}
-          animate={{ scale: [1, 1.4, 1.4, 1.4], opacity: [0, 0.9, 0.9, 0] }}
-          transition={{ repeat: Infinity, delay: 2, times: [0, 0.25, 0.75, 1], duration: 2 }}
-        />
-      </>}
+      {play && winner && waves}
       <ButtonBorder play={play} btnName={btnName} />
       <ButtonImage play={play} btnName={btnName} />
     </ButtonContainer>
