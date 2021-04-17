@@ -45,8 +45,12 @@ const RulesButton = styled.button`
 const Main = (props) => {
   useEffect(() => {
     const handleKeyDown = event => {
-      if (event.keyCode === 82 && !props.rulesPopup) {
-        document.getElementById("openRulesBtn").click();
+      if (!props.rulesPopup) {
+        if (event.keyCode === 82) {
+          document.getElementById("openRulesBtn").click();
+        } else if (event.keyCode === 89) {
+          document.getElementById("resetScoreBtn").click();
+        }
       }
     }
     document.addEventListener("keydown", handleKeyDown);

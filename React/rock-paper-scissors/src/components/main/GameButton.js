@@ -137,7 +137,7 @@ const GameButton = ({ play = false, player = "user", btnName, onClick, winner })
   const waves = data.map((item, index) =>
     <Wave
       key={index}
-      initial={{ translateX: "-50%", translateY: "-50%" }}
+      initial={{ x: "-50%", y: "-50%" }}
       animate={{ scale: item.scale, opacity: item.opacity }}
       transition={{ repeat: Infinity, delay: 2, duration: 2, times: item.times }}
     />

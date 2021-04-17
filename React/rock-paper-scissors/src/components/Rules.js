@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
-import {AnimatePresence, motion} from "framer-motion"
+import {motion} from "framer-motion"
 
 import imageRules from "../assets/images/image-rules.svg";
 
@@ -9,8 +9,8 @@ const RulesPopup = styled(motion.div)`
   height: 22rem;
   background-color: white;
   position: fixed;
-  left: 50%;
-  top: 50%;
+  left: calc(50% - 11rem);
+  top: calc(50% - 11rem);
   padding: 1.5rem;
   box-sizing: border-box;
   border-radius: 0.6rem;
@@ -21,6 +21,8 @@ const RulesPopup = styled(motion.div)`
     height: 16rem;
     padding-top: 1rem;
     border-radius: 0.4rem;
+    left: calc(50% - 8rem);
+    top: calc(50% - 8rem);
   }
 `
 
@@ -74,22 +76,6 @@ const Image = styled.img`
   }
 `
 
-const popup = {
-  initial: {
-    translateX: "-50%",
-    translateY: "-250%",
-    opacity: 0
-  },
-  visible: {
-    translateY: "-50%",
-    opacity: 1
-  },
-  hidden: {
-    translateY: "150%",
-    opacity: 0
-  }
-}
-
 const Rules = props => {
   useEffect(() => {
     const handleKeyDown = event => {
@@ -101,10 +87,25 @@ const Rules = props => {
     return () => document.removeEventListener("keydown", handleKeyDown);
   });
 
+  const [popupVisible, makePopupVisible] = useState(false);
+  useEffect(_ => {
+    const visibilityTimer = setTimeout(_ => {
+      makePopupVisible(props.rulesPopup);
+    }, props.rulesPopup ? 0 : 600);
+    return () => clearTimeout(visibilityTimer);
+  }, [props.rulesPopup]);
+
   return (
-    <AnimatePresence>
-      {props.rulesPopup &&
-      <RulesPopup variants={popup} initial="initial" animate="visible" exit="hidden">
+    <>
+      {popupVisible &&
+      <RulesPopup
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: props.rulesPopup ? [0, 1] : [1, 0],
+          y: props.rulesPopup ? ["-100vh", "0vh"] : ["0vh", "100vh"],
+        }}
+        transition={{duration: 0.3}}
+      >
         <TopPart>
           <Heading>Rules</Heading>
           <CloseButton id="closeRulesBtn" onClick={props.onRulesClose}>
@@ -119,7 +120,7 @@ const Rules = props => {
         </TopPart>
         <Image src={imageRules} alt="rules" />
       </RulesPopup>}
-    </AnimatePresence>
+    </>
   );
 }
 

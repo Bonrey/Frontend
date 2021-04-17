@@ -87,7 +87,11 @@ export default class App extends React.Component {
       <>
         <GlobalStyle />
         <Wrapper rulesPopup={this.state.rulesPopup}>
-          <Header userScore={this.state.userScore} computerScore={this.state.computerScore} />
+          <Header
+            userScore={this.state.userScore}
+            computerScore={this.state.computerScore}
+            onClick={_ => this.setState({ userScore: 0, computerScore: 0 })}
+          />
           <Main
             onClick={this.handleClick}
             gameStarted={this.state.gameStarted}

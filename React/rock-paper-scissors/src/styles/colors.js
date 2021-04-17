@@ -7,7 +7,7 @@ const colors = {
   "rock": "linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%))",
   "rock-shadow": "hsla(349, 71%, 26%, 0.5)",
   "dark-text": "hsl(229, 25%, 31%)",
-  "score-text": "hsl(229, 64%, 46%)",
+  "score-text": "hsl(229,64%,46%)",
   "header-outline": "hsl(217, 16%, 45%)",
   "background": "radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%))"
 };
