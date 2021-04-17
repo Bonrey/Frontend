@@ -110,7 +110,7 @@ const Header = ({ userScore, computerScore, onClick }) => {
     <HeaderWrapper
       initial={{ y: "-50vh" }}
       animate={{ y: 0 }}
-      transition={{ type: "spring", delay: 1, duration: 1 }}
+      transition={{ type: "spring", duration: 0.7 }}
     >
       <Logo src={logo} alt="site logo" />
       <ScoreBoard>
