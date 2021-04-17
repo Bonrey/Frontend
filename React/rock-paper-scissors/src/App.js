@@ -4,6 +4,7 @@ import GlobalStyle from "./styles/globalStyle";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Rules from "./components/Rules";
+import Attribution from "./components/Attribution";
 
 const Wrapper = styled.div`
   width: 38rem;
@@ -106,6 +107,7 @@ export default class App extends React.Component {
           rulesPopup={this.state.rulesPopup}
           onRulesClose={() => this.setState({ rulesPopup: false })}
         />
+        <Attribution />
       </>
     );
   }

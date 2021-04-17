@@ -38,9 +38,9 @@ const MainOriginalStart = ({ onClick, rulesPopup }) => {
 
   return (
     <GameButtons>
-      <GameButton btnName="paper" ariaLabel="paper" onClick={_ => onClick("paper")} />
-      <GameButton btnName="scissors" ariaLabel="scissors" onClick={_ => onClick("scissors")} />
-      <GameButton btnName="rock" ariaLabel="rock" onClick={_ => onClick("rock")} />
+      <GameButton btnName="paper" onClick={_ => onClick("paper")} />
+      <GameButton btnName="scissors" onClick={_ => onClick("scissors")} />
+      <GameButton btnName="rock" onClick={_ => onClick("rock")} />
     </GameButtons>
   );
 }

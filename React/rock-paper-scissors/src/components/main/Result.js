@@ -60,6 +60,7 @@ const Result = ({ userWon, onClick }) => {
         whileHover={{ opacity: 0.9 }}
         whileTap={{ y: "-0.2rem" }}
         onClick={onClick}
+        aria-label="play-again-button"
       >
         Play Again
       </PlayAgainBtn>

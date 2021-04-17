@@ -72,7 +72,9 @@ const Main = (props) => {
           rulesPopup={props.rulesPopup}
         />
       }
-      <RulesButton id="openRulesBtn" onClick={props.onRulesClick}>Rules</RulesButton>
+      <RulesButton id="openRulesBtn" onClick={props.onRulesClick} aria-label="rules-button">
+        Rules
+      </RulesButton>
     </MainWrapper>
   );
 }

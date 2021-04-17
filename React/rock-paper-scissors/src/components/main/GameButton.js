@@ -35,10 +35,9 @@ const btnParamsMobile = {
   }
 }
 
-const ButtonContainer = styled(motion.button).attrs(({ play, ariaLabel }) => ({
+const ButtonContainer = styled(motion.button).attrs(({ play }) => ({
   gameState: play ? "play" : "initial",
-  type: "button",
-  ariaLabel: ariaLabel || ""
+  type: "button"
 }))`
   border: none;
   outline: none;
@@ -155,7 +154,7 @@ const GameButton = ({ play = false, player = "user", btnName, onClick, winner, a
       whileHover="hover"
       whileTap="pressed"
       onClick={onClick}
-      ariaLabel={ariaLabel}
+      aria-label={btnName + "-button"}
     >
       {play && winner && waves}
       <ButtonBorder play={play} btnName={btnName} />
