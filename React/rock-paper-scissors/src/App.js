@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 1000px) {
     width: 18rem;
     height: 100vh;
-    min-height: 36rem;
+    min-height: 40rem;
   }
   
   &:after {
@@ -107,7 +107,7 @@ export default class App extends React.Component {
           rulesPopup={this.state.rulesPopup}
           onRulesClose={() => this.setState({ rulesPopup: false })}
         />
-        {/*<Attribution />*/}
+        <Attribution />
       </>
     );
   }

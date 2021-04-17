@@ -3,56 +3,51 @@ import styled from "styled-components";
 
 const AttributionBox = styled.footer`
   position: absolute;
-  bottom: 2rem;
-  width: 100%;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  width: 12rem;
+  line-height: 1.25rem;
+  word-spacing: 0.05rem;
   text-align: center;
-  color: black;
+  color: rgb(240, 240, 240);
   font-size: 0.9rem;
-  transition: color 500ms;
   
-  span:first-child {
-    margin-right: 0.4rem;
+  @media only screen and (max-width: 1000px) {
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    font-size: 0.8rem;
   }
 `
 
 const Link = styled.a`
   text-decoration: none;
-  transition: color 500ms;
-  color: black;
+  transition: color 400ms;
+  color: rgba(240, 240, 240, 0.5);
   outline: none;
-  position: relative;
   
-  &:after {
-    content: "";
-    width: 100%;
-    height: 1px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transition: transform 300ms ease-in-out;
-  }
-  
-  &:hover:after {
-    transform: scaleX(1);
+  &:hover {
+    color: rgba(240, 240, 240, 1);
   }
 `
 
 export default function Attribution() {
   return (
     <AttributionBox>
-      <span>
+      <p style={{marginRight: "0.4rem"}}>
         Challenge by <Link href="https://www.frontendmentor.io?ref=challenge" target="_blank">
           Frontend Mentor
         </Link>.
-      </span>
-      <span>
-        Coded by <Link
-        href="https://github.com/Bonrey/Frontend/tree/main/React/todo-app"
+      </p>
+      <p>
+        Created by <Link
+        href="https://github.com/Bonrey/Frontend/tree/main/React/rock-paper-scissors"
         target="_blank">
           Bonrey
         </Link>.
-      </span>
+      </p>
     </AttributionBox>
   );
 }

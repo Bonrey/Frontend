@@ -37,6 +37,7 @@ const RulesButton = styled.button`
   }
   
   @media only screen and (max-width: 1000px) {
+    bottom: 4rem;
     right: 50%;
     transform: translateX(50%);
   }
