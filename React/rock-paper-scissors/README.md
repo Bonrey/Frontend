@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Links
 
-- [Live Site URL](https://todo-app-mocha-ten.vercel.app/)
+- [Live Site URL](https://rock-paper-scissors-gilt.vercel.app/)
 
 ## My process
 
@@ -43,7 +43,7 @@ Users should be able to:
 - Building cool animations using Framer Motion
 - Deepening my understanding of styled-components
   - Using `attrs` for default html attributes
-- The use of the dependency array in `useEffect` hook
+- The use of the dependency array inside the `useEffect` hook
 
 ### Continued development
 
