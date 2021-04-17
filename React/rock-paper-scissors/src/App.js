@@ -107,7 +107,7 @@ export default class App extends React.Component {
           rulesPopup={this.state.rulesPopup}
           onRulesClose={() => this.setState({ rulesPopup: false })}
         />
-        <Attribution />
+        {/*<Attribution />*/}
       </>
     );
   }
