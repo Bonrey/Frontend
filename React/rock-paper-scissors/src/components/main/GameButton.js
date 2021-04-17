@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import {motion} from "framer-motion";
-// import {Frame} from "framer";
 
 import colors from "../../styles/colors";
 import {buttonIcons} from "../../assets/icons";
@@ -36,9 +35,10 @@ const btnParamsMobile = {
   }
 }
 
-const ButtonContainer = styled(motion.button).attrs(({ play }) => ({
+const ButtonContainer = styled(motion.button).attrs(({ play, ariaLabel }) => ({
   gameState: play ? "play" : "initial",
-  type: "button"
+  type: "button",
+  ariaLabel: ariaLabel || ""
 }))`
   border: none;
   outline: none;
@@ -133,7 +133,7 @@ const data = [
   { scale: [1, 1.4, 1.4, 1.4], opacity: [0, 0.9, 0.9, 0], times: [0, 0.25, 0.75, 1] }
 ];
 
-const GameButton = ({ play = false, player = "user", btnName, onClick, winner }) => {
+const GameButton = ({ play = false, player = "user", btnName, onClick, winner, ariaLabel }) => {
   const waves = data.map((item, index) =>
     <Wave
       key={index}
@@ -155,6 +155,7 @@ const GameButton = ({ play = false, player = "user", btnName, onClick, winner })
       whileHover="hover"
       whileTap="pressed"
       onClick={onClick}
+      ariaLabel={ariaLabel}
     >
       {play && winner && waves}
       <ButtonBorder play={play} btnName={btnName} />
