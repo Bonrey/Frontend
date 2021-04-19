@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import searchIcon from '../../assets/icons/search.svg';
 import styled from 'styled-components';
 import colors from '../../assets/styles/colors';
@@ -24,14 +24,14 @@ const Input = styled.input.attrs(_ => ({
   color: ${colors.light.text};
   outline: none;
   border: none;
-  width: 34rem;
+  width: 30rem;
   line-height: 4rem;
   padding: 0 2rem 0 5.5rem;
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 600;
-  font-size: 1.2rem;
-  border-radius: 0.4rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
   box-shadow: 0 0.1rem 0.1rem hsl(0, 0%, 52%, 0.1),
               0 0 0.2rem hsl(0, 0%, 52%, 0.1),
               0 0 0.3rem hsl(0, 0%, 52%, 0.1);
@@ -41,11 +41,21 @@ const Input = styled.input.attrs(_ => ({
   }
 `
 
-const SearchBar = () => {
+type Props = {
+  onChange(e: ChangeEvent<HTMLInputElement>): void,
+  searchBarValue: string
+}
+
+const SearchBar: React.FC<Props> = ({onChange, searchBarValue}) => {
   return (
     <Container>
       <SearchIcon src={searchIcon} alt={"search icon"} />
-      <Input type={"text"} aria-label={"search for a country"} />
+      <Input 
+        type={"text"}
+        aria-label={"search for a country"}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e)}
+        value={searchBarValue}
+      />
     </Container>
   );
 }

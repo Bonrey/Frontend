@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import styled from 'styled-components';
 
 import SearchBar from "./SearchBar";
-import Dropdown from "./Dropdown";
+import DropdownList from "./DropdownList";
 import Cards from '../Cards';
 
 const Container = styled.main`
@@ -15,14 +15,30 @@ const Top = styled.div`
   margin: 3rem 0;
 `
 
-const Main = () => {
+interface Props {
+  data: object[],
+  isExpanded: boolean,
+  onClick(region?: string): void,
+  onChange(e: ChangeEvent<HTMLInputElement>): void,
+  summary: string,
+  searchBarValue: string
+}
+
+const Main: React.FC<Props> = (props) => {
   return (
     <Container>
       <Top>
-        <SearchBar />
-        <Dropdown />
+        <SearchBar 
+          onChange={props.onChange}
+          searchBarValue={props.searchBarValue}
+        />
+        <DropdownList 
+          isExpanded={props.isExpanded}
+          onClick={props.onClick}
+          summary={props.summary}
+        />
       </Top>
-      <Cards />
+      <Cards data={props.data} />
     </Container>
   );
 }
