@@ -7,7 +7,8 @@ export interface CountryInterface {
 }
 
 export interface AppState {
-  data: CountryInterface[],
+  regionFiltered: CountryInterface[],
+  searchBarFiltered: CountryInterface[],
   isAccordionExpanded: boolean,
   screen: string,
   summaryText: string,

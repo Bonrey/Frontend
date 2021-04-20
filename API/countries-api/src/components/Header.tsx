@@ -14,9 +14,8 @@ const Container = styled.header`
   padding-left: 5vw;
   padding-right: calc(5vw - 1rem);
   box-sizing: border-box;
-  box-shadow: 0 0.1rem 0.1rem hsl(0, 0%, 52%, 0.1),
-              0 0.2rem 0.2rem hsl(0, 0%, 52%, 0.1),
-              0 0.3rem 0.3rem hsl(0, 0%, 52%, 0.1);
+  box-shadow: 0 0.1rem 0.1rem hsla(0, 0%, 52%, 0.15),
+              0 0.2rem 0.2rem hsla(0, 0%, 52%, 0.15);
 `
 
 const Heading = styled.h1`
@@ -41,6 +40,10 @@ const ThemeButton = styled.button`
   transition: background-color 300ms;
   
   &:hover {
+    background-color: hsl(0, 0%, 96%);
+  }
+
+  &:focus {
     background-color: hsl(0, 0%, 96%);
   }
 `

@@ -1,70 +1,72 @@
 import React, {ChangeEvent, Component} from 'react';
 import GlobalStyle from './assets/styles/globalStyle';
+
 import Header from './components/Header';
 import Main from './components/home/Main';
-import {CountryInterface, AppState} from "./interfaces";
-
-const shuffleArray = (array: CountryInterface[]) => {
-  const arr = [...array];
-  for (let i = 0; i < arr.length; i++) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-const urlSuffix = "?fields=name;flag;population;region;capital";
+import {AppState} from "./interfaces";
+import {shuffleArray, getUrl, getSearchBarFiltered} from './functions';
 
 export default class App extends Component<{}, AppState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      data: [],
-      isAccordionExpanded: false,
       screen: "home",
+      regionFiltered: [],
+      searchBarFiltered: [],
+      isAccordionExpanded: false,
       summaryText: "Filter by Region",
       searchBarValue: ""
     };
   }
 
   componentDidMount(): void {
-    fetch(`https://restcountries.eu/rest/v2${urlSuffix}`)
-    .then(resp => resp.json()).then(data => {
-        this.setState({data: shuffleArray(data)});
-      }
-    );
-  }
+    fetch(getUrl()).then(resp => resp.json()).then(data => {
+      const shuffledData = shuffleArray(data);
+      this.setState({regionFiltered: shuffledData, searchBarFiltered: shuffledData});
+    });
 
-  handleClick = (region?: string) => {
-    if (!region) {
-      if (this.state.isAccordionExpanded) {
+    document.addEventListener('click', e => {
+      if (!document.getElementById("dropdownList").contains(e.target as Node)) {
         this.setState({isAccordionExpanded: false});
-      } else {
-        this.setState({isAccordionExpanded: true, summaryText: "Filter by Region"});
       }
-      return;
-    }
-
-    const url = `https://restcountries.eu/rest/v2/region/${region === "America" ? "Americas" : region}${urlSuffix}`;
-    fetch(url).then(resp => resp.json()).then(data => this.setState({ 
-      data: shuffleArray(data),
-      isAccordionExpanded: false,
-      summaryText: region
-    }));
+    });
   }
 
-  handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    let data = [...this.state.data];
-    
-    for (let i = 0; i < data.length;) {
-      if (!data[i].name.includes(val)) {
-        data.splice(i, 1);
-      } else {
-        i++;
-      }
+  handleDropdownClick = (region?: string) => {
+    if (!region) {
+      this.setState({isAccordionExpanded: !this.state.isAccordionExpanded});
+    } else {
+      this.setState({isAccordionExpanded: false, summaryText: region});
+      fetch(getUrl(region)).then(resp => resp.json()).then(fetchedData => {
+        this.setState({
+          regionFiltered: fetchedData,
+          searchBarFiltered: getSearchBarFiltered(fetchedData, this.state.searchBarValue),
+      })});
     }
-    this.setState({data, searchBarValue: val});
+  }
+
+  handleClearFiltersClick = () => {
+    this.setState({summaryText: "Filter by Region"});
+    fetch(getUrl()).then(resp => resp.json()).then(fetchedData => {
+      const data = this.state.searchBarValue ? fetchedData : shuffleArray(fetchedData);
+      this.setState({
+        regionFiltered: data,
+        searchBarFiltered: getSearchBarFiltered(data, this.state.searchBarValue),
+      });
+    });
+  }
+
+  handleClearSearchBarClick = () => {
+    this.setState({
+      searchBarFiltered: getSearchBarFiltered(this.state.regionFiltered, ""),
+      searchBarValue: ""
+    });
+  }
+
+  handleSearchBarChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const searchBarValue = e.target.value;
+    const searchBarFiltered = getSearchBarFiltered(this.state.regionFiltered, searchBarValue);
+    this.setState({searchBarFiltered, searchBarValue});
   }
 
   render(): React.ReactNode {
@@ -72,13 +74,15 @@ export default class App extends Component<{}, AppState> {
       <>
         <GlobalStyle />
         <Header />
-        {!this.state.data ? <div /> :
+        {!this.state.regionFiltered ? <div /> :
           this.state.screen === "home" ?
             <Main
-              data={this.state.data}
+              data={this.state.searchBarFiltered}
               isExpanded={this.state.isAccordionExpanded}
-              onClick={this.handleClick}
-              onChange={this.handleChange}
+              onClick={this.handleDropdownClick}
+              onChange={this.handleSearchBarChange}
+              clearFilters={this.handleClearFiltersClick}
+              clearSearchBar={this.handleClearSearchBarClick}
               summary={this.state.summaryText}
               searchBarValue={this.state.searchBarValue}
             /> :
