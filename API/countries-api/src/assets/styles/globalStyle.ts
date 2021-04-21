@@ -15,6 +15,12 @@ const globalStyle = createGlobalStyle<{ dark?: boolean }>`
   body {
     min-height: 100vh;
     background-color: ${({dark}) => dark ? colors.dark.background : colors.light.background};
+    display: flex;
+  }
+
+  #root {
+    width: 100%;
+    display: flex;
   }
 `
 

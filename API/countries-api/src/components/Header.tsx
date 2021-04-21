@@ -6,6 +6,10 @@ import styled from 'styled-components';
 import colors from '../assets/styles/colors';
 
 const Container = styled.header`
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +52,7 @@ const ThemeButton = styled.button`
   }
 `
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <Container>
       <Heading onClick={_ => window.location.reload()}>Where in the world?</Heading>

@@ -10,11 +10,15 @@ const shuffleArray = (array: CountryInterface[]): CountryInterface[] => {
 }
 
 const requiredProperties = [
-  "name", "nativeName", "flag", "population", "region", "subregion", "capital", "topLevelDomain", "currencies", "languages"
+  "name", "nativeName", "flag", "population",
+  "region", "subregion", "capital", "topLevelDomain",
+  "currencies", "languages", "borders", "alpha3Code"
 ];
 const urlSuffix = "?fields=" + requiredProperties.join(";");
-const getUrl = (region?: string) => {
-  return `https://restcountries.eu/rest/v2/${region ? `region/${region === "America" ? "Americas" : region}` : "all"}${urlSuffix}`;
+const getUrl = (region?: string, name?: string) => {
+  return `https://restcountries.eu/rest/v2/${region ? 
+      `region/${region === "America" ? "Americas" : region}` :
+      name ? `name/${name}` : "all"}${urlSuffix}`;
 }
 
 const getSearchBarFiltered = (regionFiltered: CountryInterface[], searchBarValue: string) => {

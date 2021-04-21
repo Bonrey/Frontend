@@ -6,9 +6,11 @@ import SearchBar from "./SearchBar";
 import DropdownList from "./DropdownList";
 import Cards from '../Cards';
 
+import {CountryInterface} from '../../interfaces';
+
 const Container = styled(motion.main)`
   padding: 0 5vw;
-  margin-bottom: 4rem;
+  margin: 9rem 0 4rem;
 `
 
 const Top = styled.div`
@@ -17,15 +19,16 @@ const Top = styled.div`
   margin: 3rem 0;
 `
 
-interface Props {
-  data: object[],
+type Props = {
+  data: CountryInterface[],
   isExpanded: boolean,
+  summary: string,
+  searchBarValue: string,
   onClick(region?: string): void,
   clearFilters(): void,
   clearSearchBar(): void,
   onChange(e: ChangeEvent<HTMLInputElement>): void,
-  summary: string,
-  searchBarValue: string
+  onCountryClick(name: string): void
 }
 
 const Main: React.FC<Props> = (props) => {
@@ -48,7 +51,10 @@ const Main: React.FC<Props> = (props) => {
           summary={props.summary}
         />
       </Top>
-      <Cards data={props.data} />
+      <Cards 
+        data={props.data}
+        onCountryClick={props.onCountryClick}
+      />
     </Container>
   );
 }

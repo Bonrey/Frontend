@@ -40,7 +40,7 @@ const CountryInfo = styled.div`
 
 const Heading = styled.h2`
   font-weight: 800;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
   color: ${colors.light.text};
   margin-bottom: 1rem;
@@ -55,13 +55,19 @@ const InfoItem = styled.p`
   }
 `
 
-const Cards: React.FC<{data: object[]}> = ({data}) => {
+type Props = {
+  data: CountryInterface[],
+  onCountryClick(name: string): void
+}
+
+const Cards: React.FC<Props> = ({data, onCountryClick}) => {
   const countriesCards = data.map((country: CountryInterface, index: number) =>
     <CountryCard 
       key={index}
       whileFocus={{y: "-1rem", scale: 1.05}}
       whileHover={{y: "-1rem", scale: 1.05}}
       transition={{duration: 0.3}}
+      onClick={_ => onCountryClick(country.name)}
       tabIndex={0}
     >
       <Flag src={country.flag} alt={`flag of ${country.name}`} />
