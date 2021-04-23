@@ -1,0 +1,150 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/placeholders';
+
+.Wrapper {
+  flex-basis: 50%;
+
+  @media only screen and (max-width: $desktopBreakpoint) {
+    flex-basis: auto;
+  }
+}
+
+.FreeTrial {
+  font-weight: 700;
+  background-color: $blue;
+  color: $white;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0.5rem hsla(249, 10%, 26%, 0.2);
+  display: flex;
+  align-items: center;
+
+  > p {
+    text-align: center;
+
+    > span {
+      font-weight: 400;
+    }
+
+    @media only screen and (max-width: $desktopBreakpoint) {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.Form {
+  background-color: $white;
+  padding: 1.25rem 2.25rem 2.75rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem hsla(249, 10%, 26%, 0.2);
+
+  @media only screen and (max-width: $desktopBreakpoint) {
+    padding: 1rem 2rem 2.5rem;
+  }
+
+  .InputContainer {
+    position: relative;
+
+    > input {
+      @extend %formElement;
+      border: 0.05rem solid hsla(249, 10%, 26%, 0.2);
+      background-color: transparent;
+      color: $darkBlue;
+      font-weight: 500;
+
+      &::placeholder {
+        color: $grayishBlue;
+        font-weight: 600;
+      }
+
+      &:focus {
+        border: 0.1rem solid $darkBlue;
+      }
+
+      &.InputError {
+        border: 0.1rem solid $red;
+        color: $red;
+        padding-right: 4rem;
+
+        &::placeholder {
+          opacity: 0;
+        }
+
+        &:focus {
+          border: 0.1rem solid $red;
+        }
+      }
+    }
+
+    > svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 2rem;
+    }
+  }
+
+  .ErrorMessage {
+    text-align: right;
+    font-style: italic;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: $red;
+    margin-top: -1rem;
+  }
+
+  > button {
+    @extend %formElement;
+    background-color: $green;
+    color: $white;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    margin-bottom: 1rem;
+    letter-spacing: 0.075rem;
+    box-shadow: inset 0 -0.25rem hsl(154, 59%, 45.9%);
+    cursor: pointer;
+
+    &:active {
+      box-shadow: inset 0 -0.125rem hsl(154, 59%, 40.8%);
+    }
+  }
+
+  .TermsAndServices {
+    font-weight: 500;
+    font-size: 0.7rem;
+    color: $grayishBlue;
+    text-align: center;
+    padding: 0 0.5rem;
+
+    > span {
+      margin-left: 0.25rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: $red;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+
+      &:after {
+        content: "";
+        width: 100%;
+        height: 0.1rem;
+        background-color: $red;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: scaleX(0);
+        transition: transform 400ms ease-in-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}

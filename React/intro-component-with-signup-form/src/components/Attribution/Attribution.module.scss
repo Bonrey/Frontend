@@ -1,0 +1,17 @@
+@import '../../assets/styles/variables';
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0rem;
+
+  > p {
+    color: $white;
+
+    > a {
+      // text-decoration-style: wavy;
+      color: hsl(0, 0%, 98%);
+      text-decoration: none;
+    }
+  }
+}

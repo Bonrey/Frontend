@@ -1,0 +1,30 @@
+@import './variables';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-family: $Poppins;
+
+  @media only screen and (max-width: $desktopBreakpoint) {
+    font-size: 0.875rem;  // 14px
+  }
+}
+
+body {
+  height: 100%;
+  background: $red url('../images/bg-intro-desktop.png') 0 0 / cover no-repeat;
+
+  @media only screen and (max-width: mobileBgBreakpoint) {
+    background: $red url('../images//bg-intro-mobile.png') 0 0 / cover no-repeat;
+  }
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  position: relative;
+}
