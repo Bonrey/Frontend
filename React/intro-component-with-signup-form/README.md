@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- [Live Site URL](https://rock-paper-scissors-gilt.vercel.app/)
+- [Live Site URL](https://signup-form-react.vercel.app/)
 - [Formik Tutorial](https://formik.org/docs/tutorial)
 - [Using SASS modules](https://medium.com/@shalomdave2/using-sass-modules-in-create-react-app-v2-306950fd8e99)
 
