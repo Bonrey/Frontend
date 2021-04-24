@@ -15,21 +15,20 @@
   color: $white;
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
-  padding: 1.5rem 2rem;
+  padding: 1.4rem 2rem;
   box-shadow: 0 0.5rem hsla(249, 10%, 26%, 0.2);
   display: flex;
+  justify-content: center;
   align-items: center;
 
   > p {
-    text-align: center;
-
-    > span {
-      font-weight: 400;
-    }
-
     @media only screen and (max-width: $desktopBreakpoint) {
       font-size: 1.125rem;
     }
+  }
+
+  > span {
+    font-weight: 400;
   }
 }
 

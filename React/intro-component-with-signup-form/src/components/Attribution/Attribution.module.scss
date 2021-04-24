@@ -3,15 +3,33 @@
 footer {
   width: 100%;
   position: absolute;
-  bottom: 0rem;
+  bottom: -4.5rem;
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (max-width: 450px) {
+    flex-direction: column;
+  }
 
   > p {
     color: $white;
+    text-align: center;
+    font-style: italic;
+
+    &:first-child {
+      margin-right: 0.4rem;
+    }
 
     > a {
-      // text-decoration-style: wavy;
+      text-decoration-style: wavy;
       color: hsl(0, 0%, 98%);
-      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.8;
+      transition: opacity 300ms;
+      
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }
