@@ -1,0 +1,83 @@
+@import './variables';
+
+.card {
+  border-radius: 0.75rem;
+
+  header {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+
+    > img {
+      margin-right: 1rem;
+      width: 3rem;
+      height: 3rem;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      > span { line-height: 1.25rem; }
+    }
+  }
+
+  .heading {
+    margin: 1.5rem 0;
+    font-weight: 600;
+  }
+
+  p {
+    font-weight: 500;
+  } 
+}
+
+.daniel {
+  background: $moderate-violet url('../../images/bg-pattern-quotation.svg') no-repeat;
+  background-position: 80% 0;
+
+  img { border: 0.15rem solid #A775F1; }
+  .name { color: $white; }
+  .verified-graduate { color: $white-05; }
+  .heading { color: $white; }
+  .review { color: $white-07; }
+}
+
+.jonathan {
+  background-color: $very-dark-grayish-blue;
+
+  img { border: 0.15rem solid $white-05; }
+  .name { color: $white; }
+  .verified-graduate { color: $white-05; }
+  .heading { color: $white; }
+  .review { color: $white-07; }
+}
+
+.jeanette {
+  background-color: $white;
+
+  .name { color: $very-dark-grayish-blue; }
+  .verified-graduate { color: $very-dark-grayish-blue-05; }
+  .heading { color: $very-dark-grayish-blue; }
+  .review { color: $very-dark-grayish-blue-07; }
+}
+
+.patrick {
+  background-color: $very-dark-blackish-blue;
+
+  img { border: 0.15rem solid $very-dark-grayish-blue; }
+  .name { color: $white; }
+  .verified-graduate { color: $white-05; }
+  .heading { color: $white; }
+  .review { color: $white-07; }
+}
+
+.kira {
+  background-color: $white;
+
+  .name { color: $very-dark-grayish-blue; }
+  .verified-graduate { color: $very-dark-grayish-blue-05; }
+  .heading { color: $very-dark-grayish-blue; }
+  .review { color: $very-dark-grayish-blue-07; }
+}

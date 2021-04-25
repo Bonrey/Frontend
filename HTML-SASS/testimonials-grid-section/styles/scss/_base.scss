@@ -1,0 +1,36 @@
+@import './variables';
+
+html {
+  font-size: 13px;
+  height: 100%;
+}
+
+body {
+  font-family: 'Barlow Semi Condensed', sans-serif !important;
+  // height: 100%;
+  min-height: 100%;
+  background-color: $light-grayish-blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// override default max-width value
+@media only screen and (min-width: 1400px) {
+  .container { max-width: 1140px; }
+}
+
+footer {
+  color: $very-dark-grayish-blue;
+
+  a {
+    text-decoration: none;
+    color: $very-dark-grayish-blue-07;
+    transition: color 400ms;
+
+    &:hover {
+      color: $very-dark-grayish-blue;
+    }
+  }
+}
