@@ -1,0 +1,17 @@
+%button {
+  border: none;
+  outline: none;
+  font-family: $custom-family;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0 1.5rem;
+  height: 2.8rem;
+  border-radius: 1.5rem;
+  color: $white;
+  cursor: pointer;
+  transition: filter 300ms;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}

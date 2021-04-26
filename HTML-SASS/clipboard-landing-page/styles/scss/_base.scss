@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap');
+@import './variables';
+@import './placeholders';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-size: $font-sz;
+}
+
+body {
+  height: 100%;
+  font-family: $custom-family;
+  background: url('../../images/bg-header-desktop.png') no-repeat;
+
+  @media only screen and (min-width: 1440px) {
+    background-size: 100%;
+  }
+}
+
+h1, h2, h3 {
+  color: $dark-grayish-blue;
+}
+
+p {
+  color: $grayish-blue;
+}
+
+button {
+  @extend %button;
+
+  &.ios { 
+    background-color: $strong-cyan;
+    box-shadow: 0 0.5rem 0.5rem $strong-cyan-02;
+  }
+
+  &.mac {
+    background-color: $light-blue;
+    box-shadow: 0 0.5rem 0.5rem $light-blue-02;
+  }
+}

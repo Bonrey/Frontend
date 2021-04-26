@@ -1,0 +1,22 @@
+@import '../variables';
+@import '../placeholders';
+
+main {
+  .main-intro {
+    margin: 0 auto;
+
+    @media only screen and (min-width: 1024px) {
+      width: 36rem;
+    }
+
+    > p {
+      font-size: 0.9rem;
+    }
+  }
+
+  img.computer-monitor {
+    position: absolute;
+    left: -10rem;
+    height: 30rem;
+  }
+}
