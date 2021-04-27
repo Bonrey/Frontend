@@ -46,7 +46,7 @@ main {
       height: 25.5rem;
     }
     @media only screen and (min-width: $widescreen-bp) {
-      right: -10rem;
+      left: -10rem;
       height: 30rem;
     }
   }
