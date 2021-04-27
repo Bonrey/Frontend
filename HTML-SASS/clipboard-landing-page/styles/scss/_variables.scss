@@ -1,15 +1,22 @@
+$strong-cyan-darker: hsla(171, 66%, 33%, 0.5);
 $strong-cyan: hsl(171, 66%, 44%);
-$strong-cyan-02: hsla(171, 66%, 44%, 0.2); 
+$strong-cyan-02: hsla(171, 66%, 44%, 0.2);
+$strong-cyan-04: hsla(171, 66%, 44%, 0.4); 
 
+$light-blue-darker: hsla(233, 100%, 51.75%, 0.5);
 $light-blue: hsl(233, 100%, 69%);
 $light-blue-02: hsla(233, 100%, 69%, 0.2);
+$light-blue-04: hsla(233, 100%, 69%, 0.4);
 
 $dark-grayish-blue: hsl(210, 10%, 33%);
 $grayish-blue: hsl(201, 11%, 66%);
-$grayish-blue-02: hsla(201, 11%, 66%, 0.2);
+$footer-gray: hsla(201, 11%, 77%, 0.2);
 
 $white: hsl(0, 0%, 100%);
 
 $font-sz: 18px;
 $custom-family: 'Bai Jamjuree', sans-serif;
 
+$tablet-bp: 769px;
+$desktop-bp: 1024px;
+$widescreen-bp: 1216px;

@@ -1,22 +1,63 @@
 @import '../variables';
-@import '../placeholders';
 
 main {
+  max-width: 88%;
+
   .main-intro {
     margin: 0 auto;
+    max-width: 36rem;
+    > p { font-size: 0.9rem; }
+  }
 
-    @media only screen and (min-width: 1024px) {
-      width: 36rem;
-    }
+  @media only screen and (min-width: $tablet-bp) {
+    section { max-width: 720px; }
+  }
 
-    > p {
-      font-size: 0.9rem;
+  .snippets-columns-container > div {
+    @media only screen and (min-width: $widescreen-bp) { padding-left: 3rem; }
+  }
+
+  .three-icon-container {
+    position: relative;
+    @media only screen and (min-width: $tablet-bp) { margin-bottom: 0!important; }
+
+    > img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -2rem;
     }
   }
 
+  .img-computer-monitor-container {
+    @media only screen and (min-width: $tablet-bp) { height: 25.5rem; }
+    @media only screen and (min-width: $desktop-bp) { height: 27rem; }
+    @media only screen and (min-width: $widescreen-bp) { height: 31.5rem; }
+  }
+
   img.computer-monitor {
-    position: absolute;
-    left: -10rem;
-    height: 30rem;
+    @media only screen and (min-width: $tablet-bp) {
+      position: absolute;
+      left: -12rem;
+      height: 24rem;
+    }
+    @media only screen and (min-width: $desktop-bp) {
+      left: -8.5rem;
+      height: 25.5rem;
+    }
+    @media only screen and (min-width: $widescreen-bp) {
+      right: -10rem;
+      height: 30rem;
+    }
+  }
+
+  .img-devices-container {
+    @media only screen and (min-width: $tablet-bp) { width: 40rem; }
+    @media only screen and (min-width: $desktop-bp) { width: 45rem; }
+  }
+
+  .company-logos {
+    margin: 6rem 0!important; 
+    @media only screen and (min-width: $tablet-bp) { margin: 3.75rem 0!important; }
   }
 }

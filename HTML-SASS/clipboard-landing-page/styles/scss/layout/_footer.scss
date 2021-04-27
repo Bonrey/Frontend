@@ -1,6 +1,52 @@
 @import '../variables';
 
 footer {
-  background-color: $grayish-blue-02;
+  background-color: $footer-gray;
   margin-top: 6rem;
+
+  .logo-container {
+    margin-bottom: 2rem;
+    @media only screen and (min-width: $tablet-bp) { margin-bottom: 0; }
+  }
+
+  span {
+    transition: color 300ms;
+    cursor: pointer;
+    
+    &:not(.last) { margin-bottom: 0.75rem; }
+    @media only screen and (min-width: $tablet-bp) {
+      &:last-child { margin-bottom: 0; }
+    }
+
+    &:hover { color: $strong-cyan; }
+  }
+
+  .social-media-container {
+    margin-top: 3rem; 
+    @media only screen and (min-width: $tablet-bp) { margin-top: 0; }
+  }
+
+  .social-media-link {
+    margin: 0 1.25rem;
+    @media only screen and (min-width: $tablet-bp) { margin: 0 0.75rem; }
+  }
+
+  svg { cursor: pointer; }
+  svg path { transition: fill 300ms; }
+  svg:hover path { fill: $strong-cyan; }
+
+  .attribution { 
+    p { 
+      color: $dark-grayish-blue;
+      font-style: italic;
+    }
+
+    a {
+      text-decoration: none;
+      color: $light-blue-darker;
+      transition: color 300ms;
+
+      &:hover { color: $dark-grayish-blue; }
+    }
+  }
 }

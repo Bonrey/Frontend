@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap');
 @import './variables';
-@import './placeholders';
+@import './extras';
 
 * {
   margin: 0;
@@ -9,37 +9,39 @@
 
 html {
   height: 100%;
-  font-size: $font-sz;
+  scroll-behavior: smooth;
+
+  @media only screen and (min-width: $desktop-bp) {
+    font-size: $font-sz;
+  }
 }
 
 body {
   height: 100%;
   font-family: $custom-family;
-  background: url('../../images/bg-header-desktop.png') no-repeat;
+  background: url('../../images/bg-header-mobile.png') no-repeat;
 
-  @media only screen and (min-width: 1440px) {
-    background-size: 100%;
-  }
+  @media only screen and (min-width: 376px) { background: url('../../images/bg-header-desktop.png') no-repeat; }
+  @media only screen and (min-width: 1440px) { background-size: 100%; }
 }
 
-h1, h2, h3 {
-  color: $dark-grayish-blue;
-}
+h1, h2, h3, span { color: $dark-grayish-blue; }
+p { color: $grayish-blue; }
 
-p {
-  color: $grayish-blue;
-}
+h1 { line-height: 2.5rem; }
+h2 { line-height: 2rem; }
+h3 { line-height: 1.6rem; }
 
 button {
   @extend %button;
 
   &.ios { 
     background-color: $strong-cyan;
-    box-shadow: 0 0.5rem 0.5rem $strong-cyan-02;
+    @include shadow($strong-cyan-darker, $strong-cyan-02, $strong-cyan-04);
   }
 
   &.mac {
     background-color: $light-blue;
-    box-shadow: 0 0.5rem 0.5rem $light-blue-02;
+    @include shadow($light-blue-darker, $light-blue-02, $light-blue-04);
   }
 }
