@@ -1,0 +1,187 @@
+<style>
+  /* html {
+        background-image: linear-gradient(45deg, #f45a3b, #ffffff);
+    } */
+
+  :root {
+    --red: #ff0000;
+    --pale-red: #f45a3b;
+    --black: #000000;
+    --blackish-gray: #222222;
+    --dark-gray: #666666;
+    --gray: #999999;
+    --light-gray: #d8d8d8;
+    --white: #ffffff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .flag-rod {
+    position: absolute;
+    width: 5px;
+    height: 320px;
+    left: 380px;
+    top: 105px;
+    background-color: var(--gray);
+  }
+
+  .flag-rod::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -65px;
+    top: 5px;
+    border-style: solid;
+    border-width: 20px 65px 20px 0;
+    border-color: transparent var(--red) transparent transparent;
+  }
+
+  .flag-rod::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 55px;
+    height: 40px;
+    background-color: var(--dark-gray);
+    bottom: -40px;
+    left: -25px;
+    border-radius: 5px 5px 0 0;
+    border-top: 8px solid var(--black);  /* for some reason, it couldn't be either 5px or 10px */
+    box-sizing: border-box;
+  }
+
+  .roof {
+    position: absolute;
+    background-color: var(--light-gray);
+    width: 530px;
+    left: 250px;
+    top: 520px;
+    height: 50px;
+    border-radius: 60px 230px 0 0 / 50px 50px 0 0;
+  }
+
+  .roof::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 75px;
+    height: 0;
+    top: -55px;
+    left: 70px;
+    border-bottom: 55px solid var(--black);
+    border-left: 20px solid transparent;
+  }
+
+  .main-part {
+    position: absolute;
+    background-color: var(--pale-red);
+    width: 520px;
+    height: 130px;
+    top: 585px;
+    left: 255px;
+    border-radius: 0 0 25px 25px;
+  }
+
+  .main-part::before {
+    content: "";
+    display: block;
+    position: relative;
+    background-color: var(--red);
+    width: 540px;
+    height: 15px;
+    top: -15px;
+    left: -10px;
+    border-radius: 10px;
+  }
+
+  .bottom-part {
+    position: absolute;
+    top: 715px;
+    left: 270px;
+    width: 490px;
+    height: 110px;
+    background-color: var(--blackish-gray);
+  }
+
+  .bottom-part .triangle-left-top {
+    border: 5px solid var(--white);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .bottom-part .triangle-right-top {
+    border: 5px solid var(--white);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .bottom-part .triangle-left-bottom {
+    border: 35px solid var(--white);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-right-color: transparent;
+    border-top-color: transparent;
+  }
+
+  .bottom-part .triangle-right-bottom {
+    border: 35px solid var(--white);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+
+  .bottom-part .wheel {
+    position: absolute;
+    background-color: var(--black);
+    width: 130px;
+    height: 130px;
+    border-radius: 65px;
+    top: 40px;
+  }
+
+  .bottom-part .left { left: 10px; }
+  .bottom-part .center { left: 185px; }
+  .bottom-part .right { right: 0; }
+
+</style>
+
+<body>
+  <div id="wrapper">
+
+    <div class="flag-rod"></div>
+    <div class="roof"></div>
+    <div class="main-part"></div>
+    <div class="bottom-part">
+      <div class="triangle-left-top"></div>
+      <div class="triangle-right-top"></div>
+      <div class="triangle-left-bottom"></div>
+      <div class="triangle-right-bottom"></div>
+      <div class="wheel left"></div>
+      <div class="wheel center"></div>
+      <div class="wheel right"></div>
+    </div>
+
+  </div>
+</body>
