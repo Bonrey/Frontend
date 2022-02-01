@@ -1,0 +1,70 @@
+*,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  height: 100vh;
+  background-color: #f5f5f5;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 1rem;
+}
+
+form {
+  width: 18rem;
+}
+
+.form-group {
+  margin-bottom: 0.7rem;
+}
+
+input[type="email"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.4rem;
+  border: 1px solid #ced4da;
+  outline: none;
+  padding: 0 0.7rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0.1rem 0.2rem #b9d3fa;
+}
+
+button {
+  width: 100%;
+  height: 3rem;
+  border-radius: 1.5rem;
+  border: 0;
+  background-color: #0d6efd;
+  color: white;
+  padding: 0 0.6rem;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #0a58ca;
+}
+
+.copyright {
+  color: #777;
+  user-select: none;
+}
+
+@media only screen and (max-width: 340px) {
+  html {
+    font-size: 4.2vw;
+  }
+}

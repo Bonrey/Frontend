@@ -1,0 +1,81 @@
+*,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url(assets/space_w320.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Poppins, sans-serif;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 4rem;
+  color: white;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  word-spacing: 0.7rem;
+}
+
+.tagline {
+  font-weight: 300;
+  font-size: 3rem;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #eee;
+}
+
+@media only screen and (min-width: 425px) {
+  body {
+    background-image: url(assets/space_w924.jpg);
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  body {
+    background-image: url(assets/space_w1388.jpg);
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    background-image: url(assets/space_w1440.jpg);
+  }
+
+  h1 {
+    font-size: 7rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  body {
+    background-image: url(assets/space.jpg);
+  }
+
+  h1 {
+    font-size: 8rem;
+  }
+}

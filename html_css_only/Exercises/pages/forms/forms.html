@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sign in Form</title>
+
+    <link rel="stylesheet" href="../../css/normalize.css" />
+    <link rel="stylesheet" href="forms.css" />
+  </head>
+  <body>
+    <section>
+      <h1>Please sign in</h1>
+      <form>
+        <div class="form-group">
+          <input
+            type="email"
+            name="user-email"
+            placeholder="Email address"
+            aria-label="email"
+            minlength="4"
+            maxlength="50"
+            autofocus
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            name="user-password"
+            placeholder="Password"
+            aria-label="password"
+            minlength="4"
+            maxlength="255"
+          />
+        </div>
+        <div class="form-group">
+          <input type="checkbox" name="user-is-remembered" id="cb-remember-me" />
+          <label for="cb-remember-me">Remember me</label>
+        </div>
+        <button>Sign in</button>
+      </form>
+      <p class="copyright">Copyright &copy; 2022</p>
+    </section>
+  </body>
+</html>

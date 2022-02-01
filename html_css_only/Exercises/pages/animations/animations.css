@@ -1,0 +1,71 @@
+*,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: #333;
+  line-height: 1.5;
+  font-size: 1.8rem;
+}
+
+.card {
+  width: 45rem;
+  border-radius: 3rem;
+  transform: rotateZ(-5deg);
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 2rem 3rem #f9f9f9;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: rotateZ(0);
+  cursor: pointer;
+}
+
+.content {
+  padding: 3rem;
+}
+
+.footer {
+  background: rgb(80, 210, 123);
+  background: linear-gradient(90deg, rgba(80, 210, 123, 1) 0%, rgba(39, 149, 177, 1) 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 2rem 3rem;
+}
+
+.thumbnail {
+  width: 6rem;
+  border-radius: 100%;
+  border: 2px solid #fff;
+  margin-right: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .thumbnail {
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 540px) {
+  html {
+    font-size: 40%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  html {
+    font-size: 30%;
+  }
+}
